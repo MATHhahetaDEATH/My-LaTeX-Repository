@@ -1,0 +1,171 @@
+\chapter{数列极限与实数系基本定理}
+
+
+
+
+
+
+\chapter{一元函数极限}
+
+\section{综合题目}
+
+\begin{exercise} \label{ex:于品p127_A9}
+	证明, 任给函数$f:[a,+\infty ) \to \R$, 若$f$在任意闭子区间$[a,b]$有上界$M_b$, 则下方式子在等号右侧极限存在时成立: $$\lim_{x\to +\infty} \frac{f(x)}{x} = \lim_{x \to +\infty} (f(x+1)-f(x)).$$
+	进一步, 若$f$的下确界存在且为正, 则$$\lim_{x \to +\infty} (f(x))^{1/x} = \lim_{x \to +\infty} \frac{f(x+1)}{f(x)}. $$
+\end{exercise}
+\begin{solution}
+	只证明第一个式子, 然后取对数可得第二个式子. 记右侧极限为$\ell$, 则对任意$\varepsilon >0$都存在整数$N>0$使得$$\forall x > N,~\ell - \varepsilon < f(x+1)-f(x) < \ell + \varepsilon .$$
+	于是$$\frac{f(y)}{y} = \frac{f(N + \{ y \})+\sum_{i=N+1}^{\flr{y}}\left( f(i+\{ y \})-f(i-1 + \{ y \}) \right)}{y} \to \ell ,\quad y \to +\infty .$$
+\end{solution}
+
+
+
+
+\chapter{函数的连续性与点集拓扑初步}
+
+\section{一致连续}
+
+\begin{exercise} \label{ex:于品p128_D3}
+	设$f$在$\R$上一致连续. 证明, 存在$a,b \in \R _{>0}$, 使得对任意$x \in \R$有$$|f(x)| \leq a|x|+b.$$
+\end{exercise}
+\begin{solution}
+	对任意$\varepsilon >0$, 考虑$\delta >0$与之对应. 容易证明$|f(n\delta +r)| \leq f(0)+|n+1|\varepsilon$. 于是取$a=1/\delta ,b=f(0)$, 再令$\varepsilon = 1/2$, 即得$$|f(x)| = |f(n\delta +r)| \leq f(0)+\frac{1}{2}|n+1| \leq f(0)+\frac{1}{\delta}|x| = a|x|+b. $$
+\end{solution}
+
+\begin{exercise} \label{ex:于品p128_D4}
+	设$f$在$[0,+\infty )$上一致连续且对任意$x \in [0,1]$有$\lim_{n \to \infty} f(x+n) = 0$(这里$n$为自然数). 证明: $$\lim_{x \to +\infty} f(x) = 0.$$
+	将条件减弱为$f$在$[0,+\infty )$上连续, 证明或给出反例. 
+\end{exercise}
+\begin{solution}
+	(1) 考虑$\varepsilon >0$及其对应的$\delta >0$. 对某个$x \in [0,1]$, 由题, 存在整数$N>0$使得对任意$n>N$有$|f(x+n)| < \varepsilon$. 将$[n,n+1]$平均分为$I_n^1,\cdots ,I_n^m$使得$m=\flr{1/\delta}+1$, 那么对于$x \in [n,n+1]$, $|f(x)| \leq (m+1)\varepsilon$. 由此可得$|f(x)|<(m+1)\varepsilon$对任意$n>N$成立, 于是证毕. 
+	
+	(2) 取$f(x) = \frac{x\sin \pi x}{1+(x\sin \pi x)^2}$, 则当$x=0,1$时$f(x)=0$. 令$x \in (0,1)$, 计算可知$$f(x+n) = \frac{(-1)^n(x+n)\sin \pi x}{1+((x+n)\sin \pi x)^2} \to 0,\quad m \to \infty .$$
+\end{solution}
+
+
+\section{点集拓扑初步}
+
+\begin{exercise} \label{ex:于品p108_A11}
+	证明, $\mathbf{M}_n(\R)$上的可逆矩阵的全体$\mathbf{GL}_n(\R)$是$\mathbf{M}_n(\R)$中的开集. 
+\end{exercise}
+\begin{solution}
+	考虑行列式函数$\det :\mathbf{M}_n(\R) \to \R$. 由于行列式函数连续, 可知开集$\R - \{ 0 \}$的原像$\mathbf{GL}_n(\R)$是开集. 
+\end{solution}
+
+\begin{exercise} \label{ex:于品p108_A12}
+	证明, 取逆映射${\rm Inv}:\mathbf{GL}_n(\R) \to \mathbf{GL}_n(\R),A \mapsto A^{-1}$是连续映射. 
+\end{exercise}
+\begin{solution}
+	利用Cramer法则可知, 逆矩阵的元素均为原来的矩阵元素的有理函数, 于是取逆映射连续. 
+\end{solution}
+
+
+
+
+
+
+
+\chapter{一元函数微分学}
+
+
+\section{中值定理与Taylor展开}
+
+\begin{exercise} \label{ex:于品p205_C2}
+	$f$在$(-1,1)$上二阶可导, $f(0)=f'(0)=0$. 若对任意$x \in (-1,1)$都有$|f''(x)| \leq |f(x)|+|f'(x)|$, 求证$f(x) \equiv 0$. 
+\end{exercise}
+\begin{solution}
+	设$\sup_{x \in [-a,a]}|f'(x)|=M_a>0$, 由Lagrange中值定理可得$$|f(x)| = |f(x) - f(0)| = |x f'(\xi)| \leq aM_a,\qquad |f'(x)| = |f'(x)-f'(0)| = |x f''(\xi)| \leq a(a+1)M_a.$$
+	从而$M_a \leq a(a+1)M_a$, 化简得$(a^2+a-1)M_a \geq 0$, 但是当$a=1/2$时$a^2+a-1<0$, 故$M_{1/2}=0$. 于是$f(\pm 1/2)=f'(\pm 1/2)=0$, 将$f$平移$\pm 1/2$并重复上方的证明, 即得$f(x) \equiv 0$. 
+\end{solution}
+
+\begin{exercise} \label{ex:于品p206_C3}
+	设正整数$n$, $f$在$\R$上$n$阶可导, $f(0) = \cdots = f^{(n-1)}(0)=0$. 若存在$C>0$和整数$\ell >0$使得对任意$x \in \R$都有$|f^{(n)}(x)| \leq C|f^{(\ell)}(x)|$, 求证$f(x) \equiv 0$. 
+\end{exercise}
+\begin{solution}
+	设$\sup_{x \in [-a,a]}|f^{\ell}(x)| = M_a >0$, 同\ref{ex:于品p205_C2}可知$$|f^{(n)}(x)| \leq CM_a, |f^{(n-1)}| \leq a|f^{(n)}(\xi)| \leq aCM_a, \cdots ,|f^{(\ell)}| \leq a^{n-\ell} CM_a.$$
+	于是$M_a \leq a^{n-\ell} C M_a$. 令$a = 1/2$可得$M_{1/2}=0$, 类似地可以完成证明. 
+\end{solution}
+
+\begin{exercise} \label{ex:于品p205_C1}
+	设$f \in C([0,1])$, $g$在$[0,1]$上可导且$g(0)=0$. 若存在$\lambda \neq 0$使得对任意$x \in [0,1]$都有$|g(x)f(x)+\lambda g'(x)| \leq |g(x)|$, 求证$g(x) \equiv 0$. 
+\end{exercise}
+\begin{solution}
+	由题, $|g(x)| \geq |\lambda| |g'(x)| - |f(x)||g(x)|$, 即$|g'(x)| \leq \frac{|f(x)+1|}{|\lambda |} |g(x)|$. 由\ref{ex:于品p206_C3}和$f$有界可知$g(x) \equiv 0$. 
+\end{solution}
+
+\begin{exercise} \label{ex:于品p206_C5}
+	设$f \in C^{\infty}(\R)$, 存在$C>0$使得对任意自然数$n$和任意$x$都有$|f^{(n)}(x)|\leq C$. $E$是有界的无穷集合, 若$f$在$E$上的取值都为$0$, 证明$f(x) \equiv 0$. 
+\end{exercise}
+\begin{solution}
+	显然$f$在任意点处有Taylor级数. 选取$E$的一个聚点$x$, 并令$\{ x_n \} \subseteq E$的极限为$x$. 考虑$\xi _n \in (x_n,x_{n+1})$使得$f'(\xi _n) = 0$, 又$\xi _n \to x$, 由连续性可知$f'(x)=0$. 同理可得$x$处的任意阶导数均为$0$, 利用该点处的Taylor展开即可得证. 
+\end{solution}
+
+\begin{exercise} \label{ex:于品p206_C6}
+	设$f \in C^2((0,1))$, $\lim_{x \to 1^-}f(x)=0$. 若存在$C>0$使得对任意$x \in (0,1)$都有$(1-x)^2|f''(x)| \leq C$, 求证$\lim_{x \to 1^-}(1-x)f'(x)=0$. 
+\end{exercise}
+\begin{solution}
+	待定$x<x_0<1$并记$x=1-\delta ,x_0=1-\lambda$, $\lambda = \theta \delta$. 于是存在$\xi \in (x,x_0)$使得$$f(x) = f(x_0) + f'(x_0)(x-x_0) + \frac{f''(\xi)}{2}(x-x_0)^2.$$
+	稍作变形可得$$f'(x_0)(1-x_0) = \frac{\lambda}{\lambda - \delta}(f(x)-f(x_0)) - \frac{(1-\xi)^2f''(\xi)}{2} \cdot \frac{\lambda (\lambda -\delta)}{(1-\xi)^2}.$$
+	于是$$|f'(x_0)(1-x_0)| \leq \frac{\delta}{\delta - \lambda} |f(x)-f(x_0)| + \frac{\delta -\lambda}{\lambda} \cdot \frac{C}{2} \leq \frac{1}{1-\theta} (|f(1-\delta)| + |f(1-\theta \delta)|) + \frac{1-\theta}{\theta} \cdot \frac{C}{2}. $$
+	先固定$\theta$(即在一开始选取$x,x_0$时就保持一定的比例关系), 令$\delta \to 0^+$可得$$\limsup_{x_0 \to 1^-}|f'(x_0)(1-x_0)| \leq \frac{1-\theta}{\theta} \cdot \frac{C}{2}. $$
+	再令$\theta \to 1^-$即证毕. 
+\end{solution}
+
+
+\section{综合题目}
+
+\begin{exercise} \label{ex:于品p186_F5,F6}
+	设$\{ f_k \} \subseteq C^1(I)$, 若$\sum_{k=0}^{\infty} f_k$逐点收敛, $\sum_{k=0}^{\infty} f'_k(x)$绝对收敛, 令$f(x):=\sum_{k=0}^{\infty} f_k(x)$, 则$f$可导且$$f'(x) = \sum_{k=0}^{\infty} f'_k(x).$$
+	将$\sum_{k=0}^{\infty} f'_k(x)$绝对收敛改为$\sum_{k=0}^{\infty} f'_k$一致收敛, 证明或举出反例. 
+\end{exercise}
+\begin{solution}
+	(1) 对任意$\varepsilon >0$, 存在$N>0$使得$\sum_{k=N}^{\infty} \| f'_k \|_{\infty} < \varepsilon$; 固定$x_0$, 对任意$\varepsilon _1>0$, 存在$\delta >0$使得只要$|x-x_0|<\delta$就有$|\frac{f_k(x)-f_k(x_0)}{x-x_0} - f'_k(x_0)|<\varepsilon _1$, 于是$$\left| \sum_{k=0}^{N-1} \frac{f_k(x)-f_k(x_0)}{x-x_0} - f'_k(x_0) \right| \leq N\varepsilon_1 .$$
+	由Lagrange中值定理, 对$k\geq N$, 存在$\xi _k \in (x_0,x)$使得$\frac{f_k(x)-f_k(x_0)}{x-x_0}$, 于是
+	\begin{align*}
+		\left| \frac{f(x)-f(x_0)}{x-x_0} - \sum_{k=0}^{\infty} f'_k(x_0) \right| &= \left| \sum_{k=0}^{N-1} \frac{f_k(x)-f_k(x_0)}{x-x_0} + \sum_{k=N}^{\infty} f'_k(\xi _k) - \sum_{k=0}^{N-1} f'_k(x_0) - \sum_{k=N}^{\infty} f'_k(x_0) \right| \\
+		&\leq N\varepsilon _1 + 2\varepsilon .
+	\end{align*}
+	注意到$N$为定值, 由$\varepsilon ,\varepsilon _1$的任意性可知原命题成立. 
+	
+	(2) 考虑构造连续函数序列$\{ S_n \}$使得$S_n \rightrightarrows S$, 而$S$连续等价于原命题成立. 我们令$$S_n = \begin{cases}
+		\sum_{k=0}^{n} \frac{f_k(x)-f_k(x_0)}{x-x_0} & x \neq x_0 \\ \sum_{k=0}^{n} f'_k(x_0) & x=x_0
+	\end{cases}.\quad \textit{进而,} \quad S = \begin{cases}
+		\sum_{k=0}^{\infty} \frac{f_k(x)-f_k(x_0)}{x-x_0} & x \neq x_0 \\ \sum_{k=0}^{\infty} f'_k(x_0) & x=x_0
+	\end{cases}. $$
+	显然$S_n$连续. 下面证明$S_n \rightrightarrows S$: 待定$N>0$, 设$m,n >N$. 由Lagrange中值定理可知存在$\xi _k \in (x_0,x)$使得$\frac{f_k(x)-f_k(x_0)}{x-x_0}$. 于是$$S_m-S_n = \begin{cases}
+		\sum_{k=n+1}^{m} \frac{f_k(x)-f_k(x_0)}{x-x_0} & x \neq x_0 \\ \sum_{k=n+1}^{m} f'_k(x_0) & x=x_0
+	\end{cases} = \begin{cases}
+		\sum_{k=n+1}^{m} f'_k(\xi _k) & x \neq x_0 \\ \sum_{k=n+1}^{m} f'_k(x_0) & x=x_0
+	\end{cases}. $$
+	由$\sum_{k=0}^{\infty} f'_k$一致收敛, 立得$S_n$一致收敛. 
+\end{solution}
+\begin{remark}
+	该命题比真正的逐项求导定理弱. 
+\end{remark}
+
+
+
+
+
+
+
+
+\chapter{一元函数积分学}
+
+
+
+
+
+\chapter{级数}
+
+
+
+
+
+\chapter{多元函数微分学}
+
+
+
+
+
+\chapter{多元函数积分学}

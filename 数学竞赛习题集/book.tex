@@ -1,0 +1,123 @@
+\documentclass{plainbook}
+
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{hyperref}
+\usepackage{svg}
+\usepackage{booktabs}
+\usepackage{framed}
+
+
+% font; do not use in overleaf
+
+\usepackage[UTF8,scheme=plain,fontset=none]{ctex}
+    \setCJKmainfont[BoldFont={Source Han Serif SC-SemiBold},ItalicFont={FZKai-Z03}]{FZShuSong-Z01}
+    \setCJKsansfont[BoldFont={Source Han Serif SC-SemiBold}]{FZKai-Z03}
+    \setCJKmonofont[BoldFont={Source Han Serif SC-SemiBold}]{FZFangSong-Z02}
+    \setCJKfamilyfont{zhsong}{FZShuSong-Z01}
+    \setCJKfamilyfont{zhhei}{Source Han Serif SC-SemiBold}
+    \setCJKfamilyfont{zhkai}[BoldFont={Source Han Serif SC-SemiBold}]{FZKai-Z03}
+    \setCJKfamilyfont{zhfs}[BoldFont={Source Han Serif SC-SemiBold}]{FZFangSong-Z02}
+
+
+\title{晨沐公的数学竞赛习题集}
+
+% Set the authors of the book (multiple authors separated by \and).
+\author{bilibili:晨沐公Johnny \quad github: MATHhahetaDEATH}
+
+% Set the date to the current date.
+\date{\today}
+
+% customised commands
+\definecolor{winered}{rgb}{0.5,0,0}
+\newcommand{\xl}[1]{\overrightarrow{#1}}
+\newcommand{\nd}[1]{〔#1〕}
+\newcommand{\ssb}[1]{\big( #1 \big)}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\lmap}{\mathcal{L}}
+\newcommand{\mmatrix}{\mathcal{M}}
+\newcommand{\sw}[1]{\boxed{\text{解法 #1}} \ }
+\newcommand{\buzhou}[1]{$#1^{\circ} \ $}
+\usepackage{ulem}
+	\newcommand{\tk}{\uline{\hspace{4em}}}
+\newcommand{\pspace}{\vspace{0.5em}}
+\usepackage{amsmath,amsfonts}
+	\DeclareMathOperator{\spn}{span}
+	\DeclareMathOperator{\card}{card}
+	\DeclareMathOperator{\ic}{i}
+	\DeclareMathOperator{\arccot}{arccot}
+	\DeclareMathOperator{\setjianfa}{\textbackslash}
+	\DeclareMathOperator{\nul}{null}
+	\DeclareMathOperator{\rge}{range}
+	\DeclareMathOperator{\sgn}{sgn}
+
+% Begin the document.
+\begin{document}
+
+% Front matter section.
+\frontmatter
+
+% Include the title page, which is located in the FrontMatter subfolder.
+\include{./FrontMatter/titlepage}
+
+% Create the book's title page.
+\maketitle\pagebreak
+
+% Include the dedication page from the FrontMatter subfolder.
+% \include{./FrontMatter/dedication}
+
+% Include the epigraph page from the FrontMatter subfolder.
+\include{./FrontMatter/epigraph}
+
+% Include the foreword page from the FrontMatter subfolder.
+\include{./FrontMatter/foreword}
+
+% Include the preface page from the FrontMatter subfolder.
+% \include{./FrontMatter/preface}
+
+% Include the acknowledgement page from the FrontMatter subfolder.
+% \include{./FrontMatter/acknowledgement}
+
+% Table of contents page.
+\tableofcontents
+
+% Main matter section.
+\mainmatter
+
+
+\include{./MainMatter/A}
+\include{./MainMatter/C}
+\include{./MainMatter/G}
+\include{./MainMatter/N}
+
+
+% Appendices section.
+% \appendix
+
+% Include the "about" appendix from the BackMatter subfolder.
+% \include{./BackMatter/about}
+
+% Include the "abbreviation" appendix from the BackMatter subfolder.
+% \include{./BackMatter/abbreviation}
+
+% Include the "notation" appendix from the BackMatter subfolder.
+% \include{./BackMatter/notation}
+
+% Include the "code" appendix from the BackMatter subfolder.
+% \include{./BackMatter/code}
+
+% Include the "glossary" appendix from the BackMatter subfolder.
+% \include{./BackMatter/glossary}
+
+% Include the "index" appendix from the BackMatter subfolder.
+% \include{./BackMatter/index}
+
+% Include the "references" appendix from the BackMatter subfolder.
+% \include{./BackMatter/references}
+
+% End the document.
+\end{document}

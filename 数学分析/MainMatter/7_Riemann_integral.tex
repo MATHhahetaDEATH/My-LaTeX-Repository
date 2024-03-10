@@ -1,0 +1,154 @@
+\chapter{Riemann积分}
+
+\section{基本概念}
+
+我们先来看一个例子: 尝试计算(定义)抛物线$y=x^2,0\leq x \leq 1$与$x$轴围成的面积. 一种自然的思路是利用矩形进行逼近, 因为我们可以简单地定义出矩形的面积. 具体来说, 考虑$[0,1]$区间的一个分割$\pi = \{ 0=x_0<x_1<\cdots <x_{n-1}<x_n=1 \}$, 并在每个小区间内部取点$\xi _i \in [x_{i-1},x_i]$, 记$\xi = \{ \xi _1,\cdots ,\xi _n \}$. 我们希望定义如下的极限就是所求面积: $$\lim_{\| \pi \| \to 0} \sum_{i=1}^{n}(x_i-x_{i-1})\xi _i^2. $$
+其中, 极限过程$\| \pi \| \to 0$的意思是$\max_{1\leq i \leq n} \{x_i-x_{i-1}\} \to 0$(这的确构成一种极限过程, 后面会证明). 
+
+这种定义有非常明显的问题: 
+\begin{itemize}
+	\item 分割$\pi$和标记点$\xi$并不确定, 因而无法很方便地计算这个极限. 
+	\item 由于不便将该式化简, 我们甚至不知道这样的极限是否存在. 
+\end{itemize}
+针对这两个问题, 可能会有如下想法: 
+\begin{itemize}
+	\item 用平均分割和统一的标记点选取标准来代替一般化的方法. 注意这种计算方式一定是充分条件. 
+	\item 类似于数列, 既然难以判断极限是否存在, 可以考虑定义上下极限来逼近. 
+\end{itemize}
+综合这两种想法, 在本例中我们可以如下考察所求的面积: 首先取平均分割$\pi_{n}=\{ x_i=\frac{i}{n} \}$, 接着选择两种不同的标记点集$\displaystyle\xi _L = \big\{ \xi _i = \inf_{x_{i-1} \leq x \leq x_i} x^2 \big\}$, $\displaystyle\xi _U = \big\{ \xi _i = \sup_{x_{i-1} \leq x \leq x_i} x^2 \big\}$. 考虑极限过程$n\to \infty$, 于是两种极限$S_L$和$S_U$就是: $$S_L = \lim_{n\to \infty} \left( \frac{1}{n} \sum_{i=1}^{n} \frac{(i-1)^2}{n^2} \right) = \lim_{n\to \infty} \frac{2n^2-3n+1}{6n^2} = \frac{1}{3} ,  $$
+$$S_U = \lim_{n\to \infty} \left( \frac{1}{n} \sum_{i=1}^{n} \frac{i^2}{n^2} \right) = \lim_{n\to \infty} \frac{2n^2+3n+1}{6n^2} = \frac{1}{3}.$$
+注意到$S_L=S_U = \frac{1}{3}$, 于是所求面积(似乎)就是$\frac{1}{3}$. 
+
+上面的例子就是利用Riemann和进行逼近计算(定义)的做法. 我们不难想到另一种方法: 先定义所谓阶梯函数(这种函数的积分易于定义), 再考虑找到特定函数的阶梯函数逼近, 最后计算极限阶梯函数的积分即可. 这两种方法本质上是相同的, 只是操作顺序不一样. 然而利用后者有两个优势: 我们能够自然地理解Riemann积分的某些缺陷(例如只能处理有界函数), 另外这种处理方法和Lebesgue积分的定义几乎是一样的, 理解这种方式有助于实分析的学习. 
+
+
+\subsection{用阶梯函数进行逼近}
+
+首先我们考虑\textit{示性函数}(characteristic function): 设$E \subseteq \R$, 则定义$$\chi _{E}:\R \to \{ 0,1 \},\quad \chi _{E} (x) = \begin{cases}
+	1 & x \in E \\ 0 & x \notin E
+\end{cases}.$$
+我们希望定义$\chi _E$的积分, 而这自然需要定义集合$E$的长度. 我们不希望引入繁杂的测度理论, 于是承认下方的“公理”: 对于某个将集合映射到其对应长度的函数$\mu$, 我们希望有$$\mu ((a,b)) = \mu ([a,b]) = \mu ([a,b)) = \mu ((a,b]) = b-a, $$
+$$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .$$
+第一行的“公理”也在告诉我们: 像$a,b$这样的点是没有长度的. 
+
+于是, 我们可以定义示性函数的\textit{积分}(integral)为$$\int \chi _E := \mu (E). $$
+特别地, $$\int \chi _{(a,b)} = \int \chi _{[a,b]} = \int \chi _{[a,b)} = \int \chi _{(a,b]} = b-a. $$
+当然, 实际定义阶梯函数的积分时只需要用到$E$是区间的情况, 因此上方不严谨的思考并不影响结果的正确性. 
+
+接下来看\textit{阶梯函数}(更多时候称为\textit{简单函数}, simple function): 
+
+\begin{definition}{分划, 阶梯函数, 阶梯函数的积分}
+	设闭区间$I=[a,b]$. 
+	\begin{itemize}
+		\item 称形如$$\pi = \{ a=x_0<x_1<\cdots <x_{n-1}<x_n=b \}$$
+		的集合为$I$的一个\textit{分划}(partition). 
+		\item 定义分划$\pi$的\textit{步长}(step): $$\| \pi \| := \max_{1 \leq i \leq n} \{ x_i-x_{i-1} \}. $$
+		\item 对于分划$\pi= \{ a=x_0<\cdots <x_n=b \}$, 称形如$$f = \sum_{i=1}^{n} \lambda _i \chi _{(x_{i-1},x_{i})} $$
+		(其中$\lambda _i \in \R$)的函数为$\pi$上的一个\textit{阶梯函数}. 记$I$上全体阶梯函数的集合为$\mathcal{S}(I)$. 
+		\item 承上一条, 定义$f$的\textit{积分}(integral)为$$\int f := \sum_{i=1}^{n} \lambda _i \int \chi _{(x_{i-1},x_i)} = \sum_{i=1}^{n} \lambda _i (x_i-x_{i-1}). $$
+	\end{itemize}
+\end{definition}
+\begin{remark}
+	刚才说过, 点是没有长度的, 因此阶梯函数在分割点处的取值对最终结果没有影响. 
+\end{remark}
+\begin{remark}
+	为了避免与原函数的符号相混淆, 也记$\int f = \int _I f = \int_a^b f$. 不过为了方便, 我们暂时混用这些符号. 
+\end{remark}
+
+这里, 我们实际上需要验证阶梯函数积分的良定义性. 也就是说, 如果$\pi, \pi '$均与$f$相容, 则$f$依这两种分划的积分相等. 一般地, 我们称$\pi ' \prec \pi$($\pi '$比$\pi$细), 如果$\pi$的分割点都是$\pi '$的分割点. 于是我们只需要验证, 若$\pi ' \prec \pi$, 则$f$依这两种分划的积分相等(这是因为我们可以取$\overline{\pi} = \pi \cup \pi '$). 而这是显然的. 
+
+接下来研究积分算子的性质: 
+
+\begin{proposition}{阶梯函数积分算子的性质}
+	设闭区间$I=[a,b]$. 设$f,g \in \mathcal{S}(I)$. 则$\int : \mathcal{S}(I) \to \R$满足: 
+	
+	a) 线性: $$\int (\lambda f+ \mu g) = \lambda \int f + \mu \int g.$$
+	
+	b) 区间可加性: 设$I=[a,c] \cup [c,b]$, 则$$\int_a^b f = \int_a^c f + \int_c^b f. $$
+	
+	c) 三角不等式: $$\left| \int f \right| \leq \int |f|. $$
+	
+	d) 保号性/保序性: 若$f \geq 0$对有限个点之外均成立, 则$$\int f \geq 0. $$
+	\qquad 特别地, 若$f \leq g$对有限个点之外成立, 则$$ \int f \leq  \int g.$$
+	
+	e) 对积分的估计: 选取与$f$相容的分划$\pi= \{ a=x_0<\cdots <x_n=b \}$后, $$\left| \int_a^b f \right| \leq |b-a| \sup_{1 \leq i \leq n} |\lambda _i|. $$
+\end{proposition}
+\begin{remark}
+	之后有关函数大小的比较我们都默认是对有限个点以外成立. 
+\end{remark}
+\begin{proof}
+	注意到阶梯函数是有限求和, 诸命题的验证就是显而易见的了. 
+\end{proof}
+
+现在来对一般函数定义Riemann积分: 
+
+\begin{definition}{Riemann可积}
+	设闭区间$I=[a,b]$. 称$f$是\textit{Riemann可积的}, 如果对任意$\varepsilon >0$均存在$F,e \in \mathcal{S}(I)$使得$$\forall x \in I,|f(x)-F(x)|<e(x),\qquad \int e < \varepsilon .$$
+\end{definition}
+
+我们需要对上述定义中的$F$逐个求积分并取其“极限”. 
+
+一种可行的方法是将$f$拆分为非负部分$f^+$和非正部分$f^-$, 即$f=f^+-f^-$, 之后定义非负函数$g$的积分为$$\int g := \sup \left\{ \int G:0\leq G \leq g, G \in \mathcal{S}(I)  \right\}, $$
+最后令$\int f = \int f^+ - \int f^-$. 另一种则是回归序列逼近的思路, 也即考虑某种意义上的一列逼近函数$\{ f_n \}$, 然后定义$$\int f := \lim_{n\to \infty} \int f_n.$$
+接下来我们完整的阐述这两种方法并证明其等价性(以及与可积条件的等价性): 
+
+\begin{proposition}{}
+	设闭区间$I=[a,b]$. 则下列说法等价: 
+	\begin{enumerate}
+		\item $f$是Riemann可积的.
+		\item $f$有界. 令$f=f^+-f^-$, 其中$f^+ ,f^- \geq 0$, 则集合$$\mathcal{A}^+ = \left\{ \int F^+:0\leq F^+ \leq f^+, F^+ \in \mathcal{S}(I)  \right\},\quad \mathcal{A}^- = \left\{ \int F^-:0\leq F^- \leq f^-, F^- \in \mathcal{S}(I)  \right\}$$
+		有界. 进而$\sup \mathcal{A}^+, \sup \mathcal{A}^-$存在, 令$$\int f := \sup \mathcal{A}^+- \sup \mathcal{A}^-.$$
+		\item 存在阶梯函数序列$\{ f_n \},\{ e_n \}$使得$$\forall x \in I,|f(x)-f_n(x)|<e_n(x),\qquad \lim_{n\to \infty} \int e_n = 0.$$
+		并且令$$\int f := \lim_{n\to \infty} \int f_n .$$
+	\end{enumerate}
+\end{proposition}
+\begin{proof}
+	1)$\Rightarrow$2): 
+\end{proof}
+
+
+
+
+
+\subsection{用Riemann和进行逼近}
+
+
+
+
+
+\subsection{可积函数的性质}
+
+
+
+
+
+\newpage
+\section{Riemann可积的条件}
+
+
+
+
+
+
+
+\newpage
+\section{Riemann可积的计算}
+
+
+
+
+
+
+
+\newpage
+\section{积分的一些应用}
+
+
+
+
+
+
+
+
+\newpage
+\section{反常积分}

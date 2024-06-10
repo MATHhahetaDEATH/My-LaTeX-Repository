@@ -732,27 +732,32 @@ $$\cos (b^n\pi (x+h)) = \cos \left( b^{n-m}\pi(\alpha _m + \beta _m + b^mh) \rig
 
 \circled{A3}-3~~若$f$在$I$上存在$p$阶导函数, 且$M_0$和$M_p = \sup_{x \in \R} |f^{(p)}(x)|$有限, 则对任意$k=1,\cdots ,p$, $$M_k := \sup_{x \in \R} |f^{(k)}(x)| \leq 2^{ \frac{k(p-k)}{2} } M_0^{ 1-\frac{k}{p} } M_p^{\frac{k}{p}}. $$
 
+
+\circled{A4}~~若$f$在$x_0$处$n+1$次可导, 且$f^{(n+1)}(x_0) \neq 0$, 则$n-1$次的Lagrange余项$$R_{n-1}(x_0) = \frac{f^{(n)}(x_0+\theta (x-x_0))}{n!} (x-x_0)^n$$
+中, $\theta \to \frac{1}{n+1}$, $x \to x_0$. 
+\vspace{1em}
+
 设$f$在区间$I$上存在$n$阶导数. 
 \vspace{1em}
 
-\circled{A4}-1~~若$f$在$I$上有$n+1$个零点, 则存在$\xi \in I$使得$f^{(n)}(\xi) = 0$. 
+\circled{A5}-1~~若$f$在$I$上有$n+1$个零点, 则存在$\xi \in I$使得$f^{(n)}(\xi) = 0$. 
 \vspace{1em}
 
 设$I$中的点$x_1<\cdots <x_p$. 由代数的知识, 容易证明存在唯一的$n-1$次多项式$L(x)$满足$f(x_i)=L(x_i), i=1,\cdots ,p$, 称之为Lagrange插值多项式. 
 \vspace{1em}
 
-\circled{A4}-2~~对任意$x \in I$, 存在$\xi \in I$使得$$f(x)-L(x) = \frac{(x-x_1)\cdots (x-x_n)}{n!}f^{(n)}(\xi). $$
+\circled{A5}-2~~对任意$x \in I$, 存在$\xi \in I$使得$$f(x)-L(x) = \frac{(x-x_1)\cdots (x-x_n)}{n!}f^{(n)}(\xi). $$
 
 设$n_1,\cdots ,n_p \in \N$满足$n_1+\cdots +n_p=n$. 
 \vspace{1em}
 
-\circled{A4}-3~~若对任意$k=\leq n_i-1$有$f^{(k)}(x_i)=0, i=1,\cdots ,p$, 则存在$\xi \in [x_1,x_p]$使得$f^{(n-1)}(\xi) = 0$. 
+\circled{A5}-3~~若对任意$k\leq n_i-1$有$f^{(k)}(x_i)=0, i=1,\cdots ,p$, 则存在$\xi \in [x_1,x_p]$使得$f^{(n-1)}(\xi) = 0$. 
 \vspace{1em}
 
 由代数的知识, 同样可得存在唯一的$n-1$次多项式$H(x)$满足$f^{(k)}(x_i)=H^{(k)}(x_i), i=1,\cdots ,p$, 称之为Hermite插值多项式. 
 \vspace{1em}
 
-\circled{A4}-4~~对任意$x \in I$, 存在包含$x$和$x_i,i=1,\cdots ,p$的最小闭区间内的点$\xi$使得$$f(x) - H(x) = \frac{(x-x_1)^{n_1} \cdots (x-x_p)^{n_p}}{n!} f^{(n)}(\xi). $$
+\circled{A5}-4~~对任意$x \in I$, 存在包含$x$和$x_i,i=1,\cdots ,p$的最小闭区间内的点$\xi$使得$$f(x) - H(x) = \frac{(x-x_1)^{n_1} \cdots (x-x_p)^{n_p}}{n!} f^{(n)}(\xi). $$
 
 
 \newpage
@@ -788,7 +793,7 @@ $$\cos (b^n\pi (x+h)) = \cos \left( b^{n-m}\pi(\alpha _m + \beta _m + b^mh) \rig
 	\end{cases}$, 则$f$在$0$处有极小值, 但是对任意$\delta >0$, $f|_{(-\delta,\delta)}$不是单调函数. 
 \end{example}
 \begin{proof}
-	显然有$f(x) \geq x^2 \geq 0$, 且取得等号当且仅当$x=0$, 因此$f(0)$是最小值(特别地是局部极小值). 但是$f'(x) = 4x+2x\sin \frac{1}{x}-\cos \frac{1}{x}$在任意的$(-\delta,\delta)$上不保持符号不变. 
+	显然有$f(x) \geq x^2 \geq 0$, 且取得等号当且仅当$x=0$, 因此$f(0)$是最小值(特别地是局部极小值). 但是$f'(x) = 4x+2x\sin \frac{1}{x}-\cos \frac{1}{x}$在任意的$(0,\delta)$上不保持符号不变. 
 \end{proof}
 
 可以用高阶导数来具体地判断驻点的情况. 
@@ -906,6 +911,34 @@ $$\cos (b^n\pi (x+h)) = \cos \left( b^{n-m}\pi(\alpha _m + \beta _m + b^mh) \rig
 	\includegraphics[width=6cm]{attachment/IMG_3552.jpg}
 	\caption{凸函数的左右切线, 手绘勿喷}
 \end{figure}
+
+\newpage
+\section*{一些习题 ~~\small 对应原书5.4习题} \label{sec:ex6.3}
+
+\subsection*{A: 凸函数有关习题}
+
+\circled{A1}~~设$f\in C((0,1))$, 且对任意$x_1,x_2 \in (0,1)$有$$f\left(\frac{x_1+x_2}{2} \right) \leq \frac{f(x_1)+f(x_2)}{2}$$
+成立. 证明: $f$在$(0,1)$上是凸函数. 
+\vspace{1em}
+
+\circled{A2}-1~~若凸函数$f:\R \to \R$有界, 则它是常函数. 
+
+\circled{A2}-2~~若凸函数$f:\R \to \R$满足$\lim_{x \to -\infty} \frac{f(x)}{x} = \lim_{x \to +\infty} \frac{f(x)}{x} =0$, 则它是常函数. 
+
+\circled{A2}-3~~对于定义在$(a,+\infty)$上的任何凸函数$f$, 值$\frac{f(x)}{x}$在$x \to +\infty$时存在(广义)极限. 
+
+\subsection*{B: 常用不等式的离散形式}
+
+\circled{B1}~~(Young不等式) 设实数$a,b>0$和$p,q>1$, 满足$\frac{1}{p} + \frac{1}{q} =1$, 则有$$ab \leq \frac{a^p}{p} + \frac{b^q}{q},\qquad \textit{取等} \Leftrightarrow a^p=b^q.$$
+
+\circled{B2}~~(Hölder不等式) 设实数$a_i,b_i>0$, 且$\frac{1}{p}+\frac{1}{q}=1$. 则当$p > 1$时有$$\sum_{k=1}^{n}(a_kb_k) \leq \left( \sum_{k=1}^{n} a_k^p \right)^{\frac{1}{p}} \left( \sum_{k=1}^{n} b_k^q \right)^{\frac{1}{q}},\qquad \textit{取等}\Leftrightarrow a_i^{p}=\lambda b_i^q. $$
+当$0<p<1$时上述不等式反向. 取$p=q=2$, 即得Cauchy-Schwarz不等式. 
+\vspace{1em}
+
+\circled{B3}~~(Kantorovich不等式) 设实数$a_i,\lambda _i>0$, 且$\sum_{i=1}^{n}a_i=1$. 若$\lambda _i \in [m,M]$, 则有$$\left( \sum_{k=1}^{n} \lambda _k a_k \right) \left( \sum_{k=1}^{n} \frac{a_k}{\lambda _k} \right) \leq \frac{(m+M)^2}{4mM}.$$
+
+\circled{B4}~~(Minkowski不等式) 设实数$a_i,b_i>0$. 当$p \geq 1$时有$$\left( \sum_{k=1}^{n} (a_k+b_k)^p \right)^{\frac{1}{p}} \leq \left( \sum_{k=1}^{n} a_k^p \right)^{\frac{1}{p}} + \left( \sum_{k=1}^{n} b_k^p \right)^{\frac{1}{p}},\qquad \textit{取等}\Leftrightarrow a_i=\lambda b_i.$$
+当$0<p<1$时上述不等式反向. 
 
 \newpage
 \section{原函数与不定积分}
@@ -1035,6 +1068,142 @@ Euler提出了针对这三种形式的代换: $$\sqrt{t^2+1}=tu\pm 1,t-u;\qquad 
 	其中$t=x+1$. 令$\sqrt{t^2+1}=u-t$, 于是$t=\frac{u^2-1}{2u}$, 进而$$\textit{原式} = \frac{1}{2} \int \frac{1+\frac{1}{u^2}}{u-1} \dif u = \int \frac{\dif u}{u-1} - \frac{1}{2} \int \frac{\dif u}{u^2} - \frac{1}{2} \int \frac{\dif u}{u} = \ln |u-1| - \frac{1}{2}\ln |u| + \frac{1}{2u} +C.$$
 	其中$u=x+1+\sqrt{x^2+2x+2}$. 
 \end{solution}
+
+
+\newpage
+\section*{一些习题 ~~\small 对应原书5.7习题} \label{sec:ex6.4}
+
+\subsection*{A: 有理函数的积分}
+
+设待求的原函数为$\int R(\cos x,\sin x) \dif x$. 其中$R(u,v)$是有理函数. 
+\vspace{1em}
+
+\circled{A1}-1~~若$R(-u,v)=R(u,v)$, 则$R(u,v)$的形式为$R_1(u^2,v)$. 
+
+\circled{A1}-2~~若$R(-u,v)=-R(u,v)$, 则$R(u,v)=uR_2(u^2,v)$, 进而代换$t=\sin x$可使积分有理化. 
+
+\circled{A1}-3~~若$R(-u,-v)=R(u,v)$, 则$R(u,v)=R_3(\frac{u}{v} ,v^2)$, 进而代换$t=\tan x$可使积分有理化. 
+\vspace{1em}
+
+设待求的原函数为$\int R(x,\sqrt{ax^2+bx+c}) \dif x$. 
+
+\circled{A2}-1~~用以下Euler代换可将其化为有理函数的积分: $$t=\sqrt{ax^2+bx+c}\pm \sqrt{a}x;\qquad t=\sqrt{\frac{a(x-x_1)}{x-x_2}}. $$
+其中$x_1,x_2$是$ax^2+bx+c=0$的两根. 
+
+\circled{A2}-2~~设$(x_0,y_0)$在曲线$y^2=ax^2+bx+c$上, 过该点的直线$\ell$交曲线于$(x,y)$, $t$是$\ell$的斜率. 指出这与Euler代换的联系. 
+
+\circled{A2}-3~~若一条曲线$y(x)$由代数方程$P(x,y)=0$给出, 且它的参数方程$x=x(t),y=y(t)$均为有理函数, 则称其为\textit{有理曲线}. 证明: $\int R(x,y(x))$可化为有理函数积分. 
+
+\circled{A3}-1~~求证: 微分二项式的积分$\int x^m(a+bx^n)^p \dif x$(其中$m,n,p \in \Q$)可以化为积分$$\int (a+bt)^pt^q \dif t~~(\textit{其中}p,q \in \Q).$$
+
+\circled{A3}-2~~该积分可以表示为初等函数的一个充分条件是在$p,q,p+q$中有整数. (注: Chebyshev证明了这也是必要条件)
+
+
+
+\subsection*{B: 椭圆积分}
+
+
+\newpage
+\section{微分学的应用}
+
+\subsection{对复数和幂级数的进一步研究}
+
+我们知道多项式函数具有非常好的分析性质(即处处光滑), 那么作为其推广形式的幂级数是否存在同样的性质? 
+
+\begin{theorem}{}
+	设幂级数$f(z)=\sum_{k=0}^{\infty} c_k(z-z_0)^k$. 则$f(z)$在其收敛圆内处处光滑, 特别地$$1)~f^{(n)}(z) = \sum_{k=0}^{\infty} \frac{\dif ^n}{\dif z^n} (c_k(z-z_0)^k),\qquad 2)~c_k=\frac{f^{(k)}(z_0)}{k!}.$$
+\end{theorem}
+\begin{proof}
+	只需证明1), 那么2)是自然的. 首先由Cauchy-Hadamard公式可知该式的收敛半径与$f(z)$相同, 记为$R$. 通过换元, 不妨设$z_0=0$. 利用归纳法, 只要证明$f'(z)=\sum_{k=1}^{\infty}c_kkz^{k-1}=:\varphi (z)$: 
+	
+	我们取$z_1,z_2$, 计算$$\left| \frac{f(z_1)-f(z_2)}{z_1-z_2} - \varphi (z) \right| = \left| \sum_{k=1}^{\infty} c_k(z_1^{k-1}+ z_1^{k-2}z_2 + \cdots + z_1z_2^{k-2} + z_2^{k-1}) - \sum_{k=1}^{\infty} c_kkz^{k-1} \right|.$$
+	由于上面两个级数均收敛(将$|z_1|$放缩为$R$立得), 取$N$使得它们与前$N$项之和的差能被$\varepsilon$控制住, 即$$\left| \frac{f(z_1)-f(z_2)}{z_1-z_2} - \varphi (z) \right| \leq 2\varepsilon + \left| \sum_{k=1}^{N} c_k(z_1^{k-1} + \cdots + z_2^{k-1} - kz^{k-1}) \right|.$$
+	令$z_1,z_2 \to z$, 则显然上述不等式右侧趋于$0$, 即得原命题成立. 
+\end{proof}
+
+一般地, 若函数$f(z)$在$z_0$的某个邻域内可以表示为幂级数的形式, 则称$f(z)$在$z_0$\textit{解析}. 由上面的定理可知, 此时$f$在$z_0$处光滑. (实际上可以证明, 若$f$在$z_0$附近可微, 则在$z_0$解析)
+
+\begin{theorem}{代数基本定理}
+	每个$n$次复系数多项式$p(z)=c_0+\cdots +c_nz^n$在$\C$中都有根. 
+\end{theorem}
+\begin{remark}
+	进一步, 容易说明: $p(z)$在$\C$上恰有$n$个根. 
+\end{remark}
+\begin{proof}
+	由于$p$连续, 存在点$z_0$使得$p(z_0)=\inf_{z \in \C}|p(z)|$. 下面证明$p(z_0)=0$: 设若不然, 考虑多项式$q(z)=\frac{p(z+z_0)}{p(z_0)}$, 那么$q(0)=1$, $1= |q(0)|=\inf_{z \in \C} |q(z)|$. 记$q(z)=1+a_kz^k+\cdots +q_nz^n$, 其中$a_k \neq 0$. 令$a_k=re^{\ic \theta}$, $\beta ^k = re^{\ic (\pi-\theta)}$, 那么$$|q(\beta)| \leq |1+a_k\beta ^k| + (|a_{k+1}\beta ^{k+1}| + \cdots + |a_n\beta ^n|) = 1-r^k(|a_k|-r|a_{k+1}|-\cdots -r^{n-k}|a_n| <1.$$
+	这与$|q(z)| \geq 1$矛盾! 
+\end{proof}
+
+\subsection{简单的常微分方程}
+
+\begin{definition}{常微分方程}
+	设关于$x$的函数$y$, $y$存在$n$阶导数, 则称系统$$f\left( x,\frac{\dif ^n y}{\dif x^n},\cdots ,\frac{\dif y}{\dif x},y \right)=0$$
+	为一个\textit{常微分方程}(ordinary differential equation), 其中$y$称为该方程的解. 
+\end{definition}
+
+下面介绍一些简单的常微分方程及其解法. 
+
+\circled{A}~~变量分离方程. 
+
+\begin{example}
+	(有空气阻力的自由落体) 质量为$m$的小物块从静止开始自由落体, 设其受到的空气阻力$f$与速度$v$成正比, 求$v$关于时间$t$的表达式. 
+\end{example}
+\begin{solution}
+	由Newton第二定律, $$m \frac{\dif v}{\dif t} =mg-kv \quad \Leftrightarrow \quad \frac{\dif v}{g-\frac{k}{m} v} = \dif t.$$
+	两边同时积分得, $$-\frac{m}{k} \ln \left(g-\frac{k}{m}v \right)+C=t.$$
+	即$v=\frac{m}{k}(g-e^{-\frac{k}{m}t+C_1})$. 特别地$t=0$时$v=\frac{m}{k}(g-e^{C_1}))=0$, 从而解得$C_1=\ln g$. 所以
+	\begin{center}
+		$\displaystyle v = \frac{mg}{k}(1-e^{-\frac{k}{m}t}).$
+	\end{center}
+\end{solution}
+
+\begin{example}
+	(简谐振动) 质量为$m$的小物块从平衡位置$x=0$以速度$v_0$开始振动, 始终受到一个指向平衡位置的力$F=-kx$, 这里的位移$x$定义为平衡位置到当前位置的矢量. 求位移$x$关于时间$t$的表达式. 
+\end{example}
+\begin{solution}
+	由Newton第二定律, $$m \frac{\dif ^2x}{\dif t^2} = -kx \quad \Leftrightarrow \quad m \frac{\dif v}{\dif x} \frac{\dif x}{\dif t} = -kx \quad \Leftrightarrow \quad mv\dif v=-kx\dif x.$$
+	两侧(定)积分, 有$\frac{1}{2}mv^2-\frac{1}{2}mv_0^2 = -\frac{1}{2}kx^2$, 即$$\frac{\dif x}{\dif t} = \sqrt{v_0^2-\frac{k}{m}x^2} \quad \Leftrightarrow \quad \frac{\dif x}{\sqrt{v_0^2-\frac{k}{m}x^2}} = \dif t.$$
+	两侧积分, 有$\arcsin (\sqrt{\frac{k}{m}} \frac{x}{v_0}) = \sqrt{\frac{k}{m}} t+C$, 容易求得$$x = v_0\sqrt{\frac{m}{k}}\sin \left( \sqrt{\frac{k}{m}}t \right).$$
+\end{solution}
+
+\circled{B}~~一阶线性方程, 即形如$y' + p(x)y=q(x)$的微分方程. 记$\int p = P, \int q = Q$. 
+
+当$q(x)=0$时, 即齐次情况, 容易求得$y=Ce^{-P(x)}$. 当$q(x)$不恒等于$0$时, 希望找到类似$(\mu (x) y)'=q(x)\mu (x)$的形式, 即只需$\frac{\mu '(x)}{\mu (x)} = p(x)$, 可得$\mu (x) = e^{P(x)}$. 由此有$$y=e^{-P(x)}\left( \int e^{P(x)}q(x) \dif x + C \right).$$
+我们也可以用所谓常数变易法求解该方程, 即待定$y=C(x)e^{-P(x)}$之后代回计算. 
+
+\circled{C}~~高阶常系数线性方程, 即形如$y^{(n)}+a_1y^{(n-1)} + \cdots + a_{n-1}y'+a_ny=0$的微分方程. 
+
+令$y_1=y,\cdots ,y_n=y^{(n-1)}$, $y=(y_1,\cdots ,y_n)$, 上述式子就等价于求解$$\frac{\dif y}{\dif x} = Ay,\qquad A=\begin{pmatrix}
+  & 1 &  &  &   \\
+  &  & 1 &  &   \\
+  &  &  & \ddots    & \\
+  &  &  &    & 1\\
+ -a_n & -a_{n-1} & -a_{n-2} & \cdots  & -a_1
+\end{pmatrix}.$$
+熟知$A$的特征多项式为$\lambda ^n+a_1\lambda ^{n-1} + \cdots + a_{n-1}\lambda +a_n=0$, 记$A$的特征值为$\lambda _1,\cdots ,\lambda _t$, 对应代数重数$n_1,\cdots ,n_t$. 则$$e^{\lambda _ix},\quad xe^{\lambda _ix}, \quad \cdots \quad x^{n_i-1}e^{\lambda _ix},\qquad i=1,\cdots ,t$$
+构成该方程的一个基本解组(证明略). 
+
+\begin{example}
+	(阻尼振动) 质量为$m$的小物块从平衡位置$x=0$以速度$v_0$开始振动, 始终受到一个指向平衡位置的动力$F=-kx$和一个与运动方向相反的阻力$f=-r v$. 求位移$x$关于时间$t$的表达式. 
+\end{example}
+\begin{solution}
+	由Newton第二定律, $mx''+rx'+kx=0$, 对应特征方程$m\lambda ^2+r\lambda +k=0$. 
+	
+	当$\Delta = r^2-4mk>0$时, 设两个实特征值为$\lambda _1,\lambda _2$, 则$$x=C_1e^{\lambda _1t}+C_2e^{\lambda _2t}.$$
+	
+	当$\Delta = r^2-4mk=0$时, 有$2$-重特征值$-\frac{r}{2m}$, 则$$x=(C_1+C_2t)e^{-\frac{r}{2m}t}.$$
+	
+	当$\Delta = r^2-4mk<0$时, 两个复特征值为$\lambda_{1,2}=\frac{-r\pm \ic \sqrt{-\Delta}}{2m}$, 因此$$x=e^{-\frac{r}{2m}t}\left( C_1\cos \left( \frac{\sqrt{-\Delta}}{2m}t \right)+C_2\sin \left( \frac{\sqrt{-\Delta}}{2m}t \right) \right).$$
+\end{solution}
+
+
+
+
+
+
+
+
+
 
 
 

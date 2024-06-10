@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  10 MAR 2024 13:55
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  25 MAY 2024 09:13
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -686,7 +686,7 @@ Package: ulem 2019/11/18
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
- (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./MainMatter/A.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./MainMatter/C.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./MainMatter/G.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./MainMatter/N.aux))
+ (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./MainMatter/A.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./MainMatter/C.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./MainMatter/G.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./MainMatter/N.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./MainMatter/ershi.aux))
 \openout1 = `book.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
@@ -1071,20 +1071,67 @@ and I'll forget about whatever was undefined.
 
 
 
-] (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./MainMatter/A.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./MainMatter/C.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./MainMatter/G.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./MainMatter/N.aux))
+]
+\openout2 = `./MainMatter/ershi.aux'.
+
+ (./MainMatter/ershi.tex
+Chapter 5.
+[6
+
+
+
+
+]
+File: attachment/g1.png Graphic file (type bmp)
+<attachment/g1.png>
+ [7] [8]
+File: attachment/g6.png Graphic file (type bmp)
+<attachment/g6.png>
+ [9] [10]
+File: attachment/g4.png Graphic file (type bmp)
+<attachment/g4.png>
+ [11] [12]
+File: attachment/g8.png Graphic file (type bmp)
+<attachment/g8.png>
+ [13] [14]
+File: attachment/g13.png Graphic file (type bmp)
+<attachment/g13.png>
+ [15] [16] [17]
+File: attachment/g15.png Graphic file (type bmp)
+<attachment/g15.png>
+ [18]
+Overfull \hbox (21.13509pt too wide) in paragraph at lines 139--140
+\OML/cmm/m/it/10.53937 E; A; F; M; D$ \TU/FZShuSong-Z01(0)/m/n/10.53937 五 点 共 圆\TU/lmr/m/n/10.53937 . \TU/FZShuSong-Z01(0)/m/n/10.53937 延 长 $\OML/cmm/m/it/10.53937 DF; DE$\TU/lmr/m/n/10.53937 , \TU/FZShuSong-Z01(0)/m/n/10.53937 分 别 交 $\OMS/cmsy/m/n/10.53937 ^^L\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 BDE\OT1/cmr/m/n/10.53937 )\OML/cmm/m/it/10.53937 ; \OMS/cmsy/m/n/10.53937 ^^L\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 CDF\OT1/cmr/m/n/10.53937 )$ \TU/FZShuSong-Z01(0)/m/n/10.53937 于 点 $\OML/cmm/m/it/10.53937 H; G$\TU/lmr/m/n/10.53937 . $\OML/cmm/m/it/10.53937 K; L$ \TU/FZShuSong-Z01(0)/m/n/10.53937 分 别 是 $\OMS/cmsy/m/n/10.53937 ^^L\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 BDE\OT1/cmr/m/n/10.53937 )\OML/cmm/m/it/10.53937 ; \OMS/cmsy/m/n/10.53937 ^^L\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 CDF\OT1/cmr/m/n/10.53937 )$
+ []
+
+File: attachment/g16.png Graphic file (type bmp)
+<attachment/g16.png>
+[19] [20]
+File: attachment/g17.png Graphic file (type bmp)
+<attachment/g17.png>
+ [21] [22]
+File: attachment/g18.png Graphic file (type bmp)
+<attachment/g18.png>
+ [23] [24]
+File: attachment/g19.png Graphic file (type bmp)
+<attachment/g19.png>
+ [25] [26]
+File: attachment/g20.png Graphic file (type bmp)
+<attachment/g20.png>
+ [27] [28] [29] [30]) [31] (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./MainMatter/A.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./MainMatter/C.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./MainMatter/G.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./MainMatter/N.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/./MainMatter/ershi.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `book.out' has not changed.
-(rerunfilecheck)             Checksum: 46BF6CEBAB5705310501056AFEFE5E16;524.
+(rerunfilecheck)             Checksum: 4880BBE82E12CBB40556D9200630F69B;611.
  ) 
 Here is how much of TeX's memory you used:
- 19854 strings out of 476683
- 428463 string characters out of 5804047
+ 20000 strings out of 476683
+ 433519 string characters out of 5804047
  1855018 words of memory out of 5000000
- 39634 multiletter control sequences out of 15000+600000
- 522311 words of font info for 120 fonts, out of 8000000 for 9000
+ 39758 multiletter control sequences out of 15000+600000
+ 522319 words of font info for 121 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 104i,9n,111p,389b,440s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,9n,111p,391b,440s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/book.pdf (10 pages).
+Output written on /Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学竞赛习题集/.texpadtmp/book.pdf (36 pages).

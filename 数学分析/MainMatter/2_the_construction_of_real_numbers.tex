@@ -1,8 +1,8 @@
 \chapter{实数理论}
 
-\section{自然数集的构造与公理化}
+\section{$\N$的构造}
 
-回顾第一章的练习1.5 a), 如果将$x \mapsto x^+$的过程视作后继映射$S: N_0 \to N_0$, 我们在von Neumann构造的自然数集中实际上证明了以下四件事情: 
+回顾第一章的练习B2), 如果将$x \mapsto x^+$的过程视作后继映射$S: N_0 \to N_0$, 我们在von Neumann构造的自然数集中实际上证明了以下四件事情: 
 
 i) $x=y \Rightarrow x^+ = y^+$, 即该映射的定义是合理的; 
 
@@ -15,21 +15,22 @@ iv) $x^+=y^+ \Rightarrow x=y$, 即$S$是一个单射.
 以上四件事情在熟知的那个自然数集中似乎也是成立的. 那么, 能否将所有具有如上性质的集合都考虑为自然数集呢? 具体地讲, 我们需要一些公理.
 
 \begin{axiom}{Peano公理}
-	设集合$X$及其上的一个映射$S$. 若$X$和$S$满足
-	\begin{enumerate}
-		\item $x \in X$; 
-		\item $x \notin S(X)$; 
-		\item $S$是一个单射; 
-		\item $X$对于$S$是封闭的; 
-		\item (极小性公设)对任意$A \subseteq X$都有: 若$x \in A$且$A$对$S$封闭, 则$A=X$. 
-	\end{enumerate}
+	设集合$X$及其上的一个后继映射$S:X \to X$. 若$X$和$S$满足
+	
+	1) $X \neq \varnothing$; \qquad 2) 存在$x$使得$x \notin S(X)$; \qquad 3) $S$是一个单射; 
+	
+	4) 对任意$A \subseteq X$都有: 若$x \in A$且$A$对$S$封闭, 则$A=X$. 
+	
+	\noindent
 	则$X$是自然数集. 
 \end{axiom}
 \begin{remark}
-	一般称$x$为初始元素, $S$为后继映射. 由$(X, S, x)$构成的组称为一个Peano系统. 一般记$0: =x$.
+	一般称2)中的$x$为初始元素, 稍后会证明这样的初始元素是唯一的. 本讲义中定义$0: =x$.
 \end{remark}
 
-如果第二条不成立, 可能会存在某个元素的后继为初始元素, 从而形成循环; 如果第三条不成立, 则有可能两个元素的后继是同样的; 若第四条不成立, 则会有某个元素后面没有后继元素; 第五条也被称为归纳原理, 用处在于排除多链的情况. 
+如果2)不成立, 可能会存在某个元素的后继为初始元素, 从而形成循环; 如果3)不成立, 则有可能两个元素的后继是同样的; 4)也被称为归纳原理, 用处在于排除多链的情况. 
+
+容易证明, 给定初始元素$x$和后继映射$S$, $\N$就由$\{ x,S(x),S(S(X)),\cdots \}$唯一确定. 
 
 \begin{figure}[h!]
 	\centering
@@ -39,9 +40,7 @@ iv) $x^+=y^+ \Rightarrow x=y$, 即$S$是一个单射.
 
 
 
-1.5 a)的四条结论和$N_0$的定义足以说明$N_0=\mathbb{N}$.也即, 通过定义$\mathbb{N}$是最小的归纳集和利用Peano公理定义$\mathbb{N}$是完全等价的.
-
-定义前10个自然数的符号分别为$0, 1, 2, 3, 4, 5, 6, 7, 8, 9$.
+B2)的四条结论和$N_0$的定义足以说明$N_0=\mathbb{N}$. 也即, 通过定义$\mathbb{N}$是最小的归纳集和利用Peano公理定义$\mathbb{N}$是完全等价的.
 
 这里再声明一次(第一)数学归纳法, 方便后面使用.
 
@@ -54,19 +53,17 @@ iv) $x^+=y^+ \Rightarrow x=y$, 即$S$是一个单射.
 	那么, 对任意$n \in \mathbb{N}$, $P(n)$都成立.
 \end{theorem}
 \begin{proof}
-	这是极小性公设的直接推论. 
+	这是归纳原理的直接推论. 
 \end{proof}
 
-\subsection{自然数集上的加法}
+\subsection{$\N$上的加法与序关系}
 
 自然数中可以一步完成的加法已经有明确的定义: $n+0=n, ~n+1=S(n)$.从而可以归纳地定义完全的加法.
 
 \begin{definition}{自然数集上的加法}
 	设自然数集$\mathbb{N}$, $S$是$\mathbb{N}$上的后继映射.定义自然数集上的\textit{加法}(addition)映射为满足如下条件的映射$+: \mathbb{N}^2 \to \mathbb{N}, ~(n, m) \to n+m$: 
-	\begin{enumerate}
-		\item $n+0=n$.
-		\item $n+S(m)=S(n+m)$.
-	\end{enumerate}
+	
+	1) $n+0=n$; \qquad 2) $n+S(m)=S(n+m)$. 
 \end{definition}
 
 既然加法是归纳定义, 我们同样可以利用归纳法证明加法的诸多性质: (证明略去, 后文亦如此)
@@ -80,23 +77,15 @@ iv) $x^+=y^+ \Rightarrow x=y$, 即$S$是一个单射.
 	\end{enumerate}
 \end{proposition}
 
-为了得到熟悉的减法定义与运算律, 要先明确构造的可行性: (其中$\mathbb{N}^* : = \mathbb{N} - \{ 0 \}$.)
-
-\begin{proposition}{} \label{pro:jmfagzzckexkxk}
-	对任意$b \in \mathbb{N}^*$, 存在$a \in \mathbb{N}$使得$S(a)=b$.
-\end{proposition}
-
-\subsection{自然数集中的序关系}
-
 类似于利用$a=kb$定义$b \mid a$这一序关系, 可以利用加法来定义自然数的序关系.
 
-\begin{definition}{自然数集中的序关系}
+\begin{definition}{自然数集上的序关系}
 	设$a, b \in \mathbb{N}$.如果存在$k \in \mathbb{N}$使得$a+k=b$, 则称$a$\textit{小于等于}(less than or equal to)$b$, 记作$a \leq b$.特别地, 若$a \leq b$且$a \neq b$, 则称$a$\textit{小于}(less than), 记作$a<b$.
 \end{definition}
 
-自然数集中的小于等于关系是一个全序关系, 利用归纳法容易验证其满足传递性、反对称性、完全性.
+用归纳法结合加法的运算律, 容易证明$\leq$是偏序关系. 
 
-关于小于关系, 还有一个类似完全性的命题: 
+关于严格小于关系, 还有一个类似完全性的命题: 
 
 \begin{proposition}{自然数集的三歧性}
 	对于任意$a, b \in \mathbb{N}$, 下列命题中恰有一个成立: 
@@ -104,6 +93,21 @@ iv) $x^+=y^+ \Rightarrow x=y$, 即$S$是一个单射.
 		$a<b,  \qquad a=b,  \qquad a>b.$
 	\end{center}
 \end{proposition}
+
+\begin{proposition}{}
+	Peano公理中初始元素$x$是唯一的. 
+\end{proposition}
+\begin{proof}
+	假设存在$x \neq y$使得$x,y \notin S(X)$, 不妨$x<y$. $x$及其一切后继元构成$\N _1$, 同样地$y$及其一切后继元构成$\N _2$, 但是$x \in \N_1 ,x \notin \N_2$, 这与$\N _1 = \N _2 = \N$矛盾. 
+\end{proof}
+
+\begin{corollary}{} \label{cor:jmfaniyrcyzd}
+	对任意$b \in \mathbb{N}^* := \mathbb{N} - \{ 0 \}$, 存在唯一的$a \in \mathbb{N}$使得$S(a)=b$.
+\end{corollary}
+\begin{remark}
+	由这个推论, 我们可以定义自然数集上的减法, 即归纳定义$n-0=n$, $n-S(m+1)$满足$S(n-S(m+1))=n-S(m)$. 但是需要注意, 自然数之间的减法并不封闭. 因此, 正式的减法定义放在整数集处理. 
+\end{remark}
+
 
 
 \begin{proposition}{自然数的加法保序性}
@@ -134,30 +138,26 @@ iv) $x^+=y^+ \Rightarrow x=y$, 即$S$是一个单射.
 \end{theorem}
 
 \begin{theorem}{良序定理} \label{thm:llxu}
-	对于任意非空集合$A \subseteq \mathbb{N}$, $A$中都存在一个元素$M$, 使得$\forall a \in A, ~a \geq M$.
+	对于任意非空集合$A \subseteq \mathbb{N}$, $A$中都存在极小元$M$, 即$\forall a \in A, ~a \geq M$.
 \end{theorem}
 \begin{proof}
 	假设对任意的$M$, 总存在某个$a \in A$使得$a < M$. 下面归纳证明$A^c = \mathbb{N}$. 
 	
-	(i)假设$0 \in A$, 又由于任意自然数$n$有$n \geq 0$(利用命题\ref{pro:jmfagzzckexkxk}结合归纳法可以证明), 于是与$A$的定义矛盾, 故$0 \notin A$, 那么$0 \in A^c$. 
+	(i)假设$0 \in A$, 又由于任意自然数$n$有$n \geq 0$(利用初始元素唯一可证), 于是与$A$的定义矛盾, 故$0 \notin A$, 那么$0 \in A^c$. 
 	
 	(ii)假设对任意的$n \leq k$, 都有$n \in A^c$即$n \notin A$, 那么假若$k+1 \in A$, 由于$n \leq k < k+1$, 这与$A$的定义矛盾, 所以$k+1 \notin A$, 从而$k+1 \in A^c$. 
 	
 	由第二数学归纳法可知, $A^c = \mathbb{N}$, 即$A = \varnothing$, 与假设矛盾. 所以原命题成立.
 \end{proof}
 
-反过来, 利用反证法也能说明良序定理可以推导第一数学归纳法.从而, 定理\ref{thm:diyigvna}, \ref{thm:diergvna}, \ref{thm:llxu}是等价的.
+反过来, 利用反证法也能说明良序定理可以推导第一数学归纳法(略). 从而, 定理\ref{thm:diyigvna}, \ref{thm:diergvna}, \ref{thm:llxu}是等价的.
 
-\subsection{自然数集中的乘法}
-
-仿照加法, 继续归纳定义乘法: 
+\subsection{$\N$上的乘法}
 
 \begin{definition}{自然数集上的乘法}
 	设自然数集$\mathbb{N}$, $S$是$\mathbb{N}$上的后继映射. 定义自然数集上的\textit{乘法}(multiplication)映射为满足如下条件的映射$\times : \mathbb{N}^2 \to \mathbb{N}, ~(n, m) \to n \times m$: 
-	\begin{enumerate}
-		\item $n\times 0=0$.
-		\item $n\times S(m)=n\times m+n$.
-	\end{enumerate}
+	
+	1) $n\times 0=0$;\qquad 2) $n\times S(m)=n\times m+n$.
 \end{definition}
 
 如此定义的乘法和我们心中的模样如出一辙: 利用归纳法容易证明$n \times m = \overbrace{n+n+\cdots +n}^{m~ \text{times}}$. 在获得乘法交换律之前, 注意$m$和$n$的顺序! 
@@ -168,7 +168,7 @@ iv) $x^+=y^+ \Rightarrow x=y$, 即$S$是一个单射.
 	对于任意的$a, b, c \in \mathbb{N}$, 都有
 	\begin{enumerate}
 		\item (分配律)~$(a+b)c = ab+ac$.
-		\item (单位元)~$a \times 0 = 0 \times a = 0, ~a \times 1 = 1 \times n = n$.
+		\item (单位元)~$a \times 0 = 0 \times a = 0, ~a \times 1 = 1 \times a = a$.
 		\item (交换律)~$ab=ba$.
 		\item (结合律)~$(ab)c=a(bc)$.
 	\end{enumerate}
@@ -199,18 +199,16 @@ iv) $x^+=y^+ \Rightarrow x=y$, 即$S$是一个单射.
 乘法是对加法的累积, 次幂则是对乘法的累积.
 
 \begin{definition}{自然数的次幂}
-	设自然数集$\mathbb{N}$, $S$是$\mathbb{N}$上的后继映射.定义自然数集上的\textit{指数}(exponentiation)映射为满足如下条件的映射$\sigma : \mathbb{N}^2-\{ (0, 0) \} \to \mathbb{N}, ~(n, m) \to n^m$: 
-	\begin{enumerate}
-		\item 对于$n \neq 0$, 有$n^0=1$, $n^{S(m)}=n^m \times n$.
-		\item 对于$n \neq 0$, 若$m \neq 0$则$n^m=0$.
-	\end{enumerate}
+	设自然数集$\mathbb{N}$, $S$是$\mathbb{N}$上的后继映射.定义自然数集上的\textit{指数}(exponentiation)映射为满足如下条件的映射$(\bigcdot _1) ^{\bigcdot _2} : \mathbb{N}^2-\{ (0, 0) \} \to \mathbb{N}, ~(n, m) \to n^m$: 
+	
+	1) 对于$n \neq 0$, 有$n^0=1$, $n^{S(m)}=n^m \times n$; \qquad 2) 对于$n = 0$, 若$m \neq 0$则$n^m=0$.
 \end{definition}
 
 同样利用归纳法可以证明, $n^m = \overbrace{n\times n\times \cdots \times n}^{m~ \text{times}}$.
 
 
 \newpage
-\section{整数环的构造}
+\section{$\Z$的构造}
 
 在自然数集中定义减法时, 我们会注意到, 并不是所有自然数相减都会得到自然数, 也即自然数集对加法逆元不封闭. 为了保证封闭, 尝试在自然数的基础上构造整数.
 
@@ -231,7 +229,7 @@ iv) $x^+=y^+ \Rightarrow x=y$, 即$S$是一个单射.
 
 如此定义的加法和乘法显然是良定义的. 
 
-接着可以得到理想中的结果: 上述定义的整数集同构于自然数集的某个母集. 或者反过来更好描述: 自然数集同构(存在双射并保持代数结构)于整数集的某个子集. 
+接着可以得到理想中的结果: 上述定义的整数集同构于自然数集的某个母集. 或者反过来更好描述: 自然数集同构(存在双射并保持代数结构, 进而保持序结构)于整数集的某个子集. 
 
 \begin{proposition}{}
 	记$\tilde{\mathbb{N}}: =\{ [(a, b)]_{\sim} \in \mathbb{Z}: a \leq b \}$.那么存在双射$$\sigma : \tilde{\mathbb{N}} \to \mathbb{N}, ~[(a, b)]_{\sim} \mapsto a-b, $$
@@ -239,7 +237,7 @@ iv) $x^+=y^+ \Rightarrow x=y$, 即$S$是一个单射.
 	对于所有$\alpha , \beta \in \tilde{\mathbb{N}}$成立.
 \end{proposition}
 
-大一统的基业既已完成, 我们终于得以见到熟悉的记号了: 
+我们终于得以见到熟悉的记号了: 
 
 \begin{definition}{}
 	对于$[a, b]_{\sim} \in \mathbb{Z}$, 由自然数的三歧性可知$a>b, a=b$或$a<b$. 
@@ -259,6 +257,9 @@ iv) $x^+=y^+ \Rightarrow x=y$, 即$S$是一个单射.
 	(4) 交换性质$$\forall a ,  b \in \Z ,  a + b = b + a ,  a b = b a .$$
 	(5) 分配性质$$\forall c ,  a ,  b \in \Z ,  c (a + b) = c a + c b, (a+b)c=ac+bc .$$
 \end{proposition}
+\begin{remark}
+	加法逆元的存在性实际上由之前证明的推论\ref{cor:jmfaniyrcyzd}保证. 
+\end{remark}
 
 \begin{proposition}{整数的乘法无零因子律}
 	对任意$a, b \in \Z$, $ab=0$当且仅当$a=0$或$b=0$.
@@ -270,32 +271,37 @@ iv) $x^+=y^+ \Rightarrow x=y$, 即$S$是一个单射.
 
 实际上, 如果集合$G$上的一个运算$\bigcdot$满足单位元、逆元、结合性质, 我们就称$(G,\bigcdot )$是一个\textit{群}(group). 如果$\bigcdot$还满足交换性质, 则称$(G,\bigcdot )$是一个\textit{交换群}(commutative group)或\textit{Abel群}(Abel group).
 
-在一个集合上, 往往只定义了加法, 例如平面向量(因为平面向量之间的内积和外积都不封闭). 有些时候可以得到具有加法和乘法的集合, 例如所有映射构成的集合, 但是它们的乘法不满足交换性质. 
+在一个集合上, 往往只定义了加法, 例如平面向量(因为平面向量之间的内积和外积都不封闭). 有些时候可以得到具有加法和乘法的集合, 例如闭区间上所有映射构成的集合, 但是它们的乘法不满足交换性质. 
 
 对于定义了加法和乘法的集合, 可以得到所谓环的概念: 
 
 \begin{axiom}{环}
 	设非空集合$R$, 若$R$上定义了加法$+$和乘法$\bigcdot$并满足: 
-	\begin{enumerate}
-		\item $(R,+)$构成Abel群; 
-		\item $\bigcdot$满足结合性质; 
-		\item $\bigcdot$对$+$有分配性质. 
-	\end{enumerate}
+	
+	1) $(R,+)$构成Abel群; \qquad 2) $\bigcdot$满足结合性质; \qquad 3) $\bigcdot$对$+$有分配性质. 
+	
+	\noindent
 	则称$(R,+,\bigcdot )$是一个\textit{环}(ring).
 \end{axiom}
 
-整数集$(\Z ,+,\times )$显然是一个环. 由两个集合间所有映射构成的集合也是一个环. 
+整数集$(\Z ,+,\times )$显然是一个环. 由闭区间上所有映射构成的集合(配上自然的加法和乘法)也是一个环. 
 
 考虑一整个代数结构而不是单纯的特例, 可以方便我们迁移应用. 例如, 整数环与一元多项式环的性质非常相似, 所以它们共享很多定理与定义(带余除法定理, 素数和既约多项式等等). 
 
 \begin{definition}{整数的减法}
-	记$-n$表示整数$n$的加法逆元.则定义减法映射$-: \Z ^2 \to \Z , (a, b) \mapsto a-b$, 满足$$a-b: =a+(-b).$$
+	记$-n$表示整数$n$的加法逆元. 则定义减法映射$-: \Z ^2 \to \Z , (a, b) \mapsto a-b$, 满足
+	\begin{center}
+		$a-b: =a+(-b)$.
+	\end{center}
 \end{definition}
 
-良定义是显然的.
+减法的良定义性由加法逆元之唯一性保证. 
 
 \begin{definition}{整数的序关系}
-	对于$[(a_1, b_1)]_{\sim}, [(a_2, b_2)]_{\sim} \in \Z$, 定义它们的序关系: $$[(a_1, b_1)]_{\sim} \leq [(a_2, b_2)]_{\sim} \Leftrightarrow a_1+b_2 \leq b_1+a_2.$$
+	对于$[(a_1, b_1)]_{\sim}, [(a_2, b_2)]_{\sim} \in \Z$, 定义它们的序关系: 
+	\begin{center}
+		$[(a_1, b_1)]_{\sim} \leq [(a_2, b_2)]_{\sim} \Leftrightarrow a_1+b_2 \leq b_1+a_2$. 
+	\end{center}
 \end{definition}
 
 注意$n$为负就等价于$n<0$.
@@ -305,7 +311,7 @@ iv) $x^+=y^+ \Rightarrow x=y$, 即$S$是一个单射.
 整数间的序关系比较复杂, 例如对于负数$c$, $a \leq b \Leftrightarrow ac \geq bc$. 这些熟知性质就不一一罗列了.
 
 \newpage
-\section{有理数域的构造}
+\section{$\Q$的构造}
 
 从自然数集扩大得到的整数集虽然对减法封闭了, 它对除法还是不封闭. 用同样的方式可以将整数集扩大到有理数集.
 
@@ -335,7 +341,10 @@ iv) $x^+=y^+ \Rightarrow x=y$, 即$S$是一个单射.
 有理数的除法正如我们在小学学过的那样: 
 
 \begin{definition}{有理数的除法}
-	记$a^{-1}$表示有理数$a\neq 0$的乘法逆元.则定义除法映射$\div : \mathbb{Q} ^2 \to \mathbb{Q} , (a, b) \mapsto a \div b$, 满足$$a \div b: =a\times b^{-1}.$$
+	记$a^{-1}$表示有理数$a\neq 0$的乘法逆元. 则定义除法映射$\div : \mathbb{Q} ^2 \to \mathbb{Q} , (a, b) \mapsto a \div b$, 满足
+	\begin{center}
+		$a \div b: =a\times b^{-1}$. 
+	\end{center}
 \end{definition}
 
 良定义是显然的.
@@ -344,10 +353,10 @@ iv) $x^+=y^+ \Rightarrow x=y$, 即$S$是一个单射.
 
 \begin{axiom}{域}
 	设非空集合$F$, 若$F$上定义了加法$+$和乘法$\bigcdot$并满足: 
-	\begin{enumerate}
-		\item $(F,+,\bigcdot)$是一个环; 
-		\item $\bigcdot$满足单位元、逆元、交换性质.
-	\end{enumerate}
+	
+	1) $(F,+,\bigcdot)$是一个环; \qquad 2) $\bigcdot$满足单位元、逆元、交换性质. 
+
+	\noindent
 	则称$F$是一个\textit{域}(field).
 \end{axiom}
 
@@ -355,15 +364,15 @@ iv) $x^+=y^+ \Rightarrow x=y$, 即$S$是一个单射.
 
 由乘法逆元可得消去律和无零因子律: 
 
-\begin{proposition}{域的乘法消去律}
-	对于任意$a, b, c \in F$, 其中$c \neq 0$, 总有
+\begin{proposition}{有理数的乘法消去律}
+	对于任意$a, b, c \in \Q$, 其中$c \neq 0$, 总有
 	\begin{center}
 		$a=b \Leftrightarrow ac=bc.$
 	\end{center}
 \end{proposition}
 
-\begin{corollary}{域的乘法无零因子律}
-	对任意$a, b \in F$, $ab=0$当且仅当$a=0$或$b=0$.
+\begin{corollary}{有理数的乘法无零因子律}
+	对任意$a, b \in \Q$, $ab=0$当且仅当$a=0$或$b=0$.
 \end{corollary}
 
 在规定有理数的序关系之前, 先明确它与$0$的大小比较. 对于$a/b \in \mathbb{Q}$, 称其为\textit{正的}(positive), 如果$a, b$均为正或均为负; 称其为\textit{负的}(negative), 如果$a, b$一正一负. 
@@ -422,7 +431,7 @@ iv) $x^+=y^+ \Rightarrow x=y$, 即$S$是一个单射.
 总结这些内容, 就是所谓Dedekind分割的基本思想: 
 
 \begin{definition}{Dedekind分割}
-	设$\alpha , \beta$构成全序数集$K$的一个划分.若满足
+	设非空的$\alpha , \beta$构成全序数集$K$的一个划分. 若满足
 	\begin{enumerate}
 		\item $\forall x, y \in K, ((x < y) \wedge (y \in \alpha)) \Rightarrow x \in \alpha$.
 		\item $\forall x \in \alpha , \exists y \in \alpha (y>x)$.
@@ -465,7 +474,16 @@ iv) $x^+=y^+ \Rightarrow x=y$, 即$S$是一个单射.
 	\end{center}
 \end{definition}
 
-亦可验证, 加法是良定义的. 
+亦可验证(这并非显然), 加法是良定义的. 
+
+在给出加法性质之前, 先证明一个技术性引理: 
+
+\begin{lemma}{}
+	设$\alpha \in \R$. 则对任意$\varepsilon >0$均存在$a \in \alpha$和$a' \in \alpha ^c$使得$a'-a<\varepsilon$. 
+\end{lemma}
+\begin{proof}
+	设若不然, 则存在$\varepsilon >0$使得对任意$a \in \alpha$和$a' \in \alpha ^c$均有$a'-a\geq \varepsilon$. 这说明存在$r \in \Q$使得$r \notin \alpha \cup \alpha ^c$, 矛盾! 
+\end{proof}
 
 \begin{proposition}{实数集上加法的运算律}
 	实数集上的加法满足:  \\
@@ -497,11 +515,11 @@ iv) $x^+=y^+ \Rightarrow x=y$, 即$S$是一个单射.
 	
 	综上可得, $\alpha +0 = \alpha$. 
 	
-	(4) 逆元的唯一性可类比于整数逆元证明.下面构造地证明逆元的存在性: 任取$\alpha \in \R$, 声明$$\beta = \{ -a'+x: x \in 0, a' \in \alpha ^c \}$$是$\alpha$的逆元. 
+	(4) 逆元的唯一性可类比于整数逆元证明. 下面构造地证明逆元的存在性: 任取$\alpha \in \R$, 声明$$\beta = \{ -a'+x: x \in 0, a' \in \alpha ^c \}$$是$\alpha$的逆元. (这里略去了对于$\beta \in \R$的验证)
 	
 	(i) 任取$a \in \alpha , b \in \beta$并记$b=-a'+x$.容易证明$a<a'$, 于是$a+b <0$, 从而$\alpha + \beta \subseteq 0$. 
 	
-	(ii) 任取$b \in 0$, 由定义知存在$a \in \alpha , a' \in \alpha ^c$使得$a - a'>b$(否则存在$b$对任意的$a, a'$有$a'-a \geq 0-b$, 显然矛盾).设$x>0$满足$a-a'=x+b$, 那么$b=a+(-a'-x) \in \alpha + \beta$, 从而$0 \subseteq \alpha + \beta$. 
+	(ii) 任取$b \in 0$, 由上方的引理, 存在$a \in \alpha , a' \in \alpha ^c$使得$a - a'>b$. 设$x>0$满足$a-a'=x+b$, 那么$b=a+(-a'-x) \in \alpha + \beta$, 从而$0 \subseteq \alpha + \beta$. 
 	
 	综上可得, $\alpha + \beta = 0$.
 \end{proof}
@@ -576,9 +594,9 @@ iv) $x^+=y^+ \Rightarrow x=y$, 即$S$是一个单射.
 	任意两个实数之间一定存在有理数和无理数.
 \end{corollary}
 \begin{proof}
-	(i)设实数$\alpha < \beta$, 则可得$\alpha \subset \beta$, 即存在有理数$a$使得$a \in \beta$而$a \in \alpha$.于是$\alpha < a < \beta$. 
+	(i)设实数$\alpha < \beta$, 则可得$\alpha \subset \beta$, 即存在有理数$a$使得$a \in \beta$而$a \notin \alpha$.于是$\alpha < a < \beta$. 
 	
-	(ii)假设$\alpha , \beta$之间全部为有理数, 然而任取其中两个$a, b$, 容易证明$a<a+(b-a)/\sqrt{2}<b$, 而$a+(b-a)/\sqrt{2}$为无理数, 矛盾.
+	(ii)假设$\alpha , \beta$之间全部为有理数, 任取其中两个$a, b$, 容易证明$a<a+(b-a)/\sqrt{2}<b$, 而$a+(b-a)/\sqrt{2}$为无理数, 矛盾.
 \end{proof}
 
 
@@ -770,7 +788,7 @@ $$\alpha _p q^p + \alpha _{p-1}q^{p-1} + \cdots + \alpha _{p-n}q^{p-n}  \leq x <
 \section{可数集}
 
 \begin{definition}{可数集}
-	称一个集合$X$\textit{可数的}(countable), 如果$\card X = \card \mathbb{N}$.如果$X$满足$\card X \leq \card \mathbb{N}$, 则称其为\textit{至多可数的}(at most countable).
+	称一个集合$X$\textit{可数的}(countable), 如果$|X| = |\mathbb{N}|$. 如果$X$满足$|X| \leq |\mathbb{N}|$, 则称其为\textit{至多可数的}(at most countable).
 \end{definition}
 
 一个比较形象的解释是, 如果一个集合内元素可以按某种方法排成一列, 则它为可数的.
@@ -795,28 +813,25 @@ $$\alpha _p q^p + \alpha _{p-1}q^{p-1} + \cdots + \alpha _{p-n}q^{p-n}  \leq x <
  x_{31} & x_{32} & x_{33} & \cdots \\
  \vdots & \vdots & \vdots & \ddots
 \end{pmatrix}.$$
-	将并集中的元素按照$x_{11}, x_{21}, x_{12}, x_{31}, x_{22}, x_{13}, \cdots$的方式排列, 故该集合为可数集.考虑并集中出现的重复元素, 由命题3.9可得最后的结果仍是可数集.
+	将并集中的元素按照$x_{11}, x_{21}, x_{12}, x_{31}, x_{22}, x_{13}, \cdots$的方式排列(严格来说, 需要将这种排列方法写成映射), 故该集合为可数集.考虑并集中出现的重复元素, 由上个命题可得最后的结果仍是可数集.
 \end{proof}
 
 \begin{proposition}{}
 	$n$个可数集的Cartesian积也是可数集.
 \end{proposition}
 \begin{remark}
-	可数个可数集的Cartesian积未必是可数集. 利用对角线法(参阅后文)可以证明$A=\{ 0, 1 \}$的可数次积不可数. (实际上就是二进制)
+	可数个可数集的Cartesian积未必是可数集. 一个简明(但不尽严谨)的例子是, 考虑在$\{ 0,1 \} \times \cdots \times { 0,1 \} \times \cdots$与$(0,1) =\{ 0.a_1\cdots a_n \cdots : a_i \in \{ 0,1 \}, i \geq 1 \}$之间建立双射. 
 \end{remark}
 \begin{proof}
-	\underline{\textbf{证法一}}~~利用数学归纳法, 转化为证明两个可数集的Cartesian积为可数集, 亦等价于$\mathbb{N} \times \mathbb{N}$为可数集.将$\mathbb{N} \times \mathbb{N}$的元素视作二维向量, 构造如下排列即可:(严格来说, 需要将这种排列方法写成映射)
-	\begin{center}
-		\includegraphics[width=6cm]{attachment/iShot_2023-08-04_15.19.06.png}
-	\end{center}
+	\underline{\textbf{证法一}}~~利用数学归纳法, 转化为证明两个可数集的Cartesian积为可数集, 亦等价于$\mathbb{N} \times \mathbb{N}$为可数集. 用类似于上个命题的方式排列即可. 
 	
-	\underline{\textbf{证法二}}~~等价于证明$\mathbb{N}^n$是可数的.构造双射$\sigma : \mathbb{N}^n \to N, ~(\alpha _1,  \cdots , \alpha _n) \mapsto p_1^{\alpha _1} \cdots p_n^{\alpha _n}$.于是$\card \mathbb{N}^n = \card N = \card \mathbb{N}$.
+	\underline{\textbf{证法二}}~~等价于证明$\mathbb{N}^n$是可数的.构造双射$\sigma : \mathbb{N}^n \to N, ~(\alpha _1,  \cdots , \alpha _n) \mapsto p_1^{\alpha _1} \cdots p_n^{\alpha _n}$.于是$|\mathbb{N}^n| = |N| = |\mathbb{N}|$.
 \end{proof}
 
 容易确定: 
 
 \begin{proposition}
-	$\card \mathbb{Z} = \card \mathbb{N} = \card \mathbb{Q} = \card \{ x: \exists n \in \mathbb{Z}_+, a_0,  \cdots , a_n \in \mathbb{Z}(a_0+a_1x+\cdots +a_nx^n=0) \}$.
+	$|\mathbb{N}| = |\mathbb{Z}| = |\mathbb{Q}| = | \{ x: \exists n \in \mathbb{Z}_+, a_0,  \cdots , a_n \in \mathbb{Z}(a_0+a_1x+\cdots +a_nx^n=0) \} |$.
 \end{proposition}
 \begin{remark}
 	最后一个集合意思就是全体代数数构成的集合.
@@ -848,20 +863,21 @@ $$\alpha _p q^p + \alpha _{p-1}q^{p-1} + \cdots + \alpha _{p-n}q^{p-n}  \leq x <
 	
 	构造$a=0.k_1k_2k_3\cdots$, 由上面的构造可知$a$的十进制小数表示唯一, 又因为存在$m$使得$a=a_m$, 可得$k_m=k_{mm}$, 矛盾.
 	
-	\underline{\textbf{证法二}}~~之后我们会证明, 可数集一定是零测集(通俗地讲, 就是长度为$0$), 于是$\R$是不可数集. 
+	\underline{\textbf{证法二}}~~之后我们会证明, 可数集一定是零测集(通俗地讲, 就是长度为$0$), 于是$(0,1)$是不可数集. 
+	
+	\underline{\textbf{证法三}}~~(闭区间套, 参见定理\ref{thm:biqujmtc}) 假设可将$(0,1)$写作$\{ x_1,x_2,\cdots \}$. 取$0<a_1<x_1<b_1<1$, 那么在$[a_1, \frac{2}{3}a_1+\frac{1}{3}b_1], [\frac{2}{3}a_1+\frac{1}{3}b_1, \frac{1}{3}a_1+\frac{2}{3}b_1], [\frac{1}{3}a_1+\frac{2}{3}b_1 , b_1]$中至少有一个区间不包含$x_1$, 记为$I_1=[a_2,b_2]$. 递归地定义$I_n$, 则$I_1 \supseteq \cdots \supseteq I_n \supseteq \cdots$且$|I_n| \to 0$. 那么存在唯一的$x \in \bigcap_{n \geq 1}I_n$, 即$x \notin (0,1)$, 矛盾. 
+	
+	注: 之后证明Cantor集是不可数集时会用到类似的方法. 
 \end{proof}
-
-
 
 \begin{corollary}{}
 	实数集$\R$是不可数的.
 \end{corollary}
-\begin{remark}
-	也可用闭区间套方法证明, 参阅后文. 
-\end{remark}
 \begin{proof}
-	构造函数$f(x)=\tan \ssb{\pi x-\frac{\pi}{2}}$, 易知$f$为$(0, 1)$到$\R$的双射, 故$\card \R = \card (0, 1) > \card \mathbb{N}$.
+	构造函数$f(x)=\tan \ssb{\pi x-\frac{\pi}{2}}$, 易知$f$为$(0, 1)$到$\R$的双射, 故$|\R | = |(0, 1)| > |\mathbb{N} |$.
 \end{proof}
+
+实际上, 我们可以证明$|\R| = |\mathcal{P}(\N)|$, 参见5.4.4小节. 
 
 现在来看一些常用定理: 
 

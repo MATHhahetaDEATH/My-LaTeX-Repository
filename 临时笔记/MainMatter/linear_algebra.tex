@@ -1,0 +1,295 @@
+\chapter{线性方程组与行列式}
+
+\section{线性方程组解的情况}
+
+\subsection*{结论}
+
+\begin{theorem}{通过阶梯型矩阵判断解的情况}
+	设$n$元线性方程组$Ax=b$. 将其增广矩阵化为阶梯型矩阵: 若出现“$0=d$”型方程则原方程组无解; 否则有解, 此时若阶梯型矩阵的非零行数目$r$等于$n$则有唯一解, 若$r<n$则有无穷多解. 
+\end{theorem}
+
+\begin{theorem}{通过系数矩阵与增广矩阵的秩判断解的情况}
+	设$n$元线性方程组$Ax=b$, 对应增广矩阵$\tilde{A}$. 则其有解当且仅当$\rank A = \rank \tilde{A}$. 有解时, 若$\rank A = n$则有唯一解, 若$\rank A < n$则有无穷多解. 
+\end{theorem}
+
+\begin{corollary}{}
+	设$n$元齐次线性方程组$Ax=0$, 其有非零解$\Leftrightarrow r<n \Leftrightarrow \rank A <n$. 进而, 若方程个数小于$n$则一定有非零解. 
+\end{corollary}
+
+\begin{theorem}{用系数矩阵的行列式判断解的情况}
+	设$n$元线性方程组$Ax=b$. 当方程个数为$n$时, 其有唯一解当且仅当$|A| \neq 0$. 
+\end{theorem}
+
+\begin{corollary}{}
+	设$n$元齐次线性方程组$Ax=0$. 当方程个数为$n$时, 其只有零解当且仅当$|A| \neq 0$. 
+\end{corollary}
+
+\subsection*{应用}
+
+\begin{example}{p122,例3}
+	证明: 线性方程组的增广矩阵$\tilde{A}$的秩或者等于它的系数矩阵$A$的秩, 或者等于$\rank A +1$. 
+\end{example}
+
+\begin{example}{p123,例5}
+	证明: 线性方程组$$\begin{cases}
+		a_{11}x_1+\cdots +a_{1n}x_n=b_1, \\
+		\cdots \\
+		a_{m1}x_1+\cdots +a_{mn}x_n=b_m.
+	\end{cases}$$
+	有解的充分必要条件是下列线性方程组无解: $$\begin{cases}
+		a_{11}x_1+\cdots +a_{m1}x_m=0, \\
+		\cdots \\
+		a_{1n}x_1+\cdots +a_{mn}x_m=0, \\
+		b_1x_1 + \cdots + b_mx_m=0. 
+	\end{cases}$$
+\end{example}
+
+\section{线性方程组解集的结构}
+
+\subsection*{结论}
+
+计算齐次线性方程组的解集: 求出关于自由变量$x_{i_1},\cdots ,x_{i_m}$的解, 再令自由变量取遍$m$个线性无关的向量, 如$(1,\cdots ,0),\cdots ,(0,\cdots ,1)$. 由此得到线性无关的一组解$\eta _1,\cdots ,\eta _m$. 通过这种操作过程, 同时可以证明: 
+
+\begin{theorem}{秩—零化度定理}
+	设$n$元其次线性方程组$Ax=0$, 其解空间记作$W$, 则$\dim W = n-\rank A$. 
+\end{theorem}
+
+\begin{theorem}{非齐次线性方程组解集的结构}
+	设非齐次线性方程组$Ax=b$及其导出组$Ax=0$, 两者的解集记为$U,W$. $\gamma _0$是$Ax=b$的一个特解, 则$$U=\{ \gamma _0 + \eta : \eta \in W \}. $$
+\end{theorem}
+
+\begin{corollary}{}
+	若$Ax=b$有解, 则该解唯一当且仅当$Ax=0$只有零解. 
+\end{corollary}
+\begin{remark}
+	从线性映射的角度看, 就是说$Ax=b$的解唯一当且仅当$A$是单射. 
+\end{remark}
+
+利用行列式, 还可以得到某种意义上的通式: 
+
+\begin{theorem}{Cramer法则}
+	设$n$个方程的$n$元线性方程组$Ax=b$, 并记将$A$的第$j$列换成$b$所得矩阵为$B_j$. 当$|A| \neq 0$时, 方程组的唯一解是$$\begin{pmatrix}
+		\dfrac{|B_1|}{|A|} & \cdots & \dfrac{|B_n|}{|A|}
+	\end{pmatrix}^{\T}.$$
+\end{theorem}
+
+\subsection*{应用}
+
+\begin{example}{p23,补充题一,2}
+	解下列线性方程组: $$\begin{cases}
+		x_1+2x_2+3x_3+\cdots +(n-1)x_{n-1}+nx_n=b_1, \\ 
+		nx_1+x_2+2x_3+\cdots +(n-2)x_{n-1}+(n-1)x_n=b_2, \\
+		\cdots \\
+		2x_1+3x_2+4x_3+\cdots +nx_{n-1}+x_n=b_n.
+	\end{cases}$$
+\end{example}
+
+\begin{example}{p23,补充题一,3}
+	解下列线性方程组: $$\begin{cases}
+		x_1+x_2+\cdots +x_n=1, \\
+		x_2+x_3+\cdots +x_{n+1}=2, \\
+		\cdots \\
+		x_{n+1}+x_{n+2}+\cdots +x_{2n}=n+1.
+	\end{cases}$$
+\end{example}
+
+\begin{example}{p128,例3}
+	设$n$个方程的$n$元齐次线性方程组的系数矩阵$A$的行列式等于$0$, 并且$A$的$(k,\ell)$元的代数余子式$A_{k\ell} \neq 0$. 证明: $\begin{pmatrix}
+		A_{k1} & \cdots & A_{kn}
+	\end{pmatrix}^{\T}$是该方程组的一个基础解系. 
+\end{example}
+
+\begin{example}{p129,例4}
+	设$n-1$个方程的$n$元齐次线性方程组$Bx=0$. 将$B$划去第$j$列得到的$n-1$阶子式记作$D_j$, 令$\eta = \begin{pmatrix}
+		D_1 & -D_2 & \cdots & (-1)^{n-1}D_n
+	\end{pmatrix}^{\T}$. 若$\eta \neq 0$, 则$\eta$是该方程组的一个基础解系. 
+\end{example}
+
+\begin{example}{p135,例2}
+	设$\gamma _0$是$n$元线性方程组$Ax=b$的特解, $\eta _1,\cdots ,\eta _t$是$Ax=0$的基础解系, 令$\gamma _i=\gamma _0+\eta _i,i=1,\cdots ,t$. 证明, $Ax=b$的解集为$\{ c_0\gamma _0+c_1\gamma _1+\cdots + c_t\gamma _t:c_0+c_1+\cdots +c_t=1 \}$. 
+\end{example}
+
+\section{行列式的计算}
+
+\subsection*{结论}
+
+行列式函数可以有不同的定义方式, 这里直接用完全展开式定义之: 设矩阵$A=(a_{ij})_{n\times n}$, 则$$\det A = \sum_{j_1,\cdots ,j_n} (-1)^{\tau (j_1\cdots j_n)} a_{1j_1} \cdots a_{nj_n}. $$
+
+\begin{proposition}{行列式的性质}
+	设$A$是$n$阶方阵, 记$A=\begin{pmatrix}
+		u_1 & \cdots & u_n
+	\end{pmatrix}$. 
+	\begin{enumerate}
+		\item $|A^{\T}| = |A|$. 
+		\item 倍乘变换: $\det \begin{pmatrix}
+		u_1 & \cdots & ku_i & \cdots & u_n
+	\end{pmatrix} = k \det \begin{pmatrix}
+		u_1 & \cdots & u_i & \cdots & u_n
+	\end{pmatrix}$. 
+		\item 倍加变换: $\det \begin{pmatrix}
+		u_1 & \cdots & u_i & \cdots ku_i+u_j & \cdots & u_n
+	\end{pmatrix} = \det \begin{pmatrix}
+		u_1 & \cdots & u_i & \cdots u_j & \cdots & u_n
+	\end{pmatrix}$. 
+		\item 对换变换: $\det \begin{pmatrix}
+		u_1 & \cdots & u_j & \cdots & \cdots u_i & \cdots & u_n
+	\end{pmatrix} = -\det \begin{pmatrix}
+		u_1 & \cdots & u_i & \cdots & \cdots u_j & \cdots & u_n
+	\end{pmatrix}$. 
+		\item 多线性: $\det \begin{pmatrix}
+			u_1 & \cdots & u_i+u'_i & \cdots & u_n
+		\end{pmatrix} = \det \begin{pmatrix}
+			u_1 & \cdots & u_i & \cdots & u_n
+		\end{pmatrix} + \det \begin{pmatrix}
+			u_1 & \cdots & u'_i & \cdots & u_n
+		\end{pmatrix}$. 
+		\item 两行成比例, 行列式的值为$0$. 
+	\end{enumerate}
+\end{proposition}
+\begin{remark}
+	作为推论, 初等行变换保持行列式的非零性. 
+\end{remark}
+
+在$n$阶方阵$A$中, 划去第$i$行和第$j$列所成的矩阵的行列式称为$(i,j)$元的余子式, 记作$M_{ij}$. 令$A_{ij}=(-1)^{i+j}M_{ij}$为$(i,j)$元的代数余子式. 
+
+\begin{theorem}{行列式按一行展开}
+	设$n$阶方阵$A=(a_{ij})$, 则$$|A| = a_{i1}A_{i1} + \cdots + a_{in}A_{in}. $$
+\end{theorem}
+\begin{remark}
+	当$i \neq j$时还有$$a_{i1}A_{j1} + \cdots + a_{in}A_{jn}=0. $$
+\end{remark}
+
+进一步地, 考虑在$n$阶方阵$A$中选取第$i_1,\cdots ,i_k$行和第$j_1,\cdots ,j_k$列所成的$k$阶方阵的行列式, 称其为一个$k$阶子式, 记作$\displaystyle A \begin{pmatrix}
+	i_1,\cdots ,i_k \\ j_1,\cdots ,j_k
+\end{pmatrix}$. 令$\{ i'_1,\cdots ,i'_{n-k} \}=\{ 1,\cdots ,n \} \setminus \{ i_1,\cdots ,i_n \}$, $\{ j'_1,\cdots ,j'_{n-k} \}=\{ 1,\cdots ,n \} \setminus \{ j_1,\cdots ,j_n \}$, 则$\displaystyle A \begin{pmatrix}
+	i'_1,\cdots ,i'_{n-k} \\ j'_1,\cdots ,j'_{n-k}
+\end{pmatrix}$称为上述子式的余子式. 同样地, 令$$(-1)^{i_1+\cdots +i_k+j_1+\cdots +j_k} A \begin{pmatrix}
+	i'_1,\cdots ,i'_{n-k} \\ j'_1,\cdots ,j'_{n-k}
+\end{pmatrix}$$为对应的代数余子式. 
+
+\begin{theorem}{行列式按$k$行展开, Laplace}
+	设$n$阶方阵$A$, 则$$|A| = \sum_{1<j_1<\cdots <j_k \leq n} A\begin{pmatrix}
+	i_1,\cdots ,i_k \\ j_1,\cdots ,j_k
+\end{pmatrix} (-1)^{i_1+\cdots +i_k+j_1+\cdots +j_k} A \begin{pmatrix}
+	i'_1,\cdots ,i'_{n-k} \\ j'_1,\cdots ,j'_{n-k}
+\end{pmatrix}.$$
+\end{theorem}
+
+\begin{proposition}{Vandermonde行列式}
+	$$\begin{vmatrix}
+ 1 & 1 & 1 & \cdots & 1\\
+ a_1 & a_2 & a_3 & \cdots & a_n\\
+ a_1^2 & a_2^2 & a_3^2 & \cdots & a_n^2\\
+ \vdots & \vdots & \vdots &  & \vdots \\
+ a_1^{n-1} & a_2^{n-1} & a_3^{n-1} & \cdots & a_n^{n-1}
+\end{vmatrix} = \prod_{1 \leq j < i \leq n} (a_i-a_j).$$
+\end{proposition}
+
+\subsection*{应用}
+
+计算行列式的常见方法: 
+
+\begin{enumerate}
+	\item 用完全展开式计算, 适用于行列式内$0$较多的情况. 
+	\item 做初等行变换. 
+	\item 利用多线性拆成几个行列式的和. 
+	\item 按行/列展开, 常用于归纳(递推)法. 
+	\item 加边法. 
+\end{enumerate}
+
+\begin{example}{p48,例9}
+	设$n$阶方阵$A=(a_{ij})$, $J$表示元素均为$1$的$n$阶方阵. 则$$|A+tJ| = |A|+t\sum_{i=1}^{n}\sum_{j=1}^{n} A_{ij}.$$
+\end{example}
+
+\begin{example}{p52,例13}
+	计算下列$n (\geq 2)$阶行列式: $$D_n = \begin{vmatrix}
+ 1 & 1 & 1 & \cdots & 1\\
+ x_1 & x_2 & x_3 & \cdots & x_n\\
+ x_1^2 & x_2^2 & x_3^2 & \cdots & x_n^2\\
+ \vdots & \vdots & \vdots &  & \vdots \\
+ x_1^{n-2} & x_2^{n-2} & x_3^{n-2} & \cdots & x_n^{n-2} \\
+ x_1^{n} & x_2^{n} & x_3^{n} & \cdots & x_n^{n}
+\end{vmatrix}.$$
+\end{example}
+
+\begin{example}{p54,习题2.4,7}
+	计算下列$n (\geq 2)$阶行列式: $$D_n = \begin{vmatrix}
+ x & y & \cdots & y & y\\
+ z & x & \cdots & y &y \\
+ \vdots & \vdots &  &\vdots  &\vdots \\
+  z& z & \cdots & x & y\\
+ z &z  & \cdots & z &x
+\end{vmatrix}.$$
+\end{example}
+
+\begin{example}{p55,习题2.4,10}
+	计算下列$n (\geq 2)$阶行列式: $$\begin{vmatrix}
+ 1 & 1 & 1 & \cdots & 1\\
+ 1 & a_1 & 0 & \cdots &0 \\
+ 1 & 0 & a_2  & \cdots & 0 \\
+ \vdots & \vdots & \vdots &  & \vdots\\
+ 1 & 0  & 0 & \cdots & a_{n-1}
+\end{vmatrix}.$$
+\end{example}
+
+\begin{example}{p67,例2}
+	设$|A|$是关于$1,\cdots ,n$的Vandermonde行列式, 求: $$A \begin{pmatrix}
+		1,\cdots ,n-1 \\ 1,\cdots ,j-1,j+1,\cdots ,n
+	\end{pmatrix}.$$
+\end{example}
+
+\section{行列式的其他性质}
+
+
+
+
+
+\chapter{$n$维向量空间$\F ^n$}
+
+
+
+
+
+
+
+\chapter{矩阵的运算}
+
+\section{特殊矩阵}
+
+
+
+
+\section{特殊矩阵的秩与行列式}
+
+
+
+
+
+\chapter{矩阵的相抵与相似}
+
+
+
+
+\chapter{二次型与矩阵的合同}
+
+
+
+
+
+\chapter{多项式环}
+
+
+
+
+\chapter{线性空间与线性映射}
+
+
+
+
+
+\chapter{带有度量的线性空间}
+
+
+
+
+\chapter{多重线性代数}

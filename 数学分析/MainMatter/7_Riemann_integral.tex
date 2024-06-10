@@ -15,14 +15,14 @@
 	\item 用平均分割和统一的标记点选取标准来代替一般化的方法. 注意这种计算方式一定是充分条件. 
 	\item 类似于数列, 既然难以判断极限是否存在, 可以考虑定义上下极限来逼近. 
 \end{itemize}
-综合这两种想法, 在本例中我们可以如下考察所求的面积: 首先取平均分割$\pi_{n}=\{ x_i=\frac{i}{n} \}$, 接着选择两种不同的标记点集$\displaystyle\xi _L = \big\{ \xi _i = \inf_{x_{i-1} \leq x \leq x_i} x^2 \big\}$, $\displaystyle\xi _U = \big\{ \xi _i = \sup_{x_{i-1} \leq x \leq x_i} x^2 \big\}$. 考虑极限过程$n\to \infty$, 于是两种极限$S_L$和$S_U$就是: $$S_L = \lim_{n\to \infty} \left( \frac{1}{n} \sum_{i=1}^{n} \frac{(i-1)^2}{n^2} \right) = \lim_{n\to \infty} \frac{2n^2-3n+1}{6n^2} = \frac{1}{3} ,  $$
+综合这两种想法, 在本例中我们可以如下考察所求的面积: 首先取平均分割$\pi_{n}=\{ x_i=\frac{i}{n} \}$, 接着选择两种不同的标记点集$\displaystyle\xi _L = \big\{ \xi _i :  \xi _i ^2= \inf_{x_{i-1} \leq x \leq x_i} x^2 \big\}$, $\displaystyle\xi _U = \big\{ \xi _i : \xi _i ^2= \sup_{x_{i-1} \leq x \leq x_i} x^2 \big\}$. 考虑极限过程$n\to \infty$, 于是两种极限$S_L$和$S_U$就是: $$S_L = \lim_{n\to \infty} \left( \frac{1}{n} \sum_{i=1}^{n} \frac{(i-1)^2}{n^2} \right) = \lim_{n\to \infty} \frac{2n^2-3n+1}{6n^2} = \frac{1}{3} ,  $$
 $$S_U = \lim_{n\to \infty} \left( \frac{1}{n} \sum_{i=1}^{n} \frac{i^2}{n^2} \right) = \lim_{n\to \infty} \frac{2n^2+3n+1}{6n^2} = \frac{1}{3}.$$
 注意到$S_L=S_U = \frac{1}{3}$, 于是所求面积(似乎)就是$\frac{1}{3}$. 
 
 上面的例子就是利用Riemann和进行逼近计算(定义)的做法. 我们不难想到另一种方法: 先定义所谓阶梯函数(这种函数的积分易于定义), 再考虑找到特定函数的阶梯函数逼近, 最后计算极限阶梯函数的积分即可. 这两种方法本质上是相同的, 只是操作顺序不一样. 然而利用后者有两个优势: 我们能够自然地理解Riemann积分的某些缺陷(例如只能处理有界函数), 另外这种处理方法和Lebesgue积分的定义几乎是一样的, 理解这种方式有助于实分析的学习. 
 
 
-\subsection{用阶梯函数进行逼近}
+\subsection{阶梯函数及其积分}
 
 首先我们考虑\textit{示性函数}(characteristic function): 设$E \subseteq \R$, 则定义$$\chi _{E}:\R \to \{ 0,1 \},\quad \chi _{E} (x) = \begin{cases}
 	1 & x \in E \\ 0 & x \notin E
@@ -49,7 +49,7 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 	\end{itemize}
 \end{definition}
 \begin{remark}
-	刚才说过, 点是没有长度的, 因此阶梯函数在分割点处的取值对最终结果没有影响. 
+	刚才说过, 点是没有长度的, 因此阶梯函数在分割点处的取值应当对最终结果没有影响. 
 \end{remark}
 \begin{remark}
 	为了避免与原函数的符号相混淆, 也记$\int f = \int _I f = \int_a^b f$. 不过为了方便, 我们暂时混用这些符号. 
@@ -68,17 +68,16 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 	
 	c) 三角不等式: $$\left| \int f \right| \leq \int |f|. $$
 	
-	d) 保号性/保序性: 若$f \geq 0$对有限个点之外均成立, 则$$\int f \geq 0. $$
-	\qquad 特别地, 若$f \leq g$对有限个点之外成立, 则$$ \int f \leq  \int g.$$
+	d) 保号性/保序性: 若$f \geq 0$, 则$$\int f \geq 0. $$
+	\qquad 特别地, 若$f \leq g$, 则$$ \int f \leq  \int g.$$
 	
 	e) 对积分的估计: 选取与$f$相容的分划$\pi= \{ a=x_0<\cdots <x_n=b \}$后, $$\left| \int_a^b f \right| \leq |b-a| \sup_{1 \leq i \leq n} |\lambda _i|. $$
 \end{proposition}
-\begin{remark}
-	之后有关函数大小的比较我们都默认是对有限个点以外成立. 
-\end{remark}
 \begin{proof}
 	注意到阶梯函数是有限求和, 诸命题的验证就是显而易见的了. 
 \end{proof}
+
+\subsection{用阶梯函数逼近}
 
 现在来对一般函数定义Riemann积分: 
 
@@ -86,31 +85,102 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 	设闭区间$I=[a,b]$. 称$f$是\textit{Riemann可积的}, 如果对任意$\varepsilon >0$均存在$F,e \in \mathcal{S}(I)$使得$$\forall x \in I,|f(x)-F(x)|<e(x),\qquad \int e < \varepsilon .$$
 \end{definition}
 
-我们需要对上述定义中的$F$逐个求积分并取其“极限”. 
-
-一种可行的方法是将$f$拆分为非负部分$f^+$和非正部分$f^-$, 即$f=f^+-f^-$, 之后定义非负函数$g$的积分为$$\int g := \sup \left\{ \int G:0\leq G \leq g, G \in \mathcal{S}(I)  \right\}, $$
-最后令$\int f = \int f^+ - \int f^-$. 另一种则是回归序列逼近的思路, 也即考虑某种意义上的一列逼近函数$\{ f_n \}$, 然后定义$$\int f := \lim_{n\to \infty} \int f_n.$$
-接下来我们完整的阐述这两种方法并证明其等价性(以及与可积条件的等价性): 
+我们需要对上述定义中的$F$逐个求积分并取其“极限”. 从上方的定义, 我们不难想到类似于序列逼近函数极限的思路: 考虑某种意义上的一列逼近函数$\{ f_n \}$, 然后定义$$\int f := \lim_{n\to \infty} \int f_n.$$
 
 \begin{proposition}{}
 	设闭区间$I=[a,b]$. 则下列说法等价: 
-	\begin{enumerate}
-		\item $f$是Riemann可积的.
-		\item $f$有界. 令$f=f^+-f^-$, 其中$f^+ ,f^- \geq 0$, 则集合$$\mathcal{A}^+ = \left\{ \int F^+:0\leq F^+ \leq f^+, F^+ \in \mathcal{S}(I)  \right\},\quad \mathcal{A}^- = \left\{ \int F^-:0\leq F^- \leq f^-, F^- \in \mathcal{S}(I)  \right\}$$
-		有界. 进而$\sup \mathcal{A}^+, \sup \mathcal{A}^-$存在, 令$$\int f := \sup \mathcal{A}^+- \sup \mathcal{A}^-.$$
+	\begin{itemize}
+		\item $f$是Riemann可积的. 
 		\item 存在阶梯函数序列$\{ f_n \},\{ e_n \}$使得$$\forall x \in I,|f(x)-f_n(x)|<e_n(x),\qquad \lim_{n\to \infty} \int e_n = 0.$$
 		并且令$$\int f := \lim_{n\to \infty} \int f_n .$$
-	\end{enumerate}
+	\end{itemize}
 \end{proposition}
 \begin{proof}
-	1)$\Rightarrow$2): 
+	1) $\Rightarrow$ 2): 对任意$n>0$, 存在$f_n$使得$|f(x)-f_n(x)|<e_n(x)$使得$\int e_n < 1/n$, 从而$\lim_{n\to \infty} \int e_n = 0$. 
+	
+	2) $\Rightarrow$ 1): 显然. 
+	
+	另外, 我们还需证明$\int f = \lim_{n\to \infty} \int f_n$是良定义的, 即极限存在且不依赖于$\{ f_n \}$的选取: 
+	
+	由于$|f_n(x)-f_m(x)| \leq |f(x)-f_n(x)| + |f(x)-f_m(x)| \leq e_n(x)+e_m(x)$, 在两边积分可得$$\left| \int f_n-\int f_m \right| \leq \int |f_n-f_m| \leq \int e_n + \int e_m \to 0.$$
+	这说明$\{ \int f_n \}$是Cauchy列, 进而存在极限. 
+	
+	另一方面, 设有另外的$\{ f'_n \}$和$\{ e'_n \}$符合要求, 则$|f_n(x)-f'_n(x)| \leq |f(x)-f_n(x)| + |f(x)-f'_n(x)| \leq e_n(x)+e'_n(x)$, 两侧积分可得$$\left| \int f_n - \int f'_n \right| \leq \int |f_n-f'_n| \leq \int e_n+ \int e'_n \to 0.$$
+	于是两个极限相等. 
 \end{proof}
 
+另一种可行的方法是将$f$拆分为非负部分$f^+$和非正部分$f^-$, 即$f=f^+-f^-$, 之后定义非负函数$g$的积分为$$\int g := \sup \left\{ \int G:0\leq G \leq g, G \in \mathcal{S}(I)  \right\}, $$
+最后令$\int f = \int f^+ - \int f^-$. 
+
+我们先来研究最简单的情形, 即$f$本身就是非负函数: 
+
+\begin{proposition}{}
+	设闭区间$I=[a,b]$, $f \geq 0$. 则在下列说法中, 1)可以推出2), 而2)加上条件$$\sum_{i=1}^{\ell} \omega (f,(x_{i-1},x_i)) (x_i-x_{i-1}) \to 0,\quad \| \pi \| \to 0$$可以推出1). 
+	\begin{itemize}
+		\item $f$是Riemann可积的, 且$\int f$为上个命题中所定义的那样. 
+		\item $f$有界, 则集合$$\mathcal{A} = \left\{ \int F:0\leq F \leq f, F \in \mathcal{S}(I)  \right\}$$
+		有界. 进而$\sup \mathcal{A}$存在, 令$$\int f := \sup \mathcal{A}.$$
+	\end{itemize}
+\end{proposition}
+\begin{proof}
+	(1) 应用上个命题的等价条件, 由于阶梯函数都有界, 显然$f$有界. 下证$\lim_{n\to \infty} \int f_n = \sup \mathcal{A}$. 假设该式不成立, 即存在$M,\varepsilon$使得$\lim_{n\to \infty} \int f_n < M < M+\varepsilon < \sup \mathcal{A}$, 于是对足够大的$n$均有$\int f_n < M$, 且存在阶梯函数$0\leq F \leq f$使得$\int F > M+\varepsilon$. 这就是说, $$e_n(x) > f(x)-f_n(x) \geq F(x)-f_n(x).$$
+	两侧(均为非负的阶梯函数)同时积分, 即得$\int e_n(x) \geq \int F(x) - \int f_n(x) > \varepsilon >0$, 矛盾. 因此$\lim_{n\to \infty} \int f_n = \sup \mathcal{A}$. 
+	
+	(2) 对于$\mathcal{S}(I) \ni F,F' \geq 0$, 定义$F,F'$等价当且仅当它们的分割点集是一样的. 在每个等价类$[F]$中, 设分割点集为$\pi$, 定义该等价类的“极大项”为$$\varphi ([F]) := \sum_{i=1}^{n} \inf_{(x_{i-1},x_i)} f \cdot \chi _{(x_{i-1},x_i)}.$$
+	显然$\tilde{\mathcal{A}}:=\{ \int \varphi ([F]):\mathcal{S}(I) \ni F \geq 0 \}$是$\mathcal{A}$的子集, 且$\sup \tilde{\mathcal{A}} = \sup \mathcal{A}$(为什么?). 于是取$\{ \varphi _n \} \subseteq \{ \varphi ([F]):\mathcal{S}(I) \ni F \geq 0 \}$使得$\int \varphi _n \nearrow \sup \mathcal{A}$. 这样的$\varphi _n$与其分割集$\pi _n$是一一对应的关系. 若$\int \varphi _m > \int \varphi _n$, 考虑$\tilde{\pi} = \pi _n \cup \pi _m$, 则$\tilde{\pi}$所对应的$\varphi$(不一定在该序列中)满足$\int \varphi \geq \int \varphi _m$, 将其添加到序列中. 于是我们不妨设该序列存在一个子列$\{ \varphi _{k_n} \}$, 使得对任意$n>0$, $\varphi _{k_n}$的分割点集都比$\varphi _{k_1}$的分割点集细. 令$$e_{k_n} = \sum_{i=1}^{\ell} \omega (f,(x_{i-1},x_i)) \chi _{(x_{i-1},x_i)}, $$
+	其中$e_{k_n}$与$\varphi _{k_n}$的分割点集相同. 那么$f(x)-\varphi _{k_n}(x) \leq e_{k_n}(x)$. 最后, 利用命题中给出的条件, $$\int e_{k_n} = \sum_{i=1}^{\ell} \omega (f,(x_{i-1},x_i)) (x_i-x_{i-1}) \to 0, \quad \| \pi \| \to 0. $$
+	这就是说$\int e_{k_n} \to 0,n \to \infty$. 
+\end{proof}
+\begin{remark}
+	上述条件并不是很直白. 实际上我们后面会从连续性的角度给出一个等价条件: (闭区间上)有界函数可积当且仅当其不连续点组成的集合是零测集. 
+\end{remark}
+\begin{remark}
+	从(2)的证明可以看出Riemann积分并不够好, 因为我们需要人为添加一个条件才能保证可积. 
+\end{remark}
 
 
+接着看一般情况: 
 
+\begin{corollary}{}
+	将上面命题的$f \geq 0$这一条件去掉, 并重新定义$\int f$如下, 原来的两条结论仍成立: 取$f^+ := \max \{ f,0 \}, f^{-} := \max \{ -f,0 \}$, 则$f=f^+-f^-$. 令$\int f = \int f^+ - \int f^-$. 
+\end{corollary}
+\begin{proof}
+	实际上只用证明下面的引理: $f$可积当且仅当$f^+,f^-$均可积且$\int f = \int f^+ - \int f^-$. 充分性显然. 必要性: 应用刚才提到过的可积条件, 下证$f^+$可积, 即$D(f^+)$为零测集. 若$D(f^+) \nsubseteq D(f)$, 考虑$x_0 \in D(f^+)$但$x_0 \notin D(f)$, 那么显然$f(x_0)=0$且$f$在$x_0$两侧变号. 结合$f$在$x_0$处连续, 可知存在$\delta$使得(不妨)$f|_{(x_0-\delta,x_0)}<0,f|_{(x_0,x_0+\delta)}>0$, 这就是说$f^+|_{(x_0-\delta,x_0]}=0$, 从而$f^+|_{(x_0-\delta,x_0+\delta) = f|_{(x_0-\delta,x_0+\delta)$, 立得矛盾. 所以$D(f^+) \subseteq D(f)$, 自然是零测集. 
+\end{proof}
+\begin{remark}
+	从上面的证明我们看出, 直接使用阶梯函数进行逼近并不够方便, 这就启发我们要研究Riemann可积和连续性的关系. 
+\end{remark}
 
 \subsection{用Riemann和进行逼近}
+
+类似于前文的例子, 如下定义Riemann和: 基于分割点集$\pi$和标记点集$\xi$, 则$f$的\textit{Riemann和}为: $$S(f;\pi ,\xi) := \sum_{i=1}^{n} (x_i-x_{i-1})f(\xi _i) .$$
+对于取定的函数$f$, 定义它的基为$\mathcal{B} := \{ B_{\delta}:\delta >0 \}$, 其中$B_{\delta} := \{ (\pi ,\xi) : \| \pi \|< \delta \}$. 不难证明, 这的确是一个基. 
+
+\begin{proposition}{}
+	设闭区间$I$, $f$在$I$上Riemann可积, 则
+	\begin{center}
+		$\displaystyle \lim_{\mathcal{B}} S(f;\pi ,\xi) = \int_I f.$
+	\end{center}
+\end{proposition}
+\begin{proof}
+	任取$\varepsilon >0$, 设阶梯函数$F,e$使得$|f(x)-F(x)|<e(x)$且$\int e(x) < \varepsilon$, 且不妨设$F,e$的分割点集均为$\pi _0 =\{ a=x_0<\cdots <x_n=b \}$. 待定分割点集$\pi = \{ a=y_0<\cdots <y_m=b \}$和与之对应的任意标记集$\xi$. 令$\| \pi \| < \min_{1 \leq i \leq n} \{ x_i-x_{i-1} \}$, 于是$$\left| S(f;\pi ,\xi) - \int_I f \right| \leq \sum_{i=1}^{m} \left| f(\xi _i)-\int_{y_{i-1}}^{y_i} f \right|. $$
+	对$i$, 分情况讨论: 
+	
+	若$(y_{i-1},y_i)$完全包含在某个$(x_{j-1},x_j)$中: 易知$|f(x)-f(\xi _i)| \leq |f(x)-F(x)| + |F(\xi _i)-f(\xi _i)| \leq e(x)+e(\xi _i)$, 
+	从而$$\left| f(\xi _i)-\int_{y_{i-1}}^{y_i} f \right| \leq 2\int_{y_{i-1}}^{y_i} e.$$
+	
+	若$(y_{i-1},y_i)$恰包含某个$x_j$: 由$f$可积知$f$有界, 设$|f(x)|<M$. 此时有$$\left| f(\xi _i)-\int_{y_{i-1}}^{y_i} f \right| \leq 2(y_i-y_{i-1})M \leq 2\| \pi \|M.$$
+	
+	综上可得, $$\left| S(f;\pi ,\xi) - \int_I f \right| \leq 2\sum_{i=1}^{m} \int_{y_{i-1}}^{y_i} e + 2n\| \pi \|M \leq 2\varepsilon + 2nM\| \pi \|.$$
+	先令$\| \pi \|\to 0$, 则$\limsup_{\| \pi \|\to 0} LHS \leq 2\varepsilon$. 再令$\varepsilon \to 0$即得. 
+\end{proof}
+
+现在来实现之前提到过的上下极限的想法. 需要注意, Riemann和的概念是可以推广的, 但现在要定义的上下积分依赖于$\R$的序关系, 因此无法推广. 
+
+
+
+
+
 
 
 

@@ -423,7 +423,7 @@ $$\cos (b^n\pi (x+h)) = \cos \left( b^{n-m}\pi(\alpha _m + \beta _m + b^mh) \rig
 		0 & 1 \\ -1 & 0
 	\end{pmatrix}, I=\begin{pmatrix}
 		0 \\ 1
-	\end{pmatrix}$$存在唯一解(不能直接用$f(x),F(x)$相除再求导来证明), 于是$F(x) \equiv f(x)$. 这就是说$$-\sin (x+\pi) = \sin x,\qquad -\cos (x+\pi) = \cos x. $$
+	\end{pmatrix}$$存在唯一解(后面会证明), 于是$F(x) \equiv f(x)$. 这就是说$$-\sin (x+\pi) = \sin x,\qquad -\cos (x+\pi) = \cos x. $$
 进而$\sin x$和$\cos x$的最小正周期都是$2\pi$. 
 
 \subsection{l’Hôpital法则}
@@ -1195,6 +1195,44 @@ Euler提出了针对这三种形式的代换: $$\sqrt{t^2+1}=tu\pm 1,t-u;\qquad 
 	
 	当$\Delta = r^2-4mk<0$时, 两个复特征值为$\lambda_{1,2}=\frac{-r\pm \ic \sqrt{-\Delta}}{2m}$, 因此$$x=e^{-\frac{r}{2m}t}\left( C_1\cos \left( \frac{\sqrt{-\Delta}}{2m}t \right)+C_2\sin \left( \frac{\sqrt{-\Delta}}{2m}t \right) \right).$$
 \end{solution}
+
+\newpage
+\section{补充: 有限增量定理}
+
+\begin{lemma}{}
+	设$f$在闭区间$[a,b]$上连续, 在区间$[a,b)$除去可数个点外存在(可以是无穷大的)非负右导数$f'_+$. 则$f(b) \geq f(a)$. 
+\end{lemma}
+\begin{remark}
+	该引理没有用Riemann积分就得到了看似无法得到的结果, 关键在于应用那些证明连续函数整体性质的方法. 
+\end{remark}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

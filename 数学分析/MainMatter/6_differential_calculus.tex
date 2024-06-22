@@ -1168,10 +1168,10 @@ Euler提出了针对这三种形式的代换: $$\sqrt{t^2+1}=tu\pm 1,t-u;\qquad 
 
 \circled{B}~~一阶线性方程, 即形如$y' + p(x)y=q(x)$的微分方程. 记$\int p = P, \int q = Q$. 
 
-当$q(x)=0$时, 即齐次情况, 容易求得$y=Ce^{-P(x)}$. 当$q(x)$不恒等于$0$时, 希望找到类似$(\mu (x) y)'=q(x)\mu (x)$的形式, 即只需$\frac{\mu '(x)}{\mu (x)} = p(x)$, 可得$\mu (x) = e^{P(x)}$. 由此有$$y=e^{-P(x)}\left( \int e^{P(x)}q(x) \dif x + C \right).$$
+当$q(x)=0$时, 即齐次情况, 容易求得$y=Ce^{-P(x)}$. 当$q(x)$不恒等于$0$时, 希望找到类似$(\mu (x) y)'=q(x)\mu (x)$的形式(这是所谓恰当方程的形式), 即只需$\frac{\mu '(x)}{\mu (x)} = p(x)$, 可得$\mu (x) = e^{P(x)}$. 由此有$$y=e^{-P(x)}\left( \int e^{P(x)}q(x) \dif x + C \right).$$
 我们也可以用所谓常数变易法求解该方程, 即待定$y=C(x)e^{-P(x)}$之后代回计算. 
 
-\circled{C}~~高阶常系数线性方程, 即形如$y^{(n)}+a_1y^{(n-1)} + \cdots + a_{n-1}y'+a_ny=0$的微分方程. 
+\circled{C}~~高阶常系数齐次线性方程, 即形如$y^{(n)}+a_1y^{(n-1)} + \cdots + a_{n-1}y'+a_ny=0$的微分方程. 
 
 令$y_1=y,\cdots ,y_n=y^{(n-1)}$, $y=(y_1,\cdots ,y_n)$, 上述式子就等价于求解$$\frac{\dif y}{\dif x} = Ay,\qquad A=\begin{pmatrix}
   & 1 &  &  &   \\
@@ -1195,17 +1195,6 @@ Euler提出了针对这三种形式的代换: $$\sqrt{t^2+1}=tu\pm 1,t-u;\qquad 
 	
 	当$\Delta = r^2-4mk<0$时, 两个复特征值为$\lambda_{1,2}=\frac{-r\pm \ic \sqrt{-\Delta}}{2m}$, 因此$$x=e^{-\frac{r}{2m}t}\left( C_1\cos \left( \frac{\sqrt{-\Delta}}{2m}t \right)+C_2\sin \left( \frac{\sqrt{-\Delta}}{2m}t \right) \right).$$
 \end{solution}
-
-\newpage
-\section{补充: 有限增量定理}
-
-\begin{lemma}{}
-	设$f$在闭区间$[a,b]$上连续, 在区间$[a,b)$除去可数个点外存在(可以是无穷大的)非负右导数$f'_+$. 则$f(b) \geq f(a)$. 
-\end{lemma}
-\begin{remark}
-	该引理没有用Riemann积分就得到了看似无法得到的结果, 关键在于应用那些证明连续函数整体性质的方法. 
-\end{remark}
-
 
 
 

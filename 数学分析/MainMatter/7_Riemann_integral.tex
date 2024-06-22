@@ -86,30 +86,6 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 	特别地, 全体$I$上Riemann可积的函数构成集合$\mathcal{R}(I)$. 
 \end{definition}
 
-我们需要对上述定义中的$F$逐个求积分并取其“极限”. 从上方的定义, 我们不难想到类似于序列逼近函数极限的思路: 考虑某种意义上的一列逼近函数$\{ f_n \}$, 然后定义$$\int f := \lim_{n\to \infty} \int f_n.$$
-
-\begin{proposition}{}
-	设闭区间$I=[a,b]$. 则下列说法等价: 
-	\begin{itemize}
-		\item $f$是Riemann可积的. 
-		\item 存在阶梯函数序列$\{ f_n \},\{ e_n \}$使得$$\forall x \in I,|f(x)-f_n(x)|<e_n(x),\qquad \lim_{n\to \infty} \int e_n = 0.$$
-		并且令$$\int f := \lim_{n\to \infty} \int f_n .$$
-	\end{itemize}
-\end{proposition}
-\begin{proof}
-	1) $\Rightarrow$ 2): 对任意$n>0$, 存在$f_n$使得$|f(x)-f_n(x)|<e_n(x)$使得$\int e_n < 1/n$, 从而$\lim_{n\to \infty} \int e_n = 0$. 
-	
-	2) $\Rightarrow$ 1): 显然. 
-	
-	另外, 我们还需证明$\int f = \lim_{n\to \infty} \int f_n$是良定义的, 即极限存在且不依赖于$\{ f_n \}$的选取: 
-	
-	由于$|f_n(x)-f_m(x)| \leq |f(x)-f_n(x)| + |f(x)-f_m(x)| \leq e_n(x)+e_m(x)$, 在两边积分可得$$\left| \int f_n-\int f_m \right| \leq \int |f_n-f_m| \leq \int e_n + \int e_m \to 0.$$
-	这说明$\{ \int f_n \}$是Cauchy列, 进而存在极限. 
-	
-	另一方面, 设有另外的$\{ f'_n \}$和$\{ e'_n \}$符合要求, 则$|f_n(x)-f'_n(x)| \leq |f(x)-f_n(x)| + |f(x)-f'_n(x)| \leq e_n(x)+e'_n(x)$, 两侧积分可得$$\left| \int f_n - \int f'_n \right| \leq \int |f_n-f'_n| \leq \int e_n+ \int e'_n \to 0.$$
-	于是两个极限相等. 
-\end{proof}
-
 接着从Riemann和角度出发. 类似于前文的例子, 如下定义: 基于分割点集$\pi$和标记点集$\xi$, 则$f$的\textit{Riemann和}为: $$S(f;\pi ,\xi) := \sum_{i=1}^{n} (x_i-x_{i-1})f(\xi _i) .$$
 对于取定的函数$f$, 定义它的基为$\mathcal{B} := \{ B_{\delta}:\delta >0 \}$, 其中$B_{\delta} := \{ (\pi ,\xi) : \| \pi \|< \delta \}$. 不难证明, 这的确是一个基. 
 
@@ -410,21 +386,87 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 	令$\int_{x_0}^{x_0+h}\alpha (t) \dif t=\beta (h)$, 容易证明$|\beta (h)| \leq \int_{x_0}^{x_0+h} |\alpha (t)| \dif t \leq Mh$, 故$\beta (h)=o(h)$, 这就说明$F'(x_0)=f(x_0)$. 
 \end{proof}
 
-该定理的直接推论是: 连续函数$f$一定存在原函数, 且形如$\int_a^x f(t) \dif t$. 
+下面的定理, 如果把条件改为$f \in C([a,b])$, 则由微积分基本定理是显然的. 这可能会让我们思考Riemann可积函数与连续函数之间的关系. 前文业已介绍, 我们可以用阶梯函数$g$来逼近一个Riemann可积的函数$f$, 于是只需要在分割点处设法使之连续化即可(例如在分割点$x_i$左右侧各延伸一小段$\delta$, 再将$(x_i-\delta ,g_{i-1})$和$(x_i+\delta ,g_{i})$用直线连接). 实际上这种手法允许我们用$C^{\infty}$的函数(在积分的意义下)逼近$f$. 当然, 定理证明本身不需要这样精确的估计, 只需利用阶梯函数即可. 
 
-\begin{theorem}{Newton-Leibniz公式, 弱形式}
+\begin{theorem}{Newton-Leibniz公式, 弱形式} \label{thm:NLro}
 	设$f \in \mathcal{R}([a,b])$, $F$是$f$在$[a,b]$上(除去有限个点以外的)一个原函数, 则$\int_a^b f(x) \dif x = F(b)-F(a)$. 
 \end{theorem}
+\begin{remark}
+	一般记$F(b)-F(a)=F(x)|_a^b$. 
+\end{remark}
 \begin{proof}
-	若$F'=f$在$[a,b]$上均成立, 则由微积分基本定理可得. 若在$x_1,\cdots ,x_n$上不成立, 只需分别计算$\int_a^{x_1},\cdots ,\int_{x_n}^{b}$再求和即可. 
+	对任意$\varepsilon >0$, 选取阶梯函数$g,e$使得$|f(x)-g(x)| \leq e(x),\int e <\varepsilon$. 计算可得$$F(b)-F(a)-\int_a^b g = \sum_{i=1}^{n} (F(x_i)-F(x_{i-1})-(x_i-x_{i-1})g_i) = \sum_{i=1}^{n} ((F(x_i)-g_ix_i)-(F(x_{i-1})-g_ix_{i-1})). $$
+	令$\varphi (x)=F(x)-g_ix$, 应用Lagrange中值定理, 有$$|\varphi (x_i)-\varphi (x_{i-1})| \leq \sup_{x \in I}|\varphi '(x)|(x_i-x_{i-1}) = \sup_{x \in I}|f(x)-g_i|(x_i-x_{i-1}) \leq e_i(x_i-x_{i-1}).$$
+	带入上式, 得$|F(b)-F(a)-\int_a^b g| < \varepsilon$, 从而$|F(b)-F(a)-\int_a^b f| <2\varepsilon$, 由$\varepsilon$的任意性即证. 
 \end{proof}
 
 \begin{theorem}{Newton-Leibniz公式, 强形式}
 	设$f \in \mathcal{R}([a,b])$, $F$是$f$在$[a,b]$上(除去可数个点以外的)一个原函数, 则$\int_a^b f(x) \dif x = F(b)-F(a)$. 
 \end{theorem}
+\begin{remark}
+	这个形式的证明比较复杂, 此处省略. 
+\end{remark}
+
+作为Newton-Leibniz公式的推论, 我们有: 
+
+\begin{proposition}{分部积分公式}
+	设$u,v\in C^1([a,b])$, 则
+	\begin{center}
+		$\displaystyle \int_a^b (u\cdot v')(x) \dif x = (u\cdot v)(x)\mid _a^b - \int_a^b (v \cdot u')(x) \dif x.$
+	\end{center}
+\end{proposition}
+
+类似于前面的论述, 下面命题同样需要回到定义层面证明. 
+
+\begin{proposition}{换元积分公式}
+	设$\varphi :[a,b] \to [\varphi (a), \varphi (b)]$是$C^1$的, 且严格单调, $f \in \mathcal{R}([a,b])$. 则$f(\varphi (t)) \varphi '(t)$在$[\varphi (a), \varphi (b)]$上可积且
+	\begin{center}
+		$\displaystyle \int_{\varphi (a)}^{\varphi (b)} f(x) \dif x = \int_a^b f(\varphi (t)) \dif \varphi (t).$
+	\end{center}
+\end{proposition}
+\begin{remark}
+	为了维持形式上的美观, 我们记(积分号内部的)$\varphi ' (t) \dif t = \dif \varphi (t)$, 详细原因在微分形式部分介绍. 
+\end{remark}
+\begin{proof}
+	不妨考虑$\varphi$严格单增. 先解决可积的问题. 任取$\varepsilon >0$, 考虑阶梯函数逼近$|f-g| \leq e ,\int e <\varepsilon$对应$\pi$, $|\varphi '-\psi| \leq \delta ,\int \delta < \varepsilon$对应$\pi '$. 因此$$|f(\varphi (t)) \cdot \varphi '(t) - g(\varphi (t)) \cdot \psi (t)| \leq |\varphi '(t)| e(\varphi (t)) + |g(\varphi (t))| \delta (t) \leq M_1e(\varphi (t)) + M_2 \delta (t).$$
+	其中$M_1,M_2$分别为$\varphi '(t),g(\varphi (t))$的界. 则阶梯函数$G=g(\varphi (t)) \cdot \psi (t)$和$E=M_1e(\varphi (t)) + M_2 \delta (t)$对应分割$\varphi (\pi) \cup \pi '$, 且$|f-G| \leq E, \int E \leq (M_1+M_2)\varepsilon$, 由$\varepsilon$任意性即证. 
+	
+	下面用Riemann和证明等式. 记$\varphi (t_i)=x_i$, $\varphi (\tau _i)=\xi _i$. 由Lagrange中值定理, 存在$\tau ' _i \in (t_{i-1},t_i)$使得$x_i-x_{i-1}=\varphi '(\tau ' _i) (t_i-t_{i-1})$. 因此$$\sum_{\varphi (\pi)} f(\xi _i) (x_i-x_{i-1}) = \sum_{\varphi (\pi)} f(\varphi ( \tau _i )) \varphi '(\tau _i) (t_i-t_{i-1}) + R. $$
+	对误差进行估计: $$|R | = \left|\sum_{\varphi (\pi)} f(\varphi ( \tau _i )) (\varphi '(\tau ' _i)-\varphi '(\tau _i)) (t_i-t_{i-1}) \right| \leq M \sum_{\varphi (\pi)}  \omega (\varphi ';(t_{i-1},t_i)) (t_i-t_{i-1}) \to 0, \quad \| \varphi (\pi) \| \to 0.$$
+	其中$M$是$|f \circ \varphi|$的界. 因此, 令$\| \pi \|\to 0$(等价于$\| \varphi (\pi) \| \to 0$)即得原式成立. 
+\end{proof}
+\begin{remark}
+	 实际上通过将阶梯函数的定义拓宽, 即用序列的方式定义$g_n,e_n$使得$\int e_n \to 0$, 之后取$\int g_n$的极限为$\int f$, 同样可以证明该等式. 但是Riemann和更加直观. 
+\end{remark}
+
+\begin{example}
+	($\pi$)计算$\displaystyle \int_{-1}^{1} \sqrt{1-x^2} \dif x$. 
+\end{example}
+\begin{solution}
+	令$x=\sin \theta$, 则$$\int_{-1}^{1} \sqrt{1-x^2} \dif x = \int_{-\pi /2}^{\pi /2} \cos ^2 \theta \dif \theta = \int_{-\pi /2}^{\pi /2} \frac{1+\cos 2\theta}{2} \dif \theta = \pi + \frac{1}{4} \sin t\mid _{-\pi}^{\pi} = \pi .$$
+	这说明用分析方法定义的$\pi$和用几何方法定义的$\pi$是相同的. 
+\end{solution}
+
+下面来看一个经典的例子: 
+
+\begin{example}
+	(Wallis积分)计算$\displaystyle I_n=\int_0^{\pi /2} \sin ^n x \dif x$, 并由此证明Wallis乘积公式: $\displaystyle \prod_{n=1}^{\infty} \frac{4n^2}{(2n-1)(2n+1)}$. 
+\end{example}
+\begin{solution}
+	显然$I_0=\frac{\pi}{2},I_1=1$. 考虑$$I_n = -\int_{0}^{\pi /2} \sin ^{n-1}x \dif \cos x = -\sin ^{n-1}x \cos x \mid_{0}^{\pi /2} + (n-1)\int_{0}^{\pi /2} \sin ^{n-2}x \cos x \dif x = (n-1)(I_{n-2}-I_n). $$
+	由此得到递推式$I_{n+2}=\frac{n+1}{n+2} I_n$, 故$$I_{2m}= \frac{(2m-1)!!}{(2m)!!} I_0,\qquad I_{2m+1} = \frac{(2m)!!}{(2m+1)!!} I_1.$$
+	注意到$I_{2m}I_{2m+1} = \frac{\pi}{2(2m+1)}$且$I_{2m} \sim I_{2m+1}$, 由此易得$I_n \sim \sqrt{\frac{\pi}{2n}}$, 这恰好等价于Wallis乘积公式. 
+\end{solution}
+
+利用Wallis乘积公式, 可以得到用于估计$n!$的Stirling公式. 首先大致估计$n!$的增长率: 利用均值不等式, 可以得到一个简单放缩: $n! < (\frac{1+\cdots +n}{n})^n = (\frac{n+1}{2})^n$, 进一步还有$n!=o((\frac{n}{2})^n)$(提示: 取$b_n=n!(\frac{n}{2})^{-n}$, 研究$\frac{b_{n+1}}{b_n}$的极限). 另一方面, 利用$2 < (1+\frac{1}{n})^n$, 有$n! > (\frac{n}{e})^n$. 令$c_n=n!(\frac{n}{e})^{-n}$, 可以给出$c_n$的估计: $$\sqrt{\frac{1}{m\pi}} \sim \frac{(2m)!}{2^{2m}(m!)^2} = \frac{c_{2m} (2m)^{2m} e^{-2m}}{2^{2m} c_m^2 m^{2m} e^{-2m}} = \frac{c_{2m}}{c_m^2}.$$
+不难猜到应当在先前的基础上增加$\sqrt{2n}$, 即令$a_n = \frac{c_n}{\sqrt{2n}}$, 从而$a_{2m} \sim a_m^2$. 只要证明$\{a_n \}$存在极限(这是容易的), 即可说明其极限为$1$, 那么就有\textit{Stirling公式}: $$n! \sim \sqrt{2\pi n} \left( \frac{n}{e} \right)^n.$$
 
 
-\subsection{Riemann积分的中值定理}
+
+	
+\end{proof}
+
+\subsection{Riemann积分的中值定理和Taylor公式}
 
 
 

@@ -359,8 +359,6 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 
 利用Lebesgue-Vitali定理, 我们可以快速得到先前的一些结果, 例如命题\ref{pro:jiffxkvi}. 
 
-
-
 \newpage
 \section{Riemann积分的计算}
 
@@ -370,7 +368,7 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 
 在这个命题中, 我们看到积分让函数的性质变得更好了. 
 
-\begin{proposition}{}
+\begin{proposition}{} \label{pro:jiffvgze}
 	设$f \in \mathcal{R}([a,b])$, 则$F(x):=\int_a^x f(t) \dif t$在$[a,b]$上Lipschitz连续. 
 \end{proposition}
 \begin{proof}
@@ -418,7 +416,7 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 
 类似于前面的论述, 下面命题同样需要回到定义层面证明. 
 
-\begin{proposition}{换元积分公式}
+\begin{proposition}{换元积分公式} \label{pro:hryrjiff}
 	设$\varphi :[a,b] \to [\varphi (a), \varphi (b)]$是$C^1$的, 且严格单调, $f \in \mathcal{R}([a,b])$. 则$f(\varphi (t)) \varphi '(t)$在$[\varphi (a), \varphi (b)]$上可积且
 	\begin{center}
 		$\displaystyle \int_{\varphi (a)}^{\varphi (b)} f(x) \dif x = \int_a^b f(\varphi (t)) \dif \varphi (t).$
@@ -450,7 +448,7 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 下面来看一个经典的例子: 
 
 \begin{example}
-	(Wallis积分)计算$\displaystyle I_n=\int_0^{\pi /2} \sin ^n x \dif x$, 并由此证明Wallis乘积公式: $\displaystyle \prod_{n=1}^{\infty} \frac{4n^2}{(2n-1)(2n+1)}$. 
+	(Wallis积分)计算$\displaystyle I_n=\int_0^{\pi /2} \sin ^n x \dif x$, 并证明Wallis乘积公式: $\displaystyle \prod_{n=1}^{\infty} \frac{4n^2}{(2n-1)(2n+1)}=\frac{\pi}{2}$. 
 \end{example}
 \begin{solution}
 	显然$I_0=\frac{\pi}{2},I_1=1$. 考虑$$I_n = -\int_{0}^{\pi /2} \sin ^{n-1}x \dif \cos x = -\sin ^{n-1}x \cos x \mid_{0}^{\pi /2} + (n-1)\int_{0}^{\pi /2} \sin ^{n-2}x \cos x \dif x = (n-1)(I_{n-2}-I_n). $$
@@ -458,31 +456,113 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 	注意到$I_{2m}I_{2m+1} = \frac{\pi}{2(2m+1)}$且$I_{2m} \sim I_{2m+1}$, 由此易得$I_n \sim \sqrt{\frac{\pi}{2n}}$, 这恰好等价于Wallis乘积公式. 
 \end{solution}
 
-利用Wallis乘积公式, 可以得到用于估计$n!$的Stirling公式. 首先大致估计$n!$的增长率: 利用均值不等式, 可以得到一个简单放缩: $n! < (\frac{1+\cdots +n}{n})^n = (\frac{n+1}{2})^n$, 进一步还有$n!=o((\frac{n}{2})^n)$(提示: 取$b_n=n!(\frac{n}{2})^{-n}$, 研究$\frac{b_{n+1}}{b_n}$的极限). 另一方面, 利用$2 < (1+\frac{1}{n})^n$, 有$n! > (\frac{n}{e})^n$. 令$c_n=n!(\frac{n}{e})^{-n}$, 可以给出$c_n$的估计: $$\sqrt{\frac{1}{m\pi}} \sim \frac{(2m)!}{2^{2m}(m!)^2} = \frac{c_{2m} (2m)^{2m} e^{-2m}}{2^{2m} c_m^2 m^{2m} e^{-2m}} = \frac{c_{2m}}{c_m^2}.$$
-不难猜到应当在先前的基础上增加$\sqrt{2n}$, 即令$a_n = \frac{c_n}{\sqrt{2n}}$, 从而$a_{2m} \sim a_m^2$. 只要证明$\{a_n \}$存在极限(这是容易的), 即可说明其极限为$1$, 那么就有\textit{Stirling公式}: $$n! \sim \sqrt{2\pi n} \left( \frac{n}{e} \right)^n.$$
+利用Wallis乘积公式, 可以得到用于估计$n!$的Stirling公式. 首先大致估计$n!$的增长率: 利用均值不等式, 可以得到一个简单放缩: $n! < (\frac{1+\cdots +n}{n})^n = (\frac{n+1}{2})^n$, 进一步还有$n!=o((\frac{n}{2})^n)$(提示: 取$b_n=n!(\frac{n}{2})^{-n}$, 研究$\frac{b_{n+1}}{b_n}$的极限). 另一方面, 利用$(1+\frac{1}{n})^n<e$, 有$n! > (\frac{n}{e})^n$. 令$c_n=n!(\frac{n}{e})^{-n}$, 可以给出$c_n$的估计: $$\sqrt{\frac{1}{m\pi}} \sim \frac{(2m)!}{2^{2m}(m!)^2} = \frac{c_{2m} (2m)^{2m} e^{-2m}}{2^{2m} c_m^2 m^{2m} e^{-2m}} = \frac{c_{2m}}{c_m^2}.$$
+不难猜到应当在先前的基础上增加$\sqrt{2n}$, 即令$a_n = \frac{c_n}{\sqrt{2n}}$, 从而$a_{2m} \sim a_m^2$. 只要证明$\{a_n \}$存在极限(提示: 证明$\{ a_n \}$是单调的), 即可说明其极限为$1$, 那么就有\textit{Stirling公式}: $$n! \sim \sqrt{2\pi n} \left( \frac{n}{e} \right)^n.$$
 
 
-
-	
-\end{proof}
 
 \subsection{Riemann积分的中值定理和Taylor公式}
 
+\begin{theorem}{第一积分中值定理}
+	设$f,g \in \mathcal{R}([a,b])$, $g$在$[a,b]$上非负(或者非正). 记$m=\inf_{x\in [a,b]}f(x),M=\sup_{x\in [a,b]}f(x)$, 则存在$\mu \in [m,M]$使得$$\int_a^b f(x)g(x)\dif x = \mu \int_a^b g(x) \dif x.$$
+	更进一步, 当$f$连续时, 存在$\xi \in [a,b]$使得$$\int_a^b f(x)g(x)\dif x = f(\xi) \int_a^b g(x) \dif x.$$
+\end{theorem}
+\begin{proof}
+	实际上我们有
+	\begin{center}
+		$\displaystyle m \int_a^b g(x) \dif x \leq \int_a^b f(x)g(x)\dif x \leq M \int_a^b g(x) \dif x.$
+	\end{center}
+	即存在$\mu \in [m,M]$使得原式成立. 命题的第二部分是显然的. 
+\end{proof}
+
+在部分情况下, 第一中值定理可以为性质不那么好的连续函数提供(类似的)微分中值定理. 令连续函数$F(x)=\int_a^x f(t) \dif t$, 注意到此时不一定有$F'=f$. 而由第一中值定理, 存在$\mu \in [m,M]$使得$F(b)-F(a) = \mu (b-a)$. 
+
+\begin{lemma}{第二积分中值定理, 弱形式}
+	设$f \in C([a,b]),g \in C^1([a,b])$, $g$是单调不增的非负函数, 则存在$\xi \in [a,b]$使得$$\int_a^b f(x) g(x) \dif x = g(a) \int_a^{\xi} f(x) \dif x.$$
+\end{lemma}
+\begin{proof}
+	考虑$f$的一个原函数$F(x)=\int_a^x f(t) \dif t$, 则$F$是$C^1$的. 对$F,g$用分部积分公式: $$\int_a^b F'(x)g(x) \dif x = F(x)g(x)\mid _a^b - \int_a^b F(x)g'(x) \dif x.$$
+	由$g$单调不增知$g' \leq 0$, 对$F,g'$用第一中值定理, 则存在$\xi \in [a,b]$使得$$\int_a^b F(x)g'(x) \dif x = F(\xi) \int_a^b g'(x) \dif x = F(\xi)(g(b)-g(a)).$$
+	因此(这里假设$g(a)\neq 0$, 否则$g=0$结论是显然的)$$\frac{1}{g(a)} \int_a^b f(x)g(x) \dif x = \frac{g(b)}{g(a)}F(b)+\left( 1-\frac{g(b)}{g(a)} \right)F(\xi) \in F([\xi ,b]).$$
+	即存在$\tau \in [\xi ,b]$使得$$\int_a^b f(x)g(x) \dif x = F(\tau)g(a)= g(a) \int_a^{\tau} f(x) \dif x.$$
+\end{proof}
+
+\begin{lemma}{第二积分中值定理}
+	设$f,g \in \mathcal{R}([a,b])$, $g$是单调不增的非负函数, 则存在$\xi \in [a,b]$使得$$\int_a^b f(x) g(x) \dif x = g(a) \int_a^{\xi} f(x) \dif x.$$
+\end{lemma}
+\begin{remark}
+	和弱形式相比, 由于$f,g$的性质并不好, 我们无法使用分部积分法. 作为替代, 在Riemann和的层面可以使用Abel求和(离散分部积分)来处理. 实际上(后面会介绍), 用Stieltjes积分就能解决分部积分的问题. 
+\end{remark}
+\begin{proof}
+	令$F(x)=\int_a^x f(t)\dif t$, 这里$F$是连续的. 类似于弱形式, 只要证明(不妨$g(a) \neq 0$)$mg(a) \leq \int_a^b f(x)g(x) \dif x \leq Mg(a)$, 其中$m=\inf_{x \in [a,b]}F(x), M=\sup_{x \in [a,b]}F(x)$. 
+	
+	我们需要得到类似于分部积分的式子, 因此考虑对$f$用第一中值定理以替代对$F$用微分中值定理, 即存在$\tau _i \in [\inf_{(x_{i-1},x_i)}f,\sup_{(x_{i-1},x_i)}f]$使得$F(x_i)-F(x_{i-1}) = \tau _i (x_i-x_{i-1})$. 由此可以猜测下式成立: $$\left| \sum_{\pi} \tau _i (x_i-x_{i-1}) g(\xi _i) - \int_a^b f(x)g(x) \dif x \right| \to 0,\quad \| \pi \| \to 0.$$
+	实际上, 由$f\cdot g$可积, 只要计算
+	\begin{align*}
+		\left| \sum_{\pi} \tau _i (x_i-x_{i-1}) g(\xi _i) - \sum_{\pi} f(\xi _i)g(\xi _i)(x_i-x_{i-1}) \right| &= \left| \sum_{\pi} (\tau _i-f(\xi _i))g(\xi _i)(x_i-x_{i-1})  \right| \\
+		&\leq  g(a) \sum_{\pi} \omega (f;(x_{i-1},x_i))(x_i-x_{i-1})  \to 0, \| \pi \| \to 0.
+	\end{align*}
+	最后一步是因为$f$可积. 对$\sum_{\pi} \tau _i (x_i-x_{i-1}) g(\xi _i) = \sum_{\pi} (F(x_i)-F(x_{i-1})) g(\xi _i)$作Abel变换, 即$$\sum_{i=1}^n (F(x_i)-F(x_{i-1})) g(\xi _i) = F(b)g(\xi _n) + \sum_{i=1}^{n-1} (g(\xi _i)-g(\xi _{i+1})) F(x_i) \leq Mg(\xi _1).$$
+	同理该式$\geq mg(\xi _1)$. 最后令$\xi _1=a$即可(这是因为分割是人为选取的). 
+\end{proof}
 
 
 
+\begin{theorem}{第二积分中值定理}
+	设$f,g \in \mathcal{R}([a,b])$, $g$是单调函数, 则存在$\xi \in [a,b]$使得$$\int_a^b f(x) g(x) \dif x = g(a) \int_a^{\xi} f(x) \dif x + g(b) \int_{\xi}^{b} f(x) \dif x.$$
+\end{theorem}
+\begin{proof}
+	不妨考虑$g$单调不增, 则令$G(x)=g(x)-g(b)$可知$G$是单调不增的非负函数. 利用引理立得上式成立. 
+\end{proof}
+
+记$\lim_{h \to 0^+}g(a+h) = g(a_0)$(这个极限显然存在), 则对任意$\varepsilon >0$均存在$\xi \in [a,b]$使得$$\int_a^bf(x)g(x) \dif x = (g(a_0)+\varepsilon) \int_a^{\xi} f(x) \dif x.$$
 
 \newpage
-\section{积分的一些应用}
-
-
-
-
-
-
-
-
-
+\section*{一些习题 ~~\small 对应原书6.1, 6.2习题} \label{sec:ex7.1}
 
 \newpage
-\section{补充: Stieltjes积分}
+\section*{一些习题 ~~\small 对应原书6.3习题} \label{sec:ex7.2}
+
+\newpage
+\section{有向可加函数与Stieltjes积分}
+
+将Riemann积分算子的区间可加性抽象出来, 得到所谓可加函数. 即, 设$I:U \times U \to V$, 若对任意$x,y,z \in U$都有$I(x,z)=I(x,y)+I(y,z)$, 则称$I$为$U$上的\textit{有向可加函数}. 这里用一般的$U,V$是为了强调有向可加函数的性质与$\R$的特殊结构无关. 
+
+实际上, 除了Riemann积分以外, 很多函数都是有向可加函数. 例如, 相对速度的计算公式$v_{13}=v_{12}+v_{23}$, 电势差$\varphi _{ac}=\varphi _{ab}+\varphi _{bc}$等等. 不难发现, 电势差$\varphi _{ab}$的背后是场强的(多元函数)积分$\int_a^b E(r) \dif r$, 但是相对速度背后并没有明显的积分背景. 这一现象提示我们研究, 何种有向可加函数能表示为Riemann积分? 更进一步, 注意到有些离散情况的公式和积分公式非常相似(如Abel变换和分部积分), 那么可否发展一种积分理论将这些公式统一起来? 
+
+在第一小节, 我们会探讨哪些函数能表示为Riemann积分(毕竟这种积分易于计算)及其计算. 而作为推广的Stieltjes积分将在第二小节介绍. 
+
+\subsection{有向可加函数的Riemann积分表示}
+
+下面的命题给出积分产生有向可加函数的一个充分条件. 
+
+\begin{proposition}{}
+	设有向可加函数$I:[a,b] \times [a,b] \to \R$. 若存在$f \in \mathcal{R}([a,b])$使得对任意$a \leq \alpha < \beta \leq b$都有$$\inf_{x\in [\alpha ,\beta]} f(x) (\beta -\alpha) \leq I(\alpha ,\beta) \leq \sup_{x\in [\alpha ,\beta]} f(x) (\beta -\alpha),$$
+	则$\displaystyle I(a,b)=\int_a^b f(x) \dif x$. 
+\end{proposition}
+
+\subsection{Stieltjes积分}
+
+对于有向可加函数$I:[a,b] \times [a,b] \to \R$, 通过定义函数$\mu :[a,b] \to \R ,t \mapsto I(a,t)$, 可将$I(\alpha ,\beta)$视作$\mu (\beta)-\mu (\alpha)$. 从几何的视角, 若将$I(\alpha ,\beta)$视作区间$[\alpha ,\beta ]$的长度(两端点的有向距离), 则$\mu$就给出了某个点的绝对位置(亦称$\mu$为测度函数). Riemann积分即是$\mu (x)=x$的情形. 这启发我们, 将Riemann积分中的$\dif x$替换为$\dif \mu (x)$, 或者说将Riemann和中的$x_i-x_{i-1}$替换为$\mu (x_i)- \mu (x_{i-1})$. 
+
+\begin{definition}{Stieltjes积分}
+	设闭区间$I$上的函数$f,\mu$, 定义
+	\begin{itemize}
+		\item $f$的\textit{Riemann和}为$$S(f;\pi ,\xi) := \sum_{i=1}^{n} (\mu(x_i)-\mu(x_{i-1}))f(\xi _i) .$$
+		\item 固定$f$, 它的\textit{基}为$\mathcal{B} := \{ B_{\delta}:\delta >0 \}$, 其中$B_{\delta} := \{ (\pi ,\xi) : \| \pi \|< \delta \}$. 
+		\item 称$f$在$I$上\textit{Stieltjes可积}, 若极限$\displaystyle \lim_{\mathcal{B}} S(f;\pi ,\xi)$存在, 且将其定义为$\displaystyle \int_a^b f(x) \dif \mu (x)$. 
+	\end{itemize}
+\end{definition}
+
+
+
+
+
+
+
+
+
+
+
+
+

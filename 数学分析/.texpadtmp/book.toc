@@ -114,6 +114,7 @@
 \contentsline {section}{\numberline {7.3}Riemann积分的计算}{162}{section.7.3}%
 \contentsline {subsection}{\numberline {7.3.1}Newton-Leibniz公式}{162}{subsection.7.3.1}%
 \contentsline {subsection}{\numberline {7.3.2}Riemann积分的中值定理和Taylor公式}{165}{subsection.7.3.2}%
-\contentsline {section}{\numberline {7.4}积分的一些应用}{166}{section.7.4}%
-\contentsline {section}{\numberline {7.5}补充: Stieltjes积分}{167}{section.7.5}%
-\contentsline {chapter}{习题参考解答}{168}{chapter*.27}%
+\contentsline {section}{\numberline {7.4}有向可加函数与Stieltjes积分}{170}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}有向可加函数的Riemann积分表示}{170}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}Stieltjes积分}{170}{subsection.7.4.2}%
+\contentsline {chapter}{习题参考解答}{172}{chapter*.29}%

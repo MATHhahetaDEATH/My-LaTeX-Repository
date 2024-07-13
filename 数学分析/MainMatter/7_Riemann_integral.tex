@@ -83,8 +83,54 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 
 \begin{definition}{Riemann可积}
 	设闭区间$I=[a,b]$. 称$f$是\textit{Riemann可积的}, 如果对任意$\varepsilon >0$均存在$F,e \in \mathcal{S}(I)$使得$$\forall x \in I,|f(x)-F(x)|<e(x),\qquad \int e < \varepsilon .$$
-	特别地, 全体$I$上Riemann可积的函数构成集合$\mathcal{R}(I)$. 
+	全体$I$上Riemann可积的函数构成集合$\mathcal{R}(I)$. 
 \end{definition}
+
+
+我们需要对上述定义中的$F$逐个求积分并取其“极限”. 从上方的定义, 我们不难想到类似于序列逼近函数极限的思路: 考虑某种意义上的一列逼近函数$\{ f_n \}$, 然后定义$$\int f := \lim_{n\to \infty} \int f_n.$$
+
+\begin{proposition}{}
+	设闭区间$I=[a,b]$. 则下列说法等价: 
+	\begin{itemize}
+		\item $f$是Riemann可积的. 
+		\item 存在阶梯函数序列$\{ f_n \},\{ e_n \}$使得$$\forall x \in I,|f(x)-f_n(x)|<e_n(x),\qquad \lim_{n\to \infty} \int e_n = 0.$$
+		并且令$$\int f := \lim_{n\to \infty} \int f_n .$$
+	\end{itemize}
+\end{proposition}
+\begin{proof}
+	1) $\Rightarrow$ 2): 对任意$n>0$, 存在$f_n$使得$|f(x)-f_n(x)|<e_n(x)$使得$\int e_n < 1/n$, 从而$\lim_{n\to \infty} \int e_n = 0$. 
+
+	2) $\Rightarrow$ 1): 显然. 
+
+	另外, 我们还需证明$\int f = \lim_{n\to \infty} \int f_n$是良定义的, 即极限存在且不依赖于$\{ f_n \}$的选取: 
+
+	由于$|f_n(x)-f_m(x)| \leq |f(x)-f_n(x)| + |f(x)-f_m(x)| \leq e_n(x)+e_m(x)$, 在两边积分可得$$\left| \int f_n-\int f_m \right| \leq \int |f_n-f_m| \leq \int e_n + \int e_m \to 0.$$
+	这说明$\{ \int f_n \}$是Cauchy列, 进而存在极限. 
+
+	另一方面, 设有另外的$\{ f'_n \}$和$\{ e'_n \}$符合要求, 则$|f_n(x)-f'_n(x)| \leq |f(x)-f_n(x)| + |f(x)-f'_n(x)| \leq e_n(x)+e'_n(x)$, 两侧积分可得$$\left| \int f_n - \int f'_n \right| \leq \int |f_n-f'_n| \leq \int e_n+ \int e'_n \to 0.$$
+	于是两个极限相等. 
+\end{proof}
+
+
+类似于阶梯函数积分算子的性质, 对一般的积分算子也有如下性质: 
+
+\begin{proposition}{} \label{pro:jiffxkvi1}
+	设闭区间$I=[a,b]$. 设$f,g \in \mathcal{R}(I)$. 则$\int : \mathcal{R}(I) \to \R$满足: 
+	
+	a) 线性: $$\int (\lambda f+ \mu g) = \lambda \int f + \mu \int g.$$
+	
+	b) 区间可加性: 设$I=[a,c] \cup [c,b]$, 则$$\int_a^b f = \int_a^c f + \int_c^b f. $$
+	
+	c) 三角不等式(注意这依赖于$|f|$的可积性, 当然证明是显然的): $$\left| \int f \right| \leq \int |f|. $$
+	
+	d) 保号性/保序性: 若$f \geq 0$, 则$$\int f \geq 0. $$
+	\qquad 特别地, 若$f \leq g$, 则$$ \int f \leq  \int g.$$
+	
+	e) 对积分的估计: 选取与$f$相容的分划$\pi= \{ a=x_0<\cdots <x_n=b \}$后, $$\left| \int_a^b f \right| \leq |b-a| \sup_{a \leq x \leq b} |f(x)|. $$
+\end{proposition}
+\begin{remark}
+	尽管无法给出$\int fg$关于$\int f,\int g$的表达式, 我们仍然希望证明$fg$是可积的. 然而, 正是由于$\int fg$不好表示, 这里无法证明. 在下一节我们会处理这个问题. (实际上用阶梯函数的确能处理, 只不过太麻烦)
+\end{remark}
 
 接着从Riemann和角度出发. 类似于前文的例子, 如下定义: 基于分割点集$\pi$和标记点集$\xi$, 则$f$的\textit{Riemann和}为: $$S(f;\pi ,\xi) := \sum_{i=1}^{n} (x_i-x_{i-1})f(\xi _i) .$$
 对于取定的函数$f$, 定义它的基为$\mathcal{B} := \{ B_{\delta}:\delta >0 \}$, 其中$B_{\delta} := \{ (\pi ,\xi) : \| \pi \|< \delta \}$. 不难证明, 这的确是一个基. 
@@ -276,7 +322,7 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 \end{proof}
 
 
-利用Riemann和, 容易给出下面命题的证明(当然也可以通过更易推广的阶梯函数逼近来证明): 
+利用这个命题, 容易给出下面命题的证明(当然也可以通过更易推广的阶梯函数逼近来证明, 只不过更复杂. 另外, 由于$\lambda f+ \mu g$的积分值易于计算, 我们在前面已经证明了这是可积的. ): 
 
 \begin{proposition}{} \label{pro:jiffxkvi}
 	设$f,g \in \mathcal{R}(I), E \subseteq I$, 则
@@ -298,24 +344,6 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 	\end{center}
 	再利用命题\ref{pro:kejiisyc}即可. 
 \end{proof}
-
-
-类似于阶梯函数积分算子的性质, 对一般的积分算子也有如下性质: 
-
-\begin{proposition}{}
-	设闭区间$I=[a,b]$. 设$f,g \in \mathcal{R}(I)$. 则$\int : \mathcal{R}(I) \to \R$满足: 
-	
-	a) 线性: $$\int (\lambda f+ \mu g) = \lambda \int f + \mu \int g.$$
-	
-	b) 区间可加性: 设$I=[a,c] \cup [c,b]$, 则$$\int_a^b f = \int_a^c f + \int_c^b f. $$
-	
-	c) 三角不等式: $$\left| \int f \right| \leq \int |f|. $$
-	
-	d) 保号性/保序性: 若$f \geq 0$, 则$$\int f \geq 0. $$
-	\qquad 特别地, 若$f \leq g$, 则$$ \int f \leq  \int g.$$
-	
-	e) 对积分的估计: 选取与$f$相容的分划$\pi= \{ a=x_0<\cdots <x_n=b \}$后, $$\left| \int_a^b f \right| \leq |b-a| \sup_{1 \leq i \leq n} |\lambda _i|. $$
-\end{proposition}
 
 在之前我们已引入了零测集的概念, 即称$E$为零测集, 若对任意$\varepsilon >0$都存在至多可数个开区间$\{ I_n \}$构成$E$的开覆盖, 且$\sum_{n=0}^{\infty} |I_n|<\varepsilon$. 需要注意, 这里由于$\sum_{n=0}^{\infty} |I_n|$绝对收敛, 其求和顺序对结果无影响. 
 
@@ -419,11 +447,11 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 \begin{proposition}{换元积分公式} \label{pro:hryrjiff}
 	设$\varphi :[a,b] \to [\varphi (a), \varphi (b)]$是$C^1$的, 且严格单调, $f \in \mathcal{R}([a,b])$. 则$f(\varphi (t)) \varphi '(t)$在$[\varphi (a), \varphi (b)]$上可积且
 	\begin{center}
-		$\displaystyle \int_{\varphi (a)}^{\varphi (b)} f(x) \dif x = \int_a^b f(\varphi (t)) \dif \varphi (t).$
+		$\displaystyle \int_{\varphi (a)}^{\varphi (b)} f(x) \dif x = \int_a^b f(\varphi (t)) \varphi ' (t) \dif t.$
 	\end{center}
 \end{proposition}
 \begin{remark}
-	为了维持形式上的美观, 我们记(积分号内部的)$\varphi ' (t) \dif t = \dif \varphi (t)$, 详细原因在微分形式部分介绍. 
+	为了维持形式上的美观, 我们通常会假想积分号内部的$\varphi ' (t) \dif t$就是$\dif \varphi (t)$, 但这一记号会与Stieltjes积分冲突, 因此最好不要混淆. 
 \end{remark}
 \begin{proof}
 	不妨考虑$\varphi$严格单增. 先解决可积的问题. 任取$\varepsilon >0$, 考虑阶梯函数逼近$|f-g| \leq e ,\int e <\varepsilon$对应$\pi$, $|\varphi '-\psi| \leq \delta ,\int \delta < \varepsilon$对应$\pi '$. 因此$$|f(\varphi (t)) \cdot \varphi '(t) - g(\varphi (t)) \cdot \psi (t)| \leq |\varphi '(t)| e(\varphi (t)) + |g(\varphi (t))| \delta (t) \leq M_1e(\varphi (t)) + M_2 \delta (t).$$
@@ -434,7 +462,7 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 	其中$M$是$|f \circ \varphi|$的界. 因此, 令$\| \pi \|\to 0$(等价于$\| \varphi (\pi) \| \to 0$)即得原式成立. 
 \end{proof}
 \begin{remark}
-	 实际上通过将阶梯函数的定义拓宽, 即用序列的方式定义$g_n,e_n$使得$\int e_n \to 0$, 之后取$\int g_n$的极限为$\int f$, 同样可以证明该等式. 但是Riemann和更加直观. 
+	 从这个证明可以发现, Riemann和适合处理由离散到连续的问题. 
 \end{remark}
 
 \begin{example}
@@ -548,13 +576,27 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 \begin{definition}{Stieltjes积分}
 	设闭区间$I$上的函数$f,\mu$, 定义
 	\begin{itemize}
+		\item 对于分划$\pi = \{ a=x_0<\cdots <x_n=b \}$, 称形如$$f = \sum_{i=1}^{n} \lambda _i \chi _{(\mu (x_{i-1}),\mu (x_{i}))} $$
+		(其中$\lambda _i \in \R$)的函数为$\pi$上的一个\textit{$\mu$-阶梯函数}. 记$I$上全体$\mu$-阶梯函数的集合为$\mathcal{S}(I;\mu )$. 
+		\item 承上一条, 定义$f$的\textit{积分}(integral)为$$\int f := \sum_{i=1}^{n} \lambda _i \int \chi _{(\mu (x_{i-1}), \mu (x_i))} = \sum_{i=1}^{n} \lambda _i (\mu (x_i)-\mu (x_{i-1})). $$
+		\item 称$f$是\textit{Stieltjes可积的}, 如果对任意$\varepsilon >0$均存在$F,e \in \mathcal{S}(I;\mu )$使得$$\forall x \in I,|f(x)-F(x)|<e(x),\qquad \int e < \varepsilon .$$
+	全体$I$上Riemann可积的函数构成集合$\mathcal{R}(I;\mu)$. 
+	\end{itemize}
+	类似Riemann积分, 我们还能验证Riemann和的定义与上方定义等价: 
+	\begin{itemize}
 		\item $f$的\textit{Riemann和}为$$S(f;\pi ,\xi) := \sum_{i=1}^{n} (\mu(x_i)-\mu(x_{i-1}))f(\xi _i) .$$
 		\item 固定$f$, 它的\textit{基}为$\mathcal{B} := \{ B_{\delta}:\delta >0 \}$, 其中$B_{\delta} := \{ (\pi ,\xi) : \| \pi \|< \delta \}$. 
 		\item 称$f$在$I$上\textit{Stieltjes可积}, 若极限$\displaystyle \lim_{\mathcal{B}} S(f;\pi ,\xi)$存在, 且将其定义为$\displaystyle \int_a^b f(x) \dif \mu (x)$. 
 	\end{itemize}
 \end{definition}
 
+同样地, 对阶梯函数与Riemann和而言, 分别可以定义上下积分及Darboux上下和. 这里省略具体定义. 
 
+可以证明Stieltjes积分拥有和Riemann积分类似的性质, 即命题\ref{pro:jiffxkvi1}, \ref{pro:kejiisyc}(要将$x$换成$\mu (x)$), \ref{pro:jiffxkvi}. 
+
+类似于换元积分公式, 不难证明, 设$\mu (x) = \int_a^x \rho (x)\dif x$, 则对可积的$f$有$\displaystyle \int_a^b f(x) \dif \mu (x) = \int_a^b f(x) \rho (x) \dif x$. 特别地, 当$\mu$连续可微时, 就可以将积分号内的$\dif \mu (x)$看做是$\mu '(x) \dif x$. 
+
+然而, 唯一与Riemann积分不同之处在于, Stieltjes积分没有Newton-Leibniz公式. 这是否意味着其没有作为N-L公式推论的分部积分公式? 
 
 
 

@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  13 JUL 2024 21:05
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  14 JUL 2024 19:19
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1090,23 +1090,32 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-)
 LaTeX Font Info:    Font shape `TU/FZShuSong-Z01(0)/m/sl' in size <10.53937> not available
-(Font)              Font shape `TU/FZShuSong-Z01(0)/m/it' tried instead on input line 102.
- [2] (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/微观经济学/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/微观经济学/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/微观经济学/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/微观经济学/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/微观经济学/.texpadtmp/MainMatter/mankiw.aux))
+(Font)              Font shape `TU/FZShuSong-Z01(0)/m/it' tried instead on input line 60.
+[2]
+File: attachment/Fig4_2.png Graphic file (type bmp)
+<attachment/Fig4_2.png>
+
+Overfull \hbox (28.45273pt too wide) in paragraph at lines 71--72
+ [][] 
+ []
+
+File: attachment/Fig4_7.png Graphic file (type bmp)
+<attachment/Fig4_7.png>
+[3]) [4] (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/微观经济学/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/微观经济学/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/微观经济学/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/微观经济学/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/微观经济学/.texpadtmp/MainMatter/mankiw.aux))
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `book.out' has not changed.
-(rerunfilecheck)             Checksum: 9FD495342ACC603FAC5BE9C26B596315;203.
+(rerunfilecheck)             Checksum: 0556E7EA3E6F1688489E0486228C5F7B;804.
  ) 
 Here is how much of TeX's memory you used:
- 28796 strings out of 476683
- 618680 string characters out of 5804047
- 1854018 words of memory out of 5000000
- 48423 multiletter control sequences out of 15000+600000
+ 28813 strings out of 476683
+ 619077 string characters out of 5804047
+ 1863018 words of memory out of 5000000
+ 48438 multiletter control sequences out of 15000+600000
  522327 words of font info for 122 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  104i,6n,111p,389b,409s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/微观经济学/.texpadtmp/book.pdf (7 pages).
+Output written on /Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/微观经济学/.texpadtmp/book.pdf (9 pages).

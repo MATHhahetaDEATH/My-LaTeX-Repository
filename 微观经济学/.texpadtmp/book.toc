@@ -1,2 +1,6 @@
-\contentsline {chapter}{\numberline {1}导言}{1}{chapter.1}%
+\contentsline {chapter}{\numberline {1}Mankiw微观经济学笔记}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}经济学十大原理}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}分析市场运行的基本工具}{3}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}需求与供给}{3}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}市场均衡}{4}{subsection.1.2.2}%
+\contentsline {subsection}{\numberline {1.2.3}弹性}{4}{subsection.1.2.3}%

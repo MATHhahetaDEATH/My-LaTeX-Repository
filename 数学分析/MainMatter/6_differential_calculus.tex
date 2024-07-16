@@ -1075,32 +1075,75 @@ Euler提出了针对这三种形式的代换: $$\sqrt{t^2+1}=tu\pm 1,t-u;\qquad 
 
 \subsection*{A: 有理函数的积分}
 
+设$\frac{P(x)}{Q(x)}$是有理真分式. 多项式$q(x)$的根与$Q(x)$的根相同且都是一重根. 记$Q_1(x)=\frac{Q(x)}{q(x)}$. 
+\vspace{1em}
+
+\circled{A1}-1~~证明Ostrogradskiy公式: $$\int \frac{P(x)}{Q(x)} \dif x = \frac{P_1(x)}{Q_1(x)} + \int \frac{p(x)}{q(x)} \dif x.$$
+其中$\int \frac{p(x)}{q(x)}$是超越函数. $\frac{P_1(x)}{Q_1(x)}$称作原积分的有理部分. 
+\vspace{1em}
+
+\circled{A1}-2~~证明: 即使不知道多项式$Q(x)$的根, 也可以用代数方法求出$q(x),Q_1(x)$, 然后通过待定系数法求出$p(x),P_1(x)$. 因此, 即使不计算整个原函数, 也可以求出其有理部分. 
+\vspace{1em}
+
+\circled{A1}-3~~设$P(x)=2x^6+3x^5+6x^4+6x^3+10x^2+3x+2$, $Q(x)=x^7+3x^6+5x^5+7x^4+7x^3+5x^2+3x+1$. 求出$\int \frac{P(x)}{Q(x)} \dif x$的有理部分. 
+\vspace{1em}
+
 设待求的原函数为$\int R(\cos x,\sin x) \dif x$. 其中$R(u,v)$是有理函数. 
 \vspace{1em}
 
-\circled{A1}-1~~若$R(-u,v)=R(u,v)$, 则$R(u,v)$的形式为$R_1(u^2,v)$. 
+\circled{A2}-1~~若$R(-u,v)=R(u,v)$, 则$R(u,v)$的形式为$R_1(u^2,v)$. 
 
-\circled{A1}-2~~若$R(-u,v)=-R(u,v)$, 则$R(u,v)=uR_2(u^2,v)$, 进而代换$t=\sin x$可使积分有理化. 
+\circled{A2}-2~~若$R(-u,v)=-R(u,v)$, 则$R(u,v)=uR_2(u^2,v)$, 进而代换$t=\sin x$可使积分有理化. 
 
-\circled{A1}-3~~若$R(-u,-v)=R(u,v)$, 则$R(u,v)=R_3(\frac{u}{v} ,v^2)$, 进而代换$t=\tan x$可使积分有理化. 
+\circled{A2}-3~~若$R(-u,-v)=R(u,v)$, 则$R(u,v)=R_3(\frac{u}{v} ,v^2)$, 进而代换$t=\tan x$可使积分有理化. 
 \vspace{1em}
 
 设待求的原函数为$\int R(x,\sqrt{ax^2+bx+c}) \dif x$. 
 
-\circled{A2}-1~~用以下Euler代换可将其化为有理函数的积分: $$t=\sqrt{ax^2+bx+c}\pm \sqrt{a}x;\qquad t=\sqrt{\frac{a(x-x_1)}{x-x_2}}. $$
+\circled{A3}-1~~用以下Euler代换可将其化为有理函数的积分: $$t=\sqrt{ax^2+bx+c}\pm \sqrt{a}x;\qquad t=\sqrt{\frac{a(x-x_1)}{x-x_2}}. $$
 其中$x_1,x_2$是$ax^2+bx+c=0$的两根. 
 
-\circled{A2}-2~~设$(x_0,y_0)$在曲线$y^2=ax^2+bx+c$上, 过该点的直线$\ell$交曲线于$(x,y)$, $t$是$\ell$的斜率. 指出这与Euler代换的联系. 
+\circled{A3}-2~~设$(x_0,y_0)$在曲线$y^2=ax^2+bx+c$上, 过该点的直线$\ell$交曲线于$(x,y)$, $t$是$\ell$的斜率. 指出这与Euler代换的联系. 
 
-\circled{A2}-3~~若一条曲线$y(x)$由代数方程$P(x,y)=0$给出, 且它的参数方程$x=x(t),y=y(t)$均为有理函数, 则称其为\textit{有理曲线}. 证明: $\int R(x,y(x))$可化为有理函数积分. 
+\circled{A3}-3~~若一条曲线$y(x)$由代数方程$P(x,y)=0$给出, 且它的参数方程$x=x(t),y=y(t)$均为有理函数, 则称其为\textit{有理曲线}. 证明: $\int R(x,y(x))$可化为有理函数积分. 
 
-\circled{A3}-1~~求证: 微分二项式的积分$\int x^m(a+bx^n)^p \dif x$(其中$m,n,p \in \Q$)可以化为积分$$\int (a+bt)^pt^q \dif t~~(\textit{其中}p,q \in \Q).$$
+\circled{A4}-1~~求证: 微分二项式的积分$\int x^m(a+bx^n)^p \dif x$(其中$m,n,p \in \Q$)可以化为积分$$\int (a+bt)^pt^q \dif t~~(\textit{其中}p,q \in \Q).$$
 
-\circled{A3}-2~~该积分可以表示为初等函数的一个充分条件是在$p,q,p+q$中有整数. (注: Chebyshev证明了这也是必要条件)
+\circled{A4}-2~~该积分可以表示为初等函数的一个充分条件是在$p,q,p+q$中有整数. (注: Chebyshev证明了这也是必要条件)
 
 
 
 \subsection*{B: 椭圆积分}
+
+\circled{B}-1~~设有理函数$R(u,v)$, $P$是三次或四次多项式, 则函数$R(x,\sqrt{P(x)})$可以化为$$R_1(t, \sqrt{at^4+bt^3+ct^2+dt+e}),$$其中$a \neq 0$. 
+\vspace{1em}
+
+\circled{B}-2~~设四次多项式$a(x^2+p_1x+q_1)(x^2+p_2x+q_2)$, 其可以通过代换$x=\frac{\alpha t+\beta}{\gamma t+1}$化为$$\dfrac{(M_1+N_1t^2)(M_2+N_2t^2)}{(\gamma t+1)^{4}} .$$
+进而, 函数$R(x,\sqrt{ax^4+bx^3+cx^2+dx+e})$通过代换$x=\frac{\alpha t+\beta}{\gamma t+1}$化为$R_1(t,\sqrt{A(1+m_1t^2)(1+m_2t^2)})$. 
+\vspace{1em}
+
+\circled{B}-3~~任何函数$R(x,\sqrt{y})$都可以化为$R_1(x,y)+\frac{R_2(x^2,y)}{\sqrt{y}}+\frac{R_3(x^2,y)}{\sqrt{y}}x$的形式. 
+\vspace{1em}
+
+\circled{B}-4~~任何形如$\int R(x,\sqrt{P(x)}) \dif x$的积分, 其中$P(x)$是四次多项式, 在精确到相差初等函数时可化为积分$$\int \frac{r(t^2) \dif t}{\sqrt{A(1+m_1t^2)(1+m_2t^2)}} ,$$
+其中$r(t)$是有理函数, $A=\pm 1$. 
+\vspace{1em}
+
+Í其中$0<k<1$, $\tilde{r}$是有理函数. 
+\vspace{1em}
+
+\circled{B}-6~~设$$I_n=\int \frac{x^{2n} \dif x}{\sqrt{(1-x^2)(1-k^2x^2)}},\qquad J_n = \int \frac{\dif x}{(x^2-a)^m\sqrt{(1-x^2)(1-k^2x^2)}}.$$
+证明, $I_n$可用$I_0,I_1$表示, $J_n$可用$I_0,I_1,J_1$表示. 
+\vspace{1em}
+
+\circled{B}-7~~任何形如$\int R(x,\sqrt{P(x)}) \dif x$的积分, 其中$P(x)$是四次多项式, 在精确到相差初等函数时可化为以下三个标准椭圆积分: $$\int \frac{\dif x}{\sqrt{(1-x^2)(1-k^2x^2)}} ,\qquad \int \frac{x^2\dif x}{\sqrt{(1-x^2)(1-k^2x^2)}},\qquad \int \frac{\dif x}{(1+hx^2)\sqrt{(1-x^2)(1-k^2x^2)}},$$
+其中$0<k<1$. 用$F(k,\varphi)$来表示使得$F(k,0)=0$的第一类椭圆积分, 用$E(k,\varphi)$来表示使得$E(k,0)=0$的第二类椭圆积分. 
+\vspace{1em}
+
+
+
+
+
 
 
 \newpage
@@ -1114,7 +1157,7 @@ Euler提出了针对这三种形式的代换: $$\sqrt{t^2+1}=tu\pm 1,t-u;\qquad 
 	设幂级数$f(z)=\sum_{k=0}^{\infty} c_k(z-z_0)^k$. 则$f(z)$在其收敛圆内处处光滑, 特别地$$1)~f^{(n)}(z) = \sum_{k=0}^{\infty} \frac{\dif ^n}{\dif z^n} (c_k(z-z_0)^k),\qquad 2)~c_k=\frac{f^{(k)}(z_0)}{k!}.$$
 \end{theorem}
 \begin{proof}
-	只需证明1), 那么2)是自然的. 首先由Cauchy-Hadamard公式可知该式的收敛半径与$f(z)$相同, 记为$R$. 通过换元, 不妨设$z_0=0$. 利用归纳法, 只要证明$f'(z)=\sum_{k=1}^{\infty}c_kkz^{k-1}=:\varphi (z)$: 
+	只需证明1), 那么2)是自然的. 首先由Cauchy-Hadamard公式可知该式的收敛半径与$f(z)$相同, 记为$R$. 通过换元, 不妨设$z_0=0$. 利用归纳法, 只要证明$f'(z)=\sum_{k=1}^{\infty}c_kkz^{k-1}=:\varphi (z)$. 
 	
 	我们取$z_1,z_2$, 计算$$\left| \frac{f(z_1)-f(z_2)}{z_1-z_2} - \varphi (z) \right| = \left| \sum_{k=1}^{\infty} c_k(z_1^{k-1}+ z_1^{k-2}z_2 + \cdots + z_1z_2^{k-2} + z_2^{k-1}) - \sum_{k=1}^{\infty} c_kkz^{k-1} \right|.$$
 	由于上面两个级数均收敛(将$|z_1|$放缩为$R$立得), 取$N$使得它们与前$N$项之和的差能被$\varepsilon$控制住, 即$$\left| \frac{f(z_1)-f(z_2)}{z_1-z_2} - \varphi (z) \right| \leq 2\varepsilon + \left| \sum_{k=1}^{N} c_k(z_1^{k-1} + \cdots + z_2^{k-1} - kz^{k-1}) \right|.$$
@@ -1130,7 +1173,7 @@ Euler提出了针对这三种形式的代换: $$\sqrt{t^2+1}=tu\pm 1,t-u;\qquad 
 	进一步, 容易说明: $p(z)$在$\C$上恰有$n$个根. 
 \end{remark}
 \begin{proof}
-	由于$p$连续, 存在点$z_0$使得$p(z_0)=\inf_{z \in \C}|p(z)|$. 下面证明$p(z_0)=0$: 设若不然, 考虑多项式$q(z)=\frac{p(z+z_0)}{p(z_0)}$, 那么$q(0)=1$, $1= |q(0)|=\inf_{z \in \C} |q(z)|$. 记$q(z)=1+a_kz^k+\cdots +q_nz^n$, 其中$a_k \neq 0$. 令$a_k=re^{\ic \theta}$, $\beta ^k = re^{\ic (\pi-\theta)}$, 那么$$|q(\beta)| \leq |1+a_k\beta ^k| + (|a_{k+1}\beta ^{k+1}| + \cdots + |a_n\beta ^n|) = 1-r^k(|a_k|-r|a_{k+1}|-\cdots -r^{n-k}|a_n| <1.$$
+	由于$p$连续, 存在点$z_0$使得$|p(z_0)|=\inf_{z \in \C}|p(z)|$. 下面证明$p(z_0)=0$: 设若不然, 考虑多项式$q(z)=\frac{p(z+z_0)}{p(z_0)}$, 那么$q(0)=1$, $1= |q(0)|=\inf_{z \in \C} |q(z)|$. 记$q(z)=1+a_kz^k+\cdots +a_nz^n$, 其中$a_k \neq 0$. 令$a_k=re^{\ic \theta}$, $\beta ^k = re^{\ic (\pi-\theta)}$, 那么在$r$较小时$$|q(\beta)| \leq |1+a_k\beta ^k| + (|a_{k+1}\beta ^{k+1}| + \cdots + |a_n\beta ^n|) = 1-r^k(|a_k|-r|a_{k+1}|-\cdots -r^{n-k}|a_n|) <1.$$
 	这与$|q(z)| \geq 1$矛盾! 
 \end{proof}
 

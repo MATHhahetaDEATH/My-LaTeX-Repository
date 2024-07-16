@@ -100,21 +100,37 @@
 \contentsline {subsection}{\numberline {6.4.1}函数的单调性与极值}{136}{subsection.6.4.1}%
 \contentsline {subsection}{\numberline {6.4.2}函数的凸性}{137}{subsection.6.4.2}%
 \contentsline {section}{\numberline {6.5}原函数与不定积分}{141}{section.6.5}%
-\contentsline {section}{\numberline {6.6}微分学的应用}{147}{section.6.6}%
-\contentsline {subsection}{\numberline {6.6.1}对复数和幂级数的进一步研究}{147}{subsection.6.6.1}%
-\contentsline {subsection}{\numberline {6.6.2}简单的常微分方程}{148}{subsection.6.6.2}%
-\contentsline {chapter}{\numberline {7}Riemann积分}{150}{chapter.7}%
-\contentsline {section}{\numberline {7.1}Riemann可积的定义}{150}{section.7.1}%
-\contentsline {subsection}{\numberline {7.1.1}阶梯函数及其积分}{151}{subsection.7.1.1}%
-\contentsline {subsection}{\numberline {7.1.2}Riemann可积的定义}{153}{subsection.7.1.2}%
-\contentsline {subsection}{\numberline {7.1.3}非负函数的积分, 连接阶梯函数与Riemann和的途径}{155}{subsection.7.1.3}%
-\contentsline {subsection}{\numberline {7.1.4}上下积分与Darboux上下和}{157}{subsection.7.1.4}%
-\contentsline {subsection}{\numberline {7.1.5}Riemann积分的缺陷, 反常积分}{158}{subsection.7.1.5}%
-\contentsline {section}{\numberline {7.2}Riemann可积的性质与条件}{160}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Riemann积分的计算}{163}{section.7.3}%
-\contentsline {subsection}{\numberline {7.3.1}Newton-Leibniz公式}{163}{subsection.7.3.1}%
-\contentsline {subsection}{\numberline {7.3.2}Riemann积分的中值定理和Taylor公式}{166}{subsection.7.3.2}%
-\contentsline {section}{\numberline {7.4}有向可加函数与Stieltjes积分}{171}{section.7.4}%
-\contentsline {subsection}{\numberline {7.4.1}有向可加函数的Riemann积分表示}{171}{subsection.7.4.1}%
-\contentsline {subsection}{\numberline {7.4.2}Stieltjes积分}{171}{subsection.7.4.2}%
-\contentsline {chapter}{习题参考解答}{173}{chapter*.29}%
+\contentsline {section}{\numberline {6.6}微分学的应用}{148}{section.6.6}%
+\contentsline {subsection}{\numberline {6.6.1}对复数和幂级数的进一步研究}{148}{subsection.6.6.1}%
+\contentsline {subsection}{\numberline {6.6.2}简单的常微分方程}{149}{subsection.6.6.2}%
+\contentsline {chapter}{\numberline {7}Riemann积分}{151}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Riemann可积的定义}{151}{section.7.1}%
+\contentsline {subsection}{\numberline {7.1.1}阶梯函数及其积分}{152}{subsection.7.1.1}%
+\contentsline {subsection}{\numberline {7.1.2}Riemann可积的定义}{154}{subsection.7.1.2}%
+\contentsline {subsection}{\numberline {7.1.3}非负函数的积分, 连接阶梯函数与Riemann和的途径}{156}{subsection.7.1.3}%
+\contentsline {subsection}{\numberline {7.1.4}上下积分与Darboux上下和}{158}{subsection.7.1.4}%
+\contentsline {subsection}{\numberline {7.1.5}Riemann积分的缺陷, 反常积分}{159}{subsection.7.1.5}%
+\contentsline {section}{\numberline {7.2}Riemann可积的性质与条件}{161}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Riemann积分的计算}{164}{section.7.3}%
+\contentsline {subsection}{\numberline {7.3.1}Newton-Leibniz公式}{164}{subsection.7.3.1}%
+\contentsline {subsection}{\numberline {7.3.2}Riemann积分的中值定理和Taylor公式}{167}{subsection.7.3.2}%
+\contentsline {section}{\numberline {7.4}有向可加函数与Stieltjes积分}{172}{section.7.4}%
+\contentsline {subsection}{\numberline {7.4.1}有向可加函数的Riemann积分表示}{172}{subsection.7.4.1}%
+\contentsline {subsection}{\numberline {7.4.2}Stieltjes积分}{172}{subsection.7.4.2}%
+\contentsline {chapter}{\numberline {8}多元函数微分学}{174}{chapter.8}%
+\contentsline {section}{\numberline {8.1}导数与微分}{174}{section.8.1}%
+\contentsline {subsection}{\numberline {8.1.1}基本定义}{174}{subsection.8.1.1}%
+\contentsline {subsection}{\numberline {8.1.2}导数与微分的计算}{174}{subsection.8.1.2}%
+\contentsline {subsection}{\numberline {8.1.3}$\mathbb {R}^n$中的子流形}{174}{subsection.8.1.3}%
+\contentsline {section}{\numberline {8.2}中值定理与Taylor公式}{175}{section.8.2}%
+\contentsline {subsection}{\numberline {8.2.1}微分中值定理}{175}{subsection.8.2.1}%
+\contentsline {subsection}{\numberline {8.2.2}Taylor公式}{175}{subsection.8.2.2}%
+\contentsline {subsection}{\numberline {8.2.3}多元函数的极值}{175}{subsection.8.2.3}%
+\contentsline {section}{\numberline {8.3}隐函数定理}{176}{section.8.3}%
+\contentsline {subsection}{\numberline {8.3.1}反函数定理}{176}{subsection.8.3.1}%
+\contentsline {subsection}{\numberline {8.3.2}隐函数定理}{176}{subsection.8.3.2}%
+\contentsline {section}{\numberline {8.4}隐函数定理的应用}{177}{section.8.4}%
+\contentsline {subsection}{\numberline {8.4.1}流形版本的隐函数定理}{177}{subsection.8.4.1}%
+\contentsline {subsection}{\numberline {8.4.2}Lagrange乘子法}{177}{subsection.8.4.2}%
+\contentsline {chapter}{\numberline {9}微分学的一般化}{178}{chapter.9}%
+\contentsline {chapter}{习题参考解答}{179}{chapter*.29}%

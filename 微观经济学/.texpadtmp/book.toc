@@ -4,3 +4,9 @@
 \contentsline {subsection}{\numberline {1.2.1}需求与供给}{3}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {1.2.2}市场均衡}{4}{subsection.1.2.2}%
 \contentsline {subsection}{\numberline {1.2.3}弹性}{4}{subsection.1.2.3}%
+\contentsline {paragraph}{需求价格弹性}{4}{section*.13}%
+\contentsline {paragraph}{供给价格弹性}{5}{section*.14}%
+\contentsline {section}{\numberline {1.3}福利与市场效率}{7}{section.1.3}%
+\contentsline {subsection}{\numberline {1.3.1}价格控制}{8}{subsection.1.3.1}%
+\contentsline {subsection}{\numberline {1.3.2}税收}{9}{subsection.1.3.2}%
+\contentsline {subsection}{\numberline {1.3.3}国际贸易}{9}{subsection.1.3.3}%

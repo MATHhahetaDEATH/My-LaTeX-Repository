@@ -89,7 +89,7 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 
 我们需要对上述定义中的$F$逐个求积分并取其“极限”. 从上方的定义, 我们不难想到类似于序列逼近函数极限的思路: 考虑某种意义上的一列逼近函数$\{ f_n \}$, 然后定义$$\int f := \lim_{n\to \infty} \int f_n.$$
 
-\begin{proposition}{}
+\begin{proposition}{} \label{pro:jptihjuudgjxdkyi}
 	设闭区间$I=[a,b]$. 则下列说法等价: 
 	\begin{itemize}
 		\item $f$是Riemann可积的. 
@@ -143,12 +143,12 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 \end{proposition}
 \begin{proof}
 	任取$\varepsilon >0$, 设阶梯函数$F,e$使得$|f(x)-F(x)|<e(x)$且$\int e(x) < \varepsilon$, 且不妨设$F,e$的分割点集均为$\pi _0 =\{ a=x_0<\cdots <x_n=b \}$. 待定分割点集$\pi = \{ a=y_0<\cdots <y_m=b \}$和与之对应的任意标记集$\xi$. 令$\| \pi \| < \min_{1 \leq i \leq n} \{ x_i-x_{i-1} \}$, 于是$$\left| S(f;\pi ,\xi) - \int_I f \right| \leq \sum_{i=1}^{m} \left| f(\xi _i)-\int_{y_{i-1}}^{y_i} f \right|. $$
-	对$i$, 分情况讨论: 
+	我们基本的思路是控制住$|(y_i-y_{i-1})f(\xi _i)-\int_{y_{i-1}}^{y_i}|$. 比较容易的方法是将$|f(x)|$放缩为其上界$M$, 从而该式不超过$2M(y_i-y_{i-1})$. 然而, 若将其累加, 最后无法得到可用$\| \pi \|$控制的极限. 因此, 希望这种(无可奈何的)放缩尽可能少. 特别地, 注意到那些使得$(y_{i-1},y_i) \subseteq (x_{j-1},x_j)$的区间可用$\varepsilon$放缩, 而剩下的区间不超过$n$个(为什么?), 这些区间采用刚才的放缩就是可以容忍的. 因此, 对$i$, 分情况讨论: 
 	
 	若$(y_{i-1},y_i)$完全包含在某个$(x_{j-1},x_j)$中: 易知$|f(x)-f(\xi _i)| \leq |f(x)-F(x)| + |F(\xi _i)-f(\xi _i)| \leq e(x)+e(\xi _i)$, 
-	从而$$\left| f(\xi _i)-\int_{y_{i-1}}^{y_i} f \right| \leq 2\int_{y_{i-1}}^{y_i} e.$$
+	从而$$\left| (y_i-y_{i-1})f(\xi _i)-\int_{y_{i-1}}^{y_i} f \right| \leq 2\int_{y_{i-1}}^{y_i} e.$$
 	
-	若$(y_{i-1},y_i)$恰包含某个$x_j$: 由$f$可积知$f$有界, 设$|f(x)|<M$. 此时有$$\left| f(\xi _i)-\int_{y_{i-1}}^{y_i} f \right| \leq 2(y_i-y_{i-1})M \leq 2\| \pi \|M.$$
+	若$(y_{i-1},y_i)$恰包含某个$x_j$: 由$f$可积知$f$有界, 设$|f(x)|<M$. 此时有$$\left| (y_i-y_{i-1})f(\xi _i)-\int_{y_{i-1}}^{y_i} f \right| \leq 2(y_i-y_{i-1})M \leq 2\| \pi \|M.$$
 	
 	综上可得, $$\left| S(f;\pi ,\xi) - \int_I f \right| \leq 2\sum_{i=1}^{m} \int_{y_{i-1}}^{y_i} e + 2n\| \pi \|M \leq 2\varepsilon + 2nM\| \pi \|.$$
 	先令$\| \pi \|\to 0$, 则$\limsup_{\| \pi \|\to 0} LHS \leq 2\varepsilon$. 再令$\varepsilon \to 0$即得. 
@@ -175,7 +175,7 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 	两侧(均为非负的阶梯函数)同时积分, 即得$\int e_n(x) \geq \int F(x) - \int f_n(x) > \varepsilon >0$, 矛盾. 因此$\lim_{n\to \infty} \int f_n = \sup \mathcal{A}$. 
 	
 	(2) 对于$\mathcal{S}(I) \ni F,F' \geq 0$, 定义$F,F'$等价当且仅当它们的分割点集是一样的. 在每个等价类$[F]$中, 设分割点集为$\pi$, 定义该等价类的“极大项”为$$\varphi ([F]) := \sum_{i=1}^{n} \inf_{(x_{i-1},x_i)} f \cdot \chi _{(x_{i-1},x_i)}.$$
-	显然$\tilde{\mathcal{A}}:=\{ \int \varphi ([F]):\mathcal{S}(I) \ni F \geq 0 \}$是$\mathcal{A}$的子集, 且$\sup \tilde{\mathcal{A}} = \sup \mathcal{A}$(为什么?). 于是取$\{ \varphi _n \} \subseteq \{ \varphi ([F]):\mathcal{S}(I) \ni F \geq 0 \}$使得$\int \varphi _n \nearrow \sup \mathcal{A}$. 这样的$\varphi _n$与其分割集$\pi _n$是一一对应的关系. 若$\int \varphi _m > \int \varphi _n$, 考虑$\tilde{\pi} = \pi _n \cup \pi _m$, 则$\tilde{\pi}$所对应的$\varphi$(不一定在该序列中)满足$\int \varphi \geq \int \varphi _m$, 将其添加到序列中. 于是我们不妨设该序列存在一个子列$\{ \varphi _{k_n} \}$, 使得对任意$n>0$, $\varphi _{k_n}$的分割点集都比$\varphi _{k_1}$的分割点集细. 令$$e_{k_n} = \sum_{i=1}^{\ell} \omega (f,(x_{i-1},x_i)) \chi _{(x_{i-1},x_i)}, $$
+	显然$\tilde{\mathcal{A}}:=\{ \int \varphi ([F]):\mathcal{S}(I) \ni F \geq 0 \}$是$\mathcal{A}$的子集, 且$\sup \tilde{\mathcal{A}} = \sup \mathcal{A}$(为什么?). 于是取$\{ \varphi _n \} \subseteq \{ \varphi ([F]):\mathcal{S}(I) \ni F \geq 0 \}$使得$\int \varphi _n \nearrow \sup \mathcal{A}$. 这样的$\varphi _n$与其分割集$\pi _n$是一一对应的关系. 若$\int \varphi _m > \int \varphi _n$, 考虑$\tilde{\pi} = \pi _n \cup \pi _m$, 则$\tilde{\pi}$所对应的$\varphi$(不一定在该序列中)满足$\int \varphi \geq \int \varphi _m$, 将其添加到序列中. 于是我们不妨设该序列存在一个子列$\{ \varphi _{k_n} \}$, 使得对任意$n>0$, $\varphi _{k_{n+1}}$的分割点集都比$\varphi _{k_{n}}$的分割点集细. 令$$e_{k_n} = \sum_{i=1}^{\ell} \omega (f,(x_{i-1},x_i)) \chi _{(x_{i-1},x_i)}, $$
 	其中$e_{k_n}$与$\varphi _{k_n}$的分割点集相同. 那么$f(x)-\varphi _{k_n}(x) \leq e_{k_n}(x)$. 最后, 利用命题中给出的条件, $$\int e_{k_n} = \sum_{i=1}^{\ell} \omega (f,(x_{i-1},x_i)) (x_i-x_{i-1}) \to 0, \quad \| \pi \| \to 0. $$
 	这就是说$\int e_{k_n} \to 0,n \to \infty$. 
 \end{proof}
@@ -183,7 +183,7 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 	从该命题的证明中, 我们发现通过一个特殊的序列$\{ \varphi _{k_n} \}$, 可以将阶梯函数(“$n\to \infty$”)与Riemann和(“$\| \pi \|\to 0$”)联系起来. 这一思路会在下一小节会有体现. 
 \end{remark}
 \begin{remark}
-	上述条件并不是很直白. 实际上我们后面会从连续性的角度给出一个等价条件(Lebesgue-Vitali定理): (闭区间上)有界函数可积当且仅当其不连续点组成的集合是零测集. 
+	这个命题(加上后面的推论)实际上只是证明了该条件加上有界性可以得到可积性. 后面会证明可积函数有界且满足该条件. 
 \end{remark}
 \begin{remark}
 	从(2)的证明可以看出Riemann积分并不够好, 因为我们需要人为添加一个条件才能保证可积. 
@@ -192,14 +192,22 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 
 接着看一般情况: 
 
-\begin{corollary}{}
+\begin{corollary}{} \label{cor:fwfuhjuujiff}
 	将上面命题的$f \geq 0$这一条件去掉, 并重新定义$\int f$如下, 原来的两条结论仍成立: 取$f^+ := \max \{ f,0 \}, f^{-} := \max \{ -f,0 \}$, 则$f=f^+-f^-$. 令$\int f = \int f^+ - \int f^-$. 
 \end{corollary}
 \begin{proof}
-	实际上只用证明下面的引理: $f$可积当且仅当$f^+,f^-$均可积且$\int f = \int f^+ - \int f^-$. 充分性显然. 必要性: 应用Lebesgue-Vitali定理, 下证$f^+$可积, 即$D(f^+)$为零测集. 若$D(f^+) \nsubseteq D(f)$, 考虑$x_0 \in D(f^+)$但$x_0 \notin D(f)$, 那么显然$f(x_0)=0$且$f$在$x_0$两侧变号. 结合$f$在$x_0$处连续, 可知存在$\delta$使得(不妨)$f|_{(x_0-\delta,x_0)}<0,f|_{(x_0,x_0+\delta)}>0$, 这就是说$f^+|_{(x_0-\delta,x_0]}=0$, 从而$f^+|_{(x_0-\delta,x_0+\delta) = f|_{(x_0-\delta,x_0+\delta)$, 立得矛盾. 所以$D(f^+) \subseteq D(f)$, 自然是零测集. 
+	实际上只用证明: $f$可积当且仅当$f^+,f^-$均可积. 
+	
+	(1) 必要性: 将$f$对应的阶梯函数按照$f$的零点切割, 显然可得. 
+	
+	(2) 充分性: 类似必要性, 当$f$的零点有限时显然. 若零点并非有限, 则直接拼接起来的“阶梯函数”不一定是有限求和, 故而我们需要合理舍弃一些段. 
+	
+	利用聚点定理, 找到零点集合的所有聚点, 对每个聚点$p$考虑其邻域$U_p$, 显然$U = \bigcup_{p\textit{是聚点}} (U_p \cap I) $是闭集, 且$U^c$是有限集合(容量为$n$). 由有限覆盖定理, 存在有限个($m$个)$U_{p_i}$使得$U=\bigcup_{i=1}^{n} U_{p_i}$. 
+	
+	选取在$U^c$中的($n$个)段, 将这些段上的阶梯函数拼接起来, 其余部分以$0$填充. 由上方的论述, 通过合并端点位于同一个$U_{p_i}$中的段, 存在$m$个段$I_1,\cdots ,I_m$恰好对应其余部分. 因此完整的的阶梯函数与$f$的误差之积分不超过$\varepsilon _1 + \cdots + \varepsilon _n + M(|I_1|+\cdots + |I_m|)$. 通过将每个$U_p$的半径缩小, 可以将有限部分的长度增加, 从而将$|I_1|+\cdots + |I_m|$整体缩小(尽管$m$可能增加). 令$U_p$半径$\to 0$, $\varepsilon _i \to 0$即可. 
 \end{proof}
 \begin{remark}
-	从上面的证明我们看出, 直接使用阶梯函数进行逼近并不够方便, 这就启发我们要研究Riemann可积和连续性的关系. 
+	从上面的证明我们看出, 直接使用阶梯函数进行逼近并不够(一点都不)方便. 
 \end{remark}
 
 
@@ -214,8 +222,10 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 	设有界函数$f$. 则其在$I$上Riemann可积当且仅当$\overline{\int}f=\underline{\int}f$. 
 \end{proposition}
 \begin{proof}
-	充分性: 记$\overline{\int}f=\underline{\int}f=I$. 由上面的论述, 存在$\{ \varphi _n \}$和$\{ \psi _n \}$使得$$\int \varphi _n \leq S(f;\pi ,\xi) \leq \int \psi _n,\qquad \int \varphi _n \nearrow I, \int \psi _n \searrow I,\| \pi \| \to 0.$$
-	这就说明$\lim_{\| \pi \| \to 0}S(f;\pi ,\xi) =I$. 
+	充分性: 记$\overline{\int}f=\underline{\int}f=I$. 由上面的论述, 存在这样的$\{ \varphi _n \}$和$\{ \psi _n \}$使得$\int \varphi _n \nearrow I, \int \psi _n \searrow I,\| \pi \| \to 0$. 这就说明
+	\begin{center}
+		$\displaystyle \sum_{i=1}^{\ell} \omega (f;(x_{i-1},x_i)) (x_i-x_{i-1}) = \int \psi _n - \int \varphi _n \to 0, \quad \| \pi \| \to 0.$
+	\end{center}
 	
 	必要性: 类似于命题\ref{pro:fwfuhjuubijb}证明的第一部分. 
 \end{proof}
@@ -357,12 +367,20 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 	实际上可以证明, $[a,b]$的外测度就是$b-a$. 
 \end{remark}
 \begin{proof}
-	1) 只要证明可数集是零测集, 因为显然零测集的子集是零测集. 设该集合$E=\{ x_0,\cdots ,x_n,\cdots \}$, 令$I_k=(x_k-\varepsilon 2^{-k},x_k+\varepsilon 2^{-k})$, 则$\{ I_n \}$覆盖$E$且$\sum_{|I_k|} = 4\varepsilon$, 令$\varepsilon \to 0$即可.
+	1) 只要证明可数集是零测集, 因为显然零测集的子集是零测集. 设该集合$E=\{ x_0,\cdots ,x_n,\cdots \}$, 令$I_k=(x_k-\varepsilon 2^{-k},x_k+\varepsilon 2^{-k})$, 则$\{ I_n \}$覆盖$E$且$\sum |I_k| = 4\varepsilon$, 令$\varepsilon \to 0$即可.
 	
 	2) 设可数个零测集$E_1,\cdots ,E_n,\cdots$. 任取$\varepsilon >0$, 存在$\{ I_n^i \}_{i \geq 0}$覆盖$E$且$\sum_{i=0}^{\infty} |I_n^i| < \varepsilon 2^{-n}$, 因此$\{ I_n^i \}_{i\geq 0,n\geq 1}$覆盖$\bigcup_{n=1}^{\infty} E_n$且$$\sum_{i\geq 0,n\geq 1}|I_n^i| = \sum_{n=1}^{\infty} \sum_{i=0}^{\infty} |I_n^i| \leq \sum_{n=1}^{\infty} \frac{\varepsilon}{2^n} = \varepsilon .$$
 	令$\varepsilon \to 0$即可. 
 	
 	3) 设$\{ I_n \}$是$[a,b]$的开覆盖, 由有限覆盖定理, 不妨设$I_1,\cdots ,I_n$构成开覆盖, 下面对$n$归纳证明$\sum_{k=1}^{n} |I_k| \geq b-a$. $n=1$的情况是显然的, 假设$n$时成立, 则若$[a,b] \subseteq I_1 \cup \cdots \cup I_{n+1}$, 不妨$b \in I_{n+1} = (c,d)$, 其中$a<c<b<d$. 对前$n$项用归纳假设, 有$\sum_{k=1}^{n+1} |I_k| \geq (c-a)+|I_{n+1}| = c-a+d-c \geq b-a$. 
+\end{proof}
+
+\begin{lemma}{}
+	若$f$可积, 则对任意$\varepsilon >0$, $\Omega _{\varepsilon} (f) = \{ x\in [a,b]:\omega (f,x)\geq \varepsilon \}$是零测集. 
+\end{lemma}
+\begin{proof}
+	取阶梯函数$F,e$使得$|f(x)-F(x)| \leq e(x), \int_a^b e \leq \delta$(其中$\delta$待定), 对应分划$\pi$. 在一个区间$(x_{i-1},x_i)$上, 注意到$|f(x)-f(y)| \leq |f(x)-F(x)| + |f(y)-F(y)| + |F(x)-F(y)| \leq |e(x)|+|e(y)|$, 因此只要$e$在该区间的取值小于$\varepsilon /2$, 该区间就与$\Omega _{\varepsilon}(f)$不交, 或者说其余的区间构成$\Omega _{\varepsilon}(f)$的一个开覆盖. 对这些区间的长度进行估计: 实际上$$\sum_{e_i \geq \varepsilon /2} \frac{\varepsilon}{2} (x_{i}-x_{i-1}) \leq \sum_{e_i \geq \varepsilon /2} e_i (x_{i}-x_{i-1}) \leq \int_a^b e\leq \delta .$$
+	因此其长度之和不超过$\frac{2\delta}{\varepsilon}$, 令$\delta \to 0$即可. 
 \end{proof}
 
 在下面的命题中, \textit{几乎处处$\cdots$}(almost everywhere)指的是除了在一个零测集上以为均$\cdots$. 
@@ -371,21 +389,28 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 	设闭区间上的函数$f$. 则$f$可积当且仅当$f$有界且在闭区间上几乎处处连续. 
 \end{theorem}
 \begin{proof}
-	(1)必要性. 先证明一个关键的引理: 若$f$可积, 则对任意$\varepsilon >0$, $\Omega _{\varepsilon} (f) = \{ x\in [a,b]:\omega (f,x)\geq \varepsilon \}$是零测集. 从而, $f$的间断点集$D(f)=\bigcup_{n\geq 1}\Omega _{1/n}(f)$是零测集. 这里使用阶梯函数逼近给出证明: 
+	(1)必要性. 由引理, $f$的间断点集$D(f)=\bigcup_{n\geq 1}\Omega _{1/n}(f)$自然是零测集. 
 	
-	取阶梯函数$F,e$使得$|f(x)-F(x)| \leq e(x), \int_a^b e \leq \delta$(其中$\delta$待定), 对应分划$\pi$. 在一个区间$(x_{i-1},x_i)$上, 注意到$|f(x)-f(y)| \leq |f(x)-F(x)| + |f(y)-F(y)| + |F(x)-F(y)| \leq |e(x)|+|e(y)|$, 因此只要$e$在该区间的取值小于$\varepsilon /2$, 该区间就与$\Omega _{\varepsilon}(f)$不交, 或者说其余的区间构成$\Omega _{\varepsilon}(f)$的一个开覆盖. 对这些区间的长度进行估计: 实际上$$\sum_{e_i \geq \varepsilon /2} \frac{\varepsilon}{2} (x_{i}-x_{i-1}) \leq \sum_{e_i \geq \varepsilon /2} e_i (x_{i}-x_{i-1}) \leq \int_a^b e\leq \delta .$$
-	因此其长度之和不超过$\frac{2\delta}{\varepsilon}$, 令$\delta \to 0$即可. 
+	(2) 充分性. 核心想法是讨论每个$(x_{i-1},x_i)$和$D(f)$是否相交的情况, 因为如果$(x_{i-1},x_i)$完全包含于$D(f)$, 那么$\sum \omega _i(x_i-x_{i-1})$中的$\sum x_i-x_{i-1}$就可以放缩为$|D(f)|$从而被控制住. 然而, 我们大概可以猜到(先验地知道), 另一种情况下需要利用一致收敛将$\omega$控制住, 因此先对$D(f)$做一些优化, 使得其具有一些拓扑性质. 
 	
-	(2) 充分性. 核心想法是对$\varepsilon >0$, 找到$D(f)$的一个开覆盖$\{ I_n \}$, 讨论每个小区间$(x_{i-1},x_i)$和这些$I_n$有无交集的情况. 令$K=[a,b] \setminus \bigcup_{n\geq 1}I_n$, 那么$K$是有界闭集, 从而是紧集. 记$\alpha _1 =\{ i:K \cap (x_{i-1},x_i) \neq \varnothing \}, \alpha _2 =\{ i:K \cap (x_{i-1},x_i) = \varnothing \}$. 
+	具体而言, 找到$D(f)$的一个开覆盖$\{ I_n \}$使得$\sum |I_n|<\varepsilon$. 令$K=[a,b] \setminus \bigcup_{n\geq 1}I_n$, 那么$K$是有界闭集, 从而是紧集. 记$\alpha _1 =\{ i:K \cap (x_{i-1},x_i) \neq \varnothing \}, \alpha _2 =\{ i:K \cap (x_{i-1},x_i) = \varnothing \}$. 
 	
-	首先考虑$\alpha _1$部分. 由$K$是紧集, 对任意$\varepsilon >0$存在$\delta >0$使得只要$x_i-x_{i-1}<\delta$就有$\omega (f,(x_{i-1},x_i)) \leq \omega (f,(x_{i-1},y)) + \omega (f,(y,x_i)) <2\varepsilon$, 其中$y \in K\cap (x_{i-1},x_i)$. 因此$\sum_{i \in \alpha _1} \omega (f,(x_{i-1},x_i))(x_i-x_{i-1}) < 2\varepsilon (b-a)$. 
+	首先考虑$\alpha _1$部分. 由$K$是紧集, $f$在$K$上连续, 可知$f$在$K$上一致连续. 然而, $(x_{i-1},x_i)$和$K$不是包含关系, 这意味着该区间的一部分点是属于$D(f)$的, 从而不能直接使用一致连续性. 实际上, 我们需要将一致连续性加强为对任意的$x \in K$和$y \in [a,b]$成立: 回顾Cantor-Heine的一致连续性定理, 最后一步可将$y$优化为更大区间. 
+	
+	因此, 对任意$\varepsilon >0$存在$\delta >0$使得只要$x_i-x_{i-1}<\delta$就有$\omega (f,(x_{i-1},x_i)) \leq \omega (f,(x_{i-1},y)) + \omega (f,(y,x_i)) <2\varepsilon$, 其中$y \in K\cap (x_{i-1},x_i)$. 因此$\sum_{i \in \alpha _1} \omega (f,(x_{i-1},x_i))(x_i-x_{i-1}) < 2\varepsilon (b-a)$. 
 	
 	接着看$\alpha _2$部分. 将$\omega (f,(x_{i-1},x_i))$放缩为$f$在$[a,b]$上的振幅$\omega$, 我们只需考虑$\omega\sum_{i \in \alpha _2} (x_i-x_{i-1}) \leq \omega \sum_{k \geq 0} |I_k| < \omega \varepsilon$. 
 	
 	综上所述, $\sum_{i=1}^{n} \omega (f,(x_{i-1},x_i))(x_i-x_{i-1}) < (2(b-a)+\omega)\varepsilon$, 令$\varepsilon \to 0$即可. 
+	
+	% TODO 参考梅加强, 用Lebesgue数引理
 \end{proof}
 
-利用Lebesgue-Vitali定理, 我们可以快速得到先前的一些结果, 例如命题\ref{pro:jiffxkvi}. 
+利用Lebesgue-Vitali定理, 我们可以快速得到先前的一些结果, 例如命题\ref{pro:jiffxkvi}. 这里用Lebesgue-Vitali重新证明推论\ref{cor:fwfuhjuujiff}: 
+
+\begin{proof}
+	充分性显然. 必要性: 下证$f^+$可积, 即$D(f^+)$为零测集. 若$D(f^+) \nsubseteq D(f)$, 考虑$x_0 \in D(f^+)$但$x_0 \notin D(f)$, 那么显然$f(x_0)=0$且$f$在$x_0$两侧变号. 结合$f$在$x_0$处连续, 可知存在$\delta$使得(不妨)$f|_{(x_0-\delta,x_0)}<0,f|_{(x_0,x_0+\delta)}>0$, 这就是说$f^+|_{(x_0-\delta,x_0]}=0$, 从而$f^+|_{(x_0-\delta,x_0+\delta)} = f|_{(x_0-\delta,x_0+\delta)}$, 立得矛盾. 所以$D(f^+) \subseteq D(f)$, 自然是零测集. 
+\end{proof}
 
 \newpage
 \section{Riemann积分的计算}
@@ -543,10 +568,70 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 	不妨考虑$g$单调不增, 则令$G(x)=g(x)-g(b)$可知$G$是单调不增的非负函数. 利用引理立得上式成立. 
 \end{proof}
 
-记$\lim_{h \to 0^+}g(a+h) = g(a_0)$(这个极限显然存在), 则对任意$\varepsilon >0$均存在$\xi \in [a,b]$使得$$\int_a^bf(x)g(x) \dif x = (g(a_0)+\varepsilon) \int_a^{\xi} f(x) \dif x.$$
+
+\begin{proposition}{积分余项的Taylor公式}
+	设$f$是$I$上的$C^{n+1}$函数, 则有$$f(x)=\sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!} (x-x_0)^k + \int_{x_0}^{x} \frac{f^{(n+1)}(t)}{n!} (x-t)^n \dif t.$$
+\end{proposition}
+\begin{proof}
+	用归纳法. $n=0$时, 该式为$f(x)=f(x_0)+\int_{x_0}^{x} f'(t) \dif t$, 即为Newton-Leibniz公式. 假设命题对$n$成立, 则
+	\begin{align*}
+		f(x) &= \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!} (x-x_0)^k + \int_{x_0}^{x} \frac{f^{(n+1)}(t)}{n!} (x-t)^n \dif t \\
+		&= \sum_{k=0}^{n} \frac{f^{(k)}(x_0)}{k!} (x-x_0)^k + \int_{x_0}^{x} \frac{1}{n!} (x-t)^n \left( f^{(n+1)}(x_0) + \int_{x_0}^{t} f^{(n+2)} (u) \dif u \right) \dif t \\
+		&= \sum_{k=0}^{n+1} \frac{f^{(k)}(x_0)}{k!} (x-x_0)^k - \int_{x_0}^{x} \left( \int_{x_0}^{t} f^{(n+2)} (u) \dif u \right) \dif \frac{(x-t)^{n+1}}{(n+1)!} \\
+		&= \sum_{k=0}^{n+1} \frac{f^{(k)}(x_0)}{k!} (x-x_0)^k + \int_{x_0}^{x} \frac{f^{(n+2)}(t)}{(n+1)!} (x-t)^{n+1} \dif t.
+	\end{align*}
+\end{proof}
 
 \newpage
 \section*{一些习题 ~~\small 对应原书6.1, 6.2习题} \label{sec:ex7.1}
+
+\subsection*{A: 正测度Cantor集与Cantor函数}
+
+在闭区间$[0,1]$中, 去掉最中间长度为$\frac{1-\alpha}{3}$的开区间, 再在剩下的两端闭区间中去掉最中间长度为$\frac{1-\alpha}{3^2}$的开区间. 如此操作的极限情况(容易验证其为良定义)即为正测度Cantor集$\mathcal{C}_\alpha$, 特别地$\mathcal{C}_0=\mathcal{C}$. 
+\vspace{1em}
+
+\circled{A1}~~验证$\mathcal{C}_\alpha~(0<\alpha<1)$仍然是有限闭集, 无处稠密集, 完备集, 不可数集(特别地与$\R$等势), 但不是零测集. 
+\vspace{1em}
+
+考虑$x \in \mathcal{C}$, 将其写作三进制形式(人为避免$1$的出现), 将所有数码$\times \frac{1}{2}$, 再以二进制形式读取这些数码, 得到$c(x)$. 对于$x \notin \mathcal{C}$, 令$c(x)=\sup_{\matcal{C} \ni t<x} c(t)$. 这样的$c$即为Cantor函数. 显然$c$单调不减. 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=6cm]{attachment/CantorEscalier-2.pdf}
+	\caption{Cantor函数在$[0,1]$的图像, “魔鬼阶梯”}
+\end{figure}
+
+\circled{A2}-1~~验证Cantor函数在$[0,1]$上连续, 在且仅在$\mathcal{C}$以外可微, 且导数值为$0$. 
+
+\circled{A2}-2~~称一个函数$f$在$[a,b]$上是\textit{绝对连续的}, 如果对任意$\varepsilon >0$存在$\delta >0$使得有限个不交的开区间$(a_k,b_k)$只要满足$\sum_k (b_k-a_k) <\delta$就有$\sum_k |f(b_k)-f(a_k)|<\varepsilon$.\footnote{如果将Newton-Leibniz公式中的Riemann积分替换为Lebesgue积分, 则一个函数符合该公式当且仅当其绝对连续. } 验证Cantor函数在$[0,1]$上并非绝对连续. 
+
+\circled{A2}-3~~求$\int_0^1 c(x) \dif x$. 
+\vspace{1em}
+
+\subsection*{B: 积分相关问题}
+
+\circled{B1}-1~~证明: 若$f \in C([a,b])$, 在$[a,b]$上非负, 则$\displaystyle \lim_{n\to \infty} \left( \int_a^b (f(x))^n \dif x \right)^{\frac{1}{n}} = \max_{a \leq x \leq b} f(x).$
+
+\circled{B1}-2~~若$f,\varphi \in C([a,b])$在$[a,b]$上非负, 则$\displaystyle \lim_{n\to \infty} \left( \int_a^b \varphi (x) (f(x))^n \dif x \right)^{\frac{1}{n}} = \max_{a \leq x \leq b} f(x).$
+
+\circled{B1}-3~~若$f \in C([a,b])$, 在$[a,b]$上非负, 证明: $$\lim_{n\to \infty} \left( \left( \int_a^b (f(x))^{n+1} \dif x \right) / \left( \int_a^b (f(x))^n \dif x \right) \right) = \max_{a \leq x \leq b} f(x).$$
+
+将离散的不等式推广: 
+\vspace{1em}
+
+\circled{B2}-1~~(Jensen不等式) 设$f,g \in C(\R)$, 且$f$是凸函数, 则当$c \neq 0$时$$f\left( \frac{1}{c} \int_0^c \varphi (t) \dif t \right) \leq \frac{1}{c} \int_0^c f(\varphi (t)) \dif t.$$
+
+\circled{B2}-2~~(Young不等式) 设实数$a,b>0$, 函数$f$在$[a,+\infty )$上连续且严格单调递增, $f(0)=0$, 则$$ab \leq \int_0^a f(x) \dif x + \int_0^b f^{-1}(x) \dif x \leq bf^{-1}(b) + af(a)-f(a)f^{-1}(b),\qquad \textit{取等} \Leftrightarrow f(a)=b.$$
+
+\circled{B2}-3~~(Hölder不等式) 设$\frac{1}{p}+\frac{1}{q}=1$, $f,g$在$[a,b]$上Riemann可积. 则当$p > 1$时有$$\left| \int_a^b f(x)g(x) \dif x \right|\leq \left( \int_a^b |f(x)|^p \dif x \right)^{\frac{1}{p}} \left( \int_a^b |g(x)|^q \dif x \right)^{\frac{1}{q}}  ,\qquad \textit{取等}\Leftrightarrow |f|^p=\lambda |g|^q. $$
+当$0<p<1$时上述不等式反向. 取$p=q=2$, 即得Cauchy-Schwarz不等式. 
+\vspace{1em}
+
+\circled{B2}-4~~(Minkowski不等式) 设$f,g$在$[a,b]$上Riemann可积. 当$p \geq 1$时有$$\left| \int_a^b |f(x)+g(x)|^p \dif x \right|^{\frac{1}{p}} \leq \left( \int_a^b |f(x)|^p \dif x \right)^{\frac{1}{p}} + \left( \int_a^b |g(x)|^q \dif x \right)^{\frac{1}{q}},\qquad \textit{取等}\Leftrightarrow |f|^p=\lambda |g|^q.$$
+当$0<p<1$时上述不等式反向. 
+
+
+
 
 \newpage
 \section*{一些习题 ~~\small 对应原书6.3习题} \label{sec:ex7.2}
@@ -573,8 +658,10 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 
 对于有向可加函数$I:[a,b] \times [a,b] \to \R$, 通过定义函数$\mu :[a,b] \to \R ,t \mapsto I(a,t)$, 可将$I(\alpha ,\beta)$视作$\mu (\beta)-\mu (\alpha)$. 从几何的视角, 若将$I(\alpha ,\beta)$视作区间$[\alpha ,\beta ]$的长度(两端点的有向距离), 则$\mu$就给出了某个点的绝对位置(亦称$\mu$为测度函数). Riemann积分即是$\mu (x)=x$的情形. 这启发我们, 将Riemann积分中的$\dif x$替换为$\dif \mu (x)$, 或者说将Riemann和中的$x_i-x_{i-1}$替换为$\mu (x_i)- \mu (x_{i-1})$. 
 
+需要注意的是, 虽然$\mu $的单调性不影响Stieltjes积分的定义, 但一般为了保证其良好性质, 会约定$\mu$不减. 
+
 \begin{definition}{Stieltjes积分}
-	设闭区间$I$上的函数$f,\mu$, 定义
+	设闭区间$I$上的函数$f$和不减的函数$\mu$, 定义
 	\begin{itemize}
 		\item 对于分划$\pi = \{ a=x_0<\cdots <x_n=b \}$, 称形如$$f = \sum_{i=1}^{n} \lambda _i \chi _{(\mu (x_{i-1}),\mu (x_{i}))} $$
 		(其中$\lambda _i \in \R$)的函数为$\pi$上的一个\textit{$\mu$-阶梯函数}. 记$I$上全体$\mu$-阶梯函数的集合为$\mathcal{S}(I;\mu )$. 
@@ -596,7 +683,14 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 
 类似于换元积分公式, 不难证明, 设$\mu (x) = \int_a^x \rho (x)\dif x$, 则对可积的$f$有$\displaystyle \int_a^b f(x) \dif \mu (x) = \int_a^b f(x) \rho (x) \dif x$. 特别地, 当$\mu$连续可微时, 就可以将积分号内的$\dif \mu (x)$看做是$\mu '(x) \dif x$. 
 
-然而, 唯一与Riemann积分不同之处在于, Stieltjes积分没有Newton-Leibniz公式. 这是否意味着其没有作为N-L公式推论的分部积分公式? 
+然而, 唯一与Riemann积分不同之处在于, Stieltjes积分没有Newton-Leibniz公式. 这是否意味着其没有作为Newton-Leibniz公式推论的分部积分公式? 实际上, 用Abel求和来逼近, 可以证明类似分部积分公式而将Riemann积分与Stieltjes积分联系起来的公式. 
+
+\begin{proposition}{Riemann积分与Stieltjes积分的联系}
+	设不减函数$\mu$, $f \in C^1([a,b])$, 则$$\int_a^b f'(x)\mu (x) \dif x = f(x)\mu (x) \mid _a^b - \int_a^b f(x) \dif \mu (x) .$$
+\end{proposition}
+
+
+
 
 
 

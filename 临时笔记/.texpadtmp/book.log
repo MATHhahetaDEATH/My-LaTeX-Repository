@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  19 APR 2024 22:59
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.9.16)  19 JUL 2024 09:27
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -945,29 +945,7 @@ LaTeX Font Info:    Font shape `TU/FZShuSong-Z01(0)/m/sl' in size <10.53937> not
 ./MainMatter/linear_algebra.tex:78: Undefined control sequence.
 \example ...c {exam}}}~(\textit {#1})~~ \citshape 
                                                   
-l.78 \begin{example}{p23,补充题一,2}
-                                
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/linear_algebra.tex:87: Undefined control sequence.
-\example ...c {exam}}}~(\textit {#1})~~ \citshape 
-                                                  
-l.87 \begin{example}{p23,补充题一,3}
-                                
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/linear_algebra.tex:96: Undefined control sequence.
-\example ...c {exam}}}~(\textit {#1})~~ \citshape 
-                                                  
-l.96 \begin{example}{p128,例3}
+l.78 \begin{example}{p128,例3}
                              
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -975,22 +953,43 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/linear_algebra.tex:102: Undefined control sequence.
+./MainMatter/linear_algebra.tex:84: Undefined control sequence.
 \example ...c {exam}}}~(\textit {#1})~~ \citshape 
                                                   
-l.102 \begin{example}{p129,例4}
-                              
+l.84 \begin{example}{p129,例4}
+                             
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/linear_algebra.tex:108: Undefined control sequence.
+./MainMatter/linear_algebra.tex:90: Undefined control sequence.
 \example ...c {exam}}}~(\textit {#1})~~ \citshape 
                                                   
-l.108 \begin{example}{p135,例2}
-                              
+l.90 \begin{example}{p135,例2}
+                             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Overfull \hbox (9.82053pt too wide) in paragraph at lines 116--121
+[]\TU/FZShuSong-Z01(0)/m/n/10.53937 对 换 变 换\TU/lmr/m/n/10.53937 : $[] [] \OT1/cmr/m/n/10.53937 = \OMS/cmsy/m/n/10.53937 ^^@ [] []$\TU/lmr/m/n/10.53937 . 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 121--128
+[]\TU/FZShuSong-Z01(0)/m/n/10.53937 多 线 性\TU/lmr/m/n/10.53937 : $[] [] \OT1/cmr/m/n/10.53937 = [] [] +
+ []
+
+./MainMatter/linear_algebra.tex:131: Undefined control sequence.
+\remark ...textbf {\text {注.}} \itshape \citshape 
+                                                  
+l.131 \begin{remark}
+                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -998,19 +997,10 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [3]
-Overfull \hbox (9.82053pt too wide) in paragraph at lines 134--139
-[]\TU/FZShuSong-Z01(0)/m/n/10.53937 对 换 变 换\TU/lmr/m/n/10.53937 : $[] [] \OT1/cmr/m/n/10.53937 = \OMS/cmsy/m/n/10.53937 ^^@ [] []$\TU/lmr/m/n/10.53937 . 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--146
-[]\TU/FZShuSong-Z01(0)/m/n/10.53937 多 线 性\TU/lmr/m/n/10.53937 : $[] [] \OT1/cmr/m/n/10.53937 = [] [] +
- []
-
-./MainMatter/linear_algebra.tex:149: Undefined control sequence.
+./MainMatter/linear_algebra.tex:140: Undefined control sequence.
 \remark ...textbf {\text {注.}} \itshape \citshape 
                                                   
-l.149 \begin{remark}
+l.140 \begin{remark}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1018,26 +1008,16 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/linear_algebra.tex:158: Undefined control sequence.
-\remark ...textbf {\text {注.}} \itshape \citshape 
-                                                  
-l.158 \begin{remark}
-                    
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
+
+ []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 178--179
-
- []
-
-./MainMatter/linear_algebra.tex:200: Undefined control sequence.
+./MainMatter/linear_algebra.tex:182: Undefined control sequence.
 \example ...c {exam}}}~(\textit {#1})~~ \citshape 
                                                   
-l.200 \begin{example}{p48,例9}
+l.182 \begin{example}{p48,例9}
                              
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1045,10 +1025,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/linear_algebra.tex:204: Undefined control sequence.
+./MainMatter/linear_algebra.tex:186: Undefined control sequence.
 \example ...c {exam}}}~(\textit {#1})~~ \citshape 
                                                   
-l.204 \begin{example}{p52,例13}
+l.186 \begin{example}{p52,例13}
                               
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1056,11 +1036,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[5]
-./MainMatter/linear_algebra.tex:215: Undefined control sequence.
+./MainMatter/linear_algebra.tex:197: Undefined control sequence.
 \example ...c {exam}}}~(\textit {#1})~~ \citshape 
                                                   
-l.215 \begin{example}{p54,习题2.4,7}
+l.197 \begin{example}{p54,习题2.4,7}
                                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1068,10 +1047,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/linear_algebra.tex:225: Undefined control sequence.
+./MainMatter/linear_algebra.tex:207: Undefined control sequence.
 \example ...c {exam}}}~(\textit {#1})~~ \citshape 
                                                   
-l.225 \begin{example}{p55,习题2.4,10}
+l.207 \begin{example}{p55,习题2.4,10}
                                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1079,10 +1058,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/linear_algebra.tex:235: Undefined control sequence.
+./MainMatter/linear_algebra.tex:217: Undefined control sequence.
 \example ...c {exam}}}~(\textit {#1})~~ \citshape 
                                                   
-l.235 \begin{example}{p67,例2}
+l.217 \begin{example}{p67,例2}
                              
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1090,27 +1069,27 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[6]
+[5] [6]
 Chapter 2.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 245.
+(hyperref)                removing `math shift' on input line 229.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 245.
+(hyperref)                removing `math shift' on input line 229.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 245.
+(hyperref)                removing `math shift' on input line 229.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 245.
+(hyperref)                removing `superscript' on input line 229.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 245.
+(hyperref)                removing `math shift' on input line 229.
 
 [7
 
@@ -1152,10 +1131,10 @@ Package rerunfilecheck Info: File `book.out' has not changed.
 Here is how much of TeX's memory you used:
  19853 strings out of 476683
  429102 string characters out of 5804047
- 1866018 words of memory out of 5000000
+ 1868018 words of memory out of 5000000
  39649 multiletter control sequences out of 15000+600000
  526980 words of font info for 142 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 104i,9n,111p,389b,428s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,9n,111p,389b,451s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
 Output written on /Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/临时笔记/.texpadtmp/book.pdf (19 pages).

@@ -8,8 +8,16 @@
 
 \begin{definition}{方向导数, 偏导数}
     设函数$f:\Omega \to \R$, $x_0 \in \Omega , v \in \R ^n$. 定义$f$在$x_0$处\textit{沿$v$的方向导数}为下列极限(如果存在): $$\frac{\p f}{\p v}(x_0) := \lim_{h \to 0} \frac{f(x_0+hv)-f(x_0)}{h}.$$
-    特别地, 令$\frac{\p }{\p x_i}$表示第$i$个坐标为$1$, 其余为$0$的单位向量, 则称沿$x_i$的方向导数为该方向上的\textit{偏导数}. 
+    特别地, 令$x_i$为第$i$个坐标为$1$, 其余为$0$的单位向量, 则称沿$x_i$的方向导数为该方向上的\textit{偏导数}. 
 \end{definition}
+
+需要注意, 即使偏导数均存在, 也不能保证方向导数存在. (这是因为$\frac{\p f}{\p v_1}(x_0) + \frac{\p f}{\p v_2}(x_0) = \frac{\p f}{\p (v_1+v_2)}(x_0)$对不可微函数可能不成立)
+
+\begin{example}
+	考虑$f(x,y)=\begin{cases}
+		\frac{xy}{x+y} & (x,y) \neq (0,0) \\ 0 & (x,y)=(0,0)
+	\end{cases}$. 则$f$的两个偏导数在$(0,0)$均为$0$, 但是$\displaystyle \frac{\p f}{\p v} = \lim_{h \to 0} \frac{v^1v^2}{h((v^1)^2+(v^2)^2)}$不存在. 
+\end{example}
 
 从几何的视角理解方向导数: 设曲线$\gamma :(-\delta,\delta) \to \R ^n$是$C^1$的. 我们有$$\frac{\dif}{\dif t} \big|_{t=0} (f|_{\rge \gamma} \circ \gamma) = \frac{\p f}{\p \gamma '(0)} (\gamma (0)). $$
 

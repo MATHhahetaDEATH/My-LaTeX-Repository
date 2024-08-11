@@ -1173,7 +1173,7 @@ Euler提出了针对这三种形式的代换: $$\sqrt{t^2+1}=tu\pm 1,t-u;\qquad 
 	进一步, 容易说明: $p(z)$在$\C$上恰有$n$个根. 
 \end{remark}
 \begin{proof}
-	由于$p$连续, 存在点$z_0$使得$|p(z_0)|=\inf_{z \in \C}|p(z)|$. 下面证明$p(z_0)=0$: 设若不然, 考虑多项式$q(z)=\frac{p(z+z_0)}{p(z_0)}$, 那么$q(0)=1$, $1= |q(0)|=\inf_{z \in \C} |q(z)|$. 记$q(z)=1+a_kz^k+\cdots +a_nz^n$, 其中$a_k \neq 0$. 令$a_k=re^{\ic \theta}$, $\beta ^k = re^{\ic (\pi-\theta)}$, 那么在$r$较小时$$|q(\beta)| \leq |1+a_k\beta ^k| + (|a_{k+1}\beta ^{k+1}| + \cdots + |a_n\beta ^n|) = 1-r^k(|a_k|-r|a_{k+1}|-\cdots -r^{n-k}|a_n|) <1.$$
+	由于$p$连续, 存在点$z_0$使得$|p(z_0)|=\inf_{z \in \C}|p(z)|$. 下面证明$p(z_0)=0$: 设若不然, 考虑多项式$q(z)=\frac{p(z+z_0)}{p(z_0)}$, 那么$q(0)=1$, $1= |q(0)|=\inf_{z \in \C} |q(z)|$. 记$q(z)=1+a_kz^k+\cdots +a_nz^n$, 其中$a_k \neq 0$. 令$a_k=re^{\ic \theta}$, $\beta ^k = \rho ^k e^{\ic (\pi-\theta)}$, 那么当$\rho$足够小时, $$|q(\beta)| \leq |1+a_k\beta ^k| + (|a_{k+1}\beta ^{k+1}| + \cdots + |a_n\beta ^n|) = 1-\rho ^k(r-\rho |a_{k+1}|-\cdots -\rho ^{n-k}|a_n|) <1.$$
 	这与$|q(z)| \geq 1$矛盾! 
 \end{proof}
 

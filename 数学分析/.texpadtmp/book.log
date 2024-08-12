@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.10)  11 AUG 2024 13:01
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.10)  11 AUG 2024 16:06
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -6271,11 +6271,11 @@ and I'll forget about whatever was undefined.
 File: attachment/CantorEscalier-2.pdf Graphic file (type pdf)
 <use attachment/CantorEscalier-2.pdf>
 [170] [171] [172]
-Overfull \vbox (9.52505pt too high) detected at line 678
+Overfull \vbox (9.52505pt too high) detected at line 681
  []
 
 [173]
-Overfull \hbox (14.22015pt too wide) in paragraph at lines 684--685
+Overfull \hbox (14.22015pt too wide) in paragraph at lines 687--688
 []\TU/FZShuSong-Z01(0)/m/n/10.53937 类 似 于 换 元 积 分 公 式\TU/lmr/m/n/10.53937 , \TU/FZShuSong-Z01(0)/m/n/10.53937 不 难 证 明\TU/lmr/m/n/10.53937 , \TU/FZShuSong-Z01(0)/m/n/10.53937 设 $\OML/cmm/m/it/10.53937 ^^V\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 x\OT1/cmr/m/n/10.53937 ) = [][] \OML/cmm/m/it/10.53937 ^^Z\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 x\OT1/cmr/m/n/10.53937 ) []  []\OML/cmm/m/it/10.53937 x$\TU/lmr/m/n/10.53937 , \TU/FZShuSong-Z01(0)/m/n/10.53937 则 对 可 积 的 $\OML/cmm/m/it/10.53937 f$ \TU/FZShuSong-Z01(0)/m/n/10.53937 有 $[][] \OML/cmm/m/it/10.53937 f\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 x\OT1/cmr/m/n/10.53937 ) []  []\OML/cmm/m/it/10.53937 ^^V\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 x\OT1/cmr/m/n/10.53937 ) = [][] \OML/cmm/m/it/10.53937 f\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 x\OT1/cmr/m/n/10.53937 )\OML/cmm/m/it/10.53937 ^^Z\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 x\OT1/cmr/m/n/10.53937 ) []  []\OML/cmm/m/it/10.53937 x$\TU/lmr/m/n/10.53937 .
  []
 

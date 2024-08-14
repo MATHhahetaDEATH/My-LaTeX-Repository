@@ -1,0 +1,938 @@
+\chapter{线性映射与矩阵}
+
+\section{基本概念}
+
+\subsection{向量空间的线性映射}
+
+在描述一种颜色时, 我们会给出几个不同方面的数据进行叠加. 以RGB颜色为例, 其通过对红(R), 绿(G), 蓝(B)三个通道分别赋予$0\sim 255$的值再进行组合而产生出$256^3$种颜色. 设颜色向量$c_1,c_2,c_3$. 如果想将$c_1,c_2$叠加, 我们会考虑一种加权平均, 也即新的颜色$c_4=tc_1+(1-t)c_2, 0\leq t \leq 1$. 如果考虑$c_5$为另一种方式的叠加, 即$c_5=sc_1+(1-s)c_2, 0 \leq s \leq 1$, 再定义两种颜色的直接和$\tilde{+}$为其算术平均, 那么会有$c_4 \tilde{+} c_5= (t \tilde{+} s) c_1 + ((1-t) \tilde{+} (1-s)) c_2$. 将$t$与$s$视作映射$C$的自变量, 即可得到$C(t \tilde{+} s) = C(t) \tilde{+} C(s)$. 同样地, 如果定义标量乘法$\tilde{\times}$表示将白色$(0,0,0)$与该颜色按量$\lambda$混合, 可以得到$C(\lambda \tilde{\times} t) = \lambda \tilde{\times} C(t)$. 
+
+上方的例子解释了所谓\textit{叠加原理}: 即和的输入所得输出等于输入所得输出的和, 标量倍输入所得输出等于输入所得输出的标量倍. 由此引入线性映射的概念. 
+
+\begin{definition}{线性映射}
+	设函数$T:V \to W$，若该函数满足下列性质：
+	\begin{enumerate}
+		\item \textit{加性}：$$\forall u,v \in V,~T(u+v)=Tu+Tv.$$
+		\item \textit{齐性}：$$\forall \lambda \in \F,~v \in V,~T(\lambda v)=\lambda Tv.$$
+	\end{enumerate}
+	则称$T$是\textit{线性映射}.
+\end{definition}
+\begin{remark}
+	为了让你想起线性映射可以直接写成矩阵乘法(见3.1.3节), 通常用$Tv$代替$T(v)$. 
+\end{remark}
+
+规定记号$\lmap (V,W)$，表示所有从$V$到$W$的线性映射构成的集合.
+
+另一种理解线性映射的方式: 记$T$的图为$\{ (v,Tv)\in V \times W : v \in V \}$, 则$T$是线性映射当且仅当$T$的图是$V \times W$的子空间. (这里, $\times$表示笛卡尔积)
+
+\begin{example}{\examplefont{线性映射的例子}}
+	(1)零函数：定义$0 \in \lmap (V,W)$如下$$\forall v \in V, 0v=0.$$
+	(2)恒等映射：定义$I \in \lmap (V,V)$如下$$\forall v \in V, Iv=v.$$
+	(3)微分：定义$D \in \lmap (\mathcal{P}(\R),\mathcal{P}(\R))$如下$$Dp=p'.$$
+	(4)乘以$x^2$：定义$T \in \lmap (\mathcal{P}(\R),\mathcal{P}(\R))$满足$$\forall x \in \R ,~(Tp)(x)=x^2p(x).$$
+	(5)向后移位：定义$T \in \lmap (\F ^{\infty},\F ^{\infty})$如下$$T(x_1,x_2,x_3, \cdots ) = (x_2,x_3, \cdots).$$
+	(6)从$\R ^3$到$\R ^2$：定义$T \in \lmap (\R ^{3},\R ^{2})$如下$$T(x,y,z)=(2x-y+3z,7x+5y-6z).$$
+	(7)从$\F ^n$到$\F ^m$：定义$T \in \lmap (\F ^{n},\F ^{m})$如下$$T(x_1,\cdots ,x_n) = (A_{1,1}x_1 + \cdots + A_{1,n}x_n, \cdots , A_{m,1}x_1+\cdots +A_{m,n}x_n).$$
+	其中，$A_{j,k} \in \F ,~j=1, \cdots ,m,~ k = 1, \cdots ,n$.事实上，从$\F ^n$到$\F ^m$的每个线性映射都是这种形式的.我们稍后会进行证明.
+\end{example}
+
+观察线性映射所具有的加性与齐性，似乎可以将其与线性组合联系起来.例如，对于$T \in \lmap (V,W)$，若给定$v_1, \cdots ,v_m$是$V$的基，设$c_1, \cdots ,c_m$是$\F$中的任意元素，则$$T(c_1v_1 + \cdots + c_mv_m) = c_1Tv_1 + \cdots + c_mTv_m.$$
+由这种想法，以下的命题不难证明：
+
+\begin{proposition}{线性映射与定义域的基} \label{pro:xmxkykuedkyiyu}
+	对于$T \in \lmap (V,W)$，设$v_1, \cdots ,v_m$是$V$的基，$w_1, \cdots ,w_m \in W$，则存在唯一一个线性映射$T \in \lmap (V,W)$使得对任意$j=1, \cdots ,m$都有$$Tv_j = w_j.$$
+\end{proposition}
+\begin{proof}
+	\buzhou{1}存在性：利用先前得到的想法，构造$T:V \to W$如下：$$\forall c_j \in \F~(j=1, \cdots,m),~T(c_1v_1 + \cdots + c_mv_m) = c_1w_1 + \cdots + c_mw_m.$$
+	由于$v_1, \cdots ,v_m$是$V$的基，$T$的定义域是$V$.下证$T \in \lmap (V,W)$. \\
+	取$u=a_1v_1 + \cdots + a_mv_m,~v=c_1v_1 + \cdots + a_mv_m,~ \lambda \in \F$，因为
+	\begin{align*}
+		T(u+v) &= T((a_1+c_1)v_1 + \cdots + (a_m+c_m)v_m) \\
+		&= (a_1+c_1)w_1 + \cdots + (a_m+c_m)w_m, \\
+		Tu+Tv &= a_1w_1 + \cdots + a_mv_m + c_1v_1 + \cdots + c_mv_m.
+	\end{align*}
+	所以$T(u+v)=Tu+Tv$，即$T$满足加性.因为
+	\begin{align*}
+		T(\lambda u) &= T((\lambda a_1)v_1 + \cdots + (\lambda a_m)v_m) \\
+		&= \lambda a_1 w_1 + \cdots + \lambda a_m w_m, \\
+		\lambda T(u) &= \lambda (a_1w_1 + \cdots a_mw_m).
+	\end{align*}
+	所以$T(\lambda u)=\lambda T(u)$，即$T$满足齐性.综上，这样的$T \in \lmap (V,W)$. \\
+	\buzhou{2}唯一性：若$T \in \lmap (V,W)$，记$T v_j = w_j~(j=1,\cdots ,m)$，设$c_1, \cdots ,c_m$是$\F$中的任意元素，有$$T(c_1v_1 + \cdots + c_mv_m) = c_1w_1 + \cdots + c_mw_m.$$
+	这表明任何一个满足题目要求的映射$T$都满足上述形式要求.结合\buzhou{1}，可知映射$T$的唯一形式即为该形式.
+\end{proof}
+
+对上方的命题稍加延伸, 不难证明: 
+
+\begin{proposition}{}
+	设$v_1,\cdots ,v_n \in V, T \in \lmap (V,W)$. \\
+	(1) $v_1,\cdots ,v_n$线性相关, 则$Tv_1,\cdots ,Tv_n$线性相关; \\
+	(2) $v_1,\cdots ,v_n$线性无关且满足$Tv=0$的$v$只有$0$(即$T$的零空间为$\{ 0 \}$), 则$Tv_1,\cdots ,Tv_n$线性无关. 
+\end{proposition}
+
+\begin{example}
+	设$T \in \lmap (\F ^n,\F ^m)$.证明存在标量$A_{j,k} \in \F$~(其中$j=1, \cdots ,m,~k=1,\cdots ,n$)使得对任意$(x_1, \cdots ,x_n) \in \F ^n$都有$$T(x_1, \cdots ,x_n) = (A_{1,1}x_1+ \cdots +A_{1,n}x_n, \cdots ,A_{m,1}x_1+\cdots +A_{m,n}x_n).$$
+\end{example}
+\begin{proof}
+	记$T(e_i)=(A_{1i},\cdots A_{mi})$, 则$T(x_1,\cdots ,x_n)=x_1Te_1+\cdots + x_nTe_n = (A_{1,1}x_1+ \cdots +A_{1,n}x_n, \cdots ,A_{m,1}x_1+\cdots +A_{m,n}x_n)$.
+\end{proof}
+
+\begin{example}
+	将二维平面$\R ^2$上的绕原点逆时针旋转$\theta$看做映射$\varphi _{\theta} : (x,y) \mapsto (x_1,y_1)$. 容易验证$\varphi _{\theta}$是一个线性映射. 由于$$\varphi _{\theta} (1,0) = (\cos \theta , \sin \theta) , \varphi _{\theta} (1,0) = (\cos \left( \theta + \frac{\pi}{2} \right) , \sin \left( \theta + \frac{\pi}{2} \right)),$$
+	我们可以得到$\varphi _{\theta} (x,y) = (x\cos \theta - y\sin \theta ,x\sin \theta + y\cos \theta)$.
+\end{example}
+
+我们接着完善线性映射的定义.先在$\lmap (V,W)$上定义加法和标量乘法：
+
+\begin{definition}{$\lmap (V,W)$上的加法和标量乘法}
+	设$S,T \in \lmap (V,W),~\lambda \in \F$. \\
+	(1)定义\textit{和}$S+T$是$V$到$W$的映射，满足$$\forall u \in V,~(S+T)(u)=Su+Tu.$$
+	(2)定义\textit{积}$\lambda T$是$V$到$W$的映射，满足$$\forall u \in V,~(\lambda T)(u) = \lambda (Tu).$$
+\end{definition}
+\begin{remark}
+	实际上，定义中的$S+T,\lambda T$均为从$V$到$W$的线性映射，也即上述定义的加法、标量乘法是封闭的.更进一步，$\lmap (V,W)$就是一个向量空间.这个命题易于证明.
+\end{remark}
+
+一般来说，向量空间中元素之间的乘法是没有意义的.然而对于线性映射，我们倾向于将一种特殊的运算视作乘积：
+
+\begin{definition}{线性映射的乘积}
+	设$T \in \lmap (U,V),~S \in \lmap (V,W)$，定义\textit{乘积}$ST$是$U$到$W$的映射，满足$$\forall u \in U,~(ST)(u)=S(Tu).$$
+\end{definition}
+\begin{remark}
+	同样的，这里的$ST$是从$U$到$W$的线性映射.
+\end{remark}
+\begin{remark}
+	此处线性映射的乘积就是所谓“函数复合”$S \circ T$.
+\end{remark}
+
+\begin{proposition}{线性映射乘积的代数性质} \label{pro:xmxkykueigji}
+	(1)结合性：设线性映射$T_1,T_2,T_3$，在运算有意义的情况下，有$$(T_1T_2)T_3=T_1(T_2T_3).$$
+	(2)单位元：设$T \in \lmap (V,W)$，$I$是$W$上的恒等映射，则$$TI=IT=T.$$
+	(3)分配性质：设$T,T_1,T_2 \in \lmap (U,V),~S,S_1,S_2 \in \lmap (V,W)$，则$$(S_1+S_2)T=S_1T+S_2T,\quad S(T_1+T_2)=ST_1+ST_2.$$
+\end{proposition}
+
+请注意，线性映射的乘法不满足交换性，即$ST=TS$不一定成立.
+
+
+
+\subsection{线性映射的表示矩阵}
+
+我们知道，对于线性映射$T:V \to W$，通过$V$的基的象$Tv_1, \cdots ,Tv_n$可以确定任意$V$中元素的象. 稍后我们会利用$W$的基在矩阵上记录这些$Tv_j$的值.
+
+\begin{definition}{矩阵}
+	设正整数$m,n$，$m \times n$\textit{矩阵}$A$是由$\F$的元素构成的$m$行$n$列的矩形阵列：$$A = 
+	\begin{pmatrix}
+		A_{1,1} & \cdots & A_{1,n} \\
+		\vdots &  & \vdots \\
+		A_{m,1} & \cdots & A_{m,n}
+	\end{pmatrix}.$$
+	其中，记号$A_{j,k}$表示$A$的第$j$行第$k$列的元素.
+\end{definition}
+
+\begin{definition}{线性映射的矩阵}
+	设$T \in \lmap (V,W)$，并设$v_1, \cdots ,v_n$是$V$的基，$w_1, \cdots ,w_n$是$W$的基.规定$T$\textit{关于这些基的矩阵}为$m \times n$矩阵$\mathcal{M}(T)$，其中$A_{j,k}$满足$$Tv_k = A_{1,k}w_1 + \cdots + A_{m,k}w_m.$$
+	如果这些基不是上下文自明的，则采用记号$\mathcal{M}(T,(v_1, \cdots ,v_n),(w_1, \cdots ,w_m))$.
+\end{definition}
+
+构造$\mathcal{M}(T)$的方法如下图所示：把$Tv_k$写成$w_1, \cdots ,w_m$的线性组合形式$A_{1,k} w_1 + \cdots + A_{m,k} w_m$，那么所有系数自上而下构成的矩阵的第$k$列.
+	$$\mathcal{M}(T) = \begin{matrix}
+  	& Tv_1~~ \cdots ~~Tv_k~~ \cdots ~~Tv_n\\
+	\begin{matrix} w_1 \\ \vdots \\ w_m \end{matrix}  
+	&\begin{pmatrix} ~~~~~ & ~~~~~ & A_{1,k} & ~~~~~ & ~~~~~\\  &  & \vdots &  & \\  &  & A_{m,k} &  & \end{pmatrix}
+	\end{matrix}.$$
+
+例如，对于线性映射$T:\F ^2 \to \F ^3$定义为$T(x,y)=(x+3y,2x+5y,7x+9y)$，则$T$关于$\F ^2$与$\F ^3$的标准基的矩阵为$$\mathcal{M}(T)= \begin{pmatrix}
+	1 & 3 \\ 2 & 5 \\ 7 & 9
+\end{pmatrix}.$$
+这是因为$T(1,0)=(1,2,7)=1(1,0,0)+2(0,1,0)+7(0,0,1),~T(0,1)=(3,5,9)=3(1,0,0)+5(0,1,0)+9(0,0,1)$.
+
+对于微分映射$D:\mathcal{P}_3(\R) \to \mathcal{P}_2(\R)$满足$Dp=p'$，它关于$\mathcal{P}_3(\R)$和$\mathcal{P}_2(\R)$的标准基的矩阵为$$\begin{pmatrix}
+	0 & 1 & 0 & 0 \\ 0 & 0 & 2 & 0 \\ 0 & 0 & 0 & 3
+\end{pmatrix}.$$
+
+如果将向量表示为如下形式: 
+
+\begin{definition}{向量的矩阵}
+	设$v \in V$，并设$v_1, \cdots ,v_n$是$V$的基.若$v=c_1v_1 + \cdots + c_nv_n$，规定$v$关于这个基的矩阵是一个$n \times 1$矩阵$$\mmatrix(v) = \begin{pmatrix}
+		c_1 \\ \vdots \\ c_n
+	\end{pmatrix}.$$
+\end{definition}
+
+那么对于具有表示矩阵$A$的线性映射$T \in \lmap (V,W)$, $Tv$可以表示为: 
+$$\begin{pmatrix}
+		A_{11}c_1+\cdots +A_{1n}c_n \\ \vdots \\ A_{m1}c_1+\cdots +A_{mn}c_n
+	\end{pmatrix} := \begin{pmatrix}
+		A_{11} & \cdots & A_{1n} \\
+		\vdots &  & \vdots \\
+		A_{m1} & \cdots & A_{mn}
+	\end{pmatrix} \begin{pmatrix}
+		c_1 \\ \vdots \\ c_n
+	\end{pmatrix}.$$
+	
+我们将其定义为矩阵与向量的乘积. 如此, $Tv$与$Av$的结果就相等了, 因而常将线性映射的表示矩阵写作其本身的符号. 当然, 这样的运算满足线性分配律$A(c_1v_1 + \cdots + c_nv_n) = c_1(Av_1) + \cdots c_n(Av_n)$. 
+
+前文所提到的旋转变换就可以这样写: $$\begin{pmatrix}
+		x_1 \\ y_1
+	\end{pmatrix} = \begin{pmatrix}
+		\cos \theta & -\sin \theta \\ \sin \theta & \cos \theta
+	\end{pmatrix} \cdot \begin{pmatrix}
+		x \\ y
+	\end{pmatrix}.$$
+
+
+
+\subsection{矩阵的运算}
+
+矩阵的加法与标量乘法定义很符合直觉：
+
+\begin{definition}{矩阵的加法与标量乘法}
+	(1) 规定两个同样大小的矩阵的\textit{和}是将对应元素相加得到的矩阵：$$\begin{pmatrix}
+		A_{1,1} & \cdots & A_{1,n} \\
+		\vdots &  & \vdots \\
+		A_{m,1} & \cdots & A_{m,n}
+	\end{pmatrix} + \begin{pmatrix}
+		C_{1,1} & \cdots & C_{1,n} \\
+		\vdots &  & \vdots \\
+		C_{m,1} & \cdots & C_{m,n}
+	\end{pmatrix} = \begin{pmatrix}
+		A_{1,1}+C_{1,1} & \cdots & A_{1,n}+C_{1,n} \\
+		\vdots &  & \vdots \\
+		A_{m,1}+C_{m,1} & \cdots & A_{m,n}+C_{m,n}
+	\end{pmatrix}.$$
+	(2) 规定标量与矩阵的\textit{乘积}是将标量乘以每个元素得到的矩阵：$$\lambda \begin{pmatrix}
+		A_{1,1} & \cdots & A_{1,n} \\
+		\vdots &  & \vdots \\
+		A_{m,1} & \cdots & A_{m,n}
+	\end{pmatrix} = \begin{pmatrix}
+		\lambda A_{1,1} & \cdots & \lambda A_{1,n} \\
+		\vdots &  & \vdots \\
+		\lambda A_{m,1} & \cdots & \lambda A_{m,n}
+	\end{pmatrix}.$$
+\end{definition}
+
+因而，我们有
+
+\begin{proposition}{线性映射与矩阵运算}\label{pro:xmxkykueyysrjuvf}
+	(1) 设$S,T \in \lmap (V,W)$，则$\mmatrix (S+T)=\mmatrix (S) + \mmatrix (T)$; \\
+	(2) 设$\lambda \in \F ,~T \in \lmap (V,W)$，则$\mmatrix (\lambda T) = \lambda \mmatrix (T)$. 
+\end{proposition}
+
+\begin{proposition}{$\F ^{m,n}$是向量空间}
+	对于正整数$m,n$，元素取自$\F$的所有$m \times n$矩阵的集合记为$\F ^{m,n}$.按照矩阵运算的定义，$\F ^{m,n}$是$mn$维向量空间.
+\end{proposition}
+
+上述命题的证明是显然的.
+
+我们注意到，线性映射不止有加法和标量乘法，还有元素之间的乘法. 猜测是否会有$\mmatrix (ST)= \mmatrix (S) \mmatrix (T)$？为了得到这个结果，尝试倒推矩阵乘法的定义：
+
+考虑$T \in \lmap (U,V),~S \in \lmap (V,W)$，并设$u_1, \cdots ,u_p$是$U$的基，$v_1, \cdots ,v_n$是$V$的基，$w_1, \cdots ,w_m$是$W$的基.记$\mmatrix (S)=A,~\mmatrix (T)=C$.那么对于任意的$1 \leq k \leq p$，有$$(ST)u_k = S\ssb{\sum_{r=1}^{n} C_{r,k}v_r} = \sum_{r=1}^{n} C_{r,k}Sv_r = \sum_{r=1}^{n} C_{r,k} \sum_{j=1}^{m} A_{j,r}w_j = \sum_{j=1}^{m} \ssb{\sum_{r=1}^{n} A_{j,r} C_{r,k}} w_j.$$
+因此$\mmatrix (ST)$是$m \times p$矩阵，且满足$$\mmatrix (ST)_{j,k} = \sum_{r=1}^{n} A_{j,r} C_{r,k}.$$
+于是可以定义：
+
+\begin{definition}{矩阵乘法}
+	设$A$是$m \times n$矩阵，$C$是$n \times p$矩阵.$AC$定义为$m \times p$矩阵，满足$$(AC)_{j,k} = \sum_{r=1}^{n} A_{j,r} C_{r,k}.$$
+	也即，将$A$的第$j$行与$C$的第$k$列元素对应相乘再相加.
+\end{definition}
+
+这样的矩阵乘法脱胎于线性映射的乘法，因此其代数性质也类似线性映射乘法的结合性、单位元、分配性质，且不满足交换性.
+
+例如，将一个$3 \times 2$矩阵与一个$2 \times 4$矩阵相乘，得到一个$3 \times 4$矩阵：$$\begin{pmatrix}
+	1 & 2 \\ 3 & 4 \\ 5 & 6
+\end{pmatrix} \begin{pmatrix}
+	6 & 5 & 4 & 3 \\ 2 & 1 & 0 & -1
+\end{pmatrix} = \begin{pmatrix}
+	10 & 7 & 4 & 1 \\ 26 & 19 & 12 & 5 \\ 42 & 31 & 20 & 9
+\end{pmatrix}.$$
+
+若将第二个矩阵写作行向量的列向量形式, 可以视作矩阵对向量的乘法: $$\begin{pmatrix}
+	1 & 2 \\ 3 & 4 \\ 5 & 6
+\end{pmatrix} \begin{pmatrix}
+	A_1^{\T} \\ A_2^{\T}
+\end{pmatrix} = \begin{pmatrix}
+	A_1^{\T}+2A_2^{\T} \\ 3A_1^{\T}+4A_2^{\T} \\ 5A_1^{\T}+6A_2^{\T}
+\end{pmatrix}.$$
+
+实际上是将每一列分开乘再进行特殊的相加(这里记作$\tilde{+}$): $$\begin{pmatrix}
+	1 & 2 \\ 3 & 4 \\ 5 & 6
+\end{pmatrix} \ssb{\begin{pmatrix} 6 \\ 2 \end{pmatrix} \tilde{+} \begin{pmatrix} 5 \\ 1 \end{pmatrix} \tilde{+} \begin{pmatrix} 4 \\ 0 \end{pmatrix} \tilde{+} \begin{pmatrix} 3 \\ -1 \end{pmatrix}}
+ = \begin{pmatrix} 10 \\ 26 \\ 42 \end{pmatrix} \tilde{+} \begin{pmatrix} 7 \\ 19 \\ 31 \end{pmatrix} \tilde{+} \begin{pmatrix} 4 \\ 12 \\ 20 \end{pmatrix} \tilde{+} \begin{pmatrix} 1 \\ 5 \\ 9 \end{pmatrix}.$$
+
+例如将列向量转为行向量, 有时需要考虑矩阵的转置: 
+
+\begin{definition}{矩阵的转置}
+	$m\times n$矩阵$A$的\textit{转置}定义为将其行列交换得到的$n\times m$矩阵, 记作$A^{\T}$. 
+\end{definition}
+
+容易验证如下命题: 
+
+\begin{proposition}{转置的运算}
+	设$m\times n$矩阵$A$, $n\times p$矩阵$B$, $\lambda ,\mu \in \mathbb{F}$. 我们有$$1.~~(\lambda A + \mu B)^{\T} = \lambda A^{\T} + \mu B^{\T} ,\qquad 2.~~(AB)^{\T}=B^{\T}A^{\T}.$$
+\end{proposition}
+
+\newpage
+\section{零空间与值域}
+
+\subsection{解线性方程组问题}
+
+
+考虑解一个非齐次线性方程组(即右侧常数不全为$0$): $$\begin{cases}
+	4x_1+3x_2-6x_3=-17 \\ x_1+2x_2+3x_3=22 \\ 2x_1+3x_2 = 11
+\end{cases}.$$
+
+我们当然可以使用一些奇技淫巧, 例如通过后两个方程直接得到$x_1,x_2,x_3$的倍数关系, 但这毕竟不是通用方法. 最经典的方法应该是消元: 不断地利用倍乘变换(将某个方程左右同乘常数$k$)、倍加变换(将某个方程的$k$倍加到另一个方程上)使得最后每个方程都变成左边只含一个变量(如果将多余的变量视作常量的话). 我们可以将方程组的系数提取出来操作: $$\left(
+\begin{array}{ccc|c}
+  4 & 3 & -6 & -17 \\
+  1 & 2 & 3 & 22 \\
+  2 & 3 & 0 & 11
+\end{array}
+\right) \quad \stackrel{\textit{化简}}{\longrightarrow} \quad \left(
+\begin{array}{ccc|c}
+  1 & 0 & 0 & 1 \\
+  0 & 1 & 0 & 3 \\
+  0 & 0 & 1 & 5
+\end{array}
+\right).$$
+左侧矩阵被称作方程组的\textit{增广矩阵}. 从化简的结果来看, 我们得到了$x_1=1,x_2=3,x_3=5$. 需要注意的是, 为了保证$x_1,x_2,x_3$顺次排列, 可能还会用到对换变换(将矩阵的两行调换位置). 
+
+有些时候不一定能够得到每个变量的固定解, 而是需要用一部分变量来表示另一部分变量. 例如: $$\begin{cases}
+	2x_1+3x_2=5 \\ x_1+x_4=8 \\ x_1+x_2+x_3=4
+\end{cases}  \stackrel{\textit{表示}}{\longrightarrow} \quad \left(
+\begin{array}{cccc|c}
+  2 & 3 & 0 & 0 & 5 \\
+  1 & 0 & 0 & 1 & 8 \\
+  1 & 1 & 1 & 0 & 4
+\end{array}
+\right) \quad \stackrel{\textit{化简}}{\longrightarrow} \quad \left(
+\begin{array}{cccc|c}
+  1 & 0 & 0 & \frac{1}{2} & \frac{65}{8} \\
+  0 & 1 & 0 & -\frac{1}{3} & -\frac{15}{4} \\
+  0 & 0 & 1 & -\frac{2}{3} & -\frac{1}{3}
+\end{array}
+\right).$$
+从而$x_1 = -\frac{1}{2}x_4+\frac{65}{8}, x_2=\frac{1}{3}x_4-\frac{15}{4},x_3=\frac{2}{3}x_4-\frac{1}{3}$. 
+
+从上述例子中, 尝试提取一些共性: 通过三种变换(倍乘变换, 倍加变换, 对换变换, 统称为\textit{基本变换}), 我们总是能将一个增广矩阵化简为一部分列恰存在一个$1$元素的矩阵.(利用归纳法容易证明) 这样的列对应主变量, 称作\textit{主列}; 而剩下的列对应自由变量, 称作\textit{自由列}. 最后化简出来的矩阵称作原矩阵$A$的\textit{行简化阶梯型矩阵}, 记作$\textrm{rref}(A)$. 
+
+容易验证, 一个齐次线性方程组只有零解当且仅当其系数矩阵的行简化阶梯型矩阵的阶梯数等于未知数个数; 一个非齐次线性方程组有解当且仅当增广矩阵和系数矩阵的行简化阶梯型矩阵的阶梯数相等. 
+
+既然是变换, 能否找到其对应的(线性)映射呢? 在$\F ^n$上考虑, 我们从最简单的恒等变换开始: 
+
+设$T \in \lmap (\F ^n,\F ^n)$满足$T:v \mapsto v$, 由$Te_i=e_i$可知(其中空白部分为$0$)$$T=\left( \begin{smallmatrix}
+	 1 &   &   &   \\
+	   & 1 &   &   \\
+	   &   &\ddots &   \\
+	   &   &   & 1     
+\end{smallmatrix} \right) =: I_n.$$
+将列向量$v$替换为行向量的列向量即可验证对任意矩阵$A$都有$I_nA=AI_n=A$. 
+
+在$I_n$的基础上, 可以分别得到倍乘变换、倍加变换、对换变换的表示矩阵:$$\left( \begin{smallmatrix}
+	\ddots &   &   &  &   \\
+	       & 1 &   &  &   \\
+	       &   &k  &  &   \\
+	       &   &   & 1&   \\
+	       &   &   &  &\ddots  
+\end{smallmatrix} \right),\quad \left( \begin{smallmatrix}
+	\ddots &   &       &  &   \\
+	       & 1 &       &  &   \\
+	       &   &\ddots &  &   \\
+	       & k &       & 1&   \\
+	       &   &       &  &\ddots  
+\end{smallmatrix} \right),\quad \left( \begin{smallmatrix}
+	\ddots &   &   &   &   &   &   &   &   \\
+	       & 1 &   &   &   &   &   &   &   \\
+	       &   & 0 &   &   &   & 1 &   &   \\
+	       &   &   & 1 &   &   &   &   &   \\
+	       &   &   &   & \ddots  &   &   &   &   \\
+	       &   &   &   &   & 1 &   &   &   \\
+	       &   & 1 &   &   &   & 0 &   &   \\
+	       &   &   &   &   &   &   & 1 &   \\
+	       &   &   &   &   &   &   &   & \ddots
+\end{smallmatrix} \right).$$实际上这些矩阵都是对$I_n$做一次变换得到的. 
+
+从线性映射的角度, 设初等变换的表示矩阵$R$, 则$RA$表示将$A$进行初等\textbf{行}变换. 相对应地, $AR$则表示将$A$进行初等\textbf{列}变换, 其法则类似于行变换. 
+
+\subsection{可逆矩阵}
+
+\begin{definition}{矩阵的逆}
+	设$A$是$n$阶方阵, 若存在$n$阶方阵$B$满足$AB=BA=I_n$, 则称$A$是\textit{可逆的}, $B$为其\textit{逆}. 
+\end{definition}
+\begin{remark}
+	广义的矩阵逆定义如上. 然而, 研究矩阵的“左逆”和“右逆”往往更有趣(这是因为, $AB=I_n$足以推出$BA=I_n$了, 这一点将在后文说明), 只不过原书中没有涉及这一部分内容, 只好忍痛删去. 
+\end{remark}
+
+容易验证, 一个矩阵若可逆, 则其逆一定唯一. 因此, 我们得以用$A^{-1}$来指代$A$的逆. 
+
+举一些可逆矩阵的例子: $I_n$的逆是它本身, 旋转$\theta$变换的逆是旋转$-\theta$, 初等变换的逆就是对应操作的逆. 一个重要的例子是所谓对角矩阵: $$\textrm{diag} (a_1, \cdots ,a_n) = \left( \begin{smallmatrix}
+	 a_1 &   &   &   \\
+	   & a_2 &   &   \\
+	   &   &\ddots &   \\
+	   &   &   & a_n     
+\end{smallmatrix} \right)=:D,~\textit{若}~a_1\cdots a_n \neq 0~\textit{则$D$的逆存在且} ~D^{-1} = \textrm{diag} (a_1^{-1},\cdots ,a_n^{-1}). $$
+
+容易验证如下命题. 
+
+\begin{proposition}{矩阵的逆的运算}
+	设$A,B$是可逆矩阵, 则$$1.~~(A^{\T})^{-1} = \left(A^{-1}\right)^{\T} ,\qquad 2.~~(AB)^{-1}=B^{-1}A^{-1}.$$
+\end{proposition}
+
+\begin{proposition}{矩阵可逆的条件}
+	设$n$阶方阵$A$, 则以下说法等价:
+	\begin{center}
+		a) $A$可逆. \qquad b) 齐次线性方程组$Ax=0$的解唯一. \qquad c) $\textrm{rref}~ A=I_n$. \\ d) $A$是有限个初等矩阵的乘积. 
+	\end{center}
+\end{proposition}
+\begin{proof}
+	采用轮换证法. 
+	a) $\Rightarrow $ b): $A$可逆即其对应的线性映射可逆, 亦等价于该线性映射为双射. 满射性可以导出$Ax=0$存在解, 单射性可以导出$Ax=0$解唯一. \\
+	b) $\Rightarrow $ c): 显然. \\
+	c) $\Rightarrow $ d): 在将$A$化简为$\textrm{rref}~A$即$I_n$时, 会应用有限个可逆的初等行变换$E_1,\cdots E_n$, 即$A=E_1\cdots E_nI_n$. \\
+	d) $\Rightarrow $ a): $A^{-1} = E_n^{-1}\cdots E_1^{-1}$. 
+\end{proof}
+
+由该命题可以得到一种计算矩阵的逆的方法. 对于$n$阶矩阵$A$, 将矩阵$\begin{pmatrix}
+	A & I_n
+\end{pmatrix}$变换为$\begin{pmatrix}
+	I_n & E
+\end{pmatrix}$, 所需初等行变换的乘积为$E$, 那么$EA=I_n$, 进一步$A^{-1} = EAA^{-1}=E$. 
+
+有一些特殊的矩阵的逆需要知晓. 
+
+定义\textit{上三角矩阵}为对角线左下方的元素均为$0$的矩阵. 那么其可逆当且仅当其对角元素均不为$0$. 逆矩阵也是上三角矩阵, 且对角线元素为原矩阵对角线元素的倒数. \textit{下三角矩阵}类似. 
+
+定义\textit{(行)对角占优矩阵}$A=\begin{pmatrix}
+	a_{ij}
+\end{pmatrix}_{n\times n}$满足对所有$i=1,\cdots ,n$有$|a_{ii}|>\sum_{j\neq i}a_{ij}$. 对角占优矩阵可逆. 
+
+\begin{proof}
+	即证$Ax=0$只有$0$解. 不然, 设$x_i$为$x$的分量中绝对值最大的. 考虑第$i$个方程$$a_{i1}x_1 + \cdots + a_{ii}x_i + \cdots + a_{in}x_n = 0.$$
+	显然$x_i \neq 0$, 则$$|a_{ii}||x_i| = \left| \sum_{j\neq i} a_{ij}x_i \right| \leq \sum_{j\neq i} |a_{ij}||x_j| \leq |x_i|\sum_{j\neq i} |a_{ij}| < |a_{ii}||x_i|.$$
+	矛盾! 
+\end{proof}
+
+\subsection{零空间与值域}
+
+\begin{definition}{零空间}
+	对于$T \in \lmap (V,W)$，$T$的\textit{零空间}(或称为“核”)定义如下：$$\nul T = \{ v \in V:Tv=0 \}$$
+\end{definition}
+
+\begin{example}{\examplefont{零空间的例子}}
+	(1)若$T$是$V$到$W$的零映射，则$\nul T=V$. \\
+	(2)设$\varphi \in \lmap (\C ^3,\F)$定义为$\varphi (z_1,z_2,z_3)=z_1+2z_2+3z_3$.则$$\nul \varphi = \{ (z_1,z_2,z_3) \in \C ^3 : z_1+2z_2+3z_3=0 \}$$
+	并且$\nul \varphi$的一个基为$(-2,1,0),(-3,0,1)$. \\
+	(3)设$D \in \lmap (\mathcal{P}(\R),\mathcal{P}(\R))$是微分映射$Dp=p'$.只有常函数的导数才能等于零函数，故$T$的零空间是常函数组成的集合. \\
+	(4)设$T \in \lmap (\F ^{\infty},\F ^{\infty})$是向后移位映射$$T(x_1,x_2,x_3, \cdots )=(x_2,x_3,\cdots )$$
+	为让$Tv=0$，要求$x_2=x_3=\cdots =0$，故$\nul T = \{ (a,0,0,\cdots ) :a \in \F \}$.
+\end{example}
+
+自然地，零空间是向量空间.
+
+\begin{proposition}{零空间是子空间}
+	设$T \in \lmap (V,W)$，则$\nul T$是$V$的子空间.
+\end{proposition}
+\begin{proof}
+	略.为证明上述命题，只需注意到$T(0)=0$~(因为$T(0+0)=T(0)+T(0)$).
+\end{proof}
+
+\begin{definition}{单射}
+	如果当$Tu=Tv$时必有$u=v$，则称映射$T:V \to W$是单射.
+\end{definition}
+
+\begin{proposition}{单射性的判定}
+	设$T \in \lmap (V,W)$，则$T$是单射当且仅当$\nul T=\{ 0 \}$.
+\end{proposition}
+\begin{proof}
+	\buzhou{1} 充分性：当$\nul T = \{ 0 \}$时，设$Tu=Tv$，则$Tu-Tv=T(u-v)=0$，于是$u-v=0$，即$u=v$.这表明$T$是单射. \\
+	\buzhou{2} 必要性：任取$\nul T$中的元素$v$，则$Tv=0$.因为$T0=0$且$T$是单射，所以必有$v=0$，即$\nul T = \{ 0 \}$.
+\end{proof}
+
+\begin{definition}{值域}
+	对于$T \in \lmap (V,W)$，$T$的\textit{值域}(或称为“像”)定义如下：$$\rge T = \{ Tv : v \in V \}$$
+\end{definition}
+
+\begin{example}{\examplefont{值域的例子}}
+	(1)若$T$是$V$到$W$的零映射，则$\rge T=\{ 0 \}$. \\
+	(2)设$T \in \lmap (\R ^2,\R ^3)$定义为$T(x,y)=(2x,5y,x+y)$，则$$\rge T = \{ (2x,5y,x+y):x,y \in \R \}$$
+	并且$\rge T$的一个基为$(2,0,1),(0,5,1)$. \\
+	(3)设$D \in \lmap (\mathcal{P}(\R ),\mathcal{P}(\R ))$是微分映射$Dp=p'$.由于对每个多项式$q \in \mathcal{P}(\R )$均存在多项式$p$使得$p'=q$，故$D$的值域为$\mathcal{P}(\R )$.
+\end{example}
+
+自然地，值域是向量空间.
+
+\begin{proposition}{值域是子空间}
+	设$T \in \lmap (V,W)$，则$\rge T$是$V$的子空间.
+\end{proposition}
+\begin{proof}
+	略.
+\end{proof}
+
+\begin{definition}{满射}
+	如果函数$T:V \to W$的值域等于$W$，则称$T$为\textit{满射}.
+\end{definition}
+
+上述例子中只有微分映射是满的.
+
+\subsection{线性映射基本定理}
+
+\begin{proposition}{线性映射基本定理}
+	设$V$是有限维的，$T \in \lmap (V,W)$.则$\rge T$是有限维的并且$$\dim V = \dim \nul T + \dim \rge T.$$
+\end{proposition}
+\begin{proof}
+	设$v_1, \cdots ,v_m$是$\nul T$的基.将其扩展为$V$的一个基$v_1, \cdots ,v_m ,u_1, \cdots ,u_n$.注意到原命题等价于证明$\dim \rge T = n$，于是下证$Tu_1, \cdots ,Tu_n$为$T$的基： \\
+	首先，任取$v \in V$，记$v=a_1v_1 + \cdots + a_mv_m + b_1u_1 + \cdots + b_nu_n$，则$$Tv = a_1Tv_1 + \cdots + a_mTv_m + b_1Tu_1 + \cdots + b_nTu_n = b_1Tu_1 + \cdots + b_nTu_n$$
+	故$Tu_1, \cdots ,Tu_n$张成$\rge T$. \\
+	另外，若$b_1Tu_1 + \cdots + b_nTu_n=0$，则$$T(b_1u_1 + \cdots + b_nu_n)=0$$
+	这表明$b_1u_1 + \cdots + b_nu_n \in \nul T$.记$b_1u_1 + \cdots + b_nu_n = c_1v_1 + \cdots + c_mv_m$，则由$v_1, \cdots ,v_m,u_1, \cdots ,u_n$线性无关，可得$b_1= \cdots = b_n = c_1 = \cdots = c_m$，于是$Tu_1, \cdots ,Tu_n$线性无关.
+\end{proof}
+\begin{remark}
+	需要注意的是, 证明线性映射基本定理的前提是$V$为有限维.
+\end{remark}
+
+利用线性映射基本定理，可以快速证伪某些命题.
+
+\begin{proposition}{}
+	设有限维向量空间$V,W$.若$\dim V > \dim W$，那么$V$到$W$的线性映射$T$一定不是单射；相反地，若$\dim V < \dim W$，那么$V$到$W$的线性映射$T$一定不是满射.
+\end{proposition}
+\begin{proof}
+	只证明第一部分.由$\dim V > \dim W \geq \dim \rge T$，可知$\dim \nul T = \dim V - \dim \rge T > 0$，于是$T$不是单射.
+\end{proof}
+
+\begin{example}
+	用线性映射重述齐次线性方程组是否有非零解的问题.即，对给定的正整数$m,n$，设$A_{j,k} \in \F ~(j=1,\cdots ,m,~k=1,\cdots ,n)$，考虑齐次线性方程组$$\begin{cases}
+		\sum_{k=1}^{n} A_{1,k}x_k = 0 \\
+		\cdots \cdots \\
+		\sum_{k=1}^{n} A_{m,k}x_k = 0
+	\end{cases}$$是否有不全为$0$的解.
+\end{example}
+\begin{solution}
+	构造$T:\F ^n \to \F ^m$满足：$$T(x_1, \cdots ,x_n) = \ssb{\sum_{k=1}^{n} A_{1,k}x_k, \cdots , \sum_{k=1}^{n} A_{m,k}x_k}$$
+	易于证明$T$是线性映射.则原方程有不全为$0$的解等价于$T$不是单射.由上述命题可知，若$n>m$则$T$一定不是单射.故当$n > m$时原方程组有不全为$0$的解.(即变量个数大于方程个数时)
+\end{solution}
+
+\begin{example}
+	用线性映射重述是否可以选取常数项使得非齐次线性方程组无解的问题.即，对给定的正整数$m,n$，设$A_{j,k} \in \F ~(j=1,\cdots ,m,~k=1,\cdots ,n)$及$c_1, \cdots ,c_m \in \F$，考虑线性方程组$$\begin{cases}
+		\sum_{k=1}^{n} A_{1,k}x_k = c_1 \\
+		\cdots \cdots \\
+		\sum_{k=1}^{n} A_{m,k}x_k = c_m
+	\end{cases}$$
+	是否存在某些常数$c_1, \cdots ,c_m$使得上述方程组无解.
+\end{example}
+\begin{solution}
+	构造$T:\F ^n \to \F ^m$满足：$$T(x_1, \cdots ,x_n) = \ssb{\sum_{k=1}^{n} A_{1,k}x_k, \cdots , \sum_{k=1}^{n} A_{m,k}x_k}$$
+	易于证明$T$是线性映射.则存在这样的一组常数等价于$T$不是满的.由上述命题可知，若$n<m$则$T$一定不是满射.故当$n < m$存在这样一组常数.(即变量个数小于方程个数时)
+\end{solution}
+
+
+\newpage
+\section{可逆性与同构的向量空间}
+
+\subsection{线性映射的可逆性}
+
+类似于一般的函数，我们可以定义线性映射的可逆性：
+
+\begin{definition}{线性映射的可逆性}
+	线性映射$T \in \lmap (V,W)$称为\textit{可逆的}，如果存在线性映射$S \in \lmap (W,V)$使得$ST$等于$V$上的恒等映射且$TS$等于$W$上的恒等映射.这样的$S$称作$T$的\textit{逆}，记为$T^{-1}$.
+\end{definition}
+
+这里的“逆”，在线性映射的乘法意义下，即为其乘法逆元.自然它是唯一的.
+
+\begin{proposition}{}
+	可逆的线性映射有唯一的逆.
+\end{proposition}
+\begin{proof}
+	设$T \in \lmap (V,W)$可逆，且$S_1,S_2$均为$T$的不同的逆.由于$$S_1 = S_1I = S_1(TS_2) = (S_1T)S_2 = IS_2 = S_2$$
+	这与假设矛盾.故$T$的逆是唯一的.
+\end{proof}
+
+以映射的观点来看，一个函数可逆当且仅当它是双射.这一点对于线性映射也成立.
+
+\begin{proposition}{线性映射可逆性的判定}
+	一个线性映射是可逆的当且仅当它既是单的又是满的.
+\end{proposition}
+\begin{proof}
+	\buzhou{1} 必要性：设$T \in \lmap (V,W)$是可逆的.设$u_1,u_2 \in V$使得$Tu_1 = Tu_2$，那么$$u_1 = T^{-1} T u_1 = T^{-1} T u_2 = u_2.$$
+	于是$T$是单的.另一方面，设$w \in W$，则由$w = T(T^{-1}w)$可知$W \subseteq \rge T$，又$\rge \subseteq W$，则$W = \rge T$，即$T$是满的. \\
+	\buzhou{2} 充分性：设$T$既是单的又是满的，构造映射$S$满足：对于每个$w \in W$，$Sw$表示使得$T(Sw)=w$成立的$V$中的唯一元素(这里的存在与唯一可以由$T$的单射与满射得到).我们证明$S$是线性映射且$ST$是$V$上的恒等映射. \\
+	首先，设$w_1,w_2 \in W$，由于$$T(Sw_1+Sw_2)=TSw_1 + TSw_2 = w_1 + w_2,$$
+	$$T(S(w_1+w_2)) = w_1+w_2,$$
+	所以$S(w_1+w_2)=Sw_1 + Sw_2$.类似地可得$S$的齐性.故$S$是线性映射. \\
+	接着，任取$v \in V$，由于$$T(STv) = (TS)Tv=ITv=Tv.$$
+	所以$STv=v$，即$ST$是$V$上的恒等映射.
+\end{proof}
+
+其实我们可以做出更为细致的分析:
+
+\begin{proposition}{} \label{pro:kenixmxkykuedexiviffxi} %LADR 练习3.20,21
+	(1) 设$W$是有限维的, $T \in \lmap (V,W)$, 则$T$是单的当且仅当存在$S \in \lmap (W,V)$使得$ST=I$. \\
+	(2) 设$V$是有限维的, $T \in \lmap (V,W)$, 则$T$是满的当且仅当存在$S \in \lmap (W,V)$使得$TS=I$.
+\end{proposition}
+\begin{proof}
+	(1) "$\Rightarrow$": 假设$T$是单的. 记$S':\rge T \to V$使得$S'(Tv)=v$(由于$Tv$一定对应一个$v$, 这是良定义的). 将$S'$延伸到$S:W \to V$即可. \\
+	"$\Leftarrow$": 设$u,v$使得$Tu=Tv$, 则$ST(u)=ST(v)$, 从而$u=v$. \\
+	(2) "$\Rightarrow$": 假设$T$是满的. 设$Tv_1,\cdots ,Tv_m$是$W$的一组基(由于任意$W$中元素都能表示为$Tv$的形式, 这是良定义的). 记$S:W \to V$使得$S(c_1Tv_1+\cdots + c_mTv_m)=c_1v_1+\cdots + c_mv_m$. 容易验证$S$是线性的. \\
+	"$\Leftarrow$": 对于任意$w \in W$, $TS(w)=w$, 即$T$是满的.
+\end{proof}
+
+一般来说, 单射性和满射性并不相互蕴含. 然而对于从向量空间映射到自身的线性映射, 称为\textit{算子}, 满射性和单射性是等价的(如果有限维). 设$V$是有限维的, $T \in \lmap (V)$, 则$T$是单的等价于$\dim \nul T = 0$, $T$是满的等价于$\dim \rge T = \dim V$, 由线性映射基本定理就可以得到结论. 利用这一点我们可以得到: 
+
+\begin{proposition}{}
+	若$V,W$都是有限维向量空间, $S \in \lmap (V,W), T \in \lmap (W,V)$, 那么$ST=I$等价于$TS=I$. 
+\end{proposition}
+\begin{proof}
+	只证明必要性. 由上一个命题我们知道$T$是单的, 则$T$是满的, 进而$T$可逆. 所以$ST=I$就得到$S=T^{-1}$, 进一步有$TS = TT^{-1} = I$. 
+\end{proof}
+
+\subsection{同构的向量空间}
+
+在高中数学中，“同构”这个词被大量滥用，但其也能为我们揭示同构的内涵.例如，我们说等式$$x(\ln x+1) = ye^{y-1}$$关于$x$和$y$是同构的，是因为若作换元$y=\ln t+1$，可得$x(\ln x +1) = t(\ln t +1)$.
+
+为什么$x$与$y$“同构”呢？因为$y$和$x$可以通过一个映射联系起来\footnote{请注意, 这是直观而不严格的说法. } .类似地，我们正式给出两个向量空间的同构定义：
+
+\begin{definition}{向量空间的同构}
+	\textit{同构}就是可逆的线性映射.若两个向量空间之间存在一个同构，则称这两个向量空间是\textit{同构的}.
+\end{definition}
+
+同构$T:V \to W$做了一步操作，将$v \in V$重新标记为$Tv \in W$；$T$的逆$T^{-1}$同等地将每个$Tv \in W$重新标记为$v \in V$.于是$V$与$W$中的元素只是形式不一样，其性质是一样的.
+
+回想之前提到的“矩阵乘法和线性映射乘法的代数性质一致”这件事，本质上是因为$\lmap (V,W)$与$\F ^{m,n}$同构.
+
+\begin{proposition}{$\lmap (V,W)$与$\F ^{m,n}$同构}
+	设$v_1, \cdots ,v_n$是$V$的基，$w_1, \cdots ,w_m$是$W$的基，则$\mmatrix$是$\lmap (V,W)$与$\F ^{m,n}$之间的一个同构.
+\end{proposition}
+\begin{proof}
+	将$\mmatrix$视作一个映射，那么由命题\ref{pro:xmxkykueyysrjuvf}可知它是线性的.现在只需证明它可逆. 
+	
+	一方面，若对于$T \in \lmap (V,W)$，$\mmatrix (T)=0$，则由定义可得$Tv_k=0,~k=1,\cdots ,n$，那么$T(c_1v_1 + \cdots + c_nv_n)=c_1Tv_1 + \cdots + c_nTv_n =0$，即$\nul \mmatrix = \{ 0 \}$，于是$\mmatrix$是单的. 
+	
+	另一方面，任取$A \in \F ^{m,n}$，构作线性映射$T:V \to W$满足$$Tv_k = \sum_{j=1}^{m} A_{j,k} w_j$$
+	则$\mmatrix (T) =A$.这表明$\mmatrix$是满射.
+\end{proof}
+
+作为一个例子, 我们注意到为证明$\dim \lmap (V,W) = \dim V \cdot \dim W$需要一些构造, 但是将其转化为矩阵空间则是显然的. 这启示我们可以从与一个向量空间同构的另一个更简单(或已知)的向量空间来考察该向量空间.
+
+注意到一个问题：类似于高中数学中“集合的对应原理”：若两个有限集合$A,B$之间存在一个双射$f$，则$|A|=|B|$.两个向量空间同构，它们的维数应当相同.而更进一步，由于“维数相同”这一概念比“集合元素个数相等”更强，上面的说法反过来也可以是对的.
+
+\begin{proposition}{向量空间同构的判定}
+	$\F$上两个有限维向量空间同构当且仅当其维数相同.
+\end{proposition}
+\begin{proof}
+	\buzhou{1} 必要性：设$V$和$W$是同构的有限维向量空间，即存在可逆的线性映射$T:V \to W$.于是$\dim \nul T = 0,~\dim \rge T =\dim W$.又由线性映射基本定理可知$$\dim V = \dim \nul T + \dim \rge T = \dim W$$
+	\buzhou{2} 充分性：设$V$和$W$维数相同，$v_1, \cdots ,v_n$是$V$的基，$w_1, \cdots ,w_n$是$W$的基.由命题\ref{pro:xmxkykuedkyiyu}可知存在一个线性映射$T:V \to W$满足$$T(c_1v_1 + \cdots + c_nv_n)=c_1w_1 + \cdots + c_nw_n$$
+	只需证明这个$T$是可逆的.实际上，若$T(c_1v_1 + \cdots + c_nv_n)=0$，由于$w_1, \cdots ,w_n$是线性无关的，必有$c_1= \cdots = c_n=0$，即$\nul T = \{ 0 \}$，即$T$是单的；另一方面，等式右侧是$w_1, \cdots ,w_n$的线性组合形式，于是$\rge T = W$，即$T$是满的.
+\end{proof}
+
+\subsection{基的变换}
+
+在开始下方的命题之前, 我们先来看一个显然而有用的等式: 设$T \in \lmap (V,W)$, $V$和$W$的一组基分别为$v_1,\cdots ,v_n, w_1,\cdots ,w_m$, 记$A = \mathcal{M} (T, (v_1,\cdots ,v_n),( w_1,\cdots ,w_m))$, 那么$$\begin{pmatrix}
+ w_1 & \cdots & w_m
+\end{pmatrix} A = \begin{pmatrix}
+ Tv_1 & \cdots & Tv_n
+\end{pmatrix}.$$注意, 由于我们不在乎左右两侧的矩阵对应的线性映射, 请不要认为它们和基的选取相关. 
+
+\begin{proposition}{线性映射之积的矩阵}
+	设$T \in \lmap (U,V), S \in \lmap (V,W)$. 我们有
+	\begin{align*}
+		\mathcal{M} (ST, &(u_1,\cdots ,u_m), (w_1,\cdots ,w_p)) = \\
+		&\mathcal{M} (S,(v_1,\cdots ,v_n),(w_1,\cdots ,w_p)) \mathcal{M} (T,(u_1,\cdots ,u_m),(v_1,\cdots ,v_n)).
+	\end{align*}
+\end{proposition}
+\begin{proof}
+	我们定义矩阵乘法就是为了这个命题. 
+\end{proof}
+
+\begin{example}
+	矩阵$$\mathcal{M} (I,(u_1,\cdots ,u_n),(v_1,\cdots ,v_n)),\qquad \mathcal{M} (I,(v_1,\cdots ,v_n),(u_1,\cdots ,u_n))$$
+	是可逆的, 且互为逆矩阵. 
+\end{example}
+
+\begin{proposition}{换基公式}
+	设$T\in \lmap (V)$, $V$有两组基$v_1,\cdots ,v_n$和$u_1,\cdots ,u_n$. 记$$A = \mathcal{M}(T,(u_1,\cdots ,u_n)),\qquad B=\mathcal{M}(T,(v_1,\cdots ,v_n)),\qquad C=\mathcal{M}(I,(u_1,\cdots ,u_n),(v_1,\cdots ,v_n)).$$
+	那么我们有$$A=C^{-1}BC.$$
+\end{proposition}
+
+形式化的证明直接来源于前面的命题, 这里省略. 上述命题的另一种理解方式是$$\begin{pmatrix}
+ u_1 & \cdots & u_n
+\end{pmatrix} A = \begin{pmatrix}
+ Tu_1 & \cdots & Tu_n
+\end{pmatrix},\qquad \begin{pmatrix}
+ v_1 & \cdots & v_n
+\end{pmatrix} B = \begin{pmatrix}
+ Tv_1 & \cdots & Tv_n
+\end{pmatrix}, $$
+$$\begin{pmatrix}
+ v_1 & \cdots & v_n
+\end{pmatrix} C = \begin{pmatrix}
+ u_1 & \cdots & u_n
+\end{pmatrix}. $$
+只需注意到$$\begin{pmatrix}
+ Tv_1 & \cdots & Tv_n
+\end{pmatrix} = T\begin{pmatrix}
+ v_1 & \cdots & v_n
+\end{pmatrix}, $$
+即可完成同样的证明. 
+
+
+
+\newpage
+\section{向量空间的积与商}
+
+\subsection{向量空间的积}
+
+\begin{definition}{向量空间的积}
+	设$\F$上的向量空间$V_1,\cdots, V_m$. 定义: 
+	
+	(1) \textit{积}$V_1 \times \cdots \times V_m := \{ (v_1,\cdots ,v_m):v_j \in V_j,i=1,\cdots ,m \}$. 
+	
+	(2) 积上的加法$(v_1,\cdots ,v_m)+(u_1,\cdots ,u_m) = (v_1+u_1,\cdots ,v_m+u_m)$. 
+	
+	(3) 积上的标量乘法$\lambda (v_1,\cdots ,v_m) = (\lambda v_1,\cdots ,\lambda v_m)$. 
+\end{definition}
+
+容易验证, $V_1 \times \cdots \times V_m$是一个$\F$上的向量空间. 非常直观(且容易证明)地, 我们有: 
+
+\begin{proposition}{积的维数是维数之和}
+	设有限维向量空间$V_1,\cdots, V_m$, 那么$\dim (V_1 \times \cdots \times V_m) = \dim V_1 + \cdots + \dim V_m$. 
+\end{proposition}
+\begin{proof}
+	将$V_j$的一组基认作除第$j$位是基向量以外都是$0$的向量, 这构成$V_1 \times \cdots \times V_m$中的一组基. 
+\end{proof}
+
+另外, 我们可以将直和与积联系在一起. 
+
+\begin{proposition}{}
+	设$V_1,\cdots ,V_m$是$V$的子空间, 设$$\Gamma :V_1\times \cdots \times V_m \to V_1+\cdots +V_m,\quad (v_1,\cdots ,v_m)\mapsto v_1+\cdots +v_m. $$
+	那么, $V_1 + \cdots + V_m$是直和当且仅当$\Gamma$是单的. 
+\end{proposition}
+
+证明是显然的. 从而, 当$V$是有限维向量空间时, 联系上两个命题可知$V_1+\cdots +V_m$是直和当且仅当$\dim (V_1 + \cdots + V_m) = \dim V_1 + \cdots + \dim V_m$. 
+
+\subsection{向量空间的商}
+
+回顾一般的商集: 首先在集合$X$上定义一个等价关系$\sim$, 称所有$X$上的等价类$[a]_{\sim}$构成的集合是商集$X/\sim$. 进一步, 我们会研究商映射$\pi :X \to X/\sim ,x \mapsto [x]_{\sim}$. 
+
+对于向量空间, 我们似乎可以使用平移的方式定义等价关系: 
+
+\begin{definition}{仿射子集}
+	设$v \in V$, $U$是$V$的子空间. 定义$V$的\textit{仿射子集}$v+U := \{ v+u:u \in U \}$. 
+\end{definition}
+
+\begin{proposition}{}
+	设$U$是$V$的子空间, $v,w \in V$, 那么以下说法等价: 
+	$$1)~~ v-w \in U,\qquad 2)~~ v+U=w+U,\qquad 3)~~ (v+U) \cap (w+U) \neq \varnothing.$$
+\end{proposition}
+\begin{proof}
+	$1) \Rightarrow 2)$: 任取$u \in U$, 那么$v+u = w+(v-w+u) \in w+U$, 从而$v+U \subseteq w+U$, 反之亦然. 
+	
+	$2) \Rightarrow 3)$: 显然. $3) \Rightarrow 1)$: 即存在$u_1,u_2 \in U$使得$v+u_1=w+u_2$, 从而$v-w \in U$. 
+\end{proof}
+
+\begin{definition}{商空间}
+	设$U$是$V$的子空间. 定义: 
+	
+	(1) \textit{商空间}$V/U:=\{ v+U:v \in V \}$. 
+	
+	(2) 商空间上的加法$(v+U)+(w+U) = (v+w)+U$.
+	
+	(3) 商空间上的标量乘法$\lambda (v+U) = \lambda v+U$. 
+\end{definition}
+
+我们需要验证$V/U$是一个向量空间, 即是要验证其加法和标量乘法的良定义性. 以前者为例, 设$v+U=v'+U$, $w+U=w'+U$, 则$v-v' \in U$, $w-w' \in U$, 说明$v-v'+w-w' = (v+w) - (v'+w') \in U$, 从而$(v+w) + U = (v'+w') + U$. 接下来只需注意到$0+U$是加法单位元, $(-v)+U$是加法逆元即可完成证明. 
+
+\begin{definition}{商映射}
+	设$U$是$V$的子空间, 定义\textit{商映射}$\pi : V \to V/U,~v \mapsto v+U$. 
+\end{definition}
+
+注意到若$V$是有限维的, 那么$\dim \nul \pi = \dim U$, $\dim \rge \pi = \dim V/U$, 所以有$$\dim V/U = \dim V - \dim U. $$
+
+下面来看一个和商空间相关的重要实例. 设向量空间$V,W$, $T \in \lmap (V,W)$, $w \in W$. 我们知道$Tv=w$的解集就是非齐次线性方程组$\mathcal{M}(T) v = w$的解集, 而$\nul T$是齐次线性方程组$\mathcal{M}(T) v = 0$的解集. 将两式相减, 我们得到: 
+
+\begin{proposition}{线性方程组的解空间}
+	设线性方程组$\mathcal{M}(T)v=w$的一个特解为$v_0$, 那么该线性方程组的解集就是$v_0+\nul T$. 
+\end{proposition}
+
+这里我们是固定了$w$来考虑的. 那么, 如果$w$遍历$W$, 解空间的集合$\mathcal{S}$应该具有怎样的结构? 对于有限维的情况, 显然$\mathcal{S}=V/\nul T$, 所以$\dim \mathcal{S} = \dim V - \dim \nul T = \dim \rge T$, 这说明$\mathcal{S}$与$\rge T$同构. 实际上可以证明, 这一点对于无限维情况仍然适用. 
+
+\begin{definition}{}
+	设$T \in \lmap (V,W)$. 定义$\tilde{T}:V/\nul T \to \rge T,~v+\nul T \mapsto Tv$. 
+\end{definition}
+
+首先不难验证, $\tilde{T}$是一个线性映射. 我们只要证明$\tilde{T}$是双射: 定义表明$\tilde{T}$是满的; 现在设$v \in V$使得$\tilde{T}(v+\nul T)=0=Tv$, 即$v \in \nul T$, 从而$v+\nul T = 0 +\nul T$, 这就是说$\tilde{T}$是单的. 
+
+
+
+\newpage
+\section{对偶与矩阵的秩}
+
+\subsection{对偶}
+
+之前我们证明了矩阵乘法就等价于其对应线性映射的复合, 也说明了可逆矩阵和可逆线性映射的关系. 实际上, 矩阵的对偶也会有对应的线性映射的形式, 但这一套理论并不显然. 现在让我们以反向探索的方式进行研究. 
+
+设线性映射$T \in \lmap (V,W)$, $V$的一组基$v_1,\cdots ,v_m$, $W$的一组基$w_1,\cdots ,w_n$, 简记$\mathcal{M}(T)$表示$\mathcal{M}(T, (v_1,\cdots ,v_m), (w_1,\cdots ,w_n))$. 
+
+首先, 由于$\mathcal{M}(T)$作用到$v \in V$上而$\mathcal{M}(T)^{\T}$作用到$v^{\T}$即$1\times m$的矩阵上, 我们需要定义这些矩阵(或者说线性映射). 
+
+\begin{definition}{线性泛函, 对偶空间}
+	\vspace{-2em}
+	\begin{itemize}
+		\item 称$V$上的\textit{线性泛函}为$\lmap (V,\F)$中的元素. 
+		\item $V$上所有线性泛函组成的向量空间$\lmap (V,\F)$称为$V$的\textit{对偶空间}, 记作$V'$. 
+	\end{itemize}
+\end{definition}
+
+我们来寻找$V'$的一组基. 从矩阵的角度, 容易想到的构造是: $\varphi _k(v_j) = \begin{cases} 1 & j=k \\ 0 & j \neq k \end{cases}, k=1,\cdots ,m$. 称这组基为$v_1,\cdots ,v_m$的\textit{对偶基}. 
+
+现在考虑构造$\lmap (W',V')$里的线性映射$T'$使得$\mathcal{M}(T'):= \mathcal{M}(T',(\psi _1,\cdots ,\psi _n), (\varphi _1,\cdots ,\varphi _m))$满足$\mathcal{M}(T') = \mathcal{M}(T)^{\T}$, 其中$\psi _1,\cdots ,\psi _n$是$w_1,\cdots ,w_n$的对偶基. 设$Tv_i = c_{1i} w_1 + \cdots + c_{ni} w_n$, 那么$\psi _j Tv_i = c_{ji}$, 进而可以排布出理想中的$\mathcal{M}(T')$: $$\mathcal{M}(T') = \begin{pmatrix}
+ \psi _1Tv_1 & \cdots & \psi _nTv_1 \\
+ \vdots &  & \vdots \\
+ \psi _1Tv_m & \cdots & \psi _nTv_m
+\end{pmatrix}. $$
+也就是说, 对$k=1,\cdots ,n$, $T'(\psi _k) = (\psi _kTv_1)\varphi _1 + \cdots + (\psi _kTv_m)\varphi _m$. 左右同时作用于$j=1,\cdots ,m$可得$T'(\psi _k)(v_j) = \psi _k Tv_j$. 因此, 我们定义$T'(\psi) = \psi \circ T$即可. 
+
+\begin{definition}{对偶映射}
+	设$T \in \lmap (V,W)$, 则$T$的\textit{对偶映射}$T' \in \lmap (W',V')$满足$T'(\psi) = \psi \circ T$. 
+\end{definition}
+
+容易验证, 将映射变为对偶映射的映射$(\bigcdot )^'$满足下方代数运算性质. 
+
+\begin{proposition}{}
+	\vspace{-2em}
+	\begin{itemize}
+		\item 加法. 对所有$S,T \in \lmap (V,W)$, $(S+T)'=S'+T'$. 
+		\item 标量乘法. 对所有$\lambda \in \F$和$T \in \lmap (V,W)$, $(\lambda T)' = \lambda T'$. 
+		\item 复合. 对所有$T \in \lmap (U,V)$和$S\in \lmap (V,W)$, $(ST)' = T'S'$. 
+	\end{itemize}
+\end{proposition}
+
+当然, 这些性质可以直接从定义推导出来, 无需借助上方的结论. 另一方面, 上述命题也向我们阐明了$(\bigcdot)^{'}$和$(\bigcdot)^{\T}$的统一性. 
+
+\subsection{矩阵的秩}
+
+现在我们暂时从对偶理论中跳脱出来, 看看如何衡量一个矩阵(所对应线性映射)的零空间和值域. 
+
+\begin{definition}{矩阵的秩}
+	设矩阵$A$. 
+	\begin{itemize}
+		\item 称$A$的列向量的张成空间为$A$的\textit{列空间}, 记作$\mathcal{R}(A)$. $\{ x:Ax=0 \}$称为$A$的\textit{零空间}, 记作$\mathcal{N}(A)$. 
+		\item 称$\dim \mathcal{R}(A)$为$A$的\textit{列秩}, 记作$\rank A$. 称$\dim \mathcal{R}(A^{\T})$为$A$的\textit{行秩}. 
+	\end{itemize}
+\end{definition}
+\begin{remark}
+	若$A$对应线性映射$T$, 则$\mathcal{R}(A) = \rge T$, $\mathcal{N}(A) = \nul T$. 
+\end{remark}
+\begin{remark}
+	后面我们会说明, 矩阵的行秩和列秩其实是相等的. 这里我们先用列秩定义秩. 
+\end{remark}
+
+我们注意到, 例如, 设$A$是$m \times n$矩阵, 那么$\rank A \leq n$(因为$A$只有$n$列)并且$\rank A \leq m$(因为每个列向量只有$m$个坐标). 
+
+\begin{proposition}{行列分解}
+	设$A$是$m\times n$矩阵, $c=\rank A \geq 1$, 则存在$m\times c$矩阵$C$和$c \times n$矩阵$R$使得$A=CR$. 
+\end{proposition}
+\begin{proof}
+	设$A$的列向量$v_1,\cdots ,v_n$, 取其极大线性无关组$v_{k_1},\cdots ,v_{k_c}$, 令$C=\begin{pmatrix} v_{k_1} & \cdots & v_{k_c} \end{pmatrix}$. 设$v_j = a_{1j}v_{k_1} + \cdots + a_{cj}v_{k_c}, j=1,\cdots ,n$, 令$R = \begin{pmatrix} a_{ij} \end{pmatrix}$. 容易验证$A=CR$. 
+\end{proof}
+
+上述命题直接的推论: 
+
+\begin{proposition}{矩阵的行秩等于列秩}
+	设$A$是$m\times n$矩阵, 则$\rank A = \rank A^{\T}$. 
+\end{proposition}
+\begin{proof}
+	设$A$的秩为$c$, 则存在$m\times c$矩阵$C$和$c \times n$矩阵$R$使得$A=CR$. 和上个命题恰好相反地, 容易验证$A$的行都可由$R$的所有行线性表出(其中系数取自$C$). 从而$\rank A^{\T} \leq \rank A$. 对$A^{\T}$作同样的操作可以证明$\rank A \leq \rank A^{\T}$, 所以原命题成立. 
+\end{proof}
+
+从矩阵计算的角度来看, 可以按如下的方式计算矩阵的秩以及零空间的一组基: 容易说明, $\mathrm{rref}A$和$A$的列向量具有相同的特征, 即若$A$中某个列向量能用其他线性无关的列向量线性表出, 则在$\mathrm{rref}A$中对应的列向量也能被对应的列向量组线性表出, 且表示系数相同. 因此, $\mathrm{rref} A$的阶梯数就是$\rank A$, 且我们能通过$\mathrm{rref} A$简单地得到解空间的结构. $$A=\begin{pmatrix}
+1 & 1 & 4 & 2 \\
+5 & 1 & 4 & 4 \\
+2 & 0 & 0 & 1 
+\end{pmatrix}\quad \stackrel{\textit{化简}}{\longrightarrow} \quad \mathrm{rref}A = 
+\begin{pmatrix}
+1 & 0 & 0 & \frac{1}{2}  \\
+0 & 1 & 4 & \frac{3}{2}  \\
+0 & 0 & 0 & 0 
+\end{pmatrix}.$$
+在上例中, 设$A$的列向量为$v_1 , \cdots ,v_4$, 则可得$v_3=4v_2,v_4=\frac{1}{2}v_1+\frac{3}{2}v_2$. 
+
+另一方面, 作初等行变换时也不会改变行空间$\mathcal{R^{\T}}$(但是行向量之间的关系会改变), 这样我们就得到了$\rank A = \rank A^{\T}$的另一种证明. 
+
+\begin{definition}{满秩}
+	设$m\times n$矩阵$A$. 当$\rank A = m$时, 称$A$\textit{行满秩}; 当$\rank A = n$时, 称$A$\textit{列满秩}; 当$\rank A = m =n$时, 称$A$\textit{满秩}. 
+\end{definition}
+
+容易验证, 设$T$是$A$所对应的线性映射, 则$T$是单射当且仅当$A$列满秩, $T$是满射当且仅当$A$行满秩, $T$是双射当且仅当$A$满秩. 将这一观点结合行列分解, 可以得到和命题\ref{pro:kenixmxkykuedexiviffxi}类似的看法. 
+
+\begin{proposition}{}
+	设$m\times n$矩阵$A$和$n\times p$矩阵$B$, 则$\mathcal{R}(AB) \subseteq \mathcal{R}(A)$, 等号在$B$可逆时取得. 
+\end{proposition}
+\begin{proof}
+	将$A,B$视作线性映射, 结论是显然的. 
+\end{proof}
+
+\begin{proposition}{矩阵乘法和秩的关系}
+	设$m\times n$矩阵$A$和$n\times p$矩阵$B$, $m$阶可逆矩阵$P$, $n$阶可逆矩阵$Q$. 
+	\begin{itemize}
+		\item $\rank (AB) \leq \min \{ \rank A,\rank B \}$. 
+		\item $\rank (PAQ) = \rank A$. 
+	\end{itemize}
+\end{proposition}
+\begin{proof}
+	这是上个命题的直接推论(需要用矩阵转置说明两个方面的关系). 
+\end{proof}
+
+\subsection{对偶映射的零空间和值域}
+
+我们先尝试来猜测对偶映射的零空间和值域的结构. 设$T' \in \lmap (W',V')$, 则
+$$T'(\psi) = 0 \Leftrightarrow \psi \circ T = 0 \Leftrightarrow \forall v \in V,\psi (Tv)= 0 \Leftrightarrow \rge T \subseteq \nul \psi .$$
+即$\nul T' = \{ \psi \in W' : \rge T \subseteq \nul \psi \}$. 
+
+另一方面, 设$\nul T$的一组基为$v_1,\cdots ,v_m$, 扩充为$V$的一组基$v_1,\cdots ,v_m,u_1,\cdots ,u_n$; $\rge T$的一组基$Tu_1,\cdots ,Tu_n$, 扩充为$W$的一组基$Tu_1,\cdots ,Tu_n,w_1,\cdots ,w_p$. 
+
+则$T$关于$V$的这组基的矩阵为$$\mathcal{M}(T) = \begin{pmatrix}
+ 0 & \cdots & 0 & \bigcdot & \cdots & \bigcdot \\
+ \vdots &  & \vdots & \vdots &  & \vdots\\
+ 0 & \cdots & 0 & \bigcdot & \cdots & \bigcdot
+\end{pmatrix}.$$
+而当$\psi$遍历$W'$时, $$\mathcal{M}(\psi) \cdot \mathcal{M}(T) = \begin{pmatrix}
+\bigcdot & \cdots & \bigcdot & \bigcdot & \cdots & \bigcdot
+\end{pmatrix}_{1 \times \atop (n+p)} \cdot \begin{pmatrix}
+ 0 & \cdots & 0 & \bigcdot & \cdots & \bigcdot \\
+ \vdots &  & \vdots & \vdots &  & \vdots\\
+ 0 & \cdots & 0 & \bigcdot & \cdots & \bigcdot
+\end{pmatrix}_{(n+p) \times \atop (m+n)} = 
+\begin{pmatrix}
+0 & \cdots & 0 & \bigcdot & \cdots & \bigcdot
+\end{pmatrix}_{1 \times \atop (m+n)}$$
+容易验证, $\psi \circ T$遍历所有使得$\nul T \subseteq \nul \varphi$的$\varphi \in V'$, 即$\rge T' = \{ \varphi \in V' : \nul T \subseteq \nul \varphi \}$. 
+
+将以上两个结论放在一起, 自然引出下方定义: 
+
+\begin{definition}{零化子}
+	设$U$是$V$的子空间, 那么定义$U$的\textit{零化子}$U^0$如下: 
+	\begin{center}
+		$U^0 := \{ \varphi \in V':U \subseteq \nul \varphi \}. $
+	\end{center}
+\end{definition}
+
+容易验证, $U^0$是$V'$的子空间. 我们可以将上方的两个结论写成: 
+
+\begin{proposition}{对偶映射的零空间与值域}
+	设有限维向量空间$V,W$, $T \in \lmap (V,W)$, 则
+	\begin{center}
+		$\nul T' = (\rge T)^0,\qquad \rge T' = (\nul T)^0.$
+	\end{center}
+\end{proposition}
+\begin{remark}
+	实际上, 第一个结论的得出并不需要有限维的假设, 参见先前的证明过程. 第二个结论需要, 这是因为在验证“遍历”的时候我们隐含使用了有限维的假设(否则没办法把线性映射写成矩阵). 
+\end{remark}
+
+为了得到$\nul T',\rge T'$具体的维数, 我们需要研究$U^0$的性质. 
+
+\begin{proposition}{零化子的维数}
+	设$V$是有限维的, $U$是$V$的子空间, 则$\dim U + \dim U^0 = \dim V$. 
+\end{proposition}
+\begin{proof}
+	构造嵌入映射$\iota \in \lmap (U,V)$, 使得$\iota |_U=I_U$. 那么$\iota ' \in \lmap (V',U')$, 满足$\nul \iota ' = U^0$. 由线性映射基本定理, $$\dim \rge \iota '+ \dim U^0 = \dim V' = \dim V. $$
+	另外, 对任意$\varphi \in U'$, 存在$\varphi _1 \in V'$使得$\varphi _1|_U = \varphi$, 而$\iota ' (\varphi _1) = \varphi$, 从而$\rge \iota ' = U$. 这就完成了证明. 
+\end{proof}
+
+因此可以得到: $\dim \nul T' = \dim \nul T + \dim W - \dim V$, $\dim \rge T' = \dim \rge T$. 因此, $T$是满射当且仅当$T'$是单射, $T$是单射当且仅当$T'$是满射. 
+
+利用对偶, 我们可以给出$\rank A = \rank A^{\T}$的第三种证明: 设$T$是$A$对应的线性映射, 那么$$\rank A = \dim \rge T = \dim \rge T' = \rank A^{\T}. $$

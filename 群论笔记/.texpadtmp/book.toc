@@ -1,2 +1,0 @@
-\contentsline {chapter}{\numberline {1}群论}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}基本想法}{1}{section.1.1}%

@@ -1,0 +1,323 @@
+\chapter{对角化}
+
+\subsection*{引子一}
+
+设$T \in \lmap (V)$, 设$V$的一个直和分解$V=V_1 \oplus \cdots \oplus V_m$, 则在研究$T$时我们只需要知道每个$T|_{V_k}$的行为即可. 但是, $T|_{V_k}$不一定是$V_k$上的算子, 这样很多有效的工具就没有作用了. 因此, 我们要考虑是否存在$V$的一种直和分解, 使得对所有$k$, $T|_{V_k} \in \lmap (V_k)$. 
+
+一般地, 设$U$是$V$的子空间, $T\in \lmap (V)$. 称$U$是$T$下的一个\textit{不变子空间}, 如果$T(U) \subseteq U$. 显然不变子空间的交与和都是不变子空间, 因此可以考虑最简单的不变子空间, 即由向量$v$张成的一维子空间. 此时$Tv \in \spn (v)$说明存在$\lambda \in \F$使得$Tv=\lambda v$. 反过来, 若上式成立, 则$\spn (v)$自然是$T$的一个不变子空间. 
+
+从矩阵的角度来看, 若想要让$V$分解为若干个一维不变子空间的直和, 就是要寻找一组基使得$T$的表示矩阵为对角矩阵, 此时我们称算子$T$是\textit{可对角化的}. 
+
+\subsection*{引子二\footnote{摘编自~梁鑫,田垠,杨一龙. \underline{线性代数入门}. 清华大学出版社, 2022}}
+
+我们来看这样一个例子: 甲地和乙地之间每年都会有人口的流动. 设每年甲地向乙地转移其人口的$40 \%$, 乙地向甲地转移其人口的$10 \%$, 那么当足够久之后两地的人口比例是否会趋于稳定? 用矩阵变换来描述这个问题, 就是说对任意的$0<t<1$, 当$n\to \infty$时式子$$
+\begin{pmatrix}
+ 0.6 & 0.1\\
+ 0.4 & 0.9
+\end{pmatrix}^n \cdot \begin{pmatrix}
+t \\
+1-t
+\end{pmatrix}$$
+是否存在极限? 
+
+一方面, 由压缩映射原理, 我们可以猜测稳定状态下的结果$x$就是$Ax=x$的解, 而后者解集为向量$\begin{pmatrix}
+0.2 \\ 0.8
+\end{pmatrix}$的张成空间. 另外不难验证对任意$n$, 最终$x$的两个坐标之和为$1$. 因此我们猜出了稳定的情况$x_0=\begin{pmatrix}
+0.2 \\ 0.8
+\end{pmatrix}$. 
+
+另一方面, 设$A$是上方的矩阵, 我们要考虑怎样选取一组基才能将$A$变为对角矩阵(因为对角矩阵的乘积就是直接将对角线上元素相乘). 这就是说, 要寻找$x_1,x_2$使得$Ax_1=\lambda _1x_1$和$Ax_2=\lambda _2x_2$. 一般地, 考虑方程$(A-\lambda I)x=0$. 我们知道该方程有非零解当且仅当$\rank A=1$, 从而$$\rank A=1 ~~\Leftrightarrow ~~ \frac{0.6-\lambda}{0.4} = \frac{0.1}{0.9-\lambda} ~~\Leftrightarrow ~~ \lambda ^2-1.5\lambda +0.5=0 ~~\Leftrightarrow ~~ \lambda _1=1, \lambda _2=0.5. $$
+计算可得, $\lambda _1,\lambda _2$对应的$x_1,x_2$分别为$\begin{pmatrix}
+0.2 \\ 0.8
+\end{pmatrix},\begin{pmatrix}
+1 \\ -1
+\end{pmatrix}$. 记$X=\begin{pmatrix}
+	x_1 & x_2
+\end{pmatrix}$. 那么$$A^n X = \begin{pmatrix}
+	A^nx_1 & A^nx_2
+\end{pmatrix} = \begin{pmatrix}
+	x_1 & 0.5^nx_2
+\end{pmatrix} = X\begin{pmatrix}
+	1 & \\ & 0.5
+\end{pmatrix}^n. $$
+由$x_1,x_2$线性无关知$X$可逆, 那么$$A^n = \begin{pmatrix}
+	0.2 & 1 \\ 0.8 & -1
+\end{pmatrix} \cdot \begin{pmatrix}
+	1 & \\ & 0.5^n
+\end{pmatrix} \cdot \begin{pmatrix}
+	0.2 & 1 \\ 0.8 & -1
+\end{pmatrix}^{-1} = \begin{pmatrix}
+	0.2+\frac{0.8}{2^n} & 0.2-\frac{0.2}{2^n} \\ 0.8-\frac{0.8}{2^n} & 0.8+\frac{0.2}{2^n}
+\end{pmatrix}. $$
+由数分的知识, 一个矩阵的极限就等于其所有分量极限的矩阵. 因此$A^n \to \begin{pmatrix}
+	0.2 & 0.2 \\ 0.8 & 0.8
+\end{pmatrix}$, 从而$A^n \begin{pmatrix}
+t \\
+1-t
+\end{pmatrix} \to \begin{pmatrix}
+0.2 \\ 0.8
+\end{pmatrix}$. 这与我们的猜想是一致的. 
+
+\section{基本概念}
+
+总结以上两个引子, 我们希望找到一组基使得$T \in \lmap (V)$的表示矩阵为对角矩阵, 这直接等价于寻找$\lambda$和$v$使得$Tv=\lambda v$. 于是引出如下定义: 
+
+\begin{definition}{本征值, 本征向量}
+	设$T \in \lmap (V)$. 称$\lambda \in \F$为$T$的一个\textit{本征值}, 如果存在$V \ni v \neq 0$使得$Tv = \lambda v$, 同时这样的$v$称作$\lambda $的一个\textit{本征向量}. 
+\end{definition}
+
+在$\R ^n$平面上, $Tv=\lambda v$的几何意义就是$Tv$和$v$共线. 
+
+为了更好表示本征值的本征向量, 我们可以定义本征空间的概念: 设$T \in \lmap (V)$, $\lambda \in \F$, 则$T$对应$\lambda$的\textit{本征空间}定义为$$E(\lambda ,T):= \nul (T-\lambda I).$$
+显然, 若$E(\lambda ,T) \neq \{ 0 \}$, $\lambda$是$T$的本征值, $E(\lambda ,T)$是所有$\lambda$的本征向量的集合. 
+
+\begin{example}
+	设旋转变换$R = \begin{pmatrix}
+ \cos \theta & -\sin \theta \\
+ \sin \theta & \cos \theta
+\end{pmatrix}$. 若$\theta \neq k\pi$, 在$\R ^2$上显然不存在$v$使得$Rv$和$v$共线. 从矩阵的角度, $(R-\lambda I)v=0$有解等价于$$\frac{\cos \theta - \lambda}{\sin \theta} = \frac{-\sin \theta}{\cos \theta - \lambda} ~~\Leftrightarrow ~~\lambda ^2 - 2\cos \theta \lambda + 1 = 0~~\Leftrightarrow ~~\Delta = 4(\cos ^2 \theta - 1) \geq 0. $$
+而这是不可能的. 但是另一方面, 若考虑$\C ^2$, 则方程有两解$\lambda _{1,2} = \cos \theta \pm \ic \sin \theta$. 
+\end{example}
+
+上面的例子说明, 在$\R ^n$和$\C ^n$上我们可能得到完全不同的结果. 
+
+显然, 若$v$是$\lambda$的本征向量, 则$kv,k \in \F$也是. 因此不难得到下方结论: 
+
+\begin{proposition}{}
+	设$T \in \lmap (V)$, $\lambda _1, \cdots ,\lambda _m$是$T$的本征值, $v_j$分别是$\lambda _j$对应的本征向量$(j=1,\cdots ,m)$, 则$v_1, \cdots ,v_m$线性无关. 
+\end{proposition}
+\begin{proof}
+	设若不然, 取$v_1,\cdots ,v_m$的一个极大线性无关组, 不妨设为$v_1,\cdots ,v_k$. 记$v_m = a_1v_1 + \cdots + a_kv_k$, 进而$$Tv_m = a_1Tv_1 + \cdots + a_kTv_k ~~\Leftrightarrow ~~\lambda _mv_m = a_1\lambda _1v_1 + \cdots + a_k\lambda _kv_k.$$
+	消元可得$a_1(\lambda _1-\lambda _m)v_1 + \cdots + a_k(\lambda _k-\lambda _m)v_k = 0$, 显然矛盾. 
+\end{proof}
+
+该命题的一个直接推论是: 不同本征值的个数不能超过向量空间的维数. 
+
+现在我们来看一些平凡的子空间. 设$T \in \lmap (V)$, 则$$\nul T,\qquad \rge T,\qquad \{ 0 \},\qquad V,$$
+都是$T$下的不变子空间. 一般地, 设多项式$p(z)=a_0+a_1z+\cdots +a_nz^n$, 若定义关于算子$T \in \lmap (V)$的多项式$p(T):=a_0+a_1T+\cdots +a_nT^n$, 则有: 
+
+\begin{proposition}{}
+	设$T \in \lmap (V)$, $P \in \mathcal{P}(\F)$, 则$\nul p(T)$和$\rge p(T)$是$T$下的不变子空间. 
+\end{proposition}
+\begin{proof}
+	(1) 设$p(T)u=0$, 则$p(T)(Tu)=T(p(T)u)=0$, 即是说$Tu \in \nul p(T)$. 
+	
+	(2) 设存在$v \in V$使得$u=p(T)v$, 则$Tu=T(p(T)v)=p(T)(Tv)$, 即是说$Tu \in \rge p(T)$. 
+\end{proof}
+
+最后来看一个有用的工具: 
+
+\begin{definition}{商算子}
+	设$T \in \lmap (V)$, $U$是$T$下的不变子空间. 定义\textit{商算子}$T/U \in \lmap (V/U)$使得$(T/U)(v+U) = Tv+U$. 
+\end{definition}
+
+容易验证, 若$v+U=w+U$, 则$v-w\in U$, 进而$Tv-Tw \in U$, 于是$Tv+U=Tw+U$. 这就是说$T/U$是良定义的. 
+
+
+
+\newpage
+\section{极小多项式}
+
+\subsection{本征值与极小多项式}
+
+正如前文所述, 在$\R$和$\C$上的向量空间关于本征值的存在性可能不一样. 下文全部讨论$\C$上的向量空间. 
+
+\begin{proposition}{复向量空间上的算子总存在本征值} \label{pro:bfvgvidecyzdxk}
+	设$V$是$\C$上的有限维向量空间, 则任意的$T \in \lmap (V)$都存在本征值. 
+\end{proposition}
+\begin{proof}
+	设$v \neq 0$, $n=\dim V$, 则$v,Tv,\cdots ,T^nv$线性相关, 从而存在非零多项式$p$使得$p(T)v=0$, 特别地我们要求$p$的次数是使得该式成立最小的(这句话是先验的). 由代数基本定理, 存在$\lambda \in \C$使得$p(\lambda)=0$, 进而存在多项式$q$使得$p(T)=(T-\lambda I)q(T)$, 这说明$(T-\lambda I)(q(T)v)=0$. 由$p$次数的最小性, $q(T)v \neq 0$, 于是$\lambda$是$T$的一个本征值, $q(T)v$是$\lambda$的本征向量. 
+\end{proof}
+
+去掉有限维的假设是不可行的, 反例如: 
+
+\begin{example}
+	设$T \in \lmap (\mathcal{P}(\C))$使得$(Tp)(z)=zp(z)$. 容易发现对于非零多项式$p$, $Tp$的次数会严格大于$p$的次数, 因此$Tp$不能表示为$p$的标量倍. 
+\end{example}
+
+在上方命题的证明中, 我们发现使得$p(T)v=0$的多项式$p$起到了关键作用. 实际上, 我们可将其扩展为更强的命题: 
+
+\begin{proposition}{极小多项式的存在性和唯一性}
+	设$V$是有限维向量空间, $T \in \lmap (V)$, 则存在首一多项式$p \in \mathcal{P}(\F)$使得$p(T)=0$. 特别地, 称满足该式的次数最小的多项式为\textit{极小多项式}, 那么极小多项式唯一且次数$\deg p \leq \dim V$. 
+\end{proposition}
+\begin{remark}
+	这并不是说极小多项式不存在重根, 后面会看到具体例子. 
+\end{remark}
+\begin{proof}
+	(1) 用归纳法. 当$\dim V=0$时取$p(z)=1$即可; $\dim V=1$时, 任取$v \neq 0$, 由$v,Tv$线性相关可知存在首一多项式$p \in \mathcal{P}_1(\F)$使得$p(T)v=0$. 记$p(z)=z+a_0$, 那么$Tv+a_0 v=0$. 另一方面, 熟知存在$\lambda$使得$Tv=\lambda v$对所有$v \in V$成立, 因此$\lambda = -a_0$, 即是说$p(T)v=0$对所有$v \in V$成立. 
+	
+	设$\dim V=n+1$, 假设当$\dim V \leq n$时命题均成立. 任取$v \neq 0$, 由$v,Tv,\cdots ,T^{n+1}v$线性相关可知存在最小的$m$使得$T^mv$能被$v,Tv,\cdots ,T^{m-1}v$线性表出(也就是说$v,Tv,\cdots ,T^{m-1}v$是极大线性无关组). 由此构造首一$m$次多项式$p$使得$p(T)v=0$. 
+	
+	我们首先注意到对任意$k \geq 0$, $p(T)(T^kv) = T^k(p(T)v)=0$, 所以$\dim \nul p(T) \geq m$. 另外, 由之前的命题, $\rge p(T)$是$T$下的不变子空间, 故$T|_{\rge p(T)} \in \lmap (\rge p(T))$, 进而可以应用归纳假设, 也就是说存在首一多项式$q$使得$\deg q (\leq \dim \rge p(T) \leq n+1-m)$是满足$q(T|_{\rge p(T)}) = 0$的最小数. 
+	
+	最后只需验证, 对任意$v \in V$, $qp(T)(v) = q(T)(p(T)v) = 0$且$\deg qp = \deg q + \deg p \leq n+1$, 立得$qp$是满足要求的极小多项式. 
+	
+	(2) 假设存在不同的$n$次首一多项式$p,q$使得$p(T)=0,q(T)=0$且$n$是满足该式的最小正整数. 设$p-q$的首项系数为$\lambda \neq 0$, 那么$\deg (\frac{p-q}{\lambda})<n$和$(\frac{p-q}{\lambda})(T)=0$, 与$n$的最小性矛盾. 于是$p-q=0$. 
+\end{proof}
+
+在实际计算极小多项式时, 一般采用如下策略: 取$v \in V$, 考虑方程$c_0v + c_1Tv + \cdots + c_{n-1}T^{n-1}v + T^nv = 0$, 其中$n=\dim V$. 如果该方程存在唯一解$c_0,\cdots ,c_n$, 则极小多项式的系数就是这组解. 这对于表示矩阵中$0$的个数较多的线性映射是很方便的. 
+
+\begin{example}
+	设$T \in \lmap (\F ^5)$, 关于标准基的矩阵是$\mathcal{M}(T) =  \begin{pmatrix}
+ 0 & 0 & 0 & 0 & -3 \\
+ 1 & 0 & 0 & 0 & 6 \\
+ 0 & 1 & 0 & 0 & 0 \\
+ 0 & 0 & 1 & 0 & 0 \\
+ 0 & 0 & 0 & 1 & 0
+\end{pmatrix}$. 求$T$的极小多项式. 
+\end{example}
+\begin{solution}
+	考虑方程$c_0e_1+c_1Te_1 + \cdots + T^5e_1 = 0$, 注意到$$Te_1=e_2,\quad T^2e_1=Te_2=e_3,\quad T^3e_1=Te_3=e_4,\quad T^4e_1=Te_4=e_5,\quad T^5e_1=Te_5=-3e_1+6e_2, $$
+	因此方程等价于$(c_0-3)e_1+(c_1+6)e_2+c_2e_3+c_3e_4+c_4e_5=0$. 由$e_1,\cdots ,e_5$线性无关可知方程的唯一解是$c_0=3,c_1=-6,c_2=c_3=c_4=0$. 因此$T$的极小多项式就是$p(z)=3-6z+z^5$. 
+\end{solution}
+
+根据命题\ref{pro:bfvgvidecyzdxk}的证明过程可以得到: 
+
+\begin{proposition}{}
+	设有限维复向量空间$V$上的算子$T \in \lmap (V)$, 设$T$的本征值为$\lambda _1,\cdots ,\lambda _m$, 则$T$的极小多项式是$p(z)=(z-\lambda _1) \cdots (z-\lambda _m)$. 
+\end{proposition}
+\begin{remark}
+	通过合并一些因式, 可以将该命题推广到实数的情况. 
+\end{remark}
+\begin{remark}
+	从这个命题可以看出, 一些矩阵的特征值是不可求(解析)解的, 例如上个例子的五次方程. 
+\end{remark}
+
+\begin{proposition}{}
+	设有限维向量空间$V$上的算子$T \in \lmap (V)$, 则多项式$q$满足$q(T)=0$当且仅当它能被$T$的极小多项式乘除. 
+\end{proposition}
+\begin{proof}
+	充分性是显然的. 必要性: 设$T$的极小多项式$p$, 令$q=ps+r$, 其中$\deg r < \deg p$, 那么$0=q(T)=p(T)s(T)+r(T)=r(T)$. 若$r \neq 0$, 不妨让$r$的首项系数为$1$, 即得到矛盾. 因此$p \mid q$. 
+\end{proof}
+
+\begin{corollary}{}
+	设有限维向量空间$V$上的算子$T \in \lmap (V)$, $U \subseteq V$是$T$下的不变子空间. 那么$T$的极小多项式被$T|_U$的极小多项式整除. 
+\end{corollary}
+
+\begin{proposition}{}
+	设有限维向量空间$V$上的算子$T \in \lmap (V)$, 则$T$不可逆当且仅当$T$的极小多项式常数项为$0$. 
+\end{proposition}
+
+\subsection{奇数维实向量空间上的本征值}
+
+\begin{lemma}{}
+	设有限维实向量空间$V$上的算子$T \in \lmap (V)$, $b,c \in \R$满足$b^2<4c$. 则$\dim \nul (T^2+bT+cI)$是偶数. 
+\end{lemma}
+\begin{proof}
+	由于$\nul (T^2+bT+cI)$是$T$下的不变子空间, 不妨令$V=\nul (T^2+bT+cI)$. 设$T^2+bT+cI=0$, 假设$\lambda$是$T$的本征值, $v \neq 0$是$\lambda$的本征向量, 那么$$0 = (T^2+bT+cI)v=(\lambda ^2+b\lambda +c)v.$$
+	从而$\lambda ^2+b\lambda +c=0$, 矛盾. 因此$T$不存在本征值. 
+	
+	设$U$是最大的$V$的偶数维数子空间, 使得$U$在$T$下不变. 不妨考虑$U \neq V$, 即存在$w \in V-U$. 取$W=\spn (w,Tw)$, 那么$T(Tw)=-bTw-cw \in W$, 即$W$在$T$下不变. 另外显然$\dim W = 2$. 注意到$U \cap W=\{ 0 \}$, 否则$U \cap W = \spn (Tw)$是$T$的不变子空间, 从而$T$存在本征值. 于是$U+W$是$T$下的偶数维不变子空间, 与$U$的最大性矛盾. 由此得到$U=V$. 
+\end{proof}
+
+下一个命题强化了命题\ref{pro:bfvgvidecyzdxk}的结果: 
+
+\begin{proposition}{奇数维实向量空间上的算子总存在本征值}
+	设$V$是$\R$上的奇数维向量空间, 则任意的$T \in \lmap (V)$都存在本征值. 
+\end{proposition}
+\begin{proof}
+	对$V$的维数归纳证明. 当$\dim V=1$时显然成立. 假设$\dim V\leq n$时成立, 考虑$\dim V=n+2$: 设$p$是$T$的极小多项式, 不妨设$p$没有一次因式, 即存在$b,c \in \R$满足$b^2<4c$且$z^2+bz+c \mid p(z)$, 那么存在首一多项式$q$使得$$p(z)=q(z)(z^2+bz+c),\quad \Rightarrow \quad 0=p(T)=q(T)(T^2+bT+cI).$$
+	这就是说, $q(T)$在$\rge (T^2+bT+cI)$上为$0$, 特别地有$\rge (T^2+bT+cI) \neq V$. 
+	
+	另一方面, 由引理可知$\dim \nul (T^2+bT+cI)$是偶数, 于是$\dim \rge T^2+bT+cI$是奇数, 应用归纳假设可得$T$在$\rge (T^2+bT+cI)	$上存在本征值, 进一步$T$在$V$上有本征值. 
+\end{proof}
+
+
+\newpage
+\section{上三角矩阵}
+
+下面我们给出一个方便的结果: 
+
+\begin{lemma}{}
+	设$T \in \lmap (V)$在$V$的一组基上具有上三角矩阵, 设对角线元素为$\lambda _1,\cdots ,\lambda _n$, 则有$(T-\lambda _1I) \cdots (T-\lambda _nI)=0$. 
+\end{lemma}
+\begin{proof}
+	设这组基为$v_1,\cdots ,v_n$, 则$(T-\lambda _1I)v_1=0$, 进而$(T-\lambda _1I) \cdots (T-\lambda _mI)v_1=0$, 其中$m=1,\cdots ,n$. 又$(T-\lambda _2I)(v_2) \in \spn (v_1)$, 所以$(T-\lambda _1I) \cdots (T-\lambda _mI)v_2=0$, 其中$m=2,\cdots ,n$. 递推可得对任意$v_k$都有$(T-\lambda _1I) \cdots (T-\lambda _nI)v_k=0$, 即$(T-\lambda _1I) \cdots (T-\lambda _nI)=0$. 
+\end{proof}
+
+\begin{proposition}{上三角矩阵的本征值}
+	设$T \in \lmap (V)$在$V$的一组基上具有上三角矩阵, 则$T$的本征值恰为对角线上的所有元素. 
+\end{proposition}
+\begin{remark}
+	我们并不能通过将矩阵化为阶梯型矩阵来找到其本征值, 因为在操作的过程中本征值会改变. 
+\end{remark}
+\begin{proof}
+	\underline{\textbf{证法一}}~~设对角线元素分别为$\lambda _1,\cdots ,\lambda _n$, 这组基为$v_1,\cdots ,v_n$. 那么$Tv_1=\lambda _1v_1$. 又$(T-\lambda _2I)(v_2) \in \spn (v_1)$, 显然$T-\lambda _2I$不是满射, 因此$\lambda _2$是本征值. 递推可得任意$\lambda _k$均为本征值. 
+	
+	另一方面, 由上个引理, $T$的极小多项式整除$(z-\lambda _1) \cdots (z-\lambda _n)$, 因此$T$没有除了$\lambda _1,\cdots ,\lambda _n$以外的本征值. 
+	
+	\underline{\textbf{证法二}}~~只需注意到上三角矩阵可逆当且仅当对角线元素均非零. 考虑$T-\lambda I$的表示矩阵, 则$\lambda$是$T$的本征值等价于$\mathcal{M} (T-\lambda I)$不可逆, 进而等价于$\lambda$等于某个$\lambda _k$. 
+\end{proof}
+
+于是可以用本征值来判断$T$是否存在上三角矩阵: 
+
+\begin{proposition}{}
+	设有限维实向量空间$V$上的算子$T \in \lmap (V)$. 则$T$在某组基上存在上三角矩阵当且仅当$T$的极小多项式具有$(z-\lambda _1)\cdots (z-\lambda _n)$的形式. (不要求$\lambda _1,\cdots ,\lambda _n$两两不同)
+\end{proposition}
+\begin{proof}
+	必要性由前面的命题是显然的. 充分性: 用归纳法证明. 当$n=1$时, $T$的极小多项式是$z-\lambda _1$, 即是说$T=\lambda _1I$, 显然对任何基$T$的矩阵都是上三角矩阵. 假设对任意$n \leq m-1$命题均成立, 下证$n=m>1$时亦成立: 
+	
+	\underline{\textbf{证法一}}~~令$U=\rge (T-\lambda _mI)$, 则$U$是$T$下的不变子空间, 从而$T|_U \in \lmap (U)$. 对任意$u \in U$, 若$(T-\lambda _mI)(v)=u$, 则$$(T-\lambda _1I) \cdots (T-\lambda _{m-1}I)(u) = (T-\lambda _1I) \cdots (T-\lambda _mI)(v) = 0.$$
+	这就是说$(T-\lambda _1I) \cdots (T-\lambda _{m-1}I)=0$, 于是$T|_U$的极小多项式能整除该多项式. 那么, 由归纳假设, 存在$U$的一组基$u_1,\cdots ,u_p$使得$T|_U$的表示矩阵是上三角矩阵. 将$u_1,\cdots ,u_p$扩展为$V$的一组基$u_1,\cdots ,u_p,v_1,\cdots ,v_t$, 而对任意$j=1,\cdots ,t$有$$Tv_j = (T-\lambda _mI)v_j + \lambda _mv_j \in \spn (u_1,\cdots ,u_p,v_1,\cdots ,v_j). $$
+	即对于基$u_1,\cdots ,u_p,v_1,\cdots ,v_t$, $T$的表示矩阵是上三角矩阵. 
+	
+	\underline{\textbf{证法二}}~~令$u_1$是$\lambda _1$的本征向量, 作$U = E(\lambda _1,T)$并设其一组基为$u_1,\cdots ,u_p$. 对任意$v \in V$, 注意到$(T-\lambda _2I) \cdots (T-\lambda _mI)(v) \in U$, 于是$$(T/U-\lambda _2I) \cdots (T/U-\lambda _mI)(v+U) = (T-\lambda _2I) \cdots (T-\lambda _mI)(v)+U = 0+U.$$ 
+	即是说$(T/U-\lambda _2I) \cdots (T/U-\lambda _mI)=0$. 那么$T/U$的极小多项式能整除该多项式. 于是, 由归纳假设, 存在$V/U$的一组基$v_1+U,\cdots ,v_t+U$使得$T/U$的表示矩阵是上三角矩阵, 也即$$(T/U)(v_j+U) \in \spn (v_1+U,\cdots ,v_j+U) \quad \Leftrightarrow \quad Tv_j \in \spn (u_1,\cdots ,u_p,v_1,\cdots ,v_j).$$
+	其中$j=1,\cdots ,t$. 显然$u_1,\cdots ,u_p,v_1,\cdots ,v_t$就是$V$的一组基, 由此证毕. 
+\end{proof}
+
+需要注意, 这里没有要求$\lambda _1,\cdots ,\lambda _n$两两不同, 例如: 
+
+\begin{example}
+	设$T \in \lmap (\F ^3)$, 关于标准基的矩阵是$\mathcal{M}(T) = \begin{pmatrix}
+		6 & 3 & 4 \\ 0 & 6 & 2 \\ 0 & 0 & 7
+	\end{pmatrix}$. 求$T$的极小多项式. 
+\end{example}
+\begin{solution}
+	由第一个引理, 可知极小多项式整除$(z-6)^2(z-7)$, 另一方面由上方的命题可知$6,7$是$T$的本征值. 因此极小多项式可能为$(z-6)(z-7)$或$(z-6)^2(z-7)$. 取标准基, 计算可得$$\mathcal{M} (T-6I) \mathcal{M} (T-7I) = \begin{pmatrix}
+		0 & -3 & 6 \\ 0 & 0 & 0 \\ 0 & 0 & 0
+	\end{pmatrix},\quad (\mathcal{M} (T-6I))^2 \mathcal{M} (T-7I) = O. $$
+	于是极小多项式为$(z-6)^2(z-7)$. 
+\end{solution}
+
+上面的命题结合代数基本定理, 立得: 
+
+\begin{corollary}{}
+	设$V$是有限维复向量空间, $T \in \lmap (V)$. 则存在$V$的一组基使得$T$的表示矩阵是上三角矩阵. 
+\end{corollary}
+
+
+
+\newpage
+\section{可对角化算子}
+
+根据之前的铺垫, 下方的命题是显然的: 
+
+\begin{proposition}{算子可对角化的条件}
+	设$V$是有限维向量空间, $T \in \lmap (V)$. 设$\lambda _1,\cdots ,\lambda _m$是$T$的本征值, 则下列说法等价: 
+	
+	1) $T$是可对角化的. \qquad 2) $T$的本征向量构成$V$的一组基. 
+	
+	3) $V=E(\lambda _1,T) \oplus \cdots \oplus E(\lambda _m,T)$. \qquad 4) $\dim V = \dim E(\lambda _1,T) + \cdots + \dim E(\lambda _m,\lambda)$. 
+\end{proposition}
+
+注意到2)部分的直接推论: 若$T$恰好有$\dim V$个本征值, 则$T$是可对角化的. 反之则不一定. 
+
+上方的命题不具有实际操作性. 不过, 结合极小多项式理论, 我们可以给出如下有用的充要条件: 
+
+\begin{proposition}{}
+	设$V$是有限维向量空间, $T \in \lmap (V)$. 则$T$可对角化当且仅当$T$的极小多项式具有$(z-\lambda _1)\cdots (z-\lambda _n)$的形式, 其中$\lambda _1,\cdots ,\lambda _n$两两不同. 
+\end{proposition}
+\begin{proof}
+	必要性显然. 充分性: 用归纳法. $n=1$时可知$T=\lambda _1I$, 显然可对角化. 假设对$n \leq m-1$命题均成立, 下证命题对$n=m$亦成立: 
+	
+	令$U=\rge (T-\lambda _mI)$, 则$U$是$T$下的不变子空间, 从而$T|_U \in \lmap (U)$. 对任意$u \in U$, 若$(T-\lambda _mI)(v)=u$, 则$$(T-\lambda _1I) \cdots (T-\lambda _{m-1}I)(u) = (T-\lambda _1I) \cdots (T-\lambda _mI)(v) = 0.$$
+	这就是说$(T-\lambda _1I) \cdots (T-\lambda _{m-1}I)=0$, 于是$T|_U$的极小多项式能整除该多项式. 那么, 由归纳假设, 存在$U$的一组基恰好为$T|_U$的本征向量. 
+	
+	另一方面, 显然$\nul (T-\lambda _mI)$存在一组基恰好为$T$的本征向量. 于是只要证明$\rge (T-\lambda _mI) \oplus \nul (T-\lambda _mI) = V$即得原命题成立. 实际上, 任取$u$满足$Tu=\lambda _mu$和$(T-\lambda _m)(v)=u$, 可得$$0 = (T-\lambda _1I) \cdots (T-\lambda _{m}I)(v) = (T-\lambda _1I) \cdots (T-\lambda _{m-1}I)(u) = (\lambda _m-\lambda _1) \cdots (\lambda _m-\lambda _{m-1}) (u).$$
+	由于$\lambda _1,\cdots ,\lambda _m$两两不同, 可得$u=0$. 
+\end{proof}
+
+\begin{corollary}{}
+	设$T \in \lmap (V)$可对角化, $U$是$T$下的不变子空间, 则$T|_U$在$U$上可对角化. 
+\end{corollary}

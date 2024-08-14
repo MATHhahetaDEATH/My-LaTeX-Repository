@@ -1,0 +1,424 @@
+\chapter{集合论入门, 映射与二元关系}
+
+\section{公理化的集合论}
+
+在高中我们已经学过朴素的集合论. 但是, 什么样的数学对象才是一个集合? 描述同一群对象的集合是唯一的吗? 为什么集合是无序的, 不重复的? 这些问题都需要通过引入公理体系来解决. 
+
+本小节不会细致深入地讲解集合论的公理化体系, 因为这样会严重脱离《数学分析》的主旨. 
+
+\subsection{集合的基本性质}
+
+先来解决不同集合的等价问题. 
+
+\begin{axiom}{外延公理}
+	两个集合$A$和$B$相等当且仅当它们的元素相同.
+\end{axiom}
+
+容易验证, 集合的相等是一个等价关系(后面会提到), 也即它满足: 
+\begin{enumerate}
+	\item 自反性: 对于任一集合$A$都有$A=A$.
+	\item 对称性: 若$A=B$, 则$B=A$.
+	\item 传递性: 若$A=B$且$B=C$, 则$A=C$.
+\end{enumerate}
+
+外延公理告诉我们, 描述同一群对象的任意集合都是相等的. 因此, 从等价类的角度来看, 它的确是唯一的. 
+
+接着解决集合的无序性、不重复性问题. 
+
+\begin{axiom}{配对公理}
+	对于任意集合$X, Y$, 存在一个集合$Z$使得$X$和$Y$是它仅有的元素. 特别地, 若$X=Y$, 则将$Z$视作只有唯一元素. 
+\end{axiom}
+
+由配对公理, 存在集合$\{ X, Y \}$和$\{ Y, X \}$, 而由外延公理这两个集合是相等的, 于是集合是无序的. 另一方面, 容易说明集合$\{ X, X \}$就等于$\{ X \}$, 于是集合是不重复的. 
+
+\subsection{集合的运算}
+
+到目前为止, 我们说明了集合的一些基本性质. 为了从一堆双元素集中得到更大的集合, 需要引入并运算. 
+
+\begin{axiom}{并集公理}
+	对于一个集合族$M$(即元素都是集合的集合), 存在另一个集合$\bigcup M$, 其元素恰包含所有属于$M$的集合的元素. 这样的集合称作$M$的\textit{并}(union). 
+\end{axiom}
+
+特别地, 若$M=\{ A, B \}$, 则$\bigcup M$可以记作$A \cup B$. 
+
+\begin{axiom}{分离公理}
+	任意集合$A$和性质$P$都对应另一个集合$B$, 其元素恰包含那些在集合$A$中而具有性质$P$的. 
+\end{axiom}
+
+这实际上是在说, $B=\{ x \in A :  P(x) \}$也是一个集合. 
+
+结合并集公理, 马上可以定义集合族$M$的\textit{交}(intersection)为: $$\bigcap M : = \{ x \in \bigcup M :  \forall X, X \in M \Rightarrow x \in X \}.$$
+特别地, 若$M= \{ A, B \}$, 则$\bigcap M$记作$A \cap B$. 
+
+顺便还能定义集合的\textit{差}(difference)和\textit{补}(complement): $$A - B : = \{ x \in A :  x \notin B \}.$$
+如果$A$是$M$的一个子集, 则定义: $$A^c : = M - A.$$
+
+另外, 分离公理也表明, 对任意集合$X$都存在一个不包含任何元素的子集$\varnothing _X$. 由外延公理可知对任意集合$X, Y$都有$\varnothing _X = \varnothing _Y$. 我们称该集合为\textit{空集}(empty set), 记为$\varnothing$. 
+
+由公理体系定义的集合运算, 自然具有我们在朴素集合论中学过的那些性质. 
+
+\begin{proposition}{集合运算的运算律}
+	设集合$A, B, C$, 集合族$\{ B_{\alpha} :  \alpha \in I \}$(这里$I$是指标集). 
+	\begin{itemize}
+		\item 交、并满足交换律, 即$$A \cap B = B \cap A,  \qquad A \cup B = B \cup A.$$
+		\item 交、并满足结合律, 即
+	$$A \cap B \cap C = (A \cap B) \cap C = A \cap (B \cap C), $$
+	$$A \cup B \cup C = (A \cup B) \cup C = A \cup (B \cup C).$$
+		\item 交对并、并对交满足分配律, 即
+	$$A \cap \ssb{\bigcup_{\alpha \in I} B_\alpha} = \bigcup_{\alpha \in I} \ssb{A \cap B_{\alpha}}, $$
+	$$A \cup \ssb{\bigcap_{\alpha \in I} B_\alpha} = \bigcap_{\alpha \in I} \ssb{A \cup B_{\alpha}}.$$
+	\end{itemize}
+\end{proposition}
+
+就像中学数学所阐释的那样, 补和交、并之间有一种特殊的运算律: 
+
+\begin{theorem}{de Morgan定律}
+	设集合族$\{ E_{\alpha} :  \alpha \in I \}$, 其中$I$是指标集.则$$\ssb{\bigcup_{\alpha \in I}E_{\alpha} }^c = \bigcap_{\alpha \in I} E_{\alpha}^c, \qquad \ssb{\bigcap_{\alpha \in I}E_{\alpha} }^c = \bigcup_{\alpha \in I} E_{\alpha}^c.$$
+\end{theorem}
+\begin{proof}
+	任取$x \in \ssb{\bigcup_{\alpha \in I}E_{\alpha} }^c$, 由定义得$x \notin \bigcup_{\alpha \in I}E_{\alpha}$, 所以对任意$\alpha \in I$都有$x \notin E_{\alpha}$, 即对任意$\alpha \in I$都有$x \in E_{\alpha}^c$, 从而可得$\ssb{\bigcup_{\alpha \in I}E_{\alpha} }^c \subseteq \bigcap_{\alpha \in I} E_{\alpha}^c$.
+	
+	同理可证$\ssb{\bigcup_{\alpha \in I}E_{\alpha} }^c \supseteq \bigcap_{\alpha \in I} E_{\alpha}^c$, 所以$$\ssb{\bigcup_{\alpha \in I}E_{\alpha} }^c = \bigcap_{\alpha \in I} E_{\alpha}^c.$$
+	
+	在上式左右同取补集, 立得第二个等式.
+\end{proof}
+
+最后一种构造更大集合的方式, 就是枚举一个集合的所有子集.
+
+\begin{axiom}{幂集公理}
+	对任意集合$X$, 总存在它的\textit{幂集}(power set)$\mathcal{P}(X)$, 其元素恰为$X$的所有子集.
+\end{axiom}
+
+作为应用, 幂集公理允许我们构造两个集合的Cartesian积(后面会讲到). 
+
+前五个公理限制了构造新集合的方式, 公理化体系下的集合论已经初步成型.接下来要介绍的三条公理, 主要都是修修补补. 
+
+\subsection{无限集}
+
+我们知道, 自然数集$\mathbb{N}$理应当是无限的, 然而利用前五条公理还无法说明这样的无限集存在. 我们可以考虑利用递推的形式定义无限大的集合. 更确切地说, 由于现在只知道空集的存在, 应该选用空集的迭代来构造无限集合. 
+
+为了让下面的公理叙述更简单, 首先引入集合的后继这一概念. 定义集合$X$的\textit{后继}(successor)为: $$X^{+} : = X \cup \{ X \}, $$
+也就是说, 将$X$本身放入到$X$中. (实际上, 这里的$X$不应当属于其本身, 因此上述并是不交并)
+
+\begin{axiom}{无穷公理}
+	存在包含空集和自身任何一个元素的后继的集合. 这样的集合称作是\textit{归纳的}(inductive). 
+\end{axiom}
+
+联系公理一至四, von Neumann提出了一种构造自然数集的方法, 通过定义自然数集为所有归纳集的交集, 即最小的归纳集. 
+
+要验证该交集为最小的归纳集并不难. 首先注意到, 任何归纳集都应包含以下元素: $$\varnothing , \quad \varnothing ^{+}=\varnothing \cup \{ \varnothing \}=\{ \varnothing \} , \quad (\varnothing ^{+})^{+} = \{ \varnothing \} \cup \{ \{ \varnothing \} \} = \{ \varnothing ,  \{ \varnothing \}\} , \quad \cdots .$$
+把这些\footnote{这里的写法不太严谨, 因为在用该定义证明归纳原理之前并不十分清楚这些元素具体是什么样子. 严格地来说, “这些”指代$\varnothing$导出的一切后继. }元素组成的集合记作$N_0$. 由交的定义可知$$\mathbb{N} \subseteq N_0.$$
+另一方面, 由于$\varnothing \in \mathbb{N}$, 所以$N_0 \subseteq \mathbb{N}$. 从而$\mathbb{N} = N_0$. 这也同时说明$\mathbb{N}$是最小的归纳集.
+
+\begin{remark}
+	下面做一点关于无穷集合构造的补充: 将一些特定集合(所谓序数)间的序关系理解为$\in$, 那么按照上述方式定义$X^+$, 我们就有$X \in X^+$, 并且这样的构造是使得$X^+$比$X$大的最小序数. 另外, $N_0$就是可数无穷序数$\omega$. 遗憾的是, 囿于篇幅, 我们无法介绍序数相关的知识. 
+\end{remark}
+
+将$\mathbb{N}$中$\varnothing$的$n$次后继这个特征提取出来, 可知$\mathbb{N}$就是一般意义上认为的自然数集. 实际上, 我们会在习题中验证, 这里定义的$\mathbb{N}$满足Peano公理. 
+
+\begin{axiom}{替换公理}
+	令$\mathcal{F}(x, y)$是如下命题: 对于$X$中的任意元素$x_0$, 存在唯一的$y_0$使得$\mathcal{F}(x_0, y_0)$成立. 那么满足以下条件的$y$构成一个集合: 存在$x \in X$使得$\mathcal{F}(x, y)$成立.
+\end{axiom}
+
+或者, 用映射的语言来描述, 替换公理就是在说: $f$是定义在集合$X$上的一个映射, 那么$f$的值域也是一个集合.
+
+\subsection{Russell悖论}
+
+在构造无限集的过程中, 可能会遇到如下问题: 设集合$A$满足$$A = \{ x: x \notin x \}$$
+	那么$A \in A$是否成立? 如果成立, 那么由$A$的定义可知$A \notin A$; 如果不成立, 那么$A$就满足$x \notin x$, 从而$A \in A$. 这就是著名的Russell悖论. 现在我们尝试用构造新公理的方法修补这个问题.
+
+\begin{axiom}{正则公理}
+	任何非空集合$X$都存在一个元素$x$, 使得$x \cap X = \varnothing$.
+\end{axiom}
+
+结合配对公理, 可以证明$X \in X$这种情况是不存在的. 否则, 当$X$不是空集时, 考虑集合$\{ X\}$, 其中存在一个元素$x$, 此时只能是$X$, 使得$X \cap \{ X\}=\varnothing$, 然而$X \in X$告诉我们$X \cap \{ X\} \ni X$, 出现矛盾. 当$X$是空集时, $X$内存在一个元素本就与其定义矛盾.
+
+然而, 使用正则公理只是人为禁用掉了Russell悖论出现的条件, 代价是减少集合论的可用范围(实际上禁掉这个条件没有特别大的影响). Russell悖论不可能被最终解决.
+
+\subsection{选择公理}
+
+最后一条公理是选择公理, 该公理可以得到许多重要的定理, 然而它的否定形式与前八条公理也可相容. 这种情况就类似于Euclid平面几何公理体系中的第五条, 当存在的时候就是常见的Euclid几何体系, 当不存在或存在其相反形式的时候就是另一套数学体系. 因此, 选择公理被独立于前八条之外. 
+
+\begin{axiom}{选择公理}
+	对于任何由互不相交且非空的集合形成的集合族, 存在另一个集合$C$, 使得对该集合族中的任意元素$X$, $X \cap C$恰有一个元素.
+\end{axiom}
+
+至此, 我们可以用一套公理体系来定义集合. 
+
+\newpage
+\section{映射与二元关系}
+
+\subsection{映射}
+
+本节内容在高中数学里已经出现过, 这里简要地复习概念并做一些推广.
+
+\begin{definition}{映射}
+	\vspace{-2em}
+	\begin{itemize}
+		\item 设$A$和$B$为两个集合, 若对$A$中每个元素$x$, 都存在$B$中唯一的元素$y$与之对应, 则称此对应关系为一个\textit{映射}(map), 记作$$f: A \to B, ~~x \mapsto y.$$
+		\item $x$在$B$中的对应元素$y$称为$x$在$f$下的\textit{象}(image), $x$称为$y$在$f$下的\textit{原象}(preimage), 记作$$f(x) = y, ~ x \in A.$$
+		\item 集合$A$称作映射$f$的\textit{定义域}(domain); 集合$B$称为映射$f$的\textit{陪域}(codomain); $A$中所有元素在$f$下的象组成的集合称为$f$的\textit{值域}(range), 记作$f(A)$.
+		\item 两个映射相等, 当且仅当它们的定义域、对应关系、陪域相同.
+	\end{itemize}
+\end{definition}
+
+从集合论的视角看, 一个映射其实就是确定的三元组$(A, B, f)$, 其中$A$是定义域, $B$是陪域, $f$是对应关系.
+
+\begin{definition}{部分映射}
+	设映射$f: X \to Y$与集合$A \subseteq X$, 定义$f$在$A$上的\textit{部分映射}(partial mapping)为: $$f|_A : = A \to X, ~~x \mapsto f(x).$$
+\end{definition}
+\begin{remark}
+	部分映射$f|_A$的值域就是$f(A)$.
+\end{remark}
+
+利用部分映射, 我们可以得到一个新的记号$f(A)$, 表示在$f$映射下, 包含在定义域中的集合$A$在陪域中所对应的那个集合, 即$$f(A) : = \{ y \in Y: \exists x,  (x \in A) \wedge (y=f(x)) \}.$$
+在$A$就是定义域本身的时候, 容易发现$f(A)$是$f$的值域.
+
+同样地, 还能定义另一个记号$f^{-1}(B)$, 表示包含在值域中的集合$B$在定义域中对应的那个集合, 即$$f^{-1}(B) : = \{ x \in X: f(x) \in B \}.$$
+
+用一张图就能很好地表示上述定义: 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=8cm]{attachment/Acr1745354698752707434.pdf}
+	\caption{与映射相关的一些集合, 图源Zorich Fig. 1.6}
+\end{figure}
+
+\begin{definition}{双射}
+	设映射$f: A \to B$.
+	\begin{itemize}
+		\item 称$f$是\textit{单射}(injection), 若$\forall x,y \in A, f(x)=f(y) \Rightarrow x=y$. 
+		\item 称$f$是\textit{满射}(surjection), 若$\forall y \in B, \exists x \in A(f(x)=y)$. 
+		\item 称$f$是\textit{双射}(bijection), 若$f$既是单射又是满射. 
+	\end{itemize}
+\end{definition}
+
+\begin{definition}{映射的复合}
+    设映射$f: A \to B$, $g: B \to C$, 则它们的\textit{复合映射}(composite mapping)~$gf: A \to C$定义为$$(gf)(x)=g(f(x)) \ (x \in A).$$
+    注意复合运算有先后顺序. 另外, 为了强调复合运算, $gf$也可记作$g \circ f$.
+\end{definition}
+
+容易验证, 这样的“乘法”运算满足结合律与分配律、不满足交换律.
+
+\begin{definition}{恒等映射}
+	设映射$f: A \to A$.称$f$是$A$上的一个\textit{恒等映射}(identity mapping), 如果$$\forall x\in A, ~f(x)=x.$$
+	并把$f$记作$\mathcal{I}_A$.
+\end{definition}
+\begin{remark}
+	设映射$f :  A \to B$, 容易验证有
+	\begin{center}
+		$f\mathcal{I}_A=f, \quad \mathcal{I}_Bf=f.$
+	\end{center}
+\end{remark}
+\begin{remark}
+	需要证明恒等映射是良定义的, 即集合$A$上的所有恒等映射是相等的: 假设存在两个不同的恒等映射$\mathcal{I}_1, \mathcal{I}_2$, 那么$\mathcal{I}_1 = \mathcal{I}_1 \mathcal{I}_2 = \mathcal{I}_2$, 这与假设矛盾.
+\end{remark}
+
+\begin{definition}{逆映射}
+	设映射$f: A \to B$.称$f$是\textit{可逆的}(inverible), 如果存在映射$g: B \to A$满足$$fg=\mathcal{I}_B, \quad gf=\mathcal{I}_A.$$
+	特别地, 称$g$为$f$的\textit{逆映射}(inverse mapping).
+\end{definition}
+\begin{remark}
+	必须要求$g$和$f$的两种复合均等于恒等映射. 
+\end{remark}
+
+逆映射是唯一的. 实际上, 设映射$g_1, g_2$为$f: A \to B$的不同的逆映射, 那么$g_1 = g_1\mathcal{I}_B = g_1fg_2 = \mathcal{I}_Ag_2 = g_2$, 这与假设矛盾. 既然一个映射的逆映射是唯一的, 我们可以用符号$f^{-1}$来表示它. 需要区分逆映射与原象集.
+
+有些函数在定义域上并非是可逆的, 然而利用部分映射可以得到其一部分的逆映射, 例如三角函数.
+
+下面的命题刻画了何时映射是可逆的.
+
+\begin{proposition}{可逆性等价于双射性}
+	设映射$f: A \to B$, 则$f$可逆当且仅当它是双射.
+\end{proposition}
+\begin{proof}
+	(1) 必要性: 设$f$可逆, 即存在映射$g: B \to A$满足$fg=\mathcal{I}_B, gf=\mathcal{I}_A$. 下面证明$f$是双射. 
+	
+	设$x, y \in A$使得$f(x)=f(y)$, 那么由$x=gf(x)=gf(y)=y$可知$f$是单射. 另一方面, 设$z \in B$, 由于$z=fg(z)$, 这表明$B \subseteq f(A)$, 故$B = f(A)$, 于是$f$是满射. 
+	
+	(2) 充分性: 设$f$是单射和满射, 下面证明存在映射$g: B \to A$满足$fg=\mathcal{I}_B, gf=\mathcal{I}_A$. 
+	
+	人为地取$g$, 使得$g(x)$是$A$中唯一使得$f(g(x))=x$的那个元素(唯一存在性由$f$是双射可以得到保证).按照$g$的定义, 自然有$fg=\mathcal{I}_B$. 另一方面, 任取$x \in A$, 由于$f(gf(x)) = (fg)(f(x)) = f(x)$并且$f$是单射, 可得$gf(x)=x$, 所以$gf=\mathcal{I}_A$.
+\end{proof}
+
+最后我们来看映射与集合运算的关系: 
+
+\begin{proposition}{映射与集合运算的关系}
+	设映射$f:A \to B$, $E_{\alpha}$是$A$的子集, $E'_{\alpha}$是$B$的子集(对任意$\alpha \in I$). 则: 
+	$$f \left( \bigcup_{\alpha \in I} E_{\alpha} \right) = \bigcup_{\alpha \in I} f(E_{\alpha});\qquad f \left( \bigcap_{\alpha \in I} E_{\alpha} \right) \subseteq \bigcap_{\alpha \in I} f(E_{\alpha}); $$
+	$$f^{-1} \left( \bigcup_{\alpha \in I} E'_{\alpha} \right) = \bigcup_{\alpha \in I} f^{-1}(E'_{\alpha});\qquad f^{-1} \left( \bigcap_{\alpha \in I} E'_{\alpha} \right) = \bigcap_{\alpha \in I} f^{-1}(E'_{\alpha}). $$
+\end{proposition}
+\begin{remark}
+	证明从略. 注意第二个式子的等号不一定能取得. 实际上还可以证明, 等号取得当且仅当$f$是单射. 
+\end{remark}
+
+\subsection{二元关系}
+
+幂集公理允许我们构造两个集合的Cartesian积.
+
+\begin{definition}{Cartesian积}
+	设集合$A$和$B$, 定义它们的\textit{Cartesian积}(Cartesian product,  direct product)如下: $$A \times B : = \{ (a, b): a \in A, b \in B \}.$$
+\end{definition}
+\begin{remark}
+	不难发现Cartesian积是一个可逆的过程, 也即任何一个在$A \times B$中的元素都可以回溯到其在$A$和$B$中的对应元素.因而Cartesian积不满足交换律和结合律.
+\end{remark}
+\begin{remark}
+	特别地, 记$A^2: =A \times A$, 以及$A^n : = A^{n-1} \times A~(n \geq 2)$.
+\end{remark}
+
+\begin{definition}{二元关系}
+	设非空集合$S$, 则称$S^2$的一个子集$\mathcal{R}$为$S$上的一个\textit{二元关系}(binary relation).若$(a, b) \in \mathcal{R}$, 则称$a, b$有$\mathcal{R}$关系, 记作$a\mathcal{R}b$.
+\end{definition}
+
+例如, 对于集合族$M$, 定义在$M$上的关系$$\Delta : = \{ (X, Y) \in M^2 :  \forall x, (x \in X) \Leftrightarrow (x \in Y) \}, $$
+那么集合$A, B$相等就可以表述为$A \Delta B$.
+
+一类在数学中很重要的关系就是等价关系, 它为我们阐明了数学对象的相似性和一致的本质.
+
+\begin{definition}{等价关系}
+	设集合$S$及定义在$S$上的关系$\mathcal{R}$, 如果对任意$a, b, c \in S$都有: 
+	\begin{enumerate}
+		\item 自反性: $a\mathcal{R} a$; 
+		\item 对称性: $a\mathcal{R} b \Rightarrow b\mathcal{R} a$; 
+		\item 传递性: $a\mathcal{R} b \wedge b\mathcal{R} c \Rightarrow a\mathcal{R} c$.
+	\end{enumerate}
+	则称$\mathcal{R}$是$S$上的一个\textit{等价关系}(equivalence relation), 通常记作$\sim$.
+\end{definition}
+
+把所有等价的元素放在一起, 就形成了\textit{等价类}(equivalence class). 具体地, 定义$a$在$\mathcal{R}$下的等价类$$[a]_{\mathcal{R}} : = \{ x \in S: x\mathcal{R}a \}, $$其中$\mathcal{R}$是$S$上的一个等价关系.
+
+例如, 数论中模$n$的同余关系就是一类等价关系, 而模$n$的同余类就是等价类.
+
+等价类内元素都具有同等地位, 都能代表整个等价类, 否则它们也不会被称作是等价的.
+
+\begin{proposition}{等价类相等等价于代表元素等价}
+	设$\mathcal{R}$是$S$上的等价关系, 对于$a, b \in S$有$[a]_{\mathcal{R}} = [b]_{\mathcal{R}} \Leftrightarrow a\mathcal{R} b$. 
+\end{proposition}
+\begin{proof}
+	必要性显然. 充分性: 任取$c \in [a]_{\mathcal{R}}$, 由传递性知$c \mathcal{R} b$, 所以$c \in [b]_{\mathcal{R}}$, 从而$[a]_{\mathcal{R}} \subseteq [b]_{\mathcal{R}}$.同理有$[b]_{\mathcal{R}} \subseteq [a]_{\mathcal{R}}$, 所以$[a]_{\mathcal{R}} = [b]_{\mathcal{R}}$.
+\end{proof}
+
+还是以模$n$的同余类为例. 我们发现, 任何一个整数都会出现且仅会出现在一个同余类里, 换句话说, 所有的同余类构成类对整数集合的划分. 
+
+一般地, 所有的等价类都可以构成对特定集合的划分. 
+
+\begin{definition}{集合的划分}
+	对于给定集合$S$, 集合族$X=\{ S_{\alpha} :  \alpha \in I \}$. 称$X$是$A$的一个\textit{划分}(partition), 如果
+	\begin{center}
+		1) $S = \bigcup_{\alpha \in I} S_{\alpha}$; \qquad 2) $\forall \alpha \neq \beta , ~S_{\alpha} \cap S_{\beta}$.
+	\end{center}
+\end{definition}
+
+\begin{proposition}{}
+	设$\mathcal{R}$是$S$上的一个等价关系, 则集合族$\{ [a]_{\mathcal{R}}: a \in S \}$构成了$S$的一个划分. 特别地, 称该集合为\textit{$S$模$\mathcal{R}$的商集}, 记作$S / \mathcal{R}$. 
+\end{proposition}
+\begin{proof}
+	首先我们证明, 所有$[a]_{\mathcal{R}}$的并集恰等于$S$. 注意到对任意$a \in S$, $a \in [a]_{\mathcal{R}} \wedge [a]_{\mathcal{R}} \subseteq S$. 所以$S \subseteq \bigcup_{a \in S} [a]_{\mathcal{R}} \subseteq S$, 从而$S = \bigcup_{a \in S} [a]_{\mathcal{R}}$. 
+	
+	接着证明这些集合都是不交并. 对于$[a]_{\mathcal{R}} \neq [b]_{\mathcal{R}}$, 假设存在$c \in [a]_{\mathcal{R}} \cap [b]_{\mathcal{R}}$, 那么$c \in [a]_{\mathcal{R}} \wedge c \in [b]_{\mathcal{R}}$, 由等价关系的传递性, $a\mathcal{R}b$, 与假设矛盾. 于是该集合族中任意两个元素交集为空.
+\end{proof}
+
+借助商集, 我们可以证明一个有趣的命题: 
+
+\begin{proposition}{}
+	设集合$A,B$. 则任一映射$f:A \to B$均可被写成满射$\varphi :A \to C$与单射$\psi :C \to B$的复合. 
+\end{proposition}
+\begin{proof}
+	考虑等价关系$\sim := \{ (x_1,x_2) \in A^2:f(x_1)=f(x_2) \}$, 取$C = A / \sim$. 构造$\varphi :A \to C,x \mapsto [x]_{\sim}, \psi : C \to B,[x]_{\sim} \mapsto f(x)$. 显然$\varphi$是满射, $\psi$是单射, 且$f=\psi \circ \varphi$. 
+\end{proof}
+
+类比等价关系, 可以定义序关系. 然而就像实数集中的$<$和$\leq$关系一样, 序关系可能有两种形式: 严格的和不严格的. 一般地, 我们更希望使用后者, 例如后面会介绍数列极限运算是维持不严格序关系的. 
+
+容易看出, 上面两种情况的区别在于自反性, 所以只需要把下方定义中的自反性去掉, 就能得到严格偏序关系的定义. 
+
+\begin{definition}{偏序关系}
+	设集合$S$及定义在$S$上的关系$\mathcal{R}$, 如果对任意$a, b, c \in S$都有: 
+	\begin{enumerate}
+		\item 自反性: $a\mathcal{R} a$; 
+		\item 反对称性: $a\mathcal{R} b \wedge b\mathcal{R} a \Rightarrow a=b$; 
+		\item 传递性: $a\mathcal{R} b \wedge b\mathcal{R} c \Rightarrow a\mathcal{R} c$.
+	\end{enumerate}
+	则称$\mathcal{R}$是$S$上的一个\textit{偏序关系}(partially ordered relation), 记作$\preceq$.
+\end{definition}
+
+为什么偏(partially, 部分地)序关系不直接称作序关系呢? 这是因为, 有些序关系并不能覆盖所有元素. 例如对于给定集合的幂集, 其中某些元素并不存在包含关系. 再例如, 实数间的大小关系就可以覆盖所有元素. 从而引出另一个概念, 全序关系: 
+
+\begin{definition}{全序关系}
+	设集合$S$及定义在$S$上的关系$\mathcal{R}$, 如果对任意$a, b, c \in S$都有: 
+	\begin{enumerate}
+		\item 反对称性: $a\mathcal{R} b \wedge b\mathcal{R} a \Rightarrow a=b$; 
+		\item 传递性: $a\mathcal{R} b \wedge b\mathcal{R} c \Rightarrow a\mathcal{R} c$; 
+		\item 完全性: $a\mathcal{R} b \vee b\mathcal{R} a$.
+	\end{enumerate}
+	则称$\mathcal{R}$是$S$上的一个\textit{全序关系}(totally ordered relation), 同时称$S$是一个\textit{全序集}(totally ordered set).
+\end{definition}
+\begin{remark}
+	完全性蕴含了自反性.
+\end{remark}
+
+\newpage
+\section{集合的基数}
+
+高中数学中, 我们学过有限集合的元素个数. 从直观上看, 似乎无限集合不会存在元素个数这一说法, 但我们又熟知实数远比整数多, 那么这种相对的元素个数比较是怎样建立的? 
+
+来考虑这样一个问题: 给定两个有限集合$A, B$, 如何比较它们的元素个数. 最一般的想法应该是在它们之间构造一个映射$f: A \to B$, 如果$f$是双射则$A, B$元素个数相等, 如果是单射则$A$的元素个数不多于$B$的元素个数, 如果是满射则$B$的元素个数不多于$A$的元素个数(这些用反证法容易说明). 
+
+相对应地, 既然我们只需要考虑无限集合之间的相对“元素个数”多少, 而不需要得到一个绝对数值, 就可以仿照上方的方法定义一个无限集合的“相对元素个数”. 非常直观地, 我们也将其称为“势”, 这是否让你想起电势? 在接下来的内容中, 你将看到集合的“势”的参考位置一般取用自然数集合. 
+
+\begin{definition}{等势集合}
+	对于集合$A, B$, 若存在单射$f: A \to B$, 则称$A$的势小于等于$B$. 特别地, 若单射$f$同时也是一个满射, 即$f$是双射, 则称$A, B$\textit{等势}(equipollent). 
+\end{definition}
+
+很自然地, 我们可以证明集合的等势关系是一个等价关系. 为了证明势的小于等于是一个全序关系, 需要下方的定理: 
+
+\begin{theorem}{Schröder–Bernstein} \label{thm:sb}
+	给定集合$A, B$.若在$A, B$间存在两个单射$f: A \to B$与$g: B \to A$, 则在它们之间也存在一个双射$h: A \to B$.
+\end{theorem}
+\begin{proof}
+	\underline{\textbf{证法一}}(不依赖选择公理的构造性证明)~~不妨考虑$A,B$非空. 由于$g$是$B \to g(B)$的双射, 我们可以用$g(B)$替换$B$, 即不妨设$f(A) \subseteq B \subseteq A$. 令$A_0=A, B_0=B$, 递归地定义$A_{n+1} = f(A_n), B_{n+1}=f(B_n)$. 于是得到$A_0 \supseteq B_0 \supseteq \cdots \supseteq A_n \supseteq B_n \supseteq \cdots$. 直接给出$h$的构造: $$h(x) = \begin{cases}
+		f(x) & \exists n \in \Z _{+}, x \in A_n-B_n \\ x & \textit{否则}
+	\end{cases}. $$
+	
+	下面验证$h$是双射: 若$h(x)=h(y)$而$x \neq y$, 只能$x \in A_N-B_N$, $y \notin A_n-B_n, \forall n$. 但是$y=h(y)=h(x)=f(x) \in A_{N+1}, \notin B_{N_1}$, 即$y \in A_{N+1}-B_{N+1}$, 矛盾. 这说明$h$是单射. 另一方面, 任取$y \in B$, 若$y \notin f(A)$, 由$B_0 \supseteq A_1$可知不存在$n \geq 1$使得$f(y) \in A_n$, 从而$h(y)=y$. 这说明$h$是满射. 
+\end{proof}
+
+由上方的定理, 容易得到势的小于等于关系满足反对称性. 该关系的完全性是选择公理的推论(这里略去). 再加上传递性(例如, $A, B$之间存在单射$f$, $B, C$之间存在单射$g$, 则$g|_{f(A)} \circ f$是$A, C$间的单射), 马上得到该关系是一个全序关系. 
+
+从而, 我们可以利用等价类的思想刻画一个无限集合的相对元素个数.
+
+\begin{definition}{集合的基数}
+	\vspace{-2em}
+	\begin{itemize}
+		\item 设集合的等势关系$\mathcal{R}$.对于集合$X$, 称$[X]_{\mathcal{R}}$为其\textit{基数}(cardinal)或势, 记作$|X|$.
+		\item 定义$|X| = |Y|$, 如果$X$与$Y$等势.
+		\item 定义$|X| \leq |Y|$, 如果$X$与$Y$的某个子集等势.
+	\end{itemize}
+\end{definition}
+
+容易证明集合基数的小于等于关系也是一个全序关系. 
+
+现在对用等价类定义的基数做一些说明: 这种定义方式其实不够好, 因为如果我们要考虑所有基数构成的“集合”, 实际上是在考虑一个集合族, 而集合族不一定是集合. 更好的方法是取等价类中的某个代表元素(一般取的是最小序数). 利用取代表元素的定义方法, 我们可以引入定理\ref{thm:sb}的第二种证明: 
+
+\begin{proof}
+	\underline{\textbf{证法二}}(承认选择公理的证明, 了解即可)~~先不加证明地给出一个引理(良序定理): 任何集合$S$上均存在一个序结构$\prec$, 使得$(S,\prec)$是一个良序结构, 即对任意$S$的子集都存在关于$\prec$的极小元. 等价地, 存在唯一的极小序数$|S|$使得$S,|S|$之间存在双射. 在下方的证明中, 我们实际上将基数的反对称性处理成了序数的反对称性(不加证明地承认). 
+	
+	回到原题, 不妨考虑$A,B$非空. 则存在唯一的极小序数$|A|$和双射$\varphi :A \to |A|$. 类似地定义$|B|$和$\psi :B \to |B|$. 由于$\psi \circ f:X \to |Y|$是单射, 将其视作陪域等于值域的映射是就是双射. 由替换公理, 其值域$\rge (\psi \circ f)$亦是集合, 故可良序化, 即存在唯一极小序数$|\rge (\psi \circ f)|$和双射$\alpha :\rge (\psi \circ f) \to |\rge (\psi \circ f)|$. 于是$$\alpha \circ \psi \circ f:X \to |\rge \psi \circ f| \leq |Y|$$
+	是双射, 而由$|X|$的极小性可知$|X| \leq |\rge \psi \circ f| \leq |Y|$. 同理可得$|Y| \leq |X|$. 于是$|X|=|Y|$. 
+\end{proof}
+
+
+
+关于无限集合, Cantor曾证明: (这里$|X|<|Y|$承自然的严格偏序定义)
+
+\begin{theorem}{}
+	设集合$X$, 则$|X|< |\mathcal{P}(X)|$.
+\end{theorem}
+\begin{proof}
+	若$X$是空集, 则显然成立. 从而, 只考虑$X$非空的情况. 
+	
+	由于$\mathcal{P}(X)$涵盖所有$X$的一元子集, 故显然有$|X| \leq |\mathcal{P}(X)|$. 假设有$|X| = | \mathcal{P}(X)|$, 那么存在双射$f: X \to X$. 
+	
+	根据$f$, 取$B=\{ x \in X: x \notin f(x) \}$, 显然$B \in \mathcal{P}(A)$, 从而存在$x$使得$f(x)=B$. 此时, 若$x \in B$, 则由$B$的定义知$x \notin B$, 矛盾; 同理, 若$x \notin B$, 则可得$x \in B$, 也矛盾. 
+\end{proof}
+
+

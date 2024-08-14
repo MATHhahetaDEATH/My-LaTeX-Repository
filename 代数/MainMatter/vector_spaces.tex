@@ -1,0 +1,708 @@
+\chapter{向量空间}
+
+\section{从$\F ^{n}$说起}
+
+\subsection{复数与复数域}
+
+首先来温习一下复数域$\C$的定义与它满足的性质：
+
+\begin{definition}{复数}
+	记$z=a+b\ic $($a,b \in \R$)为一个\textit{复数}，其中$\ic ^2=-1$.由所有复数构成的集合记为$\C$. \\
+	$\C$上的加法与乘法定义如下：
+	$$(a+b\ic ) + (c+d\ic ) = (a+c) + (b+d)\ic $$
+	$$(a+b\ic )(c+d\ic ) = (ac-bd) + (ad+bc)\ic $$
+\end{definition}
+
+\begin{proposition}{复数运算的性质}{Fxkvi}
+	(1) 交换性质$$\forall \alpha , \beta \in \C , \alpha + \beta = \beta + \alpha , \alpha \beta = \beta \alpha$$
+	(2) 结合性质$$\forall \alpha , \beta , \lambda \in \C , (\alpha + \beta) + \lambda = \alpha + (\beta + \lambda) , (\alpha \beta) \lambda = \alpha (\beta \lambda)$$
+	(3) 单位元$$\forall \lambda \in \C , \lambda + 0 = \lambda , 1 \lambda = \lambda$$
+	(4) 加法逆元$$\forall \alpha \in \C , \exists ! \beta \in \C , \alpha + \beta = 0$$
+	(5) 乘法逆元$$\forall \alpha \in \C (\alpha \neq 0) , \exists ! \beta \in \C , \alpha \beta = 1$$
+	(6) 分配性质$$\forall \lambda , \alpha , \beta \in \C , \lambda (\alpha + \beta) = \lambda \alpha + \lambda \beta$$
+\end{proposition}
+\begin{proof}
+	这里只选择部分性质证明： \\
+	(1) 加法交换性质：设$\alpha = a+b\ic , \beta = c+d\ic ~(a,b,c,d \in \R )$，则
+	\begin{align*}
+		\alpha + \beta &= (a+b\ic ) + (c+d\ic ) \\
+		&= (a+c) + (b+d)\ic \\
+		&= (c+a) + (d+b)\ic \\
+		\beta + \alpha &= (c+d\ic ) + (a+b\ic ) \\
+		&= (c+a) + (d+b)\ic
+	\end{align*}
+	因此有$\alpha + \beta = \beta + \alpha$ \\
+	(2) 乘法单位元：设$\lambda = a+b\ic ~ (a,b \in \R )$，那么$$1 \lambda = (1+0\ic )(a+b\ic ) = a + b\ic = \lambda$$
+	(3) 加法逆元：先证明存在.设$\alpha = a+b\ic $，取$\beta = (-a) + (-b)\ic $，则$\alpha + \beta = 0+0\ic = 0$；\\
+	再证明唯一.假设$\beta _1, \beta _2 \in \C $均为$\alpha$的加法逆元，那么$$\beta _1 = \beta _1 + 0 = \beta _1 + \alpha + \beta _2 = 0 + \beta _2 = \beta _2$$
+	这与假设矛盾，则$\alpha$的加法逆元是唯一的.
+\end{proof}
+
+由此可以引出\textit{域}的正式定义：
+
+\begin{definition}{域}
+	\textit{域}是一个集合$\F$，它带有加法与乘法两种运算(分别在加法与乘法上封闭)，且这些运算满足命题\ref{pro:Fxkvi}所示所有性质.
+\end{definition}
+\begin{remark}
+	最小的域是一个集合$\{ 0,1 \}$，带有通常的加法与乘法运算，但规定$1+1=0$.
+\end{remark}
+
+容易验证，$\R$与$\C$都是域.本书中用$\F$来表示$\R$或$\C$.
+
+总是用$\beta$表示$\alpha$的逆元非常不自然，因此定义出加/乘法逆元的表示与减/除法.
+
+\begin{definition}{加法逆元，减法，乘法逆元，除法}
+	设$\alpha , \beta \in \C $.
+	\begin{itemize}
+		\item 令$- \alpha$表示$\alpha$的加法逆元，即$-\alpha$是使得$$\alpha + (-\alpha) = 0$$成立的唯一复数.
+		\item 对于$\alpha \neq 0$，令$\alpha ^{-1}$表示$\alpha$的乘法逆元，即$\alpha ^{-1}$是使得$$\alpha (\alpha ^{-1}) = 1$$成立的唯一复数.
+		\item 定义$\C $上的\textit{减法}：$$\beta - \alpha = \beta + (-\alpha)$$
+		\item 定义$\C $上的\textit{除法}：$$\beta / \alpha = \beta (1 / \alpha)$$
+	\end{itemize}
+\end{definition}
+
+\subsection{$\F ^{n}$}
+
+在中学的向量板块，我们认识到一个向量可以表示为有序数组$(a,b)$的形式，并且在立体几何板块利用三维下的向量进行了许多计算.那么向量的定义能否推广到更高维度呢？
+
+\begin{definition}{$\F ^{n}$}
+	$\F ^{n}$是$\F$中元素组成的长度为$n$的组的集合，即$$\F ^{n} = \{ (x_1,\cdots ,x_n) : x_j \in \F , j=1, \cdots ,n \}$$
+	特别地，对于由无限长度序列构成的集合，称作$\F ^{\infty}$，即
+	$$\F ^{\infty} = \{ (x_1,\cdots ,x_n, \cdots) : x_j \in \F , j=1, \cdots ,n, \cdots \}$$
+	对于$\F ^{n}$中的某个元素$(x_1,\cdots ,x_n)$，称$x_j ~(i=1,\cdots ,n)$为$(x_1,\cdots ,x_n)$的第$j$个\textit{坐标}. \\
+	$\F ^{n}$上的\textit{加法}定义为对应坐标相加，即
+	$$(x_1, \cdots , x_n) + (y_1 , \cdots , y_n) = (x_1+y_1, \cdots , x_n+y_n)$$
+	对于$\F ^{\infty}$
+	$$(x_1, \cdots , x_n, \cdots) + (y_1 , \cdots , y_n ,\cdots) = (x_1+y_1, \cdots , x_n+y_n ,\cdots)$$
+	$\F ^{n}$上的\textit{标量乘法}：一个数$\lambda ~(\lambda \in \F )$与$\F ^{n}$中元素的乘积这样计算：用$\lambda$乘以该元素的每个坐标，即
+	$$\lambda (x_1,\cdots ,x_n) = (\lambda x_1, \cdots ,\lambda x_n)$$
+	对于$\F ^{\infty}$
+	$$\lambda (x_1,\cdots ,x_n, \cdots) = (\lambda x_1, \cdots ,\lambda x_n,\cdots)$$
+	我们暂时不讨论$\F ^{n}$上元素之间的乘法.
+\end{definition}
+
+当$\F$代表$\R$且$n=2,3$时，$\F ^{n}$中的元素就相当于我们熟悉的平面向量、空间向量.实际上，所有在$\F$中的元素都被称为\textit{标量}，所有在$\F ^{n}$中的元素如果被看做是一个从原点指向某定点的有向线段时，它就是\textit{向量}.我们一般用小写字母表示标量，用加粗的小写字母表示$\F ^{n}$中的元素，例如$\F ^{4}$中的元素$$\boldsymbol{x} = (x_1,x_2,x_3,x_4)$$
+特别地，用$\boldsymbol{0}$表示所有坐标全是$0$的元素，即$$\boldsymbol{0} = (0, \cdots , 0)$$
+
+$\F ^{n}$同样也具有类似于$\F$的一些性质：
+
+\begin{proposition}{$\F ^{n}$的性质}{xlxkvi}
+	(1) 交换性质$$\forall \boldsymbol{u},\boldsymbol{v} \in \F ^{n} , \boldsymbol{u} + \boldsymbol{v} = \boldsymbol{v} + \boldsymbol{u}$$
+	(2) 结合性质$$\forall \boldsymbol{u},\boldsymbol{v},\boldsymbol{w} \in \F ^{n}, a,b \in \F, (\boldsymbol{u} + \boldsymbol{v}) + \boldsymbol{w} = \boldsymbol{u} + (\boldsymbol{v} + \boldsymbol{w}) , (ab) \boldsymbol{v} = a (b\boldsymbol{v})$$
+	(3) 加法单位元$$\exists ! \boldsymbol{0} \in \F ^{n}, \forall \boldsymbol{v} \in \F ^{n} , \boldsymbol{v} + \boldsymbol{0} = \boldsymbol{v}$$
+	(4) 加法逆元$$\forall \boldsymbol{v} \in \F ^{n} , \exists ! \boldsymbol{w} \in \F ^{n} , \boldsymbol{v} + \boldsymbol{w} = \boldsymbol{0}$$
+	(5) 乘法单位元$$\forall \boldsymbol{v} \in \F ^{n} , 1\boldsymbol{v} = \boldsymbol{v}$$
+	(6) 分配性质$$\forall a,b \in \F , \boldsymbol{u},\boldsymbol{v} \in \F ^{n} , a (\boldsymbol{u} + \boldsymbol{v}) = a\boldsymbol{u} + a\boldsymbol{v} , (a+b)\boldsymbol{v} = a\boldsymbol{v}+b\boldsymbol{v}$$
+\end{proposition}
+\begin{proof}
+	这里只选择部分证明：\\
+	(1) 交换性质：设$\boldsymbol{u} = (u_1, \cdots ,u_n),\boldsymbol{v} = (v_1, \cdots ,v_n)$，则
+	\begin{align*}
+		\boldsymbol{u} + \boldsymbol{v} &= (u_1, \cdots ,u_n) + (v_1, \cdots ,v_n) \\
+		&= (u_1+v_1, \cdots ,u_n+v_n) \\
+		&= (v_1+u_1, \cdots ,v_n+u_n) \\
+		&= (v_1, \cdots ,v_n) + (u_1, \cdots ,u_n) \\
+		&= \boldsymbol{v} + \boldsymbol{u}
+	\end{align*}
+	(2) 加法单位元：先证明存在.若$\boldsymbol{v} = (v_1, \cdots ,v_n)$，取$\boldsymbol{-v} = (-v_1, \cdots ,-v_n)$，容易发现$\boldsymbol{v} + \boldsymbol{-v} = \boldsymbol{0}$； \\
+	再证明唯一.假设存在两个加法单位元$\boldsymbol{0}$与$\boldsymbol{0'}$，则$$\boldsymbol{0} = \boldsymbol{0} + \boldsymbol{0'} = \boldsymbol{0'} + \boldsymbol{0} = \boldsymbol{0'}$$
+	这与假设矛盾.因此最多只有一个加法单位元.
+\end{proof}
+
+\newpage
+\section{向量空间}
+
+类似于$\F ^{n}$，我们把向量空间定义为带有加法和标量乘法的集合$V$，其满足命题\ref{pro:xlxkvi}中的性质.请注意，由于不一定满足乘法交换性质，向量空间不一定是一个域.
+
+\begin{definition}{加法，标量乘法}
+	\begin{itemize}
+		\item 集合$V$上的\textit{加法}是一个函数，它把每一对$u,v \in V$都对应到$V$中的一个元素$u+v$.
+		\item 集合$V$上的\textit{标量乘法}是一个函数，它把任意$\lambda \in \F $和$v \in V$都对应到$V$中的一个元素$\lambda v$.
+	\end{itemize}
+\end{definition}
+\begin{remark}
+	换句话说，$V$对加法和标量乘法封闭.
+\end{remark}
+
+接下来可以正式定义向量空间：
+
+\begin{definition}{向量空间}
+	\textit{向量空间}就是带有加法和标量乘法的集合$V$，满足如下性质： \\
+	(1) 交换性质$$\forall \boldsymbol{u},\boldsymbol{v} \in V , \boldsymbol{u} + \boldsymbol{v} = \boldsymbol{v} + \boldsymbol{u}$$
+	(2) 结合性质$$\forall \boldsymbol{u},\boldsymbol{v},\boldsymbol{w} \in V, a,b \in \F, (\boldsymbol{u} + \boldsymbol{v}) + \boldsymbol{w} = \boldsymbol{u} + (\boldsymbol{v} + \boldsymbol{w}) , (ab) \boldsymbol{v} = a (b\boldsymbol{v})$$
+	(3) 加法单位元$$\exists \boldsymbol{0} \in V, \forall \boldsymbol{v} \in V , \boldsymbol{v} + \boldsymbol{0} = \boldsymbol{v}$$
+	(4) 加法逆元$$\forall \boldsymbol{v} \in V , \exists \boldsymbol{w} \in V , \boldsymbol{v} + \boldsymbol{w} = \boldsymbol{0}$$
+	(5) 乘法单位元$$\forall \boldsymbol{v} \in V , 1\boldsymbol{v} = \boldsymbol{v}$$
+	(6) 分配性质$$\forall a,b \in \F , \boldsymbol{u},\boldsymbol{v} \in V , a (\boldsymbol{u} + \boldsymbol{v}) = a\boldsymbol{u} + a\boldsymbol{v} , (a+b)\boldsymbol{v} = a\boldsymbol{v}+b\boldsymbol{v}$$
+	向量空间中的元素被称为\textit{向量}或\textit{点}.
+\end{definition}
+\begin{remark}
+	因为向量空间的标量乘法依赖于$\F$，所以一般会说$V$是$\F$ \textit{上的向量空间}.例如，平面点集$\R ^{2}$是$\R$上的向量空间.如果没有特别说明，默认$V$就表示在$\F$上的向量空间.
+\end{remark}
+\begin{remark}
+	最小的向量空间是$\{ 0 \}$，它带有通常的加法和乘法运算.
+\end{remark}
+\begin{note}
+	在向量空间的定义中并没有说明唯一性，这是因为唯一性可以通过已有的性质证明出.
+\end{note}
+
+现在介绍一个具体的例子：
+
+\begin{definition}{$\F ^{S}$}
+	设$S$是一个集合，我们用$\F ^{S}$表示$S$到$\F$的所有函数的集合. \\
+	对于$f,g \in \F ^{S}$，对所有$x \in S$，规定$\F ^{S}$上的加和$f+g$满足$$(f+g)(x) = f(x) + g(x)$$
+	对于$\lambda \in \F$和$f \in \F ^{S}$，对所有$x \in S$，规定$\F ^{S}$上的标量乘法得到的乘积$\lambda f \in \F ^{S}$满足$$(\lambda f)(x) = \lambda f(x)$$
+\end{definition}
+
+\begin{example}
+	请证明$\F ^{S}$是$\F$上的向量空间，并指出它的加法单位元与加法逆元.
+\end{example}
+
+向量空间的定义中缺少了一些显而易见的性质，我们现在进行补充：
+
+\begin{proposition}{向量空间的性质}{xlkjxkvi}
+	\begin{itemize}
+		\item 向量空间有唯一的加法单位元.
+		\item 向量空间中的每个元素都有唯一的加法逆元.
+		\item 对任意$\boldsymbol{v} \in V$都有$0\boldsymbol{v}=\boldsymbol{0}$.
+		\item 对任意$a \in \F$都有$a\boldsymbol{0}=\boldsymbol{0}$.
+		\item 对任意$\boldsymbol{v} \in V$都有$(-1)\boldsymbol{v}=\boldsymbol{-v}$.(等式右边的$\boldsymbol{-v}$表示$\boldsymbol{v}$的加法逆元)
+	\end{itemize}
+\end{proposition}
+\begin{proof}
+	设向量空间$V$， \\
+	(1) 假设$V$中有两个不同的加法单位元$\boldsymbol{0},\boldsymbol{0'}$，那么$$\boldsymbol{0} = \boldsymbol{0} + \boldsymbol{0'} = \boldsymbol{0'} + \boldsymbol{0} = \boldsymbol{0'}$$
+	这与假设矛盾，于是向量空间中只有唯一的加法单位元. \\
+	(2) 对于$\boldsymbol{v} \in V$，假设$\boldsymbol{w},\boldsymbol{w'}$都是它的加法逆元，那么$$\boldsymbol{w} = \boldsymbol{w}+0 = \boldsymbol{w} + \boldsymbol{v} + \boldsymbol{w'} = 0 + \boldsymbol{w'} = \boldsymbol{w'}$$
+	这与假设矛盾，于是向量空间中每个元素都有唯一的加法逆元. \\
+	(3) 对于$\boldsymbol{v} \in V$，由于$$0\boldsymbol{v} = (0+0)\boldsymbol{v} = 0\boldsymbol{v} + 0\boldsymbol{v}$$
+	在等式两边同时加上$0\boldsymbol{v}$的加法逆元，可得$0\boldsymbol{v} = 0$. \\
+	(4) 与(3)同理，请读者自行证明. \\
+	(5) 对于$\boldsymbol{v} \in V$，由于$$0 = (1+(-1))\boldsymbol{v} = \boldsymbol{v} + (-1)\boldsymbol{v}$$
+	在等式两边同时加上$\boldsymbol{v}$的加法逆元，可得$(-1)\boldsymbol{v} = \boldsymbol{-v}$.
+\end{proof}
+\begin{remark}
+	在(3)的证明过程中，由于在向量空间中只有分配性质能将标量乘法与向量的加法联系在一起，故必然会利用分配性质.
+\end{remark}
+
+\newpage
+\section{子空间}
+
+就像构造集合时要研究一个集合的子集一样，在向量空间中，我们也要研究它的子集.特别地，向量空间的子集如果也是向量空间，我们把它称作\textit{子空间}.
+
+\subsection{子空间}
+
+\begin{definition}{子空间}
+    设向量空间$V$和它的一个子集$U$(采用与$V$相同的加法法则与标量乘法法则)，如果$U$也是一个向量空间，则称$U$是$V$的\textit{子空间}.
+\end{definition}
+
+然而在实际应用中，每遇到一个子集$U$都证明一遍它是向量空间是很麻烦的.其实只需要证明以下三个关键性质：
+
+\begin{proposition}{子空间的判定条件}
+    设向量空间$V$的子集$U$，$U$是$V$的子空间当且仅当$U$满足下列条件： \\
+    (1) 加法单位元$$0 \in U$$
+    (2) 加法封闭性$$\forall u,v \in U, u+v \in U$$
+    (3) 标量乘法封闭性$$\forall \lambda \in \F,v \in U,\lambda v \in U$$
+\end{proposition}
+\begin{proof}
+    \buzhou{1} 必要性：当$U$是$V$的子空间时，由定义可知$U$是一个向量空间，则它自然满足上述条件. \\
+    \buzhou{2} 充分性：当$U$满足上述条件时，由于$U$是$V$的子集并拥有相同的运算规则，显然$U$可以满足向量空间的所有性质.
+\end{proof}
+\begin{remark}
+    该判定条件中有关加法单位元的性质等价于“$U$非空”.(取$v \in U,0 \in \F$，由标量乘法封闭性与命题\ref{pro:xlkjxkvi}的第三条可知$0v=0 \in U$)
+\end{remark}
+\begin{remark}
+    实际上子空间的判定条件就是向量空间的必要条件：拥有加法单位元，且对加法和标量乘法封闭.
+\end{remark}
+
+\begin{example}
+    请指出下列向量空间的所有子空间：(不要求证明唯一性，我们会在下一章给出证明) \\
+    (1)定义在$\R$上的向量空间$\R ^{2}$； \\
+    (2)定义在$\R$上的向量空间$\R ^{3}$.
+\end{example}
+\begin{solution}
+    (1)$\{ 0 \}$、$\R ^2$和$\R ^2$中过原点的所有直线. \\
+    (2)$\{ 0 \}$、$\R ^3$和$\R ^3$中过原点的所有平面. 
+\end{solution}
+
+\begin{example}
+    证明下列结论：\\
+    (1)若$b \in \F$，则$U = \{ (x_1,x_2,x_3,x_4) \in \F ^{4} : x_3 = 5x_4+b \}$是$\F ^{4}$的子空间当且仅当$b=0$； \\
+    (2)区间$[0,1]$上的全体实值连续函数的集合是$\R ^{[0,1]}$的子空间； \\
+    (3)区间$(0,3)$上满足条件$f'(2)=b$的实值可微函数的集合是$\R ^{(0,3)}$的子空间当且仅当$b=0$； \\
+    (4)极限为$0$的复数序列组成的集合是$\C ^{\infty}$的子空间.
+\end{example}
+\begin{proof}
+	(1)\buzhou{1} 充分性：当$b=0$时，显然$0=(0,0,0,0) \in U$.取$U$中两个元素$v=(v_1,v_2,5v_4,v_4)$与$u=(u_1,u_2,5u_4,u_4)$，取$\F$中标量$\lambda$.因为
+	$$v+u = (v_1+u_1,v_2+u_2,5v_4+5u_4,v_4+u_4) = (v_1+u_1,v_2+u_2,5(v_4+u_4),v_4+u_4) \in U$$
+	$$\lambda v = (\lambda v_1,\lambda v_2,\lambda 5v_4,\lambda v_4) = (\lambda v_1,\lambda v_2,5(\lambda v_4),\lambda v_4) \in U$$
+	这告诉我们$U$对加法和标量乘法封闭，于是$U$是$\F ^{4}$的子空间. \\
+	\buzhou{2} 必要性：任取$U$中两个元素$v=(v_1,v_2,5v_4+b,v_4)$与$u=(u_1,u_2,5u_4+b,u_4)$，取$\F$中标量$\lambda$.因为
+	$$(0,0,0,0) \in U$$
+	$$v+u = (v_1,v_2,5v_4+b,v_4) + (u_1,u_2,5u_4+b,u_4) = (v_1+u_1, v_2+u_2, 5(v_4+u_4)+2b, v_4+u_4) \in U$$
+	$$\lambda v = (\lambda v_1, \lambda v_2 , 5\lambda v_4 + \lambda b ,\lambda v_4) \in U$$
+	则$0=0+b,~ 5(v_4+u_4)+2b = 5(v_4+u_4)+b,~ 5\lambda v_4 + \lambda b = 5\lambda v_4 + b$，这要求$b=0$. \\
+	(3)\buzhou{1} 充分性：设函数$0:x \mapsto 0$，容易验证$0$是该集合的加法单位元；取函数$f,g \in \R ^{(0,3)}$，由于$(f+g)'(2)=f'(2)+g'(2)=0$，可知$f+g \in \R ^{(0,3)}$，即该集合对加法封闭；取函数$f \in \R ^{(0,3)}$，标量$\lambda \in \F$，由于$(\lambda f)'(2) = \lambda f'(2) = 0$，可知$\lambda f \in \R ^{(0,3)}$，即该集合对标量乘法封闭. \\
+	\buzhou{2} 必要性：由例题1.2.1的结论，该集合中必有加法单位元$0:x \mapsto 0$，则$0'(2)=0=b$；取函数$f,g \in \R ^{(0,3)}$，由于该集合对加法封闭，可知$(f+g)'(2)=f'(2)+g'(2)=2b=b$，则$b=0$；取函数$f \in \R ^{(0,3)}$，标量$\lambda \in \F$，由于该集合对标量乘法封闭，有$(\lambda f)'(2) = \lambda f'(2) = \lambda b = b$，则$b=0$.
+\end{proof}
+
+\subsection{子空间的和}
+
+继续与集合比较.我们发现集合间有交、并、补等运算，向量空间中也有对应的运算，不过我们感兴趣的通常是它们的\textit{和}.(详细原因参考本节习题)
+
+\begin{definition}{子集的和}
+    设$U_1,\cdots ,U_m$都是$V$的子集，定义$U_1, \cdots ,U_m$的\textit{和}为$U_1, \cdots ,U_m$中元素所有可能的和构成的集合，记作$U_1+ \cdots +U_m$，即$$U_1+ \cdots +U_m = \{ u_1+ \cdots +u_m : u_j \in U_j,j=1, \cdots ,m \}$$
+\end{definition}
+
+\begin{example}
+    证明下列结论： \\
+    (1)设$$U = \{ (x,0,0) \in \F ^{3} : x \in \F \} , \quad W = \{ (0,y,0) \in \F ^{3} : y \in \F \}$$
+    则$$U+W = \{ (x,y,0) : x,y \in \F \}$$
+    (2)设$$U = \{ (x,x,y,y) \in \F ^{4} : x,y \in \F \} , \quad W = \{ (x,x,x,y) \in \F ^{4} : x,y \in \F \}$$
+    则$$U+W = \{ (x,x,y,z) : x,y,z \in \F \}$$
+\end{example}
+
+两个集合的并集是包含它们的最小集合.相应地，两个子空间的和是包含它们的最小子空间.
+
+\begin{proposition}{子空间的和是包含这些子空间的最小子空间}{ziksjmdehe}
+    设$U_1,\cdots ,U_m$都是$V$的子空间，则$U_1+\cdots +U_m$是$V$的包含$U_1,\cdots ,U_m$的最小子空间.
+\end{proposition}
+\begin{proof}
+    记$U=U_1+\cdots +U_m$. \\
+    \buzhou{1} 证明$U$是$V$的子空间：显然$0=0 + \cdots + 0 \in U$；取$x_1+ \cdots +x_m,y_1+ \cdots +y_m \in U$，其中$x_i,y_i \in U_i$($i=1,\cdots ,m$)，由于对任意$i$都有$x_i+y_1 \in U_i$，所以$(x_1+y_1) + \cdots + (x_m+y_m)$也在$U$中，因此$U$对加法封闭；取$x_1+ \cdots +x_m \in U$，由于对任意$i$都有$\lambda x_i \in U_i$，所以$\lambda x_1 + \cdots + \lambda x_m$也在$U$中，因此$U$对标量乘法封闭.综上，$U$是$V$的子空间.\\
+    \buzhou{2} 证明$U$包含$U_1,\cdots ,U_m$：取$U_j$中元素$u_j$，再取其他子空间中的元素$0$，可知$u_j \in U$.因此任意一个子空间都包含于$U$. \\
+    \buzhou{3} 证明$U$是最小的满足条件的子空间：假设存在一个更小的$U'$，由于$U'$包含$U_1, \cdots ,U_m$中的所有元素，又因为$U'$对加法封闭，故$U'$中必有$U_1+ \cdots +U_m$中所有元素，这与假设矛盾.因此$U$是最小的满足条件的子空间.
+\end{proof}
+
+\subsection{直和}
+
+注意到子空间的和中的元素$u$可以用不同的$u_1+ \cdots + u_m$来表示.为了尽量避免这种不确定性，规定一种能够唯一地表示为上述形式的情形.
+
+\begin{definition}{直和}
+    设$U_1,\cdots ,U_m$都是$V$的子空间.和$U_1 + \cdots + U_m$称为\textit{直和}，如果$U_1+ \cdots +U_m$中的每个元素都能唯一地表示成$u_1+ \cdots + u_m$的形式，其中每个$u_j$都属于$U_j$.特别地，用$U_1 \oplus \cdots \oplus U_m$表示一个直和.
+\end{definition}
+
+\begin{example}
+    证明下列结论： \\
+    (1)设$$U = \{ (x,y,0) \in \F ^{3} : x,y \in \F \}, \quad W = \{ (0,0,z) \in \F ^{3} : z \in \F \}$$
+    则$\F ^{3} = U \oplus W$. \\
+    (2)设$U_j$是$\F ^{n}$中除第$j$个坐标以外其余坐标全是$0$的向量所组成的子空间(例如，$U_2= \{ (0,x,0,\cdots ,0) \in \F ^{n} : x \in \F \}$)，则$\F ^{n} = U_1 \oplus \cdots \oplus U_n$. \\
+    (3)设$$U_1 = \{ (x,y,0) \in \F ^{3} : x,y \in \F \}, \quad U_2 = \{ (0,0,z) \in \F ^{3} : z \in \F \}, \quad U_3 = \{ (0,y,y) \in \F ^{3} : y \in \F \}$$
+    则$U_1+U_2+U_3$不是直和.
+\end{example}
+
+每次都要构造一个反例来说明某个和不是直和过于麻烦，实际上有一种更简易的判别方法：
+
+\begin{proposition}{直和的判定条件}
+    设$U_1,\cdots ,U_m$都是$V$的子空间.“$U_1 + \cdots + U_m$是直和”当且仅当“$0$表示成$u_1+\cdots +u_m$(其中每个$u_j$都属于$U_j$)的唯一方式是每个$u_j$都等于$0$”.
+\end{proposition}
+\begin{proof}
+    \buzhou{1} 必要性：由定义可知，若$U_1 + \cdots + U_m$是直和，则$\boldsymbol{0}$只有一种表示.又由$\boldsymbol{0} + \cdots + \boldsymbol{0} = \boldsymbol{0}$(其中第$j$个$\boldsymbol{0}$属于$U_j$)可知，这是唯一的表示方法. \\
+    \buzhou{2} 充分性：设$U_1 + \cdots + U_m$中元素$v$，若$v$可以表示为$u_1 + \cdots + u_m$或$v_1 + \cdots + v_m$(其中$u_j,v_j \in U_j$)，那么$0 = (u_1 - v_1) + \cdots + (u_m - v_m)$，即$u_j=v_j ~(j=1,\cdots ,m)$，于是$U_1 + \cdots + U_m$是直和.
+\end{proof}
+
+\begin{proposition}{两个子空间的直和}
+    设$U$和$W$都是$V$的子空间，则$U+W$是直和当且仅当$U \cap W = \{ 0 \}$.
+\end{proposition}
+\begin{proof}
+    \buzhou{1} 必要性：设$v \in (U \cap W)$，由于$0 = v + -v$，由命题\ref{pro:vihe}可知，$v = 0$. \\
+    \buzhou{2} 充分性：假设有不为$0$的两个向量$u \in U,v \in W$，使得$0 = u + v$，那么$u = -v$.又因为$-v \in W$，可知$u \in v \in (U \cap W)$，于是$u=0$，这与假设矛盾.
+\end{proof}
+
+
+
+\section{有限维向量空间}
+
+\subsection{张成空间}
+
+首先介绍线性组合：
+
+\begin{definition}{线性组合}
+	对于$V$中的一组向量$v_1, \cdots ,v_m$，取$a_1, \cdots ,a_m \in \F$分别与每个元素相乘，就得到这组向量的\textit{线性组合}，即$$a_1v_1 + \cdots + a_mv_m$$
+	容易发现，一组向量的线性组合也是向量.
+\end{definition}
+\begin{remark}
+	在描述一组向量时，为了避免出现歧义，通常不用括号括起来.这就类似于集合的表示中“$|$”与“$:$”的关系一样.
+\end{remark}
+\begin{remark}
+	线性组合，实际上就是用来描述加法封闭性与标量乘法封闭性的.可以说，一个对加法、标量乘法封闭的集合中的任意元素都能被由所有元素构成的组的线性组合表示出来.
+\end{remark}
+
+\begin{example}
+	请判断下列向量是否是$(2,1,-3),(1,-2,4)$的线性组合：
+	$$(17,-4,2) \qquad (17,-4,5)$$
+\end{example}
+
+当这组向量的长度为$2$时，联系“平面向量基本定理”，可知若取平面上的两个基本的不共线向量$\xl{e_1},\xl{e_2}$，则平面上任意一个向量都能用这两个向量的线性组合表示.就像我们会用“所有满足$(x-a)^2+(y-b)^2=r^2$的点构成的集合”表示一个圆一样，所有能用这两个向量的线性组合表示的元素构成的集合是什么呢？
+
+\begin{definition}{张成空间}
+	$V$中的一组向量$v_1, \cdots v_m$的所有线性组合所构成的集合称为$v_1 , \cdots ,v_m$的\textit{张成空间}，记为$\spn (v_1, \cdots ,v_m)$，即$$\spn (v_1, \cdots ,v_m) = \{ a_1v_1 + \cdots + a_mv_m : a_1 ,\cdots ,a_m \in \F \}$$
+	特别地，定义空组$()$的张成空间为$\{ 0 \}$.
+\end{definition}
+
+\begin{example}
+	前面的例子表明在$\F ^3$中，
+	$$(17,-4,2) \in \spn ((2,1,-3),(1,-2,4))$$
+	$$(17,-4,5) \notin \spn ((2,1,-3),(1,-2,4))$$
+\end{example}
+
+有了张成空间的定义，可知上文所述集合就是$\R ^2$，表示为$\R ^2 = \spn (\xl{e_1},\xl{e_2})$.
+
+\begin{proposition}{张成空间是包含这组向量的最小子空间}
+	$V$中一组向量的张成空间是包含这组向量的最小子空间.
+\end{proposition}
+\begin{proof}
+	设$V$中向量组$v_1, \cdots ,v_m$的张成空间$\spn (v_1, \cdots ,v_m)$，记为$U$. \\
+	\buzhou{1} 证明$U$是$V$的子空间：显然$0=0v_1 + \cdots + 0v_m \in U$；任取$U$中两个元素$u=a_1v_1 + \cdots a_mv_m$与$w=b_1v_1 + \cdots + b_mv_m$，作$u+w = (a_1+b_1)v_1 + \cdots + (a_m+b_m)v_m$，由$V$对加法封闭，可知$U$也对加法封闭；取$U$中一个元素$u=a_1v_1 + \cdots a_mv_m$与标量$\lambda \in \F$，由于$\lambda u = (\lambda a_1) v_1 + \cdots + (\lambda a_m)v_m$，由$V$对标量乘法封闭，可知$U$也对标量乘法封闭.综上，$U$是$V$的子空间.\\
+    \buzhou{2} 证明$U$包含$v_1,\cdots ,v_m$：取$U$中元素$u_j$，令$u_j=0v_1 + \cdots + 1v_j + \cdots + 0v_m = v_j$，于是任意一个$v_j \in U$. \\
+    \buzhou{3} 证明$U$是最小的满足条件的子空间：假设存在一个更小的$U'$，由于$U'$包含$v_1, \cdots ,v_m$，又因为$U'$对加法与标量乘法封闭，故$U'$中必有$v_1, \cdots ,v_m$的所有线性组合，即$|U'| \geq |\spn (v_1, \cdots ,v_m)| = |U|$，这与假设矛盾.因此$U$是最小的满足条件的子空间.
+\end{proof}
+
+\begin{definition}{张成}
+	若$\spn (v_1, \cdots ,v_m) = V$，则称$v_1, \cdots ,v_m$\textit{张成}$V$.
+\end{definition}
+
+继续上文的例子.由于$\R ^2 = \spn (\xl{e_1},\xl{e_2})$，可知$\xl{e_1},\xl{e_2}$张成$\R ^2$.现在，取$\xl{e_1} = (1,0),\xl{e_2} = (0,1)$，则$\R ^2$中的任意一个向量均能表示为$a\xl{e_1} + b\xl{e_2} = (a,b)$的形式，这是一个标准的Cartesian坐标系.那如果$\xl{e_1},\xl{e_2}$只是两个普通的向量呢？可以构造出一种“平面非直角非单位长度坐标系”.总的来说，不论$\xl{e_1},\xl{e_2}$如何选取，它们总能作为两个“基底”张成$\R ^2$.更进一步，$\R ^{2}$中所有元素的自由度都是$2$(实际上这一点会在后面讲到，我们称能张成$V$的最小组的长度为$V$的维度).
+
+\begin{example}
+	请证明： \\
+	(1)$\F ^{2}$上的向量组$(1,2),(3,5)$张成$\F ^{2}$. \\
+	(2)$\F ^{2}$上的向量组$(1,2),(3,5),(6,7)$张成$\F ^{2}$. \\
+	(3)$\F ^{n}$上的向量组$(1,0,\cdots ,0),(0,1,\cdots ,0),\cdots , (0,0, \cdots ,1)$张成$\F ^{n}$.(其中第$j$个向量的第$j$个坐标为$1$，其余都为$0$) \\
+	(4)设$v_1,v_2,v_3,v_4$张成$V$，则$v_1-v_2,v_2-v_3,v_3-v_4,v_4$也张成$V$.
+\end{example}
+\begin{proof}
+	只选择部分证明： \\
+	(1)任取$\F ^2$上的向量$(x,y)$，由于$(3y-5x)(1,2)+(2x-y)(3,5)=(x,y)$，可知$\spn ((1,2),(3,5)) = \F ^{2}$，即$(1,2),(3,5)$张成$\F ^{2}$. \\
+	(4)由于$v_1,v_2,v_3,v_4$张成$V$，任取$V$中元素$v$，设$$v=a_1v_1 + a_2v_2 + a_3v_3 + a_4v_4~(a_1,a_2,a_3,a_4 \in \F )$$
+	因为$$v = a_1(v_1-v_2) + (a_1+a_2)(v_2-v_3) + (a_1+a_2+a_3)(v_3-v_4) + (a_1+a_2+a_3+a_4)v_4$$
+	且由$\F$对加法封闭，$a_1,a_1+a_2,a_1+a_2+a_3,a_1+a_2+a_3+a_4 \in \F$，可知$v_1-v_2,v_2-v_3,v_3-v_4,v_4$也张成$V$.
+\end{proof}
+\begin{remark}
+	从第二个例子可以看出，张成向量空间的组的长度不一定与$\R ^2$的维度相等.
+\end{remark}
+
+\subsection{有限维向量空间}
+
+现在我们给出线性代数中的一个关键定义：
+
+\begin{definition}{有限维向量空间，无限维向量空间}
+	\begin{itemize}
+		\item 如果一个向量空间可以由该空间中的某个向量组张成，则称这个向量空间是\textit{有限维的}.
+		\item 相对应地，如果一个向量空间不是有限维的，则称这个向量空间是\textit{无限维的}.也就是说，如果一个向量空间不能由该空间中的任何向量组张成，它就是无限维的.
+	\end{itemize}
+\end{definition}
+
+联系上一个例子中的第三条，由于$\F ^{n}$总能被这样一个向量组张成，它是有限维的.“维度”这个概念会在后面详细介绍，现在只是定性分析.
+
+现在介绍一个具体的例子：
+
+\begin{definition}{多项式，多项式的次数}
+	\begin{itemize}
+		\item 对于函数$p:\F \to \F$，若对任意$z \in \F$均存在$a_0, \cdots ,a_m \in \F$使得$$p(z) = a_0 + a_1z + a_2z^2 + \cdots a_mz^m$$
+		则称$p$是系数属于$\F$的\textit{多项式}.
+		\item 特别地，对于上式，当要求$a_m \neq 0$时，称$p$的\textit{次数}为$m$，记为$\deg p = m$.规定恒等于$0$的多项式的次数为$-\infty$.
+		\item 定义$\mathcal{P} (\F)$是系数属于$\F$的所有多项式构成的集合.
+		\item 对于非负整数$m$，定义$\mathcal{P}_{m} (\F)$表示系数在$\F$中且次数不超过$m$的所有多项式构成的集合.(约定$-\infty < m$).
+	\end{itemize}
+\end{definition}
+
+\begin{example}
+	请证明： \\
+	(1)对每个非负整数$m$，$\mathcal{P} _{m} (\F)$是有限维向量空间. \\
+	(2)$\mathcal{P} (\F)$是无限维向量空间.
+\end{example}
+\begin{proof}
+	(1)由于$\mathcal{P} _{m} (\F) = \spn (1,z, \cdots ,z^m)$，可知$\mathcal{P} _{m} (\F)$是有限维向量空间. \\
+	(2)假设$\mathcal{P} (\F)$中的一组多项式可以张成$\mathcal{P} (\F)$，记这组多项式中次数最高的多项式的次数为$m$，那么总能找到$z^{m+1}$不属于该张成空间，这与假设矛盾.故不存在任何一组多项式可以张成$\mathcal{P} (\F)$，即$\mathcal{P} (\F)$是无限维向量空间.
+\end{proof}
+
+\newpage
+\section{线性无关}
+
+\subsection{线性无关}
+
+与子空间的和一样，我们倾向于研究那些有唯一表示形式的元素.
+
+\begin{definition}{线性无关，线性相关}
+	\begin{itemize}
+		\item $V$中的一组向量$v_1, \cdots , v_m$称为\textit{线性无关}，如果$\spn (v_1, \cdots ,v_m)$中每个向量可以唯一地表示成$v_1, \cdots ,v_m$的线性组合.规定空组$()$是线性无关的.
+		\item 相对应地，如果一组向量不是线性无关的，则称这组向量\textit{线性相关}.也就是说，对于这组向量的张成空间，如果其中存在向量有不唯一的表示，它就是线性相关的.
+	\end{itemize}
+\end{definition}
+
+\begin{proposition}{线性相关性的判定}
+	\begin{itemize}
+		\item $V$中一组向量$v_1, \cdots ,v_m$线性无关当且仅当使得$a_1v_1 + \cdots + a_mv_m = 0$成立的$a_1 , \cdots ,a_m \in \F$只有$a_1= \cdots =a_m =0$.
+		\item 由线性相关的定义可知，$V$中一组向量$v_1, \cdots ,v_m$线性相关当且仅当存在不全为$0$的$a_1 , \cdots ,a_m \in \F$使得$a_1v_1 + \cdots + a_mv_m = 0$成立.
+	\end{itemize}
+\end{proposition}
+\begin{proof}
+	\buzhou{1} 充分性：假设$v \in \spn (v_1, \cdots , v_m)$有两种不同的线性组合表示，即
+	$$v = a_1v_1 + \cdots + a_mv_m \qquad v = b_1v_1 + \cdots + b_mv_m$$
+	两式相减，得到$0=(a_1-b_1)v_1 + \cdots + (a_m-b_m)v_m$.由所给条件，知$a_j=b_j ~(j=1,\cdots ,m)$，这与假设矛盾，于是$v$只有一种表示方法，即$v_1, \cdots ,v_m$线性无关. \\
+	\buzhou{2} 必要性：首先，若令$a_1, \cdots , a_m$全为$0$，则有$0=0v_1 + \cdots + 0v_m$，这是$0$的一种表示形式；其次，由于$v_1, \cdots ,v_m$线性无关，$0$只有一种表示形式.综上，$0$的唯一表示形式就是$a_1= \cdots = a_m =0$.
+\end{proof}
+
+\begin{example}{\examplefont{线性无关的判断}}
+	请证明： \\
+	(1)$V$中一个向量$v$所构成的向量组是线性无关的当且仅当$v \neq 0$. \\
+	(2)$V$中两个向量构成的向量组线性无关当且仅当每个向量都不能写成另一个向量的标量倍. \\
+	(3)对每个非负整数$m$，$\mathcal{P} (\F)$中的组$1,z, \cdots ,z^m$线性无关. \\
+	(4)设$v_1,v_2,v_3,v_4$在$V$中是线性无关的，则$v_1-v_2,v_2-v_3,v_3-v_4,v_4$也是线性无关的. \\
+	(5)设$v_1, \cdots ,v_m$在$V$中线性无关，并设$w \in V$.证明：若$v_1+w , \cdots ,v_m+w$线性相关，则$w \in \spn (v_1 , \cdots ,v_m)$.
+\end{example}
+\begin{proof}
+	(1)分别证明充分性和必要性的逆否命题成立，即证明“$v$构成的向量组线性相关当且仅当$v=0$”.充分性：当$v=0$，设$av=0~(a\in F )$，则存在不为$0$的$a$；必要性：设存在不为$0$的$a\in F$使$av=0$，则$v=0$. \\
+	(2)设向量$u,v \in V$.分别证明充分性和必要性的逆否命题成立，即证明“$u,v$线性相关当且仅当每个向量可以写成另一个向量的标量倍”.充分性：记$u=\lambda v~(\lambda \neq 0)$，则存在不全为零的$a_1,a_2 \in \F $满足$a_1+a_2 \lambda =0$使$a_1v+a_2 u =0$成立；必要性：设存在不全为零的$a_1,a_2 \in \F $使$a_1 v + a_2 u=0$成立，不妨设$a_2 \neq 0$，则$u=-\dfrac{a_1}{a_2}v$. \\
+	(3)首先不加证明地阐释一个引理：若一个多项式是零函数，则其所有系数均为$0$(会在第四章进行证明).于是，对于$p(z)=a_0+a_1z+ \cdots +a_mz^m=0$，必然有$a_0=a_1= \cdots =a_m$，即$1,z,\cdots ,z^m$线性无关. \\
+	(4)由$v_1,v_2,v_3,v_4$线性无关，设\begin{equation}
+		a_1v_1+a_2v_2+a_3v_3+a_4v_4=0 \label{202303251}
+	\end{equation}
+	其中$a_1,a_2,a_3,a_4 \in \F $.则必有$a_1=a_2=a_3=a_4=0$.对式\ref{202303251}进行变形，得到$$a_1(v_1-v_2)+(a_1+a_2)(v_2-v_3)+(a_1+a_2+a_3)(v_3-v_4)+(a_1+a_2+a_3+a_4)v_4=0$$
+	由上可得此时$a_1=a_1+a_2=a_1+a_2+a_3=a_1+a_2+a_3+a_4=0$，即$v_1-v_2,v_2-v_3,v_3-v_4,v_4$线性无关. \\
+	(5)设不全为$0$的$c_1,\cdots ,c_m \in \F $满足$$c_1(v_1+w)+ \cdots + c_m(v_m+w)=0$$
+	即$$c_1v_1+ \cdots + c_mv_m = -(c_1+ \cdots + c_m)w$$
+	由$v_1,\cdots ,v_m$线性无关，左式一定不为$0$.当$w=0$时，必然可以表示为$v_1,\cdots ,v_m$的线性组合形式，命题成立；当$w \neq 0$时，$c_1+ \cdots + c_m \neq 0$，故$$w=\frac{-c_1}{c_1+ \cdots + c_m}v_1 + \cdots + \frac{-c_m}{c_1+ \cdots + c_m}v_m$$
+	则命题成立.
+\end{proof}
+
+\begin{example}{\examplefont{线性相关的判断}}
+	请证明： \\
+	(1)$\F ^{3}$中的向量组$(2,3,1),(1,-1,2),(7,3,8)$线性相关. \\
+	(2)$\F ^{3}$中的向量组$(2,3,1),(1,-1,2),(7,3,c)$线性相关当且仅当$c=8$. \\
+	(3)包含$0$向量的向量组线性相关.
+\end{example}
+
+\begin{proof}
+	(1)设$a_1,a_2,a_3 \in \F$满足$$a_1(2,3,1)+a_2(1,-1,2)+a_3(7,3,8)=(0,0,0)$$
+	即$$(2a_1+a_2+7a_3,3a_1-a_2+3a_3,a_1+2a_2+8a_3)=(0,0,0)$$
+	可得$$\begin{cases}
+		2a_1+a_2+7a_3=0 \\
+		3a_1-a_2+3a_3=0 \\
+		a_1+2a_2+8a_3=0
+	\end{cases}$$
+	化简之，得到任意满足$a_1=-2a_3,a_2=-3a_3$的$(a_1,a_2,a_3)$均符合要求，则存在一组不全为$0$的$(a_1,a_2,a_3)$满足上式，即$(2,3,1),(1,-1,2),(7,3,8)$线性相关. \\
+	(实际上，将方程组中的第一个式子乘以$\dfrac{7}{5}$再与第二个式子乘以$-\dfrac{3}{5}$相加，就得到了第三个式子.也就是说，这三个式子中有一个式子是多余的，自然可以解出不全为$0$的$a_1,a_2,a_3$.) \\
+	(2)充分性同上，下证必要性：设$a_1,a_2,a_3 \in \F$满足$$a_1(2,3,1)+a_2(1,-1,2)+a_3(7,3,c)=(0,0,0)$$
+	即$$\begin{cases}
+		2a_1+a_2+7a_3=0 \\
+		3a_1-a_2+3a_3=0 \\
+		a_1+2a_2+ca_3=0
+	\end{cases}$$
+	容易发现，$(a_1,a_2,a_3)=(0,0,0)$是方程组的一组解.要得到另一组不同的解，要求有效方程的个数严格小于变量个数，即其中一个方程可以表示为另两个的线性组合形式，记$$a_1+2a_2+ca_3=x(2a_1+a_2+7a_3)+y(3a_1-a_2+3a_3)~(x,y \in \F )$$
+	化简之，即$$(2x+3y-1)a_1+(x-y-2)a_2+(7x+3y-c)a_3=0$$
+	对任意$a_1,a_2,a_3$均成立，即$2x+3y-1=x-y-2=7x+3y-c=0$，解得$x=\dfrac{7}{5},y=-\dfrac{3}{5}$，于是$c=8$.
+\end{proof}
+
+线性相关与下列定义等价：
+
+\begin{proposition}{线性相关的第二定义}
+	$V$中一组向量$v_1, \cdots ,v_m$线性相关当且仅当其中存在一个向量能表示为其余向量的线性组合形式.
+\end{proposition}
+\begin{proof}
+	\buzhou{1} 充分性：设该向量$v$能表示为$v_1, \cdots ,v_m$的线性组合形式，即$$v= a_1v_1 + \cdots + a_mv_m$$
+	那么$0=a_1v_1 + \cdots + a_mv_m + (-1)v$.其中$-1$显然不为$0$，因此$v_1, \cdots ,v_m,v$线性相关. \\
+	\buzhou{2} 必要性：设$0=a_1v_1 + \cdots + a_mv_m$.不妨令$a_j \neq 0$，那么有$$v_j = \frac{a_1}{-a_j} v_1 + \cdots + \frac{a_m}{-a_j} v_m$$
+	这说明$v_j$可以表示为其余元素的线性组合.
+\end{proof}
+\begin{remark}
+	在该证明过程中，不难发现定义里“其余”的重要性.
+\end{remark}
+
+实际上，利用这个定义更好理解线性相关的本质.上一小节的例题告诉我们，张成组(即张成某向量空间的向量组)的长度可以不同.容易证明，第一个例子中的向量组是线性无关的，而第二个例子中的向量组是线性相关的.实际上，像这样既是张成组又是线性无关的组，就称为基(详细内容在下一小节会讲到).
+
+
+\subsection{线性相关性与张成}
+
+下面的命题为我们阐释了线性相关性与张成的一个基本关系.
+
+\begin{proposition}{线性相关性引理}
+	设$v_1, \cdots ,v_m$是$V$中的一个线性相关的向量组，则存在$j \in \{ 1,2, \cdots ,m \}$使得： \\
+	(a)$v_j \in \spn (v_1, \cdots , v_{j-1})$； \\
+	(b)若从$v_1, \cdots ,v_m$中去掉第$j$项，则剩余组的张成空间等于$\spn (v_1, \cdots ,v_m)$.
+\end{proposition}
+\begin{proof}
+	(a)由于$v_1, \cdots ,v_m$线性相关，存在不全为$0$的数$a_1, \cdots ,a_m \in \F$使得$a_1v_1 + \cdots + a_mv_m = 0$.(人为地)设该向量组的顺序满足$a_1, \cdots ,a_j$均不为$0$，从而有
+	\begin{equation}
+		v_j = \frac{a_1}{-a_j} v_1 + \cdots + \frac{a_{j-1}}{-a_j} v_{j-1} \label{xmxkxlgr}
+	\end{equation}
+	这意味着$v_j \in \spn (v_1, \cdots , v_{j-1})$； \\
+	(b)取$\spn (v_1, \cdots ,v_m)$中某一元素$u$，设$u=b_1v_1 + \cdots + b_mv_m$，将式\ref{xmxkxlgr}代入可得
+	$$u = \ssb{\frac{a_1b_j}{-a_j}+b_1}v_1 + \cdots + \ssb{\frac{a_{j-1}b_j}{-a_j}+b_{j-1}}v_{j-1} + b_{j+1} v_{j+1} + \cdots b_mv_m$$
+	这表明对于$\spn (v_1, \cdots ,v_m)$中任一元素，它都在$\spn (v_1, \cdots ,v_{j-1} , v_{j+1}, \cdots ,v_m)$中，即原命题所述.
+\end{proof}
+
+由线性无关与张成的几何意义，我们能够想象：对于任意一个有限维向量空间，总是存在一组“基底”，这组基底可以线性表示任何向量空间中的元素，并且它们之间互不多余、缺一不可.这就类似于欧氏几何中的五条公理一样.通过这种直观的理解，不难得出以下命题，难的在于如何规整地证明.
+
+\begin{proposition}{线性无关组与张成组长度的关系}{xxwgvi}
+	在有限维向量空间$V$中，线性无关组的长度总是小于等于向量空间的每一个张成组的长度.
+\end{proposition}
+\begin{proof}
+	设$V$中一个线性无关组$u_1, \cdots ,u_m$与张成组$w_1, \cdots w_n$. \\
+	\buzhou{1}第$1$步：将线性无关组中的第$1$个元素$u_1$添加在张成组的开头，便形成组$$u_1,w_1, \cdots ,w_n$$
+	由线性相关性引理，我们可以去掉某个$w$使得新的组仍张成$V$. \\
+	\buzhou{2}第$j$步：将线性无关组中的第$j$个元素$u_j$添加在$u_{j-1}$后，由线性相关性引理，又因为$u_1, \cdots ,u_j$是线性无关的，我们可以去掉某个$w$使得新的组仍张成$V$. \\
+	每经过一步，都会将组中的一个$w$换成一个$u$.因为在第$m$步后把所有的$u$都换完，可知$n \geq m$，即原命题所述.
+\end{proof}
+
+利用这一“直观”的结论，我们可以“直观”地证伪某些命题.
+
+\begin{example}
+	证明下列结论： \\
+	(1)组$(1,2,3),(4,5,8),(9,6,7),(-3,2,8)$在$\R ^{3}$中一定不是线性无关的. \\
+	(2)组$(1,2,3,-5),(4,5,8,3),(9,6,7,-1)$一定不能张成$\R ^{4}$.
+\end{example}
+
+利用命题\ref{pro:xxwgvi}的证明思路，还可以说明更多直观的结论：
+
+\begin{proposition}{向量空间中的一些结论}{yixpjply}
+	\begin{itemize}
+		\item 在向量空间$V$中，每个线性相关的张成组都能通过去除某些元素得到一个线性无关的张成组.
+		\item $V$是无限维向量空间当且仅当$V$中存在一个向量序列$v_1, v_2, \cdots$使得当$m$是任意正整数时$v_1, \cdots ,v_m$都是线性无关的.
+		\item 有限维向量空间的子空间都是有限维的.
+	\end{itemize}
+\end{proposition}
+\begin{proof}
+	(1)\buzhou{1} 第$1$步：设$\mathcal{W}_1 = v_1, \cdots ,v_m$张成$V$.若$v_1 \notin \spn (v_2, \cdots ,v_m)$，则保持该组不变，并停止操作；若$v_1 \in \spn (v_2, \cdots ,v_m)$，则去掉$v_1$，并记新组$v_2, \cdots , v_m$为$\mathcal{W}_2$. \\
+	\buzhou{2} 第$j$步：若$v_j \notin \spn (v_{j+1}, \cdots ,v_m)$，则保持$\mathcal{W}_j$不变，并停止操作；若$v_j \in \spn (v_{j+1}, \cdots ,v_m)$，则去掉$v_j$，并记新组$v_{j+1}, \cdots , v_m$为$\mathcal{W}_{j+1}$.在经过有限次操作后，一定会在某一步停止并返回一个线性无关的组，且能张成$V$. \\
+	(2)充分性显然.下证必要性： \\
+	\buzhou{1} 第$1$步：取$V$中的一个线性无关向量组$\mathcal{W}_1$，作它的张成空间$U_1$，取一元素$u \in (V \setjianfa U_1)$放入该组，得到一个新的组$\mathcal{W}_2$.显然该组仍是线性无关的(因为线性相关性的第二定义). \\
+	\buzhou{2} 第$j$步：作$\mathcal{W}_j$的张成空间$U_j$，取一元素$u \in (V \setjianfa U_j)$放入$\mathcal{W}_j$，得到一个新的组$\mathcal{W}_{j+1}$. \\
+	由于可以不断重复该过程，因此这样一个组$\mathcal{W}_j$会不断扩张并保持线性无关，即符合原命题要求. \\
+	(3)设有限维向量空间$V$及其子空间$U$.由命题\ref{pro:xxwgvi}，$V$中任意一个线性无关组的长度小于等于每一个$V$的张成组的长度，故该线性无关组的长度是有限的. \\
+	\buzhou{1} 第$1$步：若$U=\{ 0 \}$，即$U = \spn ()$，则$U$符合要求；否则存在非零向量$v_1 \in U$. \\
+	\buzhou{2} 第$j$步：若$U= \spn (v_1,\cdots ,v_{j-1})$，则$U$符合要求；否则存在$v_j \in U$满足$v_j \notin \spn (v_1,\cdots ,v_{j-1})$. \\
+	由于第$j+1$步能够说明存在$v_1, \cdots , v_j \in U$使$v_1, \cdots , v_j$线性无关，而$U$中任意一个线性无关组的长度是有限的，故一定会在某一步停止，此时$U$即符合要求.
+\end{proof}
+
+\newpage
+\section{基与维数}
+
+\subsection{基}
+
+上一节中多次出现“基底”这一关键词，现在我们来集中研究它：
+
+\begin{definition}{基}
+	若$V$中的一个向量组既线性无关又张成$V$，则称为$V$的\textit{基}.
+\end{definition}
+
+\begin{example}{\examplefont{基的例子}}
+	请验证： \\
+	(1)组$(1,0,\cdots ,0),(0,1,0,\cdots ,0), \cdots ,(0,\cdots ,0,1)$是$\F ^{n}$的基.(实际上，这称为$\F ^{n}$的\textit{标准基}) \\
+	(2)组$(1,1,0),(0,0,1)$是$\{ (x,x,y) \in \F ^{3}:x,y \in \F \}$的基. \\
+	(3)组$(1,-1,0),(1,0,-1)$是$\{ (x,y,z) \in \F ^{3}:x+y+z=0 \}$的基. \\
+	(4)组$1,z, \cdots ,z^{m}$是$\mathcal{P}_m (\F)$的基.
+\end{example}
+
+我们发现张成和线性无关的定义十分类似：都出现了“线性组合”这一形式.将它们综合起来，就是基的判定命题：
+
+\begin{proposition}{基的判定}
+	$V$中的向量组$v_1, \cdots ,v_m$是$V$的基当且仅当每个$v \in V$都能唯一地写成以下形式$$v = a_1v_1 + \cdots + a_mv_m$$
+	其中$a_1, \cdots ,a_m \in \F$.
+\end{proposition}
+\begin{proof}
+	必要性显然.直接来看充分性：在$V$中任取一元素$v$，设它可以唯一地表示为$v = a_1v_1 + \cdots + a_mv_m$的形式. \\
+	\buzhou{1} 张成：由张成的定义可知，$v_1, \cdots ,v_m$张成$V$. \\
+	\buzhou{2} 线性无关：令$a_1, \cdots , a_m$全为$0$，则有$0=0v_1 + \cdots + 0v_m$，这是$0$的唯一表示形式，因此$v_1, \cdots ,v_m$线性无关.
+\end{proof}
+
+回顾上一节中命题\ref{pro:yixpjply}的第一条，实际上现在我们就能将其写成基的形式.
+
+\begin{proposition}{基、线性无关组、张成组I}{kois}
+	在有限维向量空间$V$中，
+	\begin{itemize}
+		\item 每个张成组都可以化简成$V$的一个基.
+		\item 每个线性无关的向量组都可以扩充成$V$的一个基.
+	\end{itemize}
+\end{proposition}
+\begin{proof}
+	第一条已经在命题\ref{pro:yixpjply}中证明过，这里只证明第二条. \\
+	设$V$中的线性无关组$v_1, \cdots ,v_m$与一个基$u_1, \cdots ,u_n$.作组$\mathcal{W} = v_1, \cdots ,v_m,u_1, \cdots ,u_n$，它显然张成$V$.由命题\ref{pro:xxwgvi}可知$m \leq n$.利用第一条的证明过程将$\mathcal{W}$化简为$v_1, \cdots , v_m , u_1, \cdots ,u_j$，可知它是$V$的一个基.
+\end{proof}
+
+以上的命题具有很强的可操作性.例如，取$\F ^{3}$的基的一部分(也就是一个线性无关组)$(1,1,4),(5,1,4)$，再取一个标准基$(1,0,0),(0,1,0),(0,0,1)$.在$(1,1,4),(5,1,4),(1,0,0),(0,1,0),(0,0,1)$中去掉$$(1,0,0)=-\frac{1}{4}(1,1,4)+\frac{1}{4}(5,1,4)$$
+在$(1,1,4),(5,1,4),(0,1,0),(0,0,1)$中，由于$(0,1,0),(0,0,1)$都不能被$(1,1,4),(5,1,4)$线性表示，所以最后可以保留其中任意一个，即$(1,1,4),(5,1,4),(0,1,0)$和$(1,1,4),(5,1,4),(0,0,1)$都是$\F ^{3}$的基.
+
+有了基这个工具之后，我们可以证明更多之前不能证明的结论：
+
+\begin{proposition}{子空间与直和的关系}
+	设$V$是有限维的，$U$是$V$的子空间，则存在$V$的子空间$W$使得$V=U \oplus W$.
+\end{proposition}
+\begin{proof}
+	设$U$的一个基$u_1, \cdots , u_m$，按照命题\ref{pro:kois}的方法将这个$V$中的线性无关组扩充为$V$的基，记为$u_1, \cdots ,u_m,w_1, \cdots ,w_n$.取$W = \spn (w_1, \cdots ,w_n)$，下证这样的$W$就是满足题目要求的子空间： \\
+	显然$U+W=V$.任取$v \in (U \cap W)$，设$$v=a_1u_1 + \cdots + a_mu
+	_m \qquad v = b_1w_1 + \cdots + b_nw_n$$
+	两式作差，得$0=a_1u_1 + \cdots a_mu_m + (-b_1)w_1 + \cdots + (-b_n)w_n$，由$u_1, \cdots ,u_m,w_1, \cdots ,w_n$是$V$的基可得$a_1 = \cdots = b_n = 0$，则$v=0$.由命题\ref{pro:ziksjmvihe}知$V=U \oplus W$.
+\end{proof}
+
+\subsection{维数}
+
+继续研究向量空间的几何意义，我们发现基已经被定义了，但是最小的基还不太清楚.实际上，容易说明所有基的长度都是相等的，而任意一个基的长度就称作\textit{维数}.
+
+\begin{proposition}{基的长度不依赖于基的选取}
+	有限维向量空间的任意两个基的长度都相同.
+\end{proposition}
+\begin{proof}
+	由命题\ref{pro:xxwgvi}可知，因为任意两个基$\mathcal{U},\mathcal{V}$都同时是线性无关向量组与张成组，所以$\mathcal{U}$的长度小于等于$\mathcal{V}$的长度、$\mathcal{U}$的长度大于等于$\mathcal{V}$的长度，于是它们的长度相等.
+\end{proof}
+
+\begin{definition}{维数}
+	有限维向量空间$V$的任意基的长度称为这个向量空间的\textit{维数}，记作$\dim V$.
+\end{definition}
+
+很明显，一个有限维向量空间的子空间也是有限维的，它的维数应当满足下列命题要求：
+
+\begin{proposition}{子空间的维数}
+	若$U$是有限维向量空间$V$的子空间，则$\dim U \leq \dim V$.
+\end{proposition}
+\begin{proof}
+	取$U$的一个基$\mathcal{U}$，取$V$的一个基$\mathcal{V}$.因为$\mathcal{U}$是$V$的一个线性无关的子空间，由命题\ref{pro:xxwgvi}可知，$\mathcal{U}$的长度小于等于$\mathcal{V}$的长度，即$\dim U \leq \dim V$.
+\end{proof}
+
+借助维数，可以更快捷地证明一个向量空间的基.
+
+\begin{proposition}{基、线性无关组、张成组II}
+	设$V$是有限维向量空间.
+	\begin{itemize}
+		\item $V$中每个长度为$\dim V$的线性无关向量组都是$V$的基.
+		\item $V$中每个长度为$\dim V$的张成组都是$V$的基.
+	\end{itemize}
+\end{proposition}
+\begin{proof}
+	(1)设$V$中的一个线性无关向量组$v_1, \cdots ,v_m$，取$V$中一个基$w_1 , \cdots , w_n$，由命题\ref{pro:kois}可知，$v_1, \cdots ,v_m$可以扩充为基，然而在此过程中由于$m=n$，实际上没有发生任何扩充，故$v_1, \cdots ,v_m$本来就是一个基. \\
+	(2)证明过程同(1)，留作习题.
+\end{proof}
+
+\begin{example}
+	证明以下结论： \\
+	(1)组$(5,7),(4,3)$是$\F ^{2}$的基. \\
+	(2)证明$1,(x-5)^2,(x-5)^3$是$\mathcal{P}_{3} (\R)$的子空间$U$的一个基，其中$U$定义为$$U = \{ p \in \mathcal{P}_{3} (\R) : p'(5)=0 \}$$
+\end{example}
+
+类比并集的元素个数计算公式(即容斥原理)，子空间和的的维数计算公式如下：
+
+\begin{proposition}{子空间和的维数}
+	如果$U_1$和$U_2$是有限维向量空间的两个子空间，则$$\dim (U_1+U_2) = \dim U_1 + \dim U_2 - \dim (U_1 \cap U_2)$$
+\end{proposition}
+\begin{proof}
+	设$U_1 \cap U_2$的基$v_1, \cdots ,v_m$，则$v_1, \cdots ,v_m \in U_1,U_2$；设$U_1, U_2$的基分别为$v_1, \cdots ,v_m,u_1, \cdots ,u_j$与$v_1, \cdots ,v_m,u'_1, \cdots ,u'_k$. \\
+	取$U_1+U_2$中的$0$元素，它能被表示为$w_1+w_2$的形式(其中$w_1 \in U_1,w_2 \in U_2$).因此设
+	\begin{align*}
+		0 &= w_1 + w_2 = (a_1v_1 + \cdots a_mv_m + b_1u_1 + \cdots + b_ju_j) + (a'_1v_1 + \cdots a'_mv_m + b'_1u'_1 + \cdots + b'_ku'_k) \\
+		&= (a_1+a'_1)v_1 + \cdots + (a_m + a'_m)v_m + b_1u_1 + \cdots + b_ju_j + b'_1u'_1 + \cdots + b'_ku'_k
+	\end{align*}
+	于是
+	$$ (-a_1-a'_1)v_1 + \cdots + (-a_m - a'_m)v_m + (-b_1)u_1 + \cdots + (-b_j)u_j = b'_1u'_1 + \cdots + b'_ku'_k $$
+	等式左边属于$U_1$，等式右边属于$U_2$，因此$b'_1u'_1 + \cdots + b'_ku'_k \in U_1 \cap U_2$.设
+	$$b'_1u'_1 + \cdots + b'_ku'_k = c_1v_1 + \cdots + c_mv_m$$
+	于是$$b'_1u'_1 + \cdots + b'_ku'_k + (-c_1)v_1 + \cdots + (-c_m)v_m = 0$$
+	这个式子告诉我们$b'_1 = \cdots = b'_k = c_1 = \cdots c_m =0$.同理可得$b_1 = \cdots = b_j =0$.带入上式，可得
+	$$(a_1+a'_1)v_1 + \cdots + (a_m + a'_m)v_m = 0$$
+	所以$a_1+a'_1 = \cdots = a_m + a'_m =0$. \\
+	综上，对于$U_1+U_2$中的$0$，它只有唯一一种线性表示形式，即满足$$a_1+a'_1 = \cdots = a_m + a'_m = b'_1 = \cdots = b'_k = b_1 = \cdots = b_j$$
+	故$v_1, \cdots ,v_m,u_1, \cdots ,u_j,u'_1, \cdots ,u'_k$是$U_1+U_2$的基.于是$\dim (U_1+U_2)=m+j+k = \dim U_1 + \dim U_2 - \dim (U_1 \cap U_2)$.
+\end{proof}
+\begin{remark}
+	注意子空间的维数计算公式不一定能推广到更多元的情况，例如本节习题中所示.
+\end{remark}

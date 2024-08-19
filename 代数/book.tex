@@ -7,6 +7,8 @@
 \usepackage{svg}
 \usepackage{booktabs}
 \usepackage{framed}
+\usepackage{tikz-cd}
+\usepackage{epigraph}
 
 
 % font; do not use in overleaf
@@ -33,12 +35,14 @@
 \definecolor{winered}{rgb}{0.5,0,0}
 \newcommand{\exref}[1]{\ref}
 \newcommand{\xl}[1]{\overrightarrow{#1}}
+\newcommand{\ssb}[1]{\left( #1 \right)}
 \newcommand{\flr}[1]{\lfloor #1 \rfloor}
 \newcommand{\ang}[1]{\langle #1 \rangle}
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\F}{\mathbb{F}}
+\newcommand{\id}{\mathrm{id}}
 \newcommand{\lmap}{\mathcal{L}}
 \newcommand{\mmatrix}{\mathcal{M}}
 \newcommand{\sw}[1]{\boxed{\text{解法 #1}} \ }
@@ -57,6 +61,7 @@
 	\DeclareMathOperator{\rge}{range}
 	\DeclareMathOperator{\sgn}{sgn}
 	\DeclareMathOperator{\T}{T}
+	\DeclareMathOperator{\im}{im}
 	\DeclareMathOperator{\ord}{ord}
 	\DeclareMathOperator{\sym}{Sym}
 
@@ -102,17 +107,13 @@
 
 \part{预备知识}
 
-% 集合论入门, 映射与二元关系
+% 集合论回顾
 
 \include{MainMatter/set_theory_and_maps.tex}
 
-% 初等数论的基本结果
+% 范畴论初步
 
-\include{MainMatter/basic_concepts_of_number_theory.tex}
-
-% 线性方程组与行列式计算
-
-\include{MainMatter/groups_of_linear_equations_and_deteminant.tex}
+\include{MainMatter/categories.tex}
 
 \part{线性映射与代数结构}
 
@@ -124,7 +125,7 @@
 
 \include{MainMatter/linear_maps_and_matrices.tex}
 
-% 群论
+% 数论, 群论
 
 \include{MainMatter/group_theory.tex}
 
@@ -134,6 +135,17 @@
 
 % 域扩张
 
+% 模论
+
+\part{DLC1-范畴论}
+
+
+\part{DLC2-线性代数}
+
+% 线性方程组与行列式计算
+
+\include{MainMatter/groups_of_linear_equations_and_deteminant.tex}
+
 % 对角化
 
 \include{MainMatter/diagonalization.tex}
@@ -141,13 +153,6 @@
 % 多重线性代数, 再论行列式
 
 % 内积空间
-
-% 模论
-
-% 域扩张
-
-
-
 
 
 

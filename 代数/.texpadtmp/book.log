@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.10)  14 AUG 2024 22:18
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.10)  19 AUG 2024 21:20
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -617,6 +617,157 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \@thisruleclass=\count350
 \@lastruleclass=\count351
 \@thisrulewidth=\dimen282
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/tikz-cd/tikz-cd.sty
+Package: tikz-cd 2021/05/04 v1.0 Commutative diagrams with TikZ
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
+Package: pgf 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen283
+\pgfmath@count=\count352
+\pgfmath@box=\box60
+\pgfmath@toks=\toks33
+\pgfmath@stack@operand=\toks34
+\pgfmath@stack@operation=\toks35
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex)
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count353
+)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@picminx=\dimen284
+\pgf@picmaxx=\dimen285
+\pgf@picminy=\dimen286
+\pgf@picmaxy=\dimen287
+\pgf@pathminx=\dimen288
+\pgf@pathmaxx=\dimen289
+\pgf@pathminy=\dimen290
+\pgf@pathmaxy=\dimen291
+\pgf@xx=\dimen292
+\pgf@xy=\dimen293
+\pgf@yx=\dimen294
+\pgf@yy=\dimen295
+\pgf@zx=\dimen296
+\pgf@zy=\dimen297
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@path@lastx=\dimen298
+\pgf@path@lasty=\dimen299
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@shorten@end@additional=\dimen300
+\pgf@shorten@start@additional=\dimen301
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfpic=\box61
+\pgf@hbox=\box62
+\pgf@layerbox@main=\box63
+\pgf@picture@serial@count=\count354
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgflinewidth=\dimen302
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@pt@x=\dimen303
+\pgf@pt@y=\dimen304
+\pgf@pt@temp=\dimen305
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowsep=\dimen306
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@max=\dimen307
+\pgf@sys@shading@range@num=\count355
+\pgf@shadingcount=\count356
+)
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfexternal@startupbox=\box64
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfnodeparttextbox=\box65
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2023-01-15 v3.1.10 (3.1.10)
+\pgf@nodesepstart=\dimen308
+\pgf@nodesepend=\dimen309
+) (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2023-01-15 v3.1.10 (3.1.10)
+)) (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/latex/pgf/math/pgfmath.sty (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2023-01-15 v3.1.10 (3.1.10)
+\pgffor@iter=\dimen310
+\pgffor@skip=\dimen311
+\pgffor@stack=\toks36
+\pgffor@toks=\toks37
+)) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@plot@mark@count=\count357
+\pgfplotmarksize=\dimen312
+)
+\tikz@lastx=\dimen313
+\tikz@lasty=\dimen314
+\tikz@lastxsaved=\dimen315
+\tikz@lastysaved=\dimen316
+\tikz@lastmovetox=\dimen317
+\tikz@lastmovetoy=\dimen318
+\tikzleveldistance=\dimen319
+\tikzsiblingdistance=\dimen320
+\tikz@figbox=\box66
+\tikz@figbox@bg=\box67
+\tikz@tempbox=\box68
+\tikz@tempbox@bg=\box69
+\tikztreelevel=\count358
+\tikznumberofchildren=\count359
+\tikznumberofcurrentchild=\count360
+\tikz@fig@count=\count361
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfmatrixcurrentrow=\count362
+\pgfmatrixcurrentcolumn=\count363
+\pgf@matrix@numberofcolumns=\count364
+)
+\tikz@expandcount=\count365
+ (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
+))) (/usr/local/texlive/2024/texmf-dist/tex/generic/tikz-cd/tikzlibrarycd.code.tex (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarymatrix.code.tex
+File: tikzlibrarymatrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryquotes.code.tex
+File: tikzlibraryquotes.code.tex 2023-01-15 v3.1.10 (3.1.10)
+)
+(/usr/local/texlive/2024/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowinset=\dimen321
+\pgfarrowlength=\dimen322
+\pgfarrowwidth=\dimen323
+\pgfarrowlinewidth=\dimen324
+))) (/usr/local/texlive/2024/texmf-dist/tex/latex/epigraph/epigraph.sty
+Package: epigraph 2020/01/02 v1.5e typesetting epigraphs
+ (/usr/local/texlive/2024/texmf-dist/tex/latex/nextpage/nextpage.sty
+Package: nextpage 2009/09/03 v1.1a additional page commands
+)
+\beforeepigraphskip=\skip64
+\afterepigraphskip=\skip65
+\epigraphwidth=\skip66
+\epigraphrule=\skip67
 )
 
 Package xeCJK Warning: Redefining CJKfamily `\CJKrmdefault'
@@ -672,43 +823,43 @@ Package xeCJK Warning: Redefining CJKfamily `zhkai' (Kaiti SC).
 Package xeCJK Warning: Redefining CJKfamily `zhfs' (STFangsong).
 
 (/usr/local/texlive/2024/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box60
-\UL@hyphenbox=\box61
-\UL@skip=\skip64
-\UL@hook=\toks33
-\UL@height=\dimen283
-\UL@pe=\count352
-\UL@pixel=\dimen284
-\ULC@box=\box62
+\UL@box=\box70
+\UL@hyphenbox=\box71
+\UL@skip=\skip68
+\UL@hook=\toks38
+\UL@height=\dimen325
+\UL@pe=\count366
+\UL@pixel=\dimen326
+\ULC@box=\box72
 Package: ulem 2019/11/18
-\ULdepth=\dimen285
+\ULdepth=\dimen327
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
- (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/set_theory_and_maps.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/basic_concepts_of_number_theory.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/groups_of_linear_equations_and_deteminant.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/vector_spaces.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/linear_maps_and_matrices.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/group_theory.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/polymials_and_rings.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/diagonalization.aux))
+ (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/set_theory_and_maps.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/categories.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/vector_spaces.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/linear_maps_and_matrices.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/group_theory.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/polymials_and_rings.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/groups_of_linear_equations_and_deteminant.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/diagonalization.aux))
 \openout1 = `book.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 69.
-LaTeX Font Info:    ... okay on input line 69.
-Package hyperref Info: Link coloring ON on input line 69.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 74.
+LaTeX Font Info:    ... okay on input line 74.
+Package hyperref Info: Link coloring ON on input line 74.
  (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/book.out) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/book.out)
 \@outlinefile=\write4
 \openout4 = `book.out'.
@@ -754,56 +905,56 @@ Package fontspec Info: Adjusting the maths setup (use [no-math] to avoid
 
 \symlegacymaths=\mathgroup6
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 69.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 69.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 69.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 69.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 69.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 69.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 69.
-LaTeX Font Info:    Redeclaring math accent \check on input line 69.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 69.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 69.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 69.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 69.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 69.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 69.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 69.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 69.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 69.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 69.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 69.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 69.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 69.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 69.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 69.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 69.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 74.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 74.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 74.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 74.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 74.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 74.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 74.
+LaTeX Font Info:    Redeclaring math accent \check on input line 74.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 74.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 74.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 74.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 74.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 74.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 74.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 74.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 74.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 74.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 74.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 74.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 74.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 74.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 74.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 74.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 74.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 69.
+(Font)              `operators' in the math version `normal' on input line 74.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 69.
+(Font)                  OT1/cmr/m/n --> TU/lmr/m/n on input line 74.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 69.
+(Font)              `operators' in the math version `bold' on input line 74.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 69.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/m/n on input line 74.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 69.
+(Font)                  TU/lmr/m/n --> TU/lmr/m/n on input line 74.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 69.
+(Font)                  OT1/cmr/m/it --> TU/lmr/m/it on input line 74.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 69.
+(Font)                  OT1/cmr/bx/n --> TU/lmr/b/n on input line 74.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 69.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 74.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 69.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 74.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 69.
+(Font)                  TU/lmr/m/n --> TU/lmr/b/n on input line 74.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 69.
+(Font)                  OT1/cmr/bx/it --> TU/lmr/b/it on input line 74.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 69.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 74.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 69.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 74.
 (|'inkscape' -V )
 
 Package svg Warning: No version of Inkscape was detected by invoking
@@ -811,7 +962,7 @@ Package svg Warning: No version of Inkscape was detected by invoking
 (svg)                so the Inkscape export will fail quite sure as the
 (svg)                command is probably unknown to your OS. You could set
 (svg)                `inkscapeversion=<version>' manually but this is very
-(svg)                unlikely to work on input line 69.
+(svg)                unlikely to work on input line 74.
 
 \openout2 = `./FrontMatter/titlepage.aux'.
 
@@ -893,7 +1044,7 @@ LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <15.05624> not available
 
 ]
 LaTeX Font Info:    Font shape `TU/FZShuSong-Z01(0)/m/sl' in size <10.53937> not available
-(Font)              Font shape `TU/FZShuSong-Z01(0)/m/it' tried instead on input line 62.
+(Font)              Font shape `TU/FZShuSong-Z01(0)/m/it' tried instead on input line 60.
  [4])
 \tf@toc=\write5
 \openout5 = `book.toc'.
@@ -909,66 +1060,11 @@ Chapter 1.
 [2
 
 
-]
-./MainMatter/set_theory_and_maps.tex:68: Undefined control sequence.
-l.68 ^^I$$A \cap \ssb
-                     {\bigcup_{\alpha \in I} B_\alpha} = \bigcup_{\alpha \in...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/set_theory_and_maps.tex:68: Undefined control sequence.
-l.68 ...I} B_\alpha} = \bigcup_{\alpha \in I} \ssb
-                                                  {A \cap B_{\alpha}}, $$
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/set_theory_and_maps.tex:69: Undefined control sequence.
-l.69 ^^I$$A \cup \ssb
-                     {\bigcap_{\alpha \in I} B_\alpha} = \bigcap_{\alpha \in...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/set_theory_and_maps.tex:69: Undefined control sequence.
-l.69 ...I} B_\alpha} = \bigcap_{\alpha \in I} \ssb
-                                                  {A \cup B_{\alpha}}.$$
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[3]
-./MainMatter/set_theory_and_maps.tex:76: Undefined control sequence.
-l.76 ...ha} :  \alpha \in I \}$, 其中$I$是指标集.则$$\ssb
-                                                  {\bigcup_{\alpha \in I}E_{...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/set_theory_and_maps.tex:76: Undefined control sequence.
-l.76 ...p_{\alpha \in I} E_{\alpha}^c, \qquad \ssb
-                                                  {\bigcap_{\alpha \in I}E_{...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/set_theory_and_maps.tex:78: Undefined control sequence.
+] [3]
+./MainMatter/set_theory_and_maps.tex:85: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
-l.78 \begin{proof}
+l.85 \begin{proof}
                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -976,51 +1072,11 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/set_theory_and_maps.tex:79: Undefined control sequence.
-l.79 ^^I任取$x \in \ssb
-                     {\bigcup_{\alpha \in I}E_{\alpha} }^c$, 由定义得$x \notin \...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/set_theory_and_maps.tex:79: Undefined control sequence.
-<recently read> \ssb 
-                     
-l.79 ...ha \in I$都有$x \in E_{\alpha}^c$, 从而可得$\ssb
-                                                  {\bigcup_{\alpha \in I}E_{...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/set_theory_and_maps.tex:81: Undefined control sequence.
-<recently read> \ssb 
-                     
-l.81 ^^I同理可证$\ssb
-                 {\bigcup_{\alpha \in I}E_{\alpha} }^c \supseteq \bigcap_{\a...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/set_theory_and_maps.tex:81: Undefined control sequence.
-l.81 ...cap_{\alpha \in I} E_{\alpha}^c$, 所以$$\ssb
-                                                  {\bigcup_{\alpha \in I}E_{...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 [4]
-./MainMatter/set_theory_and_maps.tex:113: Undefined control sequence.
+./MainMatter/set_theory_and_maps.tex:126: Undefined control sequence.
 \remark ...textbf {\text {注.}} \itshape \citshape 
                                                   
-l.113 \begin{remark}
+l.126 \begin{remark}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1028,11 +1084,11 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[5] [6]
-./MainMatter/set_theory_and_maps.tex:170: Undefined control sequence.
+[5]
+./MainMatter/set_theory_and_maps.tex:171: Undefined control sequence.
 \remark ...textbf {\text {注.}} \itshape \citshape 
                                                   
-l.170 \begin{remark}
+l.171 \begin{remark}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1040,82 +1096,34 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-
-LaTeX Warning: File `attachment/Acr1745354698752707434.pdf' not found on input line 183.
-
-./MainMatter/set_theory_and_maps.tex:183: Unable to load picture or PDF file 'attachment/Acr1745354698752707434.pdf'.
-<to be read again> 
-                   }
-l.183 ...m]{attachment/Acr1745354698752707434.pdf}
+[6]
+./MainMatter/set_theory_and_maps.tex:203: Undefined control sequence.
+\proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
-The requested image couldn't be read because
-it was not a recognized image format.
+l.203 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
-
-./MainMatter/set_theory_and_maps.tex:183: Package graphics Error: Division by 0.
-
-See the graphics package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
+./MainMatter/set_theory_and_maps.tex:221: Undefined control sequence.
+\proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
-l.183 ...m]{attachment/Acr1745354698752707434.pdf}
-                                                  
-Your command was ignored.
-Type  I <command> <return>  to replace it with another command,
-or  <return>  to continue without it.
-
-File: attachment/Acr1745354698752707434.pdf Graphic file (type pdf)
-<use attachment/Acr1745354698752707434.pdf>
-./MainMatter/set_theory_and_maps.tex:183: Unable to load picture or PDF file 'attachment/Acr1745354698752707434.pdf'.
-<to be read again> 
-                   \GPT@clipend 
-l.183 ...m]{attachment/Acr1745354698752707434.pdf}
-                                                  
-The requested image couldn't be read because
-it was not a recognized image format.
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
+l.221 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
 
 [7]
-./MainMatter/set_theory_and_maps.tex:207: Undefined control sequence.
-\remark ...textbf {\text {注.}} \itshape \citshape 
-                                                  
-l.207 \begin{remark}
-                    
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/set_theory_and_maps.tex:213: Undefined control sequence.
-\remark ...textbf {\text {注.}} \itshape \citshape 
-                                                  
-l.213 \begin{remark}
-                    
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[8]
-./MainMatter/set_theory_and_maps.tex:221: Undefined control sequence.
-\remark ...textbf {\text {注.}} \itshape \citshape 
-                                                  
-l.221 \begin{remark}
-                    
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/set_theory_and_maps.tex:234: Undefined control sequence.
+./MainMatter/set_theory_and_maps.tex:241: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
-l.234 \begin{proof}
+l.241 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1123,10 +1131,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/set_theory_and_maps.tex:251: Undefined control sequence.
+./MainMatter/set_theory_and_maps.tex:260: Undefined control sequence.
 \remark ...textbf {\text {注.}} \itshape \citshape 
                                                   
-l.251 \begin{remark}
+l.260 \begin{remark}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1134,11 +1142,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[9]
-./MainMatter/set_theory_and_maps.tex:262: Undefined control sequence.
+./MainMatter/set_theory_and_maps.tex:263: Undefined control sequence.
 \remark ...textbf {\text {注.}} \itshape \citshape 
                                                   
-l.262 \begin{remark}
+l.263 \begin{remark}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1146,68 +1153,11 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/set_theory_and_maps.tex:265: Undefined control sequence.
-\remark ...textbf {\text {注.}} \itshape \citshape 
-                                                  
-l.265 \begin{remark}
-                    
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[10]
-./MainMatter/set_theory_and_maps.tex:297: Undefined control sequence.
+[8] [9]
+./MainMatter/set_theory_and_maps.tex:311: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
-l.297 \begin{proof}
-                   
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/set_theory_and_maps.tex:315: Undefined control sequence.
-\proof ...extbf {\text {证明}~~} \itshape \citshape 
-                                                  
-l.315 \begin{proof}
-                   
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/set_theory_and_maps.tex:326: Undefined control sequence.
-\proof ...extbf {\text {证明}~~} \itshape \citshape 
-                                                  
-l.326 \begin{proof}
-                   
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[11]
-./MainMatter/set_theory_and_maps.tex:355: Undefined control sequence.
-\remark ...textbf {\text {注.}} \itshape \citshape 
-                                                  
-l.355 \begin{remark}
-                    
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[12]
-./MainMatter/set_theory_and_maps.tex:377: Undefined control sequence.
-\proof ...extbf {\text {证明}~~} \itshape \citshape 
-                                                  
-l.377 \begin{proof}
+l.311 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1217,13 +1167,12 @@ and I'll forget about whatever was undefined.
 
 
 LaTeX Font Warning: Font shape `TU/FZShuSong-Z01(0)/b/it' undefined
-(Font)              using `TU/FZShuSong-Z01(0)/b/n' instead on input line 378.
+(Font)              using `TU/FZShuSong-Z01(0)/b/n' instead on input line 312.
 
-[13]
-./MainMatter/set_theory_and_maps.tex:402: Undefined control sequence.
+./MainMatter/set_theory_and_maps.tex:336: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
-l.402 \begin{proof}
+l.336 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1231,10 +1180,11 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/set_theory_and_maps.tex:416: Undefined control sequence.
+[10]
+./MainMatter/set_theory_and_maps.tex:350: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
-l.416 \begin{proof}
+l.350 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1242,27 +1192,33 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-) [14]
-\openout2 = `MainMatter/basic_concepts_of_number_theory.aux'.
+) [11]
+\openout2 = `MainMatter/categories.aux'.
 
- (./MainMatter/basic_concepts_of_number_theory.tex
+ (./MainMatter/categories.tex
 Chapter 2.
-) [15
+
+Underfull \hbox (badness 10000) in paragraph at lines 3--4
+
+ []
+
+./MainMatter/categories.tex:8: Undefined control sequence.
+\example ...echapter .\arabic {exam}}~} \citshape 
+                                                  
+l.8 \begin{example}
+                    % Aluffi 23 https://en.wikipedia.org/wiki/Comma_category
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+) [12
 
 
 
 
-]
-\openout2 = `MainMatter/groups_of_linear_equations_and_deteminant.aux'.
-
- (./MainMatter/groups_of_linear_equations_and_deteminant.tex
-Chapter 3.
-) [16
-
-
-
-
-] [17
+] [13
 
 
 
@@ -1270,7 +1226,7 @@ Chapter 3.
 \openout2 = `MainMatter/vector_spaces.aux'.
 
  (./MainMatter/vector_spaces.tex
-Chapter 4.
+Chapter 3.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 3.
@@ -1283,7 +1239,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 3.
 
-[18
+[14
 
 
 ]
@@ -1299,7 +1255,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `pro:Fxkvi' on page 19 undefined on input line 44.
+LaTeX Warning: Reference `pro:Fxkvi' on page 15 undefined on input line 44.
 
 ./MainMatter/vector_spaces.tex:46: Undefined control sequence.
 \remark ...textbf {\text {注.}} \itshape \citshape 
@@ -1312,7 +1268,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[19]
+[15]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 64.
@@ -1325,11 +1281,11 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 64.
 
-[20]
+[16]
 Underfull \vbox (badness 10000) detected at line 96
  []
 
-[21]
+[17]
 ./MainMatter/vector_spaces.tex:97: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -1341,9 +1297,9 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[22]
+[18]
 
-LaTeX Warning: Reference `pro:xlxkvi' on page 23 undefined on input line 115.
+LaTeX Warning: Reference `pro:xlxkvi' on page 19 undefined on input line 115.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 117--118
@@ -1409,7 +1365,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-[23]
+[19]
 ./MainMatter/vector_spaces.tex:157: Undefined control sequence.
 \example ...echapter .\arabic {exam}}~} \citshape 
                                                   
@@ -1432,7 +1388,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[24]
+[20]
 ./MainMatter/vector_spaces.tex:184: Undefined control sequence.
 \remark ...textbf {\text {注.}} \itshape \citshape 
                                                   
@@ -1444,7 +1400,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[25]
+[21]
 ./MainMatter/vector_spaces.tex:207: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -1468,7 +1424,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `pro:xlkjxkvi' on page 26 undefined on input line 212.
+LaTeX Warning: Reference `pro:xlkjxkvi' on page 22 undefined on input line 212.
 
 ./MainMatter/vector_spaces.tex:214: Undefined control sequence.
 \remark ...textbf {\text {注.}} \itshape \citshape 
@@ -1514,7 +1470,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[26]
+[22]
 ./MainMatter/vector_spaces.tex:235: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -1537,7 +1493,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[27]
+[23]
 ./MainMatter/vector_spaces.tex:270: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -1560,7 +1516,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[28]
+[24]
 ./MainMatter/vector_spaces.tex:299: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -1584,9 +1540,9 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `pro:vihe' on page 29 undefined on input line 308.
+LaTeX Warning: Reference `pro:vihe' on page 25 undefined on input line 308.
 
-[29]
+[25]
 ./MainMatter/vector_spaces.tex:324: Undefined control sequence.
 \remark ...textbf {\text {注.}} \itshape \citshape 
                                                   
@@ -1647,7 +1603,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[30]
+[26]
 ./MainMatter/vector_spaces.tex:367: Undefined control sequence.
 \example ...echapter .\arabic {exam}}~} \citshape 
                                                   
@@ -1681,7 +1637,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[31]
+[27]
 Underfull \hbox (badness 10000) in paragraph at lines 389--390
 
  []
@@ -1713,7 +1669,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[32]
+[28]
 Underfull \hbox (badness 10000) in paragraph at lines 427--428
 
  []
@@ -1770,7 +1726,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[33]
+[29]
 ./MainMatter/vector_spaces.tex:470: Undefined control sequence.
 \example ...echapter .\arabic {exam}}~} \citshape 
                                                   
@@ -1802,7 +1758,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[34]
+[30]
 ./MainMatter/vector_spaces.tex:503: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -1814,7 +1770,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[35]
+[31]
 ./MainMatter/vector_spaces.tex:509: Undefined control sequence.
 \remark ...textbf {\text {注.}} \itshape \citshape 
                                                   
@@ -1837,24 +1793,6 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/vector_spaces.tex:532: Undefined control sequence.
-l.532 ^^I$$u = \ssb
-                   {\frac{a_1b_j}{-a_j}+b_1}v_1 + \cdots + \ssb{\frac{a_{j-1...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/vector_spaces.tex:532: Undefined control sequence.
-l.532 ...rac{a_1b_j}{-a_j}+b_1}v_1 + \cdots + \ssb
-                                                  {\frac{a_{j-1}b_j}{-a_j}+b...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 ./MainMatter/vector_spaces.tex:541: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -1866,7 +1804,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[36]
+[32]
 ./MainMatter/vector_spaces.tex:551: Undefined control sequence.
 \example ...echapter .\arabic {exam}}~} \citshape 
                                                   
@@ -1879,7 +1817,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `pro:xxwgvi' on page 37 undefined on input line 557.
+LaTeX Warning: Reference `pro:xxwgvi' on page 33 undefined on input line 557.
 
 ./MainMatter/vector_spaces.tex:566: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
@@ -1899,9 +1837,9 @@ LaTeX Warning: Command \textbackslash invalid in math mode on input line 570.
 LaTeX Warning: Command \textbackslash invalid in math mode on input line 571.
 
 
-LaTeX Warning: Reference `pro:xxwgvi' on page 37 undefined on input line 573.
+LaTeX Warning: Reference `pro:xxwgvi' on page 33 undefined on input line 573.
 
-[37] [38]
+[33] [34]
 ./MainMatter/vector_spaces.tex:590: Undefined control sequence.
 \example ...echapter .\arabic {exam}}~} \citshape 
                                                   
@@ -1934,7 +1872,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `pro:yixpjply' on page 39 undefined on input line 610.
+LaTeX Warning: Reference `pro:yixpjply' on page 35 undefined on input line 610.
 
 ./MainMatter/vector_spaces.tex:619: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
@@ -1948,12 +1886,12 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `pro:yixpjply' on page 39 undefined on input line 620.
+LaTeX Warning: Reference `pro:yixpjply' on page 35 undefined on input line 620.
 
 
-LaTeX Warning: Reference `pro:xxwgvi' on page 39 undefined on input line 621.
+LaTeX Warning: Reference `pro:xxwgvi' on page 35 undefined on input line 621.
 
-[39]
+[35]
 ./MainMatter/vector_spaces.tex:632: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -1966,10 +1904,10 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `pro:kois' on page 40 undefined on input line 633.
+LaTeX Warning: Reference `pro:kois' on page 36 undefined on input line 633.
 
 
-LaTeX Warning: Reference `pro:ziksjmvihe' on page 40 undefined on input line 636.
+LaTeX Warning: Reference `pro:ziksjmvihe' on page 36 undefined on input line 636.
 
 ./MainMatter/vector_spaces.tex:646: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
@@ -1983,9 +1921,9 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `pro:xxwgvi' on page 40 undefined on input line 647.
+LaTeX Warning: Reference `pro:xxwgvi' on page 36 undefined on input line 647.
 
-[40]
+[36]
 ./MainMatter/vector_spaces.tex:659: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -1998,7 +1936,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `pro:xxwgvi' on page 41 undefined on input line 660.
+LaTeX Warning: Reference `pro:xxwgvi' on page 37 undefined on input line 660.
 
 ./MainMatter/vector_spaces.tex:672: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
@@ -2012,7 +1950,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-LaTeX Warning: Reference `pro:kois' on page 41 undefined on input line 673.
+LaTeX Warning: Reference `pro:kois' on page 37 undefined on input line 673.
 
 ./MainMatter/vector_spaces.tex:677: Undefined control sequence.
 \example ...echapter .\arabic {exam}}~} \citshape 
@@ -2036,7 +1974,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[41]
+[37]
 ./MainMatter/vector_spaces.tex:706: Undefined control sequence.
 \remark ...textbf {\text {注.}} \itshape \citshape 
                                                   
@@ -2048,11 +1986,11 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-) [42]
+) [38]
 \openout2 = `MainMatter/linear_maps_and_matrices.aux'.
 
  (./MainMatter/linear_maps_and_matrices.tex
-Chapter 5.
+Chapter 4.
 ./MainMatter/linear_maps_and_matrices.tex:19: Undefined control sequence.
 \remark ...textbf {\text {注.}} \itshape \citshape 
                                                   
@@ -2084,7 +2022,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[43
+[39
 
 
 
@@ -2101,7 +2039,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[44]
+[40]
 ./MainMatter/linear_maps_and_matrices.tex:72: Undefined control sequence.
 \example ...echapter .\arabic {exam}}~} \citshape 
                                                   
@@ -2140,7 +2078,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[45]
+[41]
 ./MainMatter/linear_maps_and_matrices.tex:91: Undefined control sequence.
 \remark ...textbf {\text {注.}} \itshape \citshape 
                                                   
@@ -2178,36 +2116,7 @@ and I'll forget about whatever was undefined.
 Underfull \vbox (badness 2245) detected at line 111
  []
 
-[46] [47] [48]
-./MainMatter/linear_maps_and_matrices.tex:227: Undefined control sequence.
-l.227 ...对于任意的$1 \leq k \leq p$，有$$(ST)u_k = S\ssb
-                                                  {\sum_{r=1}^{n} C_{r,k}v_r...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/linear_maps_and_matrices.tex:227: Undefined control sequence.
-l.227 ...j=1}^{m} A_{j,r}w_j = \sum_{j=1}^{m} \ssb
-                                                  {\sum_{r=1}^{n} A_{j,r} C_...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[49]
-./MainMatter/linear_maps_and_matrices.tex:256: Undefined control sequence.
-l.256 \end{pmatrix} \ssb
-                        {\begin{pmatrix} 6 \\ 2 \end{pmatrix} \tilde{+} \beg...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[50] [51] [52]
+[42] [43] [44] [45] [46] [47] [48]
 ./MainMatter/linear_maps_and_matrices.tex:358: Undefined control sequence.
 \remark ...textbf {\text {注.}} \itshape \citshape 
                                                   
@@ -2219,7 +2128,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[53]
+[49]
 ./MainMatter/linear_maps_and_matrices.tex:383: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -2262,7 +2171,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[54]
+[50]
 ./MainMatter/linear_maps_and_matrices.tex:431: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -2305,7 +2214,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[55]
+[51]
 ./MainMatter/linear_maps_and_matrices.tex:463: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -2339,7 +2248,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[56]
+[52]
 ./MainMatter/linear_maps_and_matrices.tex:494: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -2373,15 +2282,6 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/linear_maps_and_matrices.tex:506: Undefined control sequence.
-l.506 ...\to \F ^m$满足：$$T(x_1, \cdots ,x_n) = \ssb
-                                                  {\sum_{k=1}^{n} A_{1,k}x_k...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 ./MainMatter/linear_maps_and_matrices.tex:510: Undefined control sequence.
 \example ...echapter .\arabic {exam}}~} \citshape 
                                                   
@@ -2404,16 +2304,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/linear_maps_and_matrices.tex:519: Undefined control sequence.
-l.519 ...\to \F ^m$满足：$$T(x_1, \cdots ,x_n) = \ssb
-                                                  {\sum_{k=1}^{n} A_{1,k}x_k...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-[57] [58]
+[53] [54]
 ./MainMatter/linear_maps_and_matrices.tex:540: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -2436,7 +2327,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[59]
+[55]
 ./MainMatter/linear_maps_and_matrices.tex:567: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -2459,7 +2350,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[60]
+[56]
 ./MainMatter/linear_maps_and_matrices.tex:600: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -2482,7 +2373,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[61]
+[57]
 ./MainMatter/linear_maps_and_matrices.tex:637: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -2505,7 +2396,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[62] [63]
+[58] [59]
 ./MainMatter/linear_maps_and_matrices.tex:694: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -2517,7 +2408,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[64]
+[60]
 ./MainMatter/linear_maps_and_matrices.tex:721: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -2529,7 +2420,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[65] [66]
+[61] [62]
 ./MainMatter/linear_maps_and_matrices.tex:793: Missing { inserted.
 <to be read again> 
                    ^
@@ -2551,7 +2442,7 @@ With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
-[67]
+[63]
 ./MainMatter/linear_maps_and_matrices.tex:817: Undefined control sequence.
 \remark ...textbf {\text {注.}} \itshape \citshape 
                                                   
@@ -2596,7 +2487,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[68]
+[64]
 ./MainMatter/linear_maps_and_matrices.tex:865: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -2619,7 +2510,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[69]
+[65]
 
 Package amsmath Warning: Foreign command \atop;
 (amsmath)                \frac or \genfrac should be used instead
@@ -2647,11 +2538,11 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[70]) [71]
+[66]) [67]
 \openout2 = `MainMatter/group_theory.aux'.
 
  (./MainMatter/group_theory.tex
-Chapter 6.
+Chapter 5.
 ./MainMatter/group_theory.tex:16: Undefined control sequence.
 \remark ...textbf {\text {注.}} \itshape \citshape 
                                                   
@@ -2696,7 +2587,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[72
+[68
 
 
 
@@ -2774,7 +2665,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[73]
+[69]
 ./MainMatter/group_theory.tex:87: Undefined control sequence.
 \remark ...textbf {\text {注.}} \itshape \citshape 
                                                   
@@ -2844,14 +2735,28 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-) [74]
+) [70]
 \openout2 = `MainMatter/polymials_and_rings.aux'.
 
  (./MainMatter/polymials_and_rings.tex
+Chapter 6.
+) [71
+
+
+
+
+] [72
+
+
+
+] [73
+
+]
+\openout2 = `MainMatter/groups_of_linear_equations_and_deteminant.aux'.
+
+ (./MainMatter/groups_of_linear_equations_and_deteminant.tex
 Chapter 7.
-) [75
-
-
+) [74
 
 
 ]
@@ -2862,7 +2767,7 @@ Chapter 8.
 
 Overfull \vbox (0.10814pt too high) has occurred while \output is active []
 
- [76
+ [75
 
 
 
@@ -2883,7 +2788,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[77]
+[76]
 ./MainMatter/diagonalization.tex:89: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -2906,7 +2811,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[78]
+[77]
 ./MainMatter/diagonalization.tex:128: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -2951,7 +2856,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[79]
+[78]
 ./MainMatter/diagonalization.tex:160: Undefined control sequence.
 \example ...echapter .\arabic {exam}}~} \citshape 
                                                   
@@ -3007,7 +2912,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[80]
+[79]
 ./MainMatter/diagonalization.tex:206: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -3030,7 +2935,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[81]
+[80]
 ./MainMatter/diagonalization.tex:234: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -3075,7 +2980,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[82]
+[81]
 ./MainMatter/diagonalization.tex:271: Undefined control sequence.
 \example ...echapter .\arabic {exam}}~} \citshape 
                                                   
@@ -3098,7 +3003,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[83]
+[82]
 ./MainMatter/diagonalization.tex:311: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
@@ -3110,7 +3015,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-) [84] (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/set_theory_and_maps.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/basic_concepts_of_number_theory.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/groups_of_linear_equations_and_deteminant.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/vector_spaces.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/linear_maps_and_matrices.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/group_theory.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/polymials_and_rings.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/diagonalization.aux))
+) [83] (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/set_theory_and_maps.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/categories.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/vector_spaces.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/linear_maps_and_matrices.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/group_theory.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/polymials_and_rings.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/groups_of_linear_equations_and_deteminant.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/MainMatter/diagonalization.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
@@ -3123,15 +3028,15 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `book.out' has not changed.
-(rerunfilecheck)             Checksum: D090D56B8956DF496296119A4477F74B;8285.
+(rerunfilecheck)             Checksum: 41EB7E69919E9F0F0808170A368FBEB0;7979.
  ) 
 Here is how much of TeX's memory you used:
- 20255 strings out of 474773
- 452889 string characters out of 5757724
+ 30134 strings out of 474773
+ 673008 string characters out of 5757724
  1947839 words of memory out of 5000000
- 41883 multiletter control sequences out of 15000+600000
- 575602 words of font info for 164 fonts, out of 8000000 for 9000
+ 51582 multiletter control sequences out of 15000+600000
+ 575610 words of font info for 165 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 108i,14n,111p,650b,471s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 108i,14n,111p,650b,1028s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/book.pdf (91 pages).
+Output written on /Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/代数/.texpadtmp/book.pdf (90 pages).

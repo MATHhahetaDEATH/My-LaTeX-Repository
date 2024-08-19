@@ -1,1 +1,454 @@
 \chapter{初等数论的基本结果}
+
+\section{整除}
+
+\subsection{整数的可除性}
+
+\begin{definition}{整除}
+	设$a,b$为任意两个整数$(b \neq 0)$，若存在一个整数$q$使等式$$a=bq$$成立，称$b$\textbf{整除}$a$(或$a$被$b$整除)，记作$b \mid a$，此时称$b$为$a$的\textbf{因数}. \\
+	若满足上述等式的整数$q$不存在，称$b$\textbf{不能整除}$a$(或$a$不能被$b$整除)，记作$b \nmid a$.
+\end{definition}
+
+由定义可知整除满足以下基本性质：
+
+\begin{theorem}{整除的基本性质}
+	对任意整数$x,y,z$，有 \\
+	(1)自反性：$x \mid x$. \\
+	(2)传递性：若$x \mid y$且$y \mid z$，有$x \mid z$. \\
+	(3)反对称性：若$x \mid y$且$y \mid x$则$|x|=|y|$.
+\end{theorem}
+\begin{remark}
+	实际上，满足自反性、传递性与反对称性的二元关系被称作“偏序关系”，例如集合的包含关系.
+\end{remark}
+\begin{remark}
+	反对称性可以进行推广：若$x \mid y$且$y \neq 0$，则$|x| \leq |y|$.这一条性质可以利用整除关系得到大小关系，在解决整除方程时很有用.
+\end{remark}
+
+整除还有一些比较自然的性质：
+
+\begin{theorem}{整除的性质}
+	(1)(整除与线性组合的关系)若$x \mid y_i~(i=1,\cdots ,n)$，则$x \mid \sum_{i=1}^{n} b_i \cdot y_i$，其中$b_i \in \mathbb{Z}~(i=1,2,\cdots ,n)$. \\
+	(2)对于任意的$z \neq 0$，$x \mid y \Leftrightarrow xz \mid yz$. \\
+	(3)$n$个连续整数中有且仅有一个是$n$的倍数. \\
+	(4)任意$n$个连续整数之积一定是$n!$的倍数.
+\end{theorem}
+
+整除的性质固然比较良好，现在我们尝试将它推广到一般情况.
+
+\begin{theorem}{带余除法}
+	设$a,b$为整数，$b>0$，则存在唯一的整数$q,r$，使得$a=bq+r$，其中$0 \leq r <b$.
+\end{theorem}
+\begin{proof}
+	\buzhou{1}存在性：在数列$$\cdots , -2b ,-b , 0 ,b,2b,\cdots $$中，$a$必然在某两项之间，即存在$q$使$qb \leq a < (q+1)b$.此时取$r=a-bq$满足$0 \leq r <b$. \\
+	\buzhou{2}唯一性：假设$a=bq_1+r_1=bq_2+r_2$且$q_1 \neq q_2,~r_1 \neq r_2$，则$b(q_1-q_2)=r_1-r_2$，于是$b \mid r_2-r_1$. \\
+	由题目要求，$0 \leq r_1 < b,~0 \leq r_2 < b$，则$0 \leq |r_1-r_2| < b$.联系上式，必然有$r_1-r_2=0$，矛盾！故唯一性成立.
+\end{proof}
+
+从整除到带余除法，我们一直在寻找整数可除性的下限.有一类非常顽固的数，它们除以任何不为$1$及它本身的数均不能整除，称作\textbf{素数}(prime)；相应地，不是素数的数就是合数.需要注意，$1$既不是素数也不是合数.
+
+关于素数的“通项公式”，人们有过很多猜想.例如，形如$F_m=2^{2^m}+1~(m=1,2,\cdots )$的数被称为“费马数”.由于$F_0 \sim F_4$均为素数，费马曾认为所有的$F_m$都是素数，然而实际上已知的素数只有$F_0 \sim F_4$(人们猜测这之后的费马数全是合数，但是还没有证明).另一个猜想是“梅森素数”，即形如$M_n=2^n-1~(n=1,2,\cdots )$的素数.截至2018年12月，已知51个梅森素数，最大的是$2^{82589933}-1$.
+
+\begin{example} % 初等数论p4
+	(1)若$ax_0+by_0$是形如$ax+by$~(其中$x,y$为任意整数，$a,b$是两个不全为$0$的整数)的数中的最小正数，求证：$$(ax_0+by_0) \mid (ax+by)$$对所有$x,y$均成立. \\
+	(2)已知$a,b$是任意整数，且$b \neq 0$.求证：存在两个整数$s,t$使得$$a=bs+t,~|t| \leq \frac{|b|}{2}$$
+	成立.且当$b$为奇数时，这样的$s,t$唯一存在.并讨论$b$为偶数时存在个数的情况.
+\end{example}
+\begin{proof}
+	(1)设$ax+by=q(ax_0+by_0)+r$，其中$0 \leq r < ax_0+by_0$.整理上式，可得$$r=a(x-qx_0)+b(y-qy_0)$$
+	假设$r \neq 0$，则$r$也是形如$ax+by$的数，又因为$r < ax_0+by_0$，这与$ax_0+by_0$是最小的形如$ax+by$的正数矛盾.故$r=0$，即$(ax_0+by_0) \mid (ax+by)$. \\
+	(2)\buzhou{1}存在性： \\
+	$b > 0$时：由带余除法定理，存在$q,r$使$a=bq+r$与$0 \leq r <b$成立. \\
+	若$r \leq \dfrac{b}{2}$，取$t=r,~s=q$即可；若$r < \dfrac{b}{2}$，则取$t=r-b,~s=q+1$，此时$-\dfrac{b}{2} \leq t < \dfrac{b}{2}$，即$|t| \leq \dfrac{|b|}{2}$. \\
+	$b < 0$时，将上面的$b$替换为$-b$，同理可证. \\
+	\buzhou{2}唯一性：\\
+	$b$为奇数时，$s,t$唯一存在.假设$a=bs_1+t_1=bs_2+t_2$，则$b(s_1-s_2)=t_2-t_1$，可得$b \mid t_2-t_1$.由$|t_2-t_1| \leq |t_2|+|t_1| < |b|$(其中等号应在$t_1+t_2=b$处取到，然而$b$为奇数，故不存在满足该条件的整数$t_1,t_2$，故等号取不到)，必有$t_2-t_1=0$，即$t_2=t_1$，矛盾！于是这样的$s,t$唯一存在. \\
+	$b$为偶数时，$s,t$不唯一存在.例如，对于满足$a=3 \cdot \dfrac{b}{2}$的$a,b$，取$(s,t)=(1,\dfrac{b}{2}),(2,-\dfrac{b}{2})$均符合题意.
+\end{proof}
+
+\begin{example} % 初等数论p19
+	(1)证明素数有无穷多个. \\
+	(2)若$2^n+1$是素数(其中$n$为正整数)，则$n$是$2$的方幂.
+\end{example}
+\begin{proof}
+	(1)假设素数只有有限个，设为$p_1,p_2, \cdots ,p_m$.令$N=p_1p_2 \cdots p_n + 1$，取$N$的一个素因子$p$.\\
+	若$p=p_i$，则由$p \mid p_1p_2\cdots p_n +1$有$p \mid 1$，与$p$是素数矛盾.故$p$为不同于任何一个$p_i$的素数，与假设矛盾.于是素数个数无穷. \\
+	(2)首先，若$n$为奇数，则有$$2^n+1 = (3-1)^n+1 = 3^n + C_n^1 3^{n-1}(-1) + \cdots +C_n^{n-1} 3^1 (-1)^{n-1} + (-1)^n + 1$$
+	于是$2^n+1$是$3$的倍数. \\
+	其次，当$n$为偶数时，其必然可以表示为$k \cdot 2^m$的形式，其中$k$为奇数.于是有
+	\begin{align*}
+		2^n+1 = &\left( 2^{2^m} \right)^k + 1 = \ssb{ (2^{2^m}+1)-1 }^k + 1 \\
+		&= (2^{2^m}+1)^k + C_k^1 (2^{2^m}+1)^{k-1}(-1) + \cdots + C_k^{k-1}(2^{2^m}+1)^1(-1)^{k-1} + (-1)^k + 1
+	\end{align*}
+	故$2^{2^m}+1$可以整除$2^n+1$. \\
+	综上，$n$只能是$2$的方幂.
+\end{proof}
+
+\subsection{最大公约数与最小公倍数}
+
+\begin{definition}{最大公约数}
+	设$a_1,a_2, \cdots ,a_n$是$n~(n \geq 2)$个整数.满足下面两个条件的整数$d$称为它们的\textbf{最大公约数}(greatest common divisor)，记作$\gcd (a_1,a_2, \cdots ,a_n)$或简记为$(a_1,a_2, \cdots ,a_n)$： \\
+	(1)$d$是$a_1,a_2, \cdots ,a_n$的公约数，即$d \mid a_1,d \mid a_2, \cdots ,d \mid a_n$； \\
+	(2)$d$是所有$a_1,a_2, \cdots ,a_n$的公约数中最大的. \\
+	特别地，若$(a_1,a_2, \cdots ,a_n)=1$，则称$a_1,a_2, \cdots ,a_n$\textbf{互素}；若$a_1,a_2, \cdots ,a_n$中任意两个是互素的，则称它们\textbf{两两互素}.互素与两两互素不是等价的.
+\end{definition}
+\begin{remark}
+	注意到，任意一组整数必然有公约数；若它们不全为$0$，则公约数只有有限多个，此时的最大公约数存在且是唯一的.\\ 
+	另外，若$d$是$a_1,a_2, \cdots ,a_n$的公约数，则$-d$也是$a_1,a_2, \cdots ,a_n$的公约数，那么最大公约数一定是正整数.
+\end{remark}
+
+\begin{theorem}{最大公约数的性质}{zvdagsytuu}
+	(1)$(ab,ac)=a(b,c)$. \\ 
+	(2)若$(a,b)=1$，则$(a,bc)=(a,c)$. \\
+	(3)若$d \mid a,~d \mid b$则$d \mid (a,b)$. \\
+	(4)若$a \mid c,~b \mid c$则$ab \mid c(a,b)$. \\
+	(5)$a,b$的公约数与$(a,b)$的因数相同. \\
+	(6)若$d$是$a,b$的任一公约数，则$$\ssb{\frac{a}{d},\frac{b}{d}} = \frac{(a,b)}{|d|}$$
+	特别地，$$\ssb{\frac{a}{(a,b)},\frac{b}{(a,b)}}=1$$
+	(7)$(a,b,c)=((a,b),c)$.
+\end{theorem}
+\begin{remark}
+	这些性质用算术基本定理证明更方便，这里先不证明了.
+\end{remark}
+
+\begin{theorem}{辗转相除}{vjvrxliu}
+	设$a,b,k$为整数，则$(a,b)=(a,b-ka)$.
+\end{theorem}
+\begin{proof}
+	记$d$为$a,b$的任意公约数.由于$d \mid a,~d \mid b$，可得$d \mid b-ka$，于是$d$是$a,b-ka$的某个公约数. \\
+	同理，任取$d$为$a,b-ka$的任意公约数，可得$d$是$a,b$的某个公约数.于是由所有$a,b$公约数构成的集合与所有$a,b-ka$的公约数构成的集合相等，其中的最大元素也相等.
+\end{proof}
+
+利用定理\ref{thm:vjvrxliu}，我们可以很方便地求解两个整数的最大公约数.例如，$(114,514)=(114,514-4\times 114) = (114,58) = (114-2\times 58 ,58)=(-2,58)=2$\footnote{严格来讲，这里将$114$变为$-2$的操作不是辗转相除，但这样计算会简便一些.}.这样的求解算法称作\textbf{Euclid算法}(辗转相除法).其严格定义如下：
+
+\begin{theorem}{Euclid算法}
+	设$a,b$为整数，$b \neq 0$，按下述方式反复做带余除法，有限步之后停止(即余数为$0$)，称做\textbf{Euclid算法}： \\
+	用$b$除$a$：$a=bq_0+r_0,\quad 0<r<|b|$； \\
+	用$r_0$除$b$：$b=r_0q_1+r_1,\quad 0<r_1<r_0$； \\
+	用$r_1$除$r_0$：$r_0=r_1q_2+r_2,\quad 0<r_2<r_1$； \\
+	$\cdots \cdots$ \\
+	用$r_{n-1}$除$r_{n-2}$：$r_{n-2}=r_{n-1}q_n+r_n,\quad 0<r_n<r_{n-1}$； \\
+	用$r_n$除$r_{n-1}$：$r_{n-1}=r_nq_{n+1}$. \\
+	则$(a,b)=(r_0,b)=(r_1,r_2)= \cdots = (r_{n+1},r_n)=r_n$.
+\end{theorem}
+\begin{remark}
+	实际上，由于余数$r_0,r_1,\cdots ,r_n,\cdots $为整数，且满足$r_0 > r_1 > \cdots > r_{n} > \cdots \geq 0$，必然在某一步时余数为$0$.(无穷递降法)
+\end{remark}
+
+\begin{theorem}{Bezout定理}
+	若$a,b$为不全为$0$的整数，则存在整数$x,y$，使得$$ax+by=(a,b)$$成立.
+\end{theorem}
+\begin{remark}
+	$x,y$并不唯一，因为可以通过$(a,b)=ax+by=a(x+kb)+b(y-ka)$的形式调整(其中$k$为任意整数).
+\end{remark}
+\begin{remark}
+	特别地，若$(a,b)=1$，则存在整数$x,y$使$ax+by=k$.($k$为任意整数)
+\end{remark}
+\begin{proof} % 解法一：自己写的 解法二：https://oi-wiki.org/math/number-theory/bezouts/#证明
+	\sw{一}由于$a$与$-a$在上式中等价，不妨设$a \geq b \geq 0$. 记$n=a+b$，对$n$进行归纳. \\
+	\buzhou{1}当$n=1$时，即$a=1,b=0$，取$x=1$即符合题意. \\
+	\buzhou{2}假设当$n=1$至$n=k-1$时命题均成立.当$n=k$时， \\
+	若$b=0$，取$x=1$符合题意；若$b > 0$即$b \geq 1$，则$a-b \leq k-1$，由归纳假设知方程$$(a-2b)x+by=(a-2b,b)$$
+	有解$(x,y)$.于是方程$ax+by=(a,b)$有解$(x,y-2x)$，命题成立. \\
+	由第二数学归纳法知原命题成立. \\
+	\sw{二}同解法一，若$a,b$中有一个为$0$，显然成立.在$a,b$均不为$0$时，不妨设$a \geq b >0$. \\
+	记$a=a_1(a,b),~b=b_1(a,b)$，于是$(a_1,b_1)=1$.则原命题等价于存在$x,y$使得$a_1x+b_1y=1$. \\
+	将求$(a_1,b_1)$的过程写成Euclid算法形式：
+	\begin{align*}
+		a_1 &= q_1b_1+r_1, \quad 0 \leq r_1 < b_1 \\
+		b_1 &= q_2r_1+r_2, \quad 0 \leq r_2 < r_1 \\
+		r_1 &= q_3r_2+r_3, \quad 0 \leq r_3 < r_2 \\
+		& \cdots \cdots \\
+		r_{n-3} &= q_{n-1}r_{n-2} + r_{n-1}, \quad 0 \leq r_{n-1} < r_{n-2} \\
+		r_{n-2} &= q_nr_{n-1} + r_n, \quad 0 \leq r_n < r_{n-1} \\
+		r_{n-1} &= q_{n+1}r_n
+	\end{align*}
+	由于$(a_1,b_1)=1$，可知其中$r_n=1$，即有$$r_{n-2} = q_nr_{n-1} + 1,\quad i.e. \quad 1=r_{n-2} - q_nr_{n-1}$$
+	将倒数第三个式子$r_{n-1} = r_{n-3} - q_{n-1}r_{n-2}$代入上式，得$$1 = (1+q_nq_{n-1})r_{n-2} - q_nr_{n-3}$$
+	同样地，将Euclid算法中的式子逐步代入以消去$r_{n-2},\cdots ,r_1$.最后等式右边一定会得到$a_1,b_1$的线性组合形式(因为右边没有常数项)，即存在$x,y$使得$a_1x+b_1y=1$，原命题得证.
+\end{proof}
+
+类似地，可以定义最小公倍数：
+
+\begin{definition}{最小公倍数}
+	设$a_1,a_2, \cdots ,a_n$是$n~(n \geq 2)$个整数.满足下面两个条件的整数$D$称为它们的\textbf{最小公倍数}(least common multiple)，记作$\lcm (a_1,a_2, \cdots ,a_n)$或简记为$[a_1,a_2, \cdots ,a_n]$： \\
+	(1)$D$是$a_1,a_2, \cdots ,a_n$的公倍数，即$a_1 \mid D,a_2 \mid D, \cdots ,a_n \mid D$； \\
+	(2)$D$是所有$a_1,a_2, \cdots ,a_n$的公倍数中最小的.
+\end{definition}
+
+\begin{theorem}{最小公倍数的性质}{zvxngsbwuu}
+	(1)$[ab,ac]=a[b,c]$. \\
+	(2)若$a \mid D,~b \mid D$则$[a,b] \mid D$. \\
+	(3)$a,b$的公倍数与$[a,b]$的倍数相同. \\
+	(4)$[a,b,c]=[[a,b],c]$. \\
+	(5)$(a,b)[a,b]=|ab|$.
+\end{theorem}
+\begin{remark}
+	第五条性质最常用，因为最大公约数的性质远比最小公倍数的好.
+\end{remark}
+
+\begin{example} % 初等数论p9,p14
+	(1)证明两整数$a,b$互素的充要条件是：存在两个整数$s,t$满足$$as+bt=1$$ \\
+	(2)应用上节例题(2)证明：$(a,b)=ax_0+by_0$，其中$ax_0+by_0$是形如$ax+by$~(其中$x,y$为任意整数)的整数里的最小正数.
+\end{example}
+\begin{solution}
+	(1)必要性显然.下证充分性：由$(a,b) \mid a,~(a,b) \mid b$，可得$(a,b) \mid as+bt$，于是$(a,b)=1$，即$a,b$互素. \\
+	(2)首先，由于$(a,b) \mid a,~(a,b) \mid b$，可得$(a,b) \mid ax_0+by_0$. \\
+	其次，由Bezout定理可得，存在整数$x,y$使得$ax+by = (a,b)$，又因为$ax_0 + by_0 \mid ax+by$，故$ax_0 + by_0 \mid (a,b)$. \\
+	综上可得，$(a,b)=ax_0+by_0$.
+\end{solution}
+\begin{remark}
+	这两道例题都旨在说明整除与线性组合的强关联性.
+\end{remark}
+
+\subsection{Euclid引理与算术基本定理}
+
+\begin{theorem}{Euclid引理}
+	若$p$是一个素数，且$p \mid ab$，则$p \mid a$或$p \mid b$.
+\end{theorem}
+\begin{proof}
+	假设$p \nmid a$且$p \nmid b$.由于$p$是素数，又$(a,p) \mid p$，可得$(a,p)=1$. \\
+	由Bezout定理，存在整数$m,n$使得$am+pn=1$成立，于是$abm+bpn=b$.由于$p \mid ab$，由上式有$p \mid b$，矛盾！则原命题成立.
+\end{proof}
+
+\begin{theorem}{算术基本定理}
+	每个不等于$1$的正整数均可分解为有限个素数的乘积.如果不计素因数在乘积中的次序，则该分解方式是唯一的.
+\end{theorem}
+\begin{proof}
+	对于正整数$n>1$， \\
+	\buzhou{1}存在性：第$1$步：取$n$的一个素因子$p_1$，于是有$n=n_1 \cdot p_1$； \\
+	第$i$步：取$n_{i-1}$的一个素因子$p_i$，于是有$n_{i-1}=n_i \cdot p_i$. \\
+	对于上述算法，由于每一步$n_i$都严格减少，因此一定在某一步停止，即此时$n_{i-1}=1$.最后可得分解为$n=p_1p_2 \cdots p_{i-1}$. \\
+	\buzhou{2}唯一性：假设$n = p_1^{\alpha _1} p_2^{\alpha _2} \cdots p_k^{\alpha _k} = q_1^{\beta _1} q_2^{\beta _2} \cdots q_l^{\beta _l}$~(这两种表示方法不全相同). \\
+	对于$p_1$，由于$p_1 \mid n$，可得$p_1 \mid q_1^{\beta _1} q_2^{\beta _2} \cdots q_l^{\beta _l}$.由Euclid引理，$q_1, \cdots ,q_l$中必有一个素数与$p_1$相同.同理可得$\{ p_1,\cdots ,p_k \} \subseteq \{ q_1,\cdots ,q_l \}$，由对称性可得$\{ q_1,\cdots ,q_l \} \subseteq \{ p_1,\cdots ,p_k \}$，于是$\{ p_1,\cdots ,p_k \} = \{ q_1,\cdots ,q_l \}$. \\
+	不妨设$q_i=p_i~(i=1, \cdots ,k)$，即$p_1^{\alpha _1} p_2^{\alpha _2} \cdots p_k^{\alpha _k} = p_1^{\beta _1} q_2^{\beta _2} \cdots p_k^{\beta _k}$.对于任意给定的$i$，若$\alpha _i \neq \beta _i$，不妨设$\alpha _i < \beta _i$，则由于$$\frac{n}{p_i^{\alpha _i}} = p_1^{\alpha _1} \cdots p_{i-1}^{\alpha _{i-1}} p_{i+1}^{\alpha _{i+1}} \cdots p_{k}^{\alpha _{k}} = p_1^{\beta _1} \cdots p_{i-1}^{\beta _{i-1}} p_{i}^{\beta _{i} - \alpha _{i}} p_{i+1}^{\beta _{i+1}} \cdots p_{k}^{\beta _{k}}$$
+	可知$p_i \mid p_1^{\alpha _1} \cdots p_{i-1}^{\alpha _{i-1}} p_{i+1}^{\alpha _{i+1}} \cdots p_{k}^{\alpha _{k}}$，这是不可能的. \\
+	于是，对于任意$i~(i=1, \cdots ,k)$，$\alpha _i = \beta _i$，即这两种表示方法相同，与假设矛盾.故这样的表示方法是唯一的.
+\end{proof}
+
+由算术基本定理，不等于$\pm 1$的非零整数$n$可以唯一地表示为$$n = \varepsilon p_1^{\alpha _1} p_2^{\alpha _2} \cdots p_k^{\alpha _k}$$
+其中$p_1,p_2, \cdots ,p_k$为互不相同的素数，$\alpha _1 ,\alpha _2,\cdots ,\alpha _k$为正整数，$\varepsilon =\pm 1$.这称为$n$的素因数标准分解.(当$\alpha _1 ,\alpha _2,\cdots ,\alpha _k$为非负整数时，称作$n$的素因数分解.为了方便计算，有些时候会选择取$\alpha _i$为非负整数以补齐位数)
+
+从素因数分解的角度，我们得到了一种新的判断整除的方法，并由此得到了计算最大公约数、最小公倍数的方法：
+
+\begin{proposition}{从素因数分解看整除}
+	设$a=p_1^{\alpha _1} p_2^{\alpha _2} \cdots p_k^{\alpha _k},~b=p_1^{\beta _1} p_2^{\beta _2} \cdots p_k^{\beta _k}$.则
+	$$b \mid a \quad \Longleftrightarrow \quad \forall i,~0 \leq \beta _i \leq \alpha _i$$
+	因而有
+	$$(a,b)=\sum_{i=1}^{k} p_i^{\min {\alpha _i,\beta _i}}, \quad \quad [a,b]=\sum_{i=1}^{k} p_i^{\max {\alpha _i,\beta _i}}$$
+\end{proposition}
+
+作为练习，读者不妨返回上一节，尝试利用素因数分解证明定理\ref{thm:zvdagsytuu}和定理\ref{thm:zvxngsbwuu}.
+
+\subsection{不定方程}
+
+先从最简单的二元一次不定方程开始研究：
+
+\begin{theorem}{二元一次不定方程解的关系}{eryryicigrxi}
+	设$a,b,c$为整数，满足$ax+by=c$~(其中$a,b$不全为$0$).若该不定方程有一组整数解$(x_0,y_0)$，则它的一切解都可以写成$$x=x_0-\frac{b}{(a,b)}t,\quad y=y_0+\frac{a}{(a,b)}t$$
+	的形式，其中$t$为任意整数.
+\end{theorem}
+\begin{proof}
+	首先，显然上述形式可以满足$ax+by=c$.对于$ax+by=c$的一组解$(x',y')$，有$$ax'+by' = c = ax_0+by_0,\quad \textit{即} \quad a(x'-x_0) + b(y'-y_0) = 0$$
+	记$(a,b)=d~,a=a_1d,b=b_1d$，则$(a_1,b_1)=1$.代入上式，即得$$a_1(x'-x_0)=-b_1(y'-y_0)$$
+	于是$a_1 \mid y'-y_0$，即存在整数$t$使得$y'-y_0=ta_1$，即$y'=y_0+a_1t$.将这样的$y'$代回原式可得$x'=x_0-b_1t$.于是原方程所有的解均可表示为上述形式.
+\end{proof}
+
+\begin{theorem}{二元一次不定方程解的存在性}
+	设$a,b,c$为整数，满足$ax+by=c$~(其中$a,b$不全为$0$).该二元一次不定方程有整数解当且仅当$(a,b) \mid c$.
+\end{theorem}
+\begin{proof}
+	\buzhou{1}必要性：设方程有一组解$(x_0,y_0)$，即$ax_0+by_0=c$，由$(a,b) \mid ax_0+by_0$，自然有$(a,b) \mid c$. \\
+	\buzhou{2}充分性：由Bezout定理可知，存在整数$m,n$使$am+bn=(a,b)$.记$c=c_1(a,b)$，则$amc_1+bnc_1=c$，即$(mc_1,nc_1)$是原方程的一组整数解.
+\end{proof}
+
+具体来讲，如何找到不定方程的一组解，除了通过观察，更快速的是借助下一章的同余工具，这里简要示范(读者可以在看过下一章之后再回来做).
+
+多元一次不定方程是二元情况的推广，在求解的时候一般作换元以消去尽可能多的变量，最后只需要解一些二元不定方程即可.
+
+\begin{example}
+	(1)解不定方程：$1145x+14y=1919810$. \\
+	(2)将$\dfrac{17}{60}$表示为分母两两互素的三个既约分数之和.
+\end{example}
+\begin{solution}
+	(1)两边同时模$14$，可得$$11x \equiv 4 \mod 14$$
+	即$-3x \equiv 18 \mod 14$，即$x \equiv -6 \mod 14$.于是，$(8,136475)$是原方程的一组解.它的所有解可以表示为$$x=8-14t,\quad y=136475+1145t$$
+	的形式，其中$t$为任意整数. \\
+	(2)由于$60=3 \times 4 \times 5$，设$\dfrac{17}{60} = \dfrac{x}{3} + \dfrac{y}{4} + \dfrac{z}{5}$，即解不定方程$$20x+15y+12z=17$$
+	记$t=4x+3y$，于是$5t+12z=17$.这两个不定方程的解分别为$$\begin{cases}
+		x=t-3u \\ y=-t+4u
+	\end{cases}, \quad \begin{cases}
+		t=1-12v \\ z=1+5v
+	\end{cases}$$
+	其中$u,v$是任意整数.将第二组中关于$t$的解带入第一组，即得$$\begin{cases}
+		x=1-12v-3u \\ y=-1+12v+4u \\ z=1+5v
+	\end{cases}$$
+\end{solution}
+
+还有一些高次不定方程，需要通过合理的分析与处理进行解决.最有名的二次不定方程莫过于“勾股数”方程：$x^2+y^2=z^2$.
+
+\begin{example}
+	证明： \\
+	(1)设$n$为正整数，有$(a^n,b^n)=(a,b)^n$. \\
+	(2)设$a,b$为互素的正整数，$ab=c^n$~($c$为整数)，则$a,b$都是正整数的$n$次方幂. \\
+	(3)设正整数$x,y,z$满足$x^2+y^2=z^2$.则存在正整数$m,n$，使得$$x=m^2-n^2,~y=2mn,~z=m^2+n^2 ~~\cor ~~ x=2mn,~y=m^2-n^2,~z=m^2+n^2$$
+\end{example}
+\begin{proof}
+	(1)记$(a,b)=d,~a=a_1d,~b=b_1d$，则$(a_1,b_1)=1$.于是$$(a^n,b^n)=(d^na_1^n,d_nb_1^n)=d^n(a_1^n,b_1^n)=d^n$$
+	(2)由(1)可得$$(a,c)^n = (a^n,c^n) = (a^n,ab) = a(a^{n-1},b) = a$$
+	同理可得$b=(b,c)^n$.故$a,b$都是正整数的$n$次方幂. \\
+	(3)由于$x^2+y^2=z^2$及“对于正整数$n$，$n^2$除$4$余$0$或$1$”及$(x,y,z)=1$，可知$(x,y,z)$的奇偶性分别可能为$(\textit{奇},\textit{偶},\textit{奇})\cor (\textit{奇},\textit{偶},\textit{奇})$.不妨设$y$为偶数. \\
+	容易发现满足$m^2=\dfrac{z+x}{2},~n^2=\dfrac{z-x}{2}$的有理数$m,n$符合题意.下证这样的$m,n$为整数. \\
+	注意到$\dfrac{z+x}{2} \cdot \dfrac{z-x}{2} = \ssb{\dfrac{y}{2}}^2$，由(2)中结论，只需证明$$\ssb{\frac{z+x}{2}, \frac{z-x}{2}}=1$$
+	化简之，即证明$(z+x,z-x)=2$，即$(x,z)=1$.这是显然的，不妨设$(x,y,z)=1$(因为$x,y,z$同时扩大对结论无影响)，假设$(x,z)>1$，即存在素数$p$使得$p \mid x$且$p \mid z$，由于$y^2=z^2-x^2$，可得$p \mid y^2$，即有$p \mid y$.这与$(x,y,z)=1$矛盾！
+\end{proof}
+
+\section{同余}
+
+\subsection{同余运算}
+
+\begin{definition}{同余运算}
+	设$a,b,m~(m \neq 0)$是整数，若$m \mid a-b$，则称$a,b$\textbf{模$m$同余}，记作$$a \equiv b \mod m$$
+	若$m \nmid a-b$，则称$a,b$模$m$不同余，记作$$a \not\equiv b \mod m$$
+\end{definition}
+\begin{remark}
+	在具体题目情景中，若上下文的模都是一样的，可以省略“$\operatorname{mod} m$”符号.
+\end{remark}
+
+\begin{theorem}{同余运算的基本性质}
+	对任意整数$x,y,z,m~(m \neq 0)$，在模$m$意义下，有 \\
+	(1)自反性：$x \equiv x$. \\
+	(2)传递性：若$x \equiv y$且$y \equiv z$，有$x \equiv z$. \\
+	(3)反对称性：若$x \equiv y$，则$y \equiv x$.
+\end{theorem}
+\begin{remark}
+	实际上，满足自反性、传递性与对称性的二元关系被称作“等价关系”，例如两个对象的相等关系.从这一点出发，我们也可以看出同余运算的优点：将整除变为“等式”，“等式”左右可以像真正的等式一样运算(基础运算即定理\ref{thm:tsyuyysr}中的(1)；除法会在后面讲到).
+\end{remark}
+
+\begin{theorem}{同余运算的性质}{tsyuyysr}
+	(1)关于加法与乘法的性质：若$a \equiv b \mod m,~c \equiv d \mod m$，则$$a+c \equiv b+d \mod m, \qquad ac \equiv bd \mod m$$
+	一般地，若$A_{\alpha _1 \cdots \alpha _k} \equiv B_{\alpha _1 \cdots \alpha _k} \mod m$且$x_i \equiv y_i \mod m~(i=1,2,\cdots ,k)$，则有$$\sum_{\alpha _1, \cdots ,\alpha _k} A_{\alpha _1 \cdots \alpha _k} x_1^{\alpha _1} \cdots x_k^{\alpha _k} \equiv \sum_{\alpha _1, \cdots ,\alpha _k} B_{\alpha _1 \cdots \alpha _k} y_1^{\alpha _1} \cdots y_k^{\alpha _k} \mod m$$
+	(2)若$a \equiv b \mod m$且$a \equiv b \mod n$，则$$a \equiv b \mod [m,n]$$
+	(3)若$ac \equiv bc \mod m$，其中$c \neq 0$，则$$a \equiv b \mod \frac{m}{(c,m)}$$
+\end{theorem}
+
+
+\subsection{剩余系}
+
+同余的本质，实际上是将正整数集$\mathbb{Z}$分为若干集合，每个集合模$m$的余数循环.类似于这种思路，可以对所有模$m$同余的数建立一个等价类：
+
+\begin{theorem}{剩余类}{ugyulw}
+	对于任意给定的正整数$m$，全部整数可以划分成$m$个集合，记作$K_0,K_1, \cdots ,K_{m-1}$，其中$K_r~(r=0,1,\cdots ,m-1)$是由一切形如$qm+r~(q=0,\pm 1,\pm 2,\cdots )$组成的.这些集合具有下列性质： \\
+	(1)每一整数必包含在且仅在上述的一个集合里面. \\
+	(2)两个整数同在一个集合当且仅当这两个整数模$m$同余.
+\end{theorem}
+\begin{proof}
+	(1)由带余除法定理，任取整数$a$，记$a=a_1m + r~(0 \leq r < m)$，于是$a$就在$K_r$中，且这里的$r$是由$a$唯一确定的. \\
+	(2)\buzhou{1} 充分性：若$a \equiv b \mod m$，则由定义知$m \mid a-b$.记$a-b = km$，$b=qm + r$，则$$a = (k+q)m +r$$
+	故$a,b$同在$K_r$中. \\
+	\buzhou{2} 必要性：若$a,b$均在$K_r$中，记$$a=q_1m+r,~b=q_2m+r$$
+	则$a-b = (q_1-q_2)m$，故$a \equiv b \mod m$.
+\end{proof}
+
+\begin{definition}{剩余类与完全剩余系}
+	定理\ref{thm:ugyulw}中的$K_0,K_1, \cdots ,K_{m-1}$称作模$m$的\textbf{剩余类}；若$a_0,a_1,\cdots ,a_{m-1}$是$m$个整数，并且其中任意两数都不在同一个剩余类里，则$a_0,a_1,\cdots ,a_{m-1}$称作模$m$的一个\textbf{完全剩余系}.
+\end{definition}
+\begin{remark}
+	用同余的语言，可以得到一个等价定义：$m$个整数构成模$m$的一个完全剩余系当且仅当它们两两模$m$不同余.
+\end{remark}
+
+例如，对于正整数$m$，最小的非负完全剩余系为$\{ 0,1,2,\cdots ,m-1 \}$.
+
+\begin{theorem}{完全剩余系的性质}{wjqrugyuxi}
+	设正整数$m$，整数$a$满足$(a,m)=1$，$b$是任意整数.若$S$是一个模$m$的完全剩余系，则$T=aS+b$也是模$m$的完全剩余系.
+\end{theorem}
+\begin{proof}
+	对于$T$，任取其中元素$x,y$，记$x=ap+b,~y=aq+b$. \\
+	假设$x \equiv y \mod m$，则$ap \equiv ap \mod m$.应用定理\ref{thm:tsyuyysr}的第三条可知$p \equiv q \mod m$，这与$S$是完全剩余系矛盾.故$T$中元素两两模$m$不同余，则$T$是模$m$的完全剩余系.
+\end{proof}
+
+\begin{theorem}
+	设正整数$m$，整数$a$满足$(a,m)=1$，$b$是任意整数.存在整数$x$使得$ax \equiv b \mod m$且所有满足该条件的$x$在模$m$的同一个剩余类中.
+\end{theorem}
+\begin{proof}
+	由于$\{ 1,2,\cdots ,m \}$是模$m$的一个完全剩余系，由定理\ref{thm:wjqrugyuxi}可知$\{ a,2a,\cdots ,ma \}$也是模$m$的一个完全剩余系.于是对任意整数$b$，总存在$x \in \{ 1,2,\cdots ,m \}$使得$ax \equiv b \mod m$. \\
+	若有$x,y$均满足条件，即$ax \equiv b \mod m,~ay \equiv b \mod m$，则$a(x-y) \equiv 0 \mod m$，故$x \equiv y \mod m$，即所有满足条件的$x$在模$m$的同一个剩余类中.
+\end{proof}
+
+在上述定理中，如果取$b=1$，则意味着在$(a,m)=1$时，总存在$x$使得$ax \equiv 1 \mod m$.称这样的$x$为$a$在\textbf{模$m$意义下的乘法逆元}，记$x \equiv a^{-1} \mod m$.因为所有这样的$a^{-1}$组成了一个模$m$的剩余类，故可以将乘法逆元(不严谨地)当做除法来考虑.
+
+\subsection{欧拉定理，费马小定理与阶}
+
+\begin{definition}{欧拉函数}
+	定义\textbf{欧拉函数}$\varphi :\mathbb{Z} \to \mathbb{Z}$满足，$\varphi (a)$的值等于在$0,1,\cdots ,a-1$中与$a$互素的数的个数.
+\end{definition}
+
+\begin{definition}{缩剩余系}
+	若$\varphi (m)$个整数$a_1,\cdots ,a_{\varphi (m)}$包含于模$m$的一个完全剩余系，且其中任一整数均与$m$互素，则称它们构成模$m$的一个\textbf{缩剩余系}(简化剩余系).
+\end{definition}
+
+类似于完全剩余系，有
+
+\begin{theorem}{缩剩余系的性质}
+	设正整数$m$，整数$a$满足$(a,m)=1$.若$S$是一个模$m$的缩剩余系，则$T=aS$也是模$m$的缩剩余系.
+\end{theorem}
+\begin{proof}
+	由于$|T|=|S|=\varphi (m)$，只需证明$T$中的$\varphi (m)$个元素模$m$互不同余.实际上，若$x_1,x_2 \in S$满足$ax_1 \equiv ax_2 \mod m$，由于$(a,m)=1$，则有$x_1 \equiv x_2 \mod m$，矛盾.故原定理得证.
+\end{proof}
+
+欧拉函数是一个积性函数，即对于互素的正整数$m_1,m_2$，有$\varphi (m_1m_2) = \varphi (m_1) \cdot \varphi (m_2)$.为了证明这个定理，若设$S_1,S_2$分别为模$m_1,m_2$的缩系，注意到$\varphi (m_1) \cdot \varphi (m_2)$即为$m_2S_1+m_1S_2$的元素个数.于是只要证明：
+
+\begin{theorem}
+	若整数$m_1,m_2$满足$(m_1,m_2)=1$，设$S_1,S_2$分别为模$m_1,m_2$的缩系，则$m_2S_1+m_1S_2$是模$m_1m_2$的缩系.
+\end{theorem}
+\begin{proof}
+	\buzhou{1} 先证明一个更一般的情况：若整数$m_1,m_2$满足$(m_1,m_2)=1$，设$S_1,S_2$分别为模$m_1,m_2$的完系，则$m_2S_1+m_1S_2$是模$m_1m_2$的完系. \\
+	首先注意到$|m_2S_1+m_1S_2|=|S_1| \cdot |S_2|=m_1m_2$，于是只需证明$m_2S_1+m_1S_2$中的$m_1m_2$个整数模$m_1m_2$互不同余. \\
+	假设存在$x_1,y_1 \in S_1$与$x_2,y_2 \in S_2$满足$$m_2x_1 + m_1x_2 \equiv m_2y_1 + m_1y_2 \mod m_1m_2$$
+	于是$$m_1(x_2-y_2) \equiv m_2(x_1-y_1) \mod m_1m_2$$
+	则有$$x_1 \equiv y_1 \mod m_1,\quad x_2 \equiv y_2 \mod m_2$$
+	矛盾.故$m_2S_1+m_1S_2$中的$m_1m_2$个整数模$m_1m_2$互不同余. \\
+	\buzhou{2} 在上述一般情况中，若任取$x_1 \in S_1$与$x_2 \in S_2$均有$(x_1,m_1)=(x_2,m_2)=1$，即为原命题情景. \\
+	一方面，由于$(m_2x_1+m_1x_2,m_1)=1$与$(m_2x_1+m_1x_2,m_2)=1$，显然有$(m_2x_1+m_1x_2,m_1m_2)=1$； \\
+	另一方面，若$(m_2x_1+m_1x_2,m_1m_2)=1$，则分别有$(m_2x_1+m_1x_2,m_1)=1$与$(m_2x_1+m_1x_2,m_2)=1$，于是$(x_1,m_1)=(x_2,m_2)=1$. \\
+	综上，$m_2S_1+m_1S_2$是模$m_1m_2$的完系.
+\end{proof}
+
+由此我们可以计算$\varphi (n)$.
+
+\begin{theorem}
+	设$n=p_1^{\alpha _1} \cdots p_k^{\alpha _k}$，则$$\varphi (n) = n \ssb{1-\frac{1}{p_1}} \cdots \ssb{1-\frac{1}{p_k}}$$
+\end{theorem}
+\begin{proof}
+	由欧拉函数是积性函数，有$$\varphi (n) = \varphi (p_1^{\alpha _1}) \cdots \varphi (p_k^{\alpha _k})$$
+	再来看$\varphi (p^k)$，其中$p$是素数而$k$是任意正整数.由定义，$\varphi (p^k)$表示在$0,1,p^k-1$中与$p^k$互素的数的个数，即从$0,1,p^k-1$中去除能被$p$整除的数的个数，即$$\varphi (p^k) = p^k - \lfloor \frac{p^k}{p} \rfloor = p^k - p^{k-1}$$
+	代入上式，即得$$\varphi (n) = p_1^{\alpha _1}\ssb{1-\frac{1}{p_1}} \cdots p_k^{\alpha _k}\ssb{1-\frac{1}{p_k}} = n \ssb{1-\frac{1}{p_1}} \cdots \ssb{1-\frac{1}{p_k}}$$
+\end{proof}
+
+以上是计算$\varphi (n)$的一条路.或者，在不知道它是积性函数的情况下，通过数集合的元素个数可以得到同样的结果.
+
+设$n=p_1^{\alpha _1} \cdots p_k^{\alpha _k}$，那么一个数$p$与$n$互素，当且仅当$p_i \nmid p~(i=1,\cdots ,k)$.记$P_i=\{ 1\leq p \leq n: p_i \mid p\}$，那么$$\varphi (n) = n - | \bigcup_{i=1}^{k} P_i | = n- \ssb{\sum_{i=1}^{k} |P_i| - \sum_{1\leq i_1 < i_2 \leq k} |P_{i_1} \cap P_{i_2}| + \cdots + (-1)^{k-1} |P_1 \cap \cdots \cap P_k|  }$$
+其中，由于$p_i$两两互素，可得$$|P_{i_1} \cap \cdots \cap P_{i_m}| = \frac{n}{p_{i_1} \cdots p_{i_m}}$$
+于是$$\varphi (n) = n - \sum_{i=1}^{k} \frac{n}{p_i}  + \sum_{1\leq i_1 < i_2 \leq k} \frac{n}{p_{i_1}p_{i_2}} - \cdots + (-1)^{k} \frac{n}{p_1 \cdots p_k}$$
+稍作整理，即得$$\varphi (n) = n \ssb{1-\frac{1}{p_1}} \cdots \ssb{1-\frac{1}{p_k}}$$
+
+\begin{theorem}{Euler定理}
+	设$m$是大于$1$的整数，$(a,m)=1$，则$$a^{\varphi (m)} \equiv 1 \mod m$$
+\end{theorem}
+\begin{proof}
+	
+\end{proof}
+
+\subsection{同余式与中国剩余定理}
+
+类似于上文所述，如果将同余运算考虑为相等符号(即构造若干“等价类”——剩余类进而将剩余类作为一个数的方法)，我们可以拓广多项式的根相关的内容.
+
+\begin{definition}{同余式}
+	设$f(x)$表示多项式$a_nx^n + \cdots + a_1x + a_0$，其中$a_i \in \mathbb{Z}~(i=0,1,\cdots ,n)$.对于正整数$m$，则$$f(x) \equiv 0 \mod m$$
+	称作模$m$的\textbf{同余式}.若$a_n \not\equiv 0 \mod m$，则$n$称作该同余式的\textbf{次数}.
+\end{definition}
+
+若$f(a) \equiv 0 \mod m$，则剩余类$K_a$中任意整数$x$都满足$f(x) \equiv 0$，于是可以定义：
+
+\begin{definition}{同余式的解}
+	若$a$是使得$f(a) \equiv 0 \mod m$成立的一个整数，则$x \equiv a \mod m$称作该同余式的一个\textbf{解}.
+\end{definition}

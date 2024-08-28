@@ -65,7 +65,7 @@
 
 \vspace{0.5em}
 \noindent
-9. \textbf{选择公理}: 对于任何由互不相交且非空的集合形成的集合族, 存在另一个集合$C$, 使得对该集合族中的任意元素$X$, $X \cap C$恰有一个元素.
+9. \textbf{选择公理}: 对于任何由互不相交且非空的集合形成的集合族$X$, 存在\textit{选择函数}$f:X \to \bigcup X$使得对任意$x \in X$都有$f(x)\in x$. 
 
 
 \begin{proposition}{集合运算的运算律}
@@ -265,14 +265,14 @@ A \arrow[r, "\varphi", two heads] \arrow[rr, "f"', bend right] & A/\sim \arrow[r
 	仅满足自反性与传递性的序结构称作\textit{预序关系}. 下一章会见到一个预序关系的例子. 
 \end{remark}
 \begin{remark}
-	若$(S,\leq)$满足$a \leq b \vee b \leq a$, 则称$S$为\textit{全序集}(线序集). 比较符合直觉(但不严谨)的看法是: 每个集合上的序结构均可视作是一系列全序子集“粘合”的结果(这种粘合包括形成线状, 环状等等). 于是研究全序集的性质就是研究序结构最为基础而方便的途径. 
+	若$(S,\leq)$满足$a \leq b \vee b \leq a$, 则称$S$为\textit{全序集}(线序集, 链). 比较符合直觉(但不严谨)的看法是: 每个集合上的序结构均可视作是一系列全序子集“粘合”的结果(这种粘合包括形成线状, 环状等等). 于是研究全序集的性质就是研究序结构最为基础而方便的途径. 
 \end{remark}
 
 我们来思考如何在不同的序结构$(S_1,\leq _1),(S_2,\leq _2)$之间建立映射. 实际上这一操作的思想会在多处有所体现, 例如向量空间之间的线性映射, 拓扑空间之间的连续映射等. 
 
 这一映射当然要给出集合$S_1,S_2$元素间的关系, 因此构造映射$\varphi :S_1 \to S_2$. 接下来, $\varphi$应当沟通$\leq _1$和$\leq _2$, 故我们定义$\varphi$是\textit{保序的}当且仅当对任意$x,y \in S_1$都有$x \leq _1 y \Rightarrow f(x) \leq _2 f(y)$. 例如, 取数列$\{ a_n \}$的子列$\{ a_{k_n} \}$实际上就构造了保序映射$k_{\bigcdot}$. 
 
-单向的映射无法建立一一对应, 因此还要考虑$\varphi ^{-1}$. 对$\varphi ^{-1}$重复上述操作, 我们称$\varphi$是$(S_1,\leq _1),(S_2,\leq _2)$间的\textit{同构}, 若$\varphi ,\varphi ^{-1}$均为保序映射. 一个例子就是Riemann积分的分割点集$\pi$, 若存在同构$\varphi$, 则极限过程$\| \pi \| \to 0$和$\| \varphi(\pi) \| \to 0$是等价的. 
+单向的映射无法建立一一对应, 因此还要考虑$\varphi ^{-1}$. 对$\varphi ^{-1}$重复上述操作, 我们称$\varphi$是$(S_1,\leq _1),(S_2,\leq _2)$间的\textit{同构}, 若$\varphi ,\varphi ^{-1}$均为保序映射(当然, 这个条件可以弱化为$\varphi$保序). 一个例子就是Riemann积分的分割点集$\pi$, 若存在同构$\varphi$, 则极限过程$\| \pi \| \to 0$和$\| \varphi(\pi) \| \to 0$是等价的. 
 
 下面的定义虽然没有明显动机, 但后面我们会看到这一类序结构的良好性质. 
 
@@ -280,7 +280,7 @@ A \arrow[r, "\varphi", two heads] \arrow[rr, "f"', bend right] & A/\sim \arrow[r
 	称全序集$P$是\textit{良序的}, 若每个$P$的非空子集均有极小元. 
 \end{definition}
 
-序结构间的同构自然可以构成等价关系, 因而就有了对应的等价类\footnote{这不一定是集合. }(称作\textit{序型}). 不严格地说, 对于一种序型, 若将其拆分为一些良序集的粘合, 我们只要考虑结构简单的良序序型即可. 
+序结构间的同构自然可以构成等价关系, 因而就有了对应的等价类\footnote{这不一定是集合. }(称作\textit{序型}). 根据良序定理, 每个集合均可被赋予良序, 因而我们先来研究良序序型. 
 
 下面的想法是自然的: 所有良序序型能否排序? 这种想法来源于对最初几个良序序型的枚举, 即$0,1,2,\cdots$(具体构造可借助$\varnothing , \varnothing ^{+}, (\varnothing ^+)^+$). 另一个想法是, 在序型超出自然数集大小(即可数无穷序数$\omega$)时, 需要在原有序型基础上增加何种长度的良序集才能得到一个新的序型(进而不致被视作与原序型同构). 
 
@@ -330,17 +330,6 @@ A \arrow[r, "\varphi", two heads] \arrow[rr, "f"', bend right] & A/\sim \arrow[r
 
 容易验证, 将自然数集视作序数$\omega$后, $\omega$就是最小的非零极限序数. 
 
-下方的命题验证了序数确是良序集等价类的代表元. 
-
-\begin{proposition}{Mirimanoff-von Neumann}
-	对任意良序集$P$, 存在唯一的序数$\alpha$与之同构. 
-\end{proposition}
-\begin{proof}
-	唯一性: 这由序数的全序性立得. 
-	
-	存在性: 对于$x \in P$, 若$P_{<x}$同构于序数$\alpha$, 令$F(x)=\alpha$. 取最小的$x_0 \in P$使得$F(x_0)$不存在, 则$F:P_{<x_0} \to \mathbf{On}$\footnote{这种函数的合理性在下一节解释.}. 现在, 设$\theta$是最小的序数使得$\theta \notin \im F$. 显然不存在$\gamma >\theta$使得$\gamma \in \im F$, 这说明$\im F \subset \theta$, 进而$\im F = \theta$. 因此, $F$就是$P_{<x_0}$到$\theta$的同构. 然而, 这恰好说明$F(x_0)=\theta$, 矛盾, 故$P$的任一元素均同构于某个序数, 重复上方过程即证毕. 
-\end{proof}
-
 \subsection{归纳法与选择公理}
 
 这一节的中心内容就是如下(互相等价的)三个命题: 选择公理, 良序定理, Zorn引理. 我们将用归纳构造验证后两个命题, 并给出序数类似于自然数的一些性质. 
@@ -377,12 +366,6 @@ A \arrow[r, "\varphi", two heads] \arrow[rr, "f"', bend right] & A/\sim \arrow[r
 	唯一性: 若$a,a'$均合题, 由归纳假设$a|_{\theta}=a'|_{\theta}$, 从而$a_{\theta} = a'_{\theta}$. 
 \end{proof}
 
-由于良序集与唯一的序数等价, 我们有另一个版本的超穷递归原理: 
-
-\begin{corollary}{超穷递归原理}
-	设函数$\mathbf{G}:\mathbf{V} \to \mathbf{V}$, 良序集$P$, 则存在唯一的序列$a:P \to \mathbf{V}$使得对任意$x \in P$成立$a_{x} = \mathbf{G}(a|_{x})$. 
-\end{corollary}
-
 类似于自然数, 可以归纳定义序数的运算: 
 
 
@@ -403,6 +386,38 @@ $\beta ~\textit{是极限序数}$ & $\sup \{ a+\theta : \theta < \beta \}$ & $\s
 由于涉及到极限序数, 序数的加法和乘法满足结合律, 但一般不满足交换律. 例如$n+\omega = \sup \{ n+m:m<\omega \}=\omega \neq \omega +n$. 另外不难验证, 如果正确地定义了良序集的加法和乘法, 则序数的加/乘法即相当于将其视作良序集做加/乘法. 有关序数算术的进一步内容, 仍请参考\cite{set_theory_Hao}的4.4小节. 
 
 
+\begin{theorem}{良序定理}
+	任一集合均可赋予良序. 
+\end{theorem}
+\begin{proof}
+	考虑集合$S$上的选择函数$f$. 对每个序数$\alpha$, 当$\{ a_{\beta}:\beta < \alpha \} \neq S$时(即还未取尽时), 递归定义$a_{\alpha} := f(S \setjianfa \{ a_{\beta}:\beta < \alpha \})$. 取最小的$\theta$使得$a_{\theta}$无定义(若这样的$\theta$不存在, 则$a:\mathbf{On} \to S$, 然而由替换公理$a^{-1}(a(\mathbf{On})) = \mathbf{On}$是集合, 矛盾), 易得$a$是$S$到$\theta$的同构. 
+\end{proof}
+
+下方的命题验证了序数确是良序集等价类的代表元. 
+
+\begin{proposition}{Mirimanoff-von Neumann}
+	对任意良序集$P$, 存在唯一的序数$\alpha$与之同构. 
+\end{proposition}
+\begin{proof}
+	唯一性: 这由序数的全序性立得. 
+	
+	存在性: 只需将良序定理证明中的选择函数$f$换做最小值函数$\min$即可. 
+\end{proof}
+
+由于良序集与唯一的序数等价, 我们有另一个版本的超穷递归原理: 
+
+\begin{corollary}{超穷递归原理}
+	设函数$\mathbf{G}:\mathbf{V} \to \mathbf{V}$, 良序集$P$, 则存在唯一的序列$a:P \to \mathbf{V}$使得对任意$x \in P$成立$a_{x} = \mathbf{G}(a|_{x})$. 
+\end{corollary}
+
+最后介绍Zorn引理. 该定理的一个应用是证明任意(有限或无限维)向量空间都存在一组基. 
+
+\begin{theorem}{Zorn引理}
+	设非空偏序集$P$, 且$P$中每个链均有上界, 则$P$存在极大元. 
+\end{theorem}
+\begin{proof}
+	
+\end{proof}
 
 
 

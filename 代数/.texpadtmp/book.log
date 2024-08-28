@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.10)  21 AUG 2024 22:21
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.10)  22 AUG 2024 18:43
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -1176,23 +1176,23 @@ and I'll forget about whatever was undefined.
 
 LaTeX Warning: Citation `set_theory_Hao' on page 10 undefined on input line 306.
 
-./MainMatter/set_theory_and_maps.tex:338: Undefined control sequence.
-\proof ...extbf {\text {证明}~~} \itshape \citshape 
+[10]
+./MainMatter/set_theory_and_maps.tex:341: Undefined control sequence.
+\remark ...textbf {\text {注.}} \itshape \citshape 
                                                   
-l.338 \begin{proof}
-                   
+l.341 \begin{remark}
+                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[10]
-./MainMatter/set_theory_and_maps.tex:352: Undefined control sequence.
-\remark ...textbf {\text {注.}} \itshape \citshape 
+./MainMatter/set_theory_and_maps.tex:344: Undefined control sequence.
+\proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
-l.352 \begin{remark}
-                    
+l.344 \begin{proof}
+                   
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -1200,20 +1200,9 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ./MainMatter/set_theory_and_maps.tex:355: Undefined control sequence.
-\proof ...extbf {\text {证明}~~} \itshape \citshape 
-                                                  
-l.355 \begin{proof}
-                   
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-./MainMatter/set_theory_and_maps.tex:366: Undefined control sequence.
 \remark ...textbf {\text {注.}} \itshape \citshape 
                                                   
-l.366 \begin{remark}
+l.355 \begin{remark}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1221,10 +1210,10 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/set_theory_and_maps.tex:369: Undefined control sequence.
+./MainMatter/set_theory_and_maps.tex:358: Undefined control sequence.
 \remark ...textbf {\text {注.}} \itshape \citshape 
                                                   
-l.369 \begin{remark}
+l.358 \begin{remark}
                     
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1232,25 +1221,51 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-./MainMatter/set_theory_and_maps.tex:372: Undefined control sequence.
+./MainMatter/set_theory_and_maps.tex:361: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
-l.372 \begin{proof}
+l.361 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Citation `set_theory_Hao' on page 11 undefined on input line 386.
 
 [11]
-
-LaTeX Warning: Citation `set_theory_Hao' on page 12 undefined on input line 403.
-
-./MainMatter/set_theory_and_maps.tex:426: Undefined control sequence.
+./MainMatter/set_theory_and_maps.tex:392: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
-l.426 \begin{proof}
+l.392 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+LaTeX Warning: Command \textbackslash invalid in math mode on input line 393.
+
+./MainMatter/set_theory_and_maps.tex:401: Undefined control sequence.
+\proof ...extbf {\text {证明}~~} \itshape \citshape 
+                                                  
+l.401 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[12]
+./MainMatter/set_theory_and_maps.tex:438: Undefined control sequence.
+\proof ...extbf {\text {证明}~~} \itshape \citshape 
+                                                  
+l.438 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1260,13 +1275,12 @@ and I'll forget about whatever was undefined.
 
 
 LaTeX Font Warning: Font shape `TU/FZShuSong-Z01(0)/b/it' undefined
-(Font)              using `TU/FZShuSong-Z01(0)/b/n' instead on input line 427.
+(Font)              using `TU/FZShuSong-Z01(0)/b/n' instead on input line 439.
 
-[12]
-./MainMatter/set_theory_and_maps.tex:451: Undefined control sequence.
+./MainMatter/set_theory_and_maps.tex:463: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
-l.451 \begin{proof}
+l.463 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1275,10 +1289,10 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 [13]
-./MainMatter/set_theory_and_maps.tex:465: Undefined control sequence.
+./MainMatter/set_theory_and_maps.tex:477: Undefined control sequence.
 \proof ...extbf {\text {证明}~~} \itshape \citshape 
                                                   
-l.465 \begin{proof}
+l.477 \begin{proof}
                    
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have

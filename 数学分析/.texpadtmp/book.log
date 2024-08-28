@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.10)  11 AUG 2024 16:06
+This is XeTeX, Version 3.141592653-2.6-0.999996 (TeX Live 2024) (preloaded format=xelatex 2024.8.10)  28 AUG 2024 20:46
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -6270,16 +6270,106 @@ and I'll forget about whatever was undefined.
 
 File: attachment/CantorEscalier-2.pdf Graphic file (type pdf)
 <use attachment/CantorEscalier-2.pdf>
-[170] [171] [172]
-Overfull \vbox (9.52505pt too high) detected at line 681
+[170] [171] [172] [173]
+Overfull \vbox (9.52505pt too high) detected at line 725
  []
 
-[173]
-Overfull \hbox (14.22015pt too wide) in paragraph at lines 687--688
+[174]
+Overfull \hbox (14.22015pt too wide) in paragraph at lines 731--732
 []\TU/FZShuSong-Z01(0)/m/n/10.53937 类 似 于 换 元 积 分 公 式\TU/lmr/m/n/10.53937 , \TU/FZShuSong-Z01(0)/m/n/10.53937 不 难 证 明\TU/lmr/m/n/10.53937 , \TU/FZShuSong-Z01(0)/m/n/10.53937 设 $\OML/cmm/m/it/10.53937 ^^V\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 x\OT1/cmr/m/n/10.53937 ) = [][] \OML/cmm/m/it/10.53937 ^^Z\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 x\OT1/cmr/m/n/10.53937 ) []  []\OML/cmm/m/it/10.53937 x$\TU/lmr/m/n/10.53937 , \TU/FZShuSong-Z01(0)/m/n/10.53937 则 对 可 积 的 $\OML/cmm/m/it/10.53937 f$ \TU/FZShuSong-Z01(0)/m/n/10.53937 有 $[][] \OML/cmm/m/it/10.53937 f\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 x\OT1/cmr/m/n/10.53937 ) []  []\OML/cmm/m/it/10.53937 ^^V\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 x\OT1/cmr/m/n/10.53937 ) = [][] \OML/cmm/m/it/10.53937 f\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 x\OT1/cmr/m/n/10.53937 )\OML/cmm/m/it/10.53937 ^^Z\OT1/cmr/m/n/10.53937 (\OML/cmm/m/it/10.53937 x\OT1/cmr/m/n/10.53937 ) []  []\OML/cmm/m/it/10.53937 x$\TU/lmr/m/n/10.53937 .
  []
 
-) [174]
+./MainMatter/7_Riemann_integral.tex:738: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.738 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[175]
+./MainMatter/7_Riemann_integral.tex:754: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.754 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/7_Riemann_integral.tex:768: Undefined control sequence.
+\example ...hapter .\arabic {exam}}}~~} \citshape 
+                                                  
+l.768 \begin{example}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/7_Riemann_integral.tex:771: Undefined control sequence.
+\solution ...le}{\text {解}}~~} \itshape \citshape 
+                                                  
+l.771 \begin{solution}
+                      
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+[176]
+./MainMatter/7_Riemann_integral.tex:777: Undefined control sequence.
+\example ...hapter .\arabic {exam}}}~~} \citshape 
+                                                  
+l.777 \begin{example}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/7_Riemann_integral.tex:780: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.780 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/7_Riemann_integral.tex:789: Undefined control sequence.
+\proof ...eral}{\text {证明}}~~} \itshape \citshape 
+                                                  
+l.789 \begin{proof}
+                   
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+./MainMatter/7_Riemann_integral.tex:798: Undefined control sequence.
+\example ...hapter .\arabic {exam}}}~~} \citshape 
+                                                  
+l.798 \begin{example}
+                     
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+) [177]
 \openout2 = `./MainMatter/8_multivariable_calculus.aux'.
 
  (./MainMatter/8_multivariable_calculus.tex
@@ -6295,29 +6385,32 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
+File: attachment/IMG_3923.jpg Graphic file (type bmp)
+<attachment/IMG_3923.jpg>
+[178
+
+
+
+
+]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 28.
+(hyperref)                removing `math shift' on input line 49.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 28.
+(hyperref)                removing `superscript' on input line 49.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 28.
+(hyperref)                removing `math shift' on input line 49.
 
-[175
-
-
-
-
-] [176] [177]) [178]
+[179] [180] [181] [182]) [183]
 \openout2 = `./MainMatter/9_the_general_theory_of_calculus.aux'.
 
  (./MainMatter/9_the_general_theory_of_calculus.tex
 Chapter 9.
-) [179
+) [184
 
 
 
@@ -6325,7 +6418,7 @@ Chapter 9.
 ]
 \openout2 = `./BackMatter/solutions.aux'.
 
- (./BackMatter/solutions.tex [180
+ (./BackMatter/solutions.tex [185
 
 
 
@@ -6365,7 +6458,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[181]
+[186]
 ./BackMatter/solutions.tex:90: Undefined control sequence.
 \exsolution ... {{\text {解.}}} \itshape \citshape 
                                                   
@@ -6388,7 +6481,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[182]
+[187]
 ./BackMatter/solutions.tex:126: Undefined control sequence.
 \exsolution ... {{\text {解.}}} \itshape \citshape 
                                                   
@@ -6422,7 +6515,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[183]
+[188]
 ./BackMatter/solutions.tex:159: Undefined control sequence.
 \exsolution ... {{\text {解.}}} \itshape \citshape 
                                                   
@@ -6477,7 +6570,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[184] [185] [186]
+[189] [190] [191]
 ./BackMatter/solutions.tex:246: Undefined control sequence.
 \exsolution ... {{\text {解.}}} \itshape \citshape 
                                                   
@@ -6502,7 +6595,7 @@ and I'll forget about whatever was undefined.
 
 File: attachment/iShot_2024-02-01_18.43.57.png Graphic file (type bmp)
 <attachment/iShot_2024-02-01_18.43.57.png>
-[187]
+[192]
 ./BackMatter/solutions.tex:287: Undefined control sequence.
 \exsolution ... {{\text {解.}}} \itshape \citshape 
                                                   
@@ -6547,7 +6640,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[188]
+[193]
 ./BackMatter/solutions.tex:310: Undefined control sequence.
 \exsolution ... {{\text {解.}}} \itshape \citshape 
                                                   
@@ -6585,7 +6678,7 @@ and I'll forget about whatever was undefined.
 Underfull \vbox (badness 2205) detected at line 345
  []
 
-[189] [190]
+[194] [195]
 ./BackMatter/solutions.tex:360: Undefined control sequence.
 \exsolution ... {{\text {解.}}} \itshape \citshape 
                                                   
@@ -6630,7 +6723,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-[191]
+[196]
 ./BackMatter/solutions.tex:385: Undefined control sequence.
 \exsolution ... {{\text {解.}}} \itshape \citshape 
                                                   
@@ -6686,7 +6779,7 @@ misspelled it (e.g., `\hobx'), type `I' and the correct
 spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
-) [192] (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./MainMatter/1_preliminary.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./MainMatter/2_the_construction_of_real_numbers.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./MainMatter/3_the_limit_of_sequences_and_functions.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./MainMatter/4_continuous_functions.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./MainMatter/5_the_general_theory_of_convergence_and_continuity.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./MainMatter/6_differential_calculus.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./MainMatter/7_Riemann_integral.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./MainMatter/8_multivariable_calculus.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./MainMatter/9_the_general_theory_of_calculus.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./BackMatter/solutions.aux))
+) [197] (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/book.aux (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./FrontMatter/titlepage.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./FrontMatter/epigraph.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./FrontMatter/foreword.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./MainMatter/1_preliminary.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./MainMatter/2_the_construction_of_real_numbers.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./MainMatter/3_the_limit_of_sequences_and_functions.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./MainMatter/4_continuous_functions.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./MainMatter/5_the_general_theory_of_convergence_and_continuity.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./MainMatter/6_differential_calculus.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./MainMatter/7_Riemann_integral.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./MainMatter/8_multivariable_calculus.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./MainMatter/9_the_general_theory_of_calculus.aux) (/Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/./BackMatter/solutions.aux))
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2022/07/14>
@@ -6696,15 +6789,15 @@ L3 programming layer <2022/07/14>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `book.out' has not changed.
-(rerunfilecheck)             Checksum: ED64D1658E8B5A6F52F797E0FA3E0671;20219.
+(rerunfilecheck)             Checksum: A1BD0A789A4079B3F74E1427153F4E42;20219.
  ) 
 Here is how much of TeX's memory you used:
- 29511 strings out of 474773
- 656320 string characters out of 5757724
+ 29524 strings out of 474773
+ 656699 string characters out of 5757724
  1948839 words of memory out of 5000000
- 50928 multiletter control sequences out of 15000+600000
- 575650 words of font info for 170 fonts, out of 8000000 for 9000
+ 50939 multiletter control sequences out of 15000+600000
+ 575658 words of font info for 171 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  108i,13n,111p,771b,548s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on /Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/book.pdf (201 pages).
+Output written on /Volumes/Storage_SSD/latex sync/LaTeXnew/latex/My-LaTeX-Repository/数学分析/.texpadtmp/book.pdf (206 pages).

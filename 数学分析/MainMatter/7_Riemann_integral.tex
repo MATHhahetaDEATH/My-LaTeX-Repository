@@ -639,6 +639,50 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 \newpage
 \section*{一些习题 ~~\small 对应原书6.3习题} \label{sec:ex7.2}
 
+\subsection*{A: 积分中值定理应用}
+
+\circled{A1}~~设$f \in C(\R)$, 则对任何闭区间$[a,b]$, 任取$\varepsilon >0$均存在$\delta >0$使得$\displaystyle \left| \int_{x-\delta}^{x+\delta} f(x) \dif x-f(x) \right|<\varepsilon$. 
+\vspace{1em}
+
+\circled{A2}-1~~验证当$x \to \infty$时, 函数$f(x)=\int_{x}^{x+1} \sin t^2 \dif t$可表示为$$f(x)=\frac{\cos x^2}{2x}-\frac{\cos ((x+1)^2)}{2(x+1)}+O\left( \frac{1}{x^2} \right).$$
+
+\circled{A2}-2~~求$\liminf_{x\to \infty} xf(x)$和$\limsup_{x \to \infty} xf(x)$. 
+\vspace{1em}
+
+设$f:[a,b] \to \R$, $\xi _1,\cdots ,\xi _m$是该区间上的不同点. 回忆Lagrange插值多项式$$L_{m-1}:=\sum_{j=1}^{m}f(\xi _j) \prod_{i \neq j} \frac{x-\xi _j}{\xi _j-\xi _i}.$$
+进一步, 由\ref{sec:ex6.2}的A5-2可知若$f \in C^{m}([a,b])$, 则有$$f(x)-L_{m-1}(x)=\frac{1}{m!}f^{(m)}(\zeta (x))\omega _m(x),$$
+其中$\omega _m(x)=\prod_{i=1}^{m}(x-\xi _i)$, $\zeta (x) \in (a,b)$. 作换元$\xi _i = \frac{b+a}{2} + \frac{b-a}{2} \theta _i$, 这里$\theta _i \in [-1,1]$. 
+\vspace{1em}
+
+\circled{A3}-1~~证明: $$\int_a^b L_{m-1}(x) \dif x = \frac{b-a}{2} \sum_{i=1}^{m}c_if(\xi _i),\qquad \textit{此处}~c_i=\int_{-1}^{1} \left( \prod_{j \neq i} \frac{t-\theta _i}{\theta _j - \theta _i} \right) \dif t.$$
+特别地, 
+\begin{itemize}
+	\item 矩形: $\displaystyle \int_a^b L_0 (x) \dif x = (b-a)f\left( \frac{a+b}{2} \right)$. 
+	\item 梯形: $\displaystyle \int_a^b L_1(x) \dif x = \frac{b-a}{2}(f(a)+f(b))$. 
+	\item 抛物线: $\displaystyle \int_a^b L_2(x) \dif x = \frac{b-a}{6}\left( f(a)+4f\left( \frac{a+b}{2} \right) + f(b) \right)$. 
+\end{itemize}
+\vspace{1em}
+
+\circled{A3}-2~~设$f \in C^m([a,b])$, 取$M_m = \sup_{x \in [a,b]} |f^{(m)}(x)|$, 令$$R_m:=\int_a^b f(x) \dif x - \int_a^b L_{m-1}(x) \dif x.$$
+证明$|R_m| \leq \frac{M_m}{m!}\int_a^b |\omega _m(x)| \dif x$. 
+\vspace{1em}
+
+\circled{A3}-3~~在A3-1的三个推论中, 分别有$$R_1 = \frac{f'(\xi _1)}{4}(b-a)^2,\qquad R_2 = -\frac{f''(\xi _2)}{12}(b-a)^3 ,\qquad R_3=-\frac{f^{(4)}(\xi _3)}{2880}(b-a)^5,$$
+其中$\xi _i \in [a,b]$, $f$承A3-2的定义. 
+\vspace{1em}
+
+\circled{A3}-3~~设$h=\frac{b-a}{n}$, $x_k=a+hk, y_k=f(x_k)~(k=0,\cdots ,n)$. 考虑如下余项: 
+\begin{itemize}
+	\item 矩形: $\displaystyle \int_a^b f(x) \dif x = h(y_0+\cdots +y_{n-1}) + R_1$. 
+	\item 梯形: $\displaystyle \int_a^b f(x) \dif x = \frac{h}{2}((y_0+y_n)+2(y_1+\cdots +y_{n-1})) + R_2$. 
+	\item 抛物线(Simpson): $\displaystyle \int_a^b f(x) \dif x = \frac{h}{3}((y_1+y_n)+4(y_1+y_3+\cdots +y_{n-1})+2(y_2+y_4+\cdots +y_{n-2})$, 其中$n$为偶数. 
+\end{itemize}
+给出$R_1,R_2,R_3$的值. 
+\vspace{1em}
+
+\circled{A3}-4~~利用上述公式, 计算$\displaystyle \pi = 4\int_0^1 \frac{\dif x}{1+x^2}$, 精确到$10^{-3}$. 
+
+
 \newpage
 \section{有向可加函数与Stieltjes积分}
 
@@ -661,7 +705,7 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 
 对于有向可加函数$I:[a,b] \times [a,b] \to \R$, 通过定义函数$\mu :[a,b] \to \R ,t \mapsto I(a,t)$, 可将$I(\alpha ,\beta)$视作$\mu (\beta)-\mu (\alpha)$. 从几何的视角, 若将$I(\alpha ,\beta)$视作区间$[\alpha ,\beta ]$的长度(两端点的有向距离), 则$\mu$就给出了某个点的绝对位置(亦称$\mu$为测度函数). Riemann积分即是$\mu (x)=x$的情形. 这启发我们, 将Riemann积分中的$\dif x$替换为$\dif \mu (x)$, 或者说将Riemann和中的$x_i-x_{i-1}$替换为$\mu (x_i)- \mu (x_{i-1})$. 
 
-需要注意的是, 虽然$\mu $的单调性不影响Stieltjes积分的定义, 但一般为了保证其良好性质, 会约定$\mu$不减. 
+需要注意的是, 虽然$\mu $的单调性不影响Stieltjes积分的定义(类似换元积分公式不要求$\varphi$单调), 但为了得到更有用的命题, 会约定$\mu$不减. 
 
 \begin{definition}{Stieltjes积分}
 	设闭区间$I$上的函数$f$和不减的函数$\mu$, 定义
@@ -682,25 +726,78 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 
 同样地, 对阶梯函数与Riemann和而言, 分别可以定义上下积分及Darboux上下和. 这里省略具体定义. 
 
-可以证明Stieltjes积分拥有和Riemann积分类似的性质, 即命题\ref{pro:jiffxkvi1}, \ref{pro:kejiisyc}(要将$x$换成$\mu (x)$), \ref{pro:jiffxkvi}. 
+可以证明Stieltjes积分拥有和Riemann积分类似的性质, 即命题\ref{pro:jiffxkvi1}(注意保序性依赖$\mu$不减), \ref{pro:kejiisyc}(要将$x$换成$\mu (x)$), \ref{pro:jiffxkvi}. 
 
 类似于换元积分公式, 不难证明, 设$\mu (x) = \int_a^x \rho (x)\dif x$, 则对可积的$f$有$\displaystyle \int_a^b f(x) \dif \mu (x) = \int_a^b f(x) \rho (x) \dif x$. 特别地, 当$\mu$连续可微时, 就可以将积分号内的$\dif \mu (x)$看做是$\mu '(x) \dif x$. 
 
-然而, 唯一与Riemann积分不同之处在于, Stieltjes积分没有Newton-Leibniz公式. 这是否意味着其没有作为Newton-Leibniz公式推论的分部积分公式? 实际上, 用Abel求和来逼近, 可以证明类似分部积分公式而将Riemann积分与Stieltjes积分联系起来的公式. 
+然而, 唯一与Riemann积分不同之处在于, Stieltjes积分没有Newton-Leibniz公式. 这是否意味着其没有作为Newton-Leibniz公式推论的分部积分公式? 实际上, 用Abel求和来逼近, 可以证明类似分部积分的公式. 
 
-\begin{proposition}{Riemann积分与Stieltjes积分的联系}
-	设不减函数$\mu$, $f \in C^1([a,b])$, 则$$\int_a^b f'(x)\mu (x) \dif x = f(x)\mu (x) \mid _a^b - \int_a^b f(x) \dif \mu (x) .$$
+\begin{proposition}{}
+	设$f \in C^1([a,b])$, 则$$\int_a^b f'(x)\mu (x) \dif x = (f(x)\mu (x)) |_a^b - \int_a^b f(x) \dif \mu (x) .$$
 \end{proposition}
+\begin{proof}
+	对于分割$\pi$, 由Lagrange中值定理, 存在$\xi _i \in (x_{i-1},x_i)$使得$f(x_i)-f(x_{i-1})=f'(\xi _i)(x_i-x_{i-1})$. 易得(但不显然)下式成立: $$\left| \sum_{\pi} f'(\xi _i)\mu (x_i)(x_i-x_{i-1})-\int_a^b f'(x) \mu (x) \dif x \right| \to 0,\quad \| \pi \| \to 0. $$
+	对$\sum_{\pi} f'(\xi _i)\mu (x_i)(x_i-x_{i-1})$作Abel变换, 我们有
+	\begin{align*}
+		\sum_{i=1}^{n} f'(\xi _i)\mu (x_i)(x_i-x_{i-1}) &= \sum_{i=1}^{n} \mu (x_i)(f(x_i)-f(x_{i-1})) \\
+		&= \mu (x_n)(f(x_n)-f(x_0)) - \sum_{i=1}^{n-1} (f(x_i)-f(x_0))(\mu (x_{i+1})-\mu (x_i)) \\
+		&= (f(x)\mu (x))|_a^b - \sum_{i=0}^{n-1} f(x_i)(\mu (x_{i+1})-\mu (x_i)). 
+	\end{align*}
+	令$\| \pi \|\to 0$即可. 
+\end{proof}
 
+更加强力的是下方的命题: 
 
+\begin{proposition}{}
+	设$f \in \mathcal{R}([a,b];\mu)$. 则$\displaystyle \int_a^b f(x) \dif \mu (x) = \int_a^b f(x) \mu' (x) \dif x$的充分条件是$\mu$可微且$\mu ' \in \mathcal{R}([a,b])$. 	
+\end{proposition}
+\begin{proof}
+	只需写出Riemann和式就不难观察出证明. 
+\end{proof}
 
+Stieltjes积分的一大应用在于将求和转化为积分. 接下来我们着重介绍这部分内容. 首先我们有平凡的引理: 
 
+% TODO 引理需要证明
 
+\begin{lemma}{}
+	设数列$\{ a_n \}$, 令$f|_{(n-1,n]}=a_n$, 则$\sum_{n=1}^{m} a_n = \int_0^n f(x) \dif \qz{x}$. 
+\end{lemma}
 
+这一引理可加强为: 对于求和性质$P(n)$, 令$\mu (m)$表示满足$P(m)$的元素个数, 则$\sum_{P(n)} a_n = \int_{\tilde{P}(x)} f(x) \dif \mu (x)$. 其中$\tilde{P}(x)$表示连续化的(开集)$P(n)$, 例如$P(n)=(0<n<m)$时$\tilde{P}(x)=(0<x<m)$. 
 
+\begin{example}
+	求所有的实数$\alpha$使得$\displaystyle \lim_{r \to \infty} \sum_{0<\| v \|_2 < R ,v \in \Z ^3} \| v \|_2 ^{\alpha}$存在且有限. \footnote{题源\textit{2023年10月清华领军计划一试第4题}; 解答来自数之谜用户\textit{对吧}. }
+\end{example}
+\begin{solution}
+	记$v=(x,y,z)$. 令$\mu (r)$表示$x^2+y^2+z^2<r^2,x,y,z \in \Z$的解数, 于是$$\sum_{0<\| v \|_2 < R ,v \in \Z ^3} \| v \|_2 ^{\alpha} = \int_0^{\sqrt{R}} t^{\alpha} \dif \mu (t) = (t^{\alpha} \mu (t))\big|_0^{\sqrt{R}} - \int_0^{\sqrt{R}} \alpha t^{\alpha -1} \mu (t) \dif t.$$
+	我们有估计$\frac{4}{3}\pi (r-1)^3 \leq \mu (r) \leq \frac{4}{3}\pi (r+1)^3$, 因此$\mu (r) = \frac{4}{3}\pi r^3+O(r^2)$, 代入上式: $$\textit{上式}~= R^{\frac{\alpha}{2}}\left( \frac{4}{3}\pi R^{\frac{3}{2}}+O(R) \right) - \frac{4}{3}\pi \alpha \cdot \frac{1}{\alpha +3} R^{\frac{\alpha +3}{2}} + O(R^{\frac{\alpha +2}{2}}) = \frac{4\pi}{\alpha +3} R^{\frac{\alpha +3}{2}} + O(R^{\frac{\alpha +2}{2}}).$$
+	因此极限存在当且仅当$\alpha <-3$. 
+\end{solution}
 
+\begin{example}
+	(Dirac函数)~设$f:[a,b] \to \R$有界且在$c$处连续, 令$\mu _c=\chi _{[c,b]}$. 则$\displaystyle \int_a^b f \dif \mu _c = f(c)$. 
+\end{example}
+\begin{proof}
+	由$f$在$c$处连续不难证明该积分值存在. 不难发现$\int_a^b f \dif \mu _c = f(c)(\mu (c^+)- \mu (c^-)) = f(c)$. 
+\end{proof}
 
+由Dirac函数的例子, 不难得到下方引理: 
 
+\begin{lemma}{}
+	设正实数列$\{ a_n \}$且$\sum_{n=1}^{\infty} a_n$收敛, $\{ x_n \}\subseteq (a,b)$. 令$\mu = \sum_{i=1}^{\infty} a_i\chi _{[x_i,+\infty)}$, 则对连续函数$f$有$\int_a^b f \dif \mu = \sum_{i=1}^{\infty} a_if(x_i)$. 
+\end{lemma}
+\begin{proof}
+	由级数收敛, 任取$\varepsilon$都存在$N>0$使得$\sum_{N+1}^{\infty} a_n <\varepsilon$. 取$f$的一个上界$M$, 由Dirac函数可知
+	\begin{align*}
+		\left| \int_a^b f \dif \mu - \sum_{i=1}^{\infty} a_if(x_i) \right| &= \left| \int_a^b f \dif (\mu|_{\geq N+1}) - \sum_{i=N+1}^{\infty} a_if(x_i) \right| \\
+		&\leq M|(\mu|_{\geq N+1})|_a^b| + M\varepsilon \leq (1+a+b)M\varepsilon .
+	\end{align*}
+	由$\varepsilon$的任意性即得. 
+\end{proof}
+
+\begin{example}
+	
+\end{example}
 
 
 

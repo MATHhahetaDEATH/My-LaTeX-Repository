@@ -688,18 +688,31 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 
 将Riemann积分算子的区间可加性抽象出来, 得到所谓可加函数. 即, 设$I:U \times U \to V$, 若对任意$x,y,z \in U$都有$I(x,z)=I(x,y)+I(y,z)$, 则称$I$为$U$上的\textit{有向可加函数}. 这里用一般的$U,V$是为了强调有向可加函数的性质与$\R$的特殊结构无关. 
 
-实际上, 除了Riemann积分以外, 很多函数都是有向可加函数. 例如, 相对速度的计算公式$v_{13}=v_{12}+v_{23}$, 电势差$\varphi _{ac}=\varphi _{ab}+\varphi _{bc}$等等. 不难发现, 电势差$\varphi _{ab}$的背后是场强的(多元函数)积分$\int_a^b E(r) \dif r$, 但是相对速度背后并没有明显的积分背景. 这一现象提示我们研究, 何种有向可加函数能表示为Riemann积分? 更进一步, 注意到有些离散情况的公式和积分公式非常相似(如Abel变换和分部积分), 那么可否发展一种积分理论将这些公式统一起来? 
+实际上, 除了Riemann积分以外, 很多函数都是有向可加函数. 例如, 向量的加法运算$\xl{AC}=\xl{AB}+\xl{BC}$, 电势差$\varphi _{ac}=\varphi _{ab}+\varphi _{bc}$等等. 不难发现, 电势差$\varphi _{ab}$的背后是场强的(多元函数)积分$\int_a^b E(r) \dif r$, 但是向量加法背后并没有明显的积分背景. 这一现象提示我们研究, 何种有向可加函数能表示为Riemann积分? 更进一步, 注意到有些离散情况的公式和积分公式非常相似(如Abel变换和分部积分), 那么可否发展一种积分理论将这些公式统一起来? 
 
 在第一小节, 我们会探讨哪些函数能表示为Riemann积分(毕竟这种积分易于计算)及其计算. 而作为推广的Stieltjes积分将在第二小节介绍. 
 
 \subsection{有向可加函数的Riemann积分表示}
 
-下面的命题给出积分产生有向可加函数的一个充分条件. 
+我们可以从积分的性质反过来思考何种有向可加函数无法用积分表示. 区间可加性是自然满足的; 由于我们只想让它表示为特定函数的积分, 那些涉及多个函数的性质(线性, 保序性)不在考虑范围内. 于是只剩下估计性质, 即若$m \leq f(x) \leq M$则$m(b-a) \leq \int_a^b f(x) \leq M(b-a)$. 我们不难发现, 若将其加强为对任意子区间$[\alpha ,\beta]$均成立, 这就变成一个充分条件了. 
 
 \begin{proposition}{}
 	设有向可加函数$I:[a,b] \times [a,b] \to \R$. 若存在$f \in \mathcal{R}([a,b])$使得对任意$a \leq \alpha < \beta \leq b$都有$$\inf_{x\in [\alpha ,\beta]} f(x) (\beta -\alpha) \leq I(\alpha ,\beta) \leq \sup_{x\in [\alpha ,\beta]} f(x) (\beta -\alpha),$$
 	则$\displaystyle I(a,b)=\int_a^b f(x) \dif x$. 
 \end{proposition}
+\begin{proof}
+	应用Darboux上下和即可. 
+\end{proof}
+
+第一个例子是空间曲线(道路)的长度. 我们称一个$C^{n}$的映射$\gamma :[a,b] \to \R ^n$为$C^{n}$的\textit{曲线}(道路). 需要注意, 这条曲线并非一定是我们想象中的一条“线”, 例如Peano曲线实际填满了$[0,1]^2$. 
+
+现在来考虑曲线的长度$I(\gamma (a) ,\gamma (b))$(这里, 我们要求两条曲线首尾相接之后在其连接点仍然是$C^n$的), 容易猜到长度应当对应速度绝对值$|\gamma '|$的积分. 实际上, 由于我们用绝对值将向量值函数转化为实值函数, 这里可以进行大小比较, 即$\int_{a}^{b} |\gamma '(t)| \dif t = |\gamma '(\xi)| (b-a)$总是介于$|\gamma '(t)| (b-a)$的下确界与上确界之间. 由上方的命题这一定义是合理的. 
+
+\begin{remark}
+	值得注意的一个事实是, 无论用何种方式\textit{参数化}曲线(即将曲线表示为上述形式的$\gamma$的值域), 计算得到的长度应当相等(良定义). 这由Riemann积分的换元公式立刻可以得到. 
+\end{remark}}
+
+第二个例子在前文已经提到过, 即向量的加法运算$\xl{AC}=\xl{AB}+\xl{BC}$. 实际上, 作为有向可加函数, 它的运算结果不是一维的实数, 而是更高维的向量, 这就导致上方的不等式无法定义. 更进一步, 由于$\R ^n$无法被赋予全序结构, 不管采用何种高维推广的定义都会有例外的向量. 由此, 我们就从代数的角度解释了几何上的直观(即其无法被定义为积分). 
 
 \subsection{Stieltjes积分}
 
@@ -732,7 +745,7 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 
 然而, 唯一与Riemann积分不同之处在于, Stieltjes积分没有Newton-Leibniz公式. 这是否意味着其没有作为Newton-Leibniz公式推论的分部积分公式? 实际上, 用Abel求和来逼近, 可以证明类似分部积分的公式. 
 
-\begin{proposition}{}
+\begin{proposition}{分部积分公式}
 	设$f \in C^1([a,b])$, 则$$\int_a^b f'(x)\mu (x) \dif x = (f(x)\mu (x)) |_a^b - \int_a^b f(x) \dif \mu (x) .$$
 \end{proposition}
 \begin{proof}
@@ -746,24 +759,39 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 	令$\| \pi \|\to 0$即可. 
 \end{proof}
 
-更加强力的是下方的命题: 
+利用Stieltjes积分, 可以得到(弱形式)第二积分中值定理的另一个证明: 
 
-\begin{proposition}{}
-	设$f \in \mathcal{R}([a,b];\mu)$. 则$\displaystyle \int_a^b f(x) \dif \mu (x) = \int_a^b f(x) \mu' (x) \dif x$的充分条件是$\mu$可微且$\mu ' \in \mathcal{R}([a,b])$. 	
-\end{proposition}
+\begin{example}
+	设$f \in C([a,b])$, $g \in \mathcal{R}([a,b])$, $g$是单调不增的非负函数, 则存在$\xi \in [a,b]$使得$\displaystyle \int_a^b f(x) g(x) \dif x = g(a) \int_a^{\xi} f(x) \dif x.$
+\end{example}
 \begin{proof}
-	只需写出Riemann和式就不难观察出证明. 
+	令$F(x)=\int_a^x f(t) \dif t$, 则$F$连续可微. 记$m \leq F(x) \leq M$, 则$$\int_a^b f(x)g(x) \dif x = F(b)g(b) + \int_a^b F(x)\dif (-g)(x) \leq F(b)g(b)+M\int_a^b \dif (-g)(x) \leq Mg(a).$$
+	同理$\int_a^b f(x)g(x) \dif x \geq mg(a)$, 由$F$连续立得原命题成立. 
 \end{proof}
 
-Stieltjes积分的一大应用在于将求和转化为积分. 接下来我们着重介绍这部分内容. 首先我们有平凡的引理: 
-
-% TODO 引理需要证明
+Stieltjes积分的一大应用在于将求和与积分的互相转化. 接下来我们着重介绍这部分内容. 我们先考虑最基础(无脑)的方法: 
 
 \begin{lemma}{}
-	设数列$\{ a_n \}$, 令$f|_{(n-1,n]}=a_n$, 则$\sum_{n=1}^{m} a_n = \int_0^n f(x) \dif \qz{x}$. 
+	设数列$\{ a_n \}$, 若函数$f$满足$f|_{[k-1,k)}=a_k$, 则$\sum_{n<k\leq m} a_k = \int_n^m f(x) \dif \qz{x}$. 
 \end{lemma}
+\begin{remark}
+	条件可减弱为$f(k^-)=a_k$. 
+\end{remark}
+\begin{proof}
+	用Riemann和的形式写出$\int_n^m f(x) \dif \qz{x}=\sum _{\pi} f(\xi _i)(\qz{x_i}-\qz{x_{i-1}})$. 容易发现只有使得$x_{i-1}<k\leq x_i$的项有所贡献, 其中$k$是某整数. 因此上式最终变成了$\sum_{k=n+1}^{m} f(\xi _k) (k-(k-1))$, 这里$k-1 \leq \xi _k < k$. 显然$f(\xi _k)=a_k$, 这就证明了引理. 
+\end{proof}
 
-这一引理可加强为: 对于求和性质$P(n)$, 令$\mu (m)$表示满足$P(m)$的元素个数, 则$\sum_{P(n)} a_n = \int_{\tilde{P}(x)} f(x) \dif \mu (x)$. 其中$\tilde{P}(x)$表示连续化的(开集)$P(n)$, 例如$P(n)=(0<n<m)$时$\tilde{P}(x)=(0<x<m)$. 
+这个引理只能应用到一元求和. 对于多重求和, 我们有类似的结论: 
+
+\begin{lemma}{}
+	设数列$\{ a_{i_1,\cdots ,i_n} \}$, 若函数$f$满足$f|_{[i_1-1,i_1) \times \cdots \times [i_n-1,i_n)}=a_{i_1,\cdots ,i_n}$, 则$$\sum_{\alpha _1 < i_1 \leq \beta _1 ,\cdots ,\alpha _n< i_n \leq \beta _n} a_{i_1,\cdots ,i_n} = \int_{(\alpha _1,\beta _1]\times \cdots \times (\alpha _n,\beta _n]} f(x) \dif \qz{x}.$$
+	其中, $x \in \R ^n$且$\qz{x}:=(\qz{x^1},\cdots ,\qz{x^n})$. 
+\end{lemma}
+\begin{remark}
+	条件可减弱为$f((i_1,\cdots ,i_n)^-)=a_{i_1,\cdots ,i_n}$. 
+\end{remark}
+
+在实际情景中, 不一定求和范围就是一个标准的方块形, 此时可参考下例解决. 
 
 \begin{example}
 	求所有的实数$\alpha$使得$\displaystyle \lim_{r \to \infty} \sum_{0<\| v \|_2 < R ,v \in \Z ^3} \| v \|_2 ^{\alpha}$存在且有限. \footnote{题源\textit{2023年10月清华领军计划一试第4题}; 解答来自数之谜用户\textit{对吧}. }
@@ -774,14 +802,55 @@ Stieltjes积分的一大应用在于将求和转化为积分. 接下来我们着
 	因此极限存在当且仅当$\alpha <-3$. 
 \end{solution}
 
+进一步, 可以估计$\int f(x) \dif \qz{x}$与$\int f(x) \dif x$间的误差. 
+
+\begin{proposition}{Euler–Maclaurin公式}
+	设$f \in C^1([a,b])$, 则当$a$不为整数时, $$\sum_{a<k \leq b} f(k) = \int_a^b f(x) \dif x + \int_a^b f'(x)(x-\qz{x}) \dif x + f(a)(a-\qz{a})-f(b)(b-\qz{b}).$$
+	当$a$为整数时, 上式的$f(a)(a-\qz{a})$变为$f(a)$. 
+\end{proposition}
+\begin{proof}
+	当$a$不为整数时: 由分部积分公式, $$\int_a^b f(x) \dif (x-\qz{x}) + \int_a^b f'(x)(x-\qz{x}) \dif x = f(a)(a-\qz{a})-f(b)(b-\qz{b}).$$
+	其中, $\int_a^b f(x) \dif (x-\qz{x}) = \int_a^b f(x) \dif x - \sum_{a<k \leq b}f(k)$. 代入上式即得. 
+	
+	当$a$为整数时: 将$a'=a-\varepsilon ,0<\varepsilon <1$代入上一情形, 此时$f(a')(a'-\qz{a'}) = f(a-\varepsilon)(1-\varepsilon)$. 令$\varepsilon \to 0^+$即得. 
+\end{proof}
+
 \begin{example}
-	(Dirac函数)~设$f:[a,b] \to \R$有界且在$c$处连续, 令$\mu _c=\chi _{[c,b]}$. 则$\displaystyle \int_a^b f \dif \mu _c = f(c)$. 
+	求$\displaystyle \sum_{n=1}^{\infty} (-1)^{n-1} \frac{\ln n}{n}$. 
 \end{example}
+\begin{solution}
+	由交错级数的命题, 原式收敛. 容易发现$$\sum_{n=1}^{2N} (-1)^{n-1} \frac{\ln n}{n} = \sum_{n=1}^{2N} \frac{\ln n}{n} - 2\sum_{n=1}^{N} \frac{\ln 2n}{2n} = \sum_{n=N+1}^{2N} \frac{\ln n}{n} - \ln 2 \sum_{n=1}^{N} \frac{1}{n} .$$
+	因此只需处理$\sum_{n=N+1}^{2N} \frac{\ln n}{n}$. 实际上, 首先计算$\int_N^{2N} \frac{\ln x}{x} \dif x = \frac{1}{2}((\ln 2N)^2-(\ln N)^2) = \frac{\ln 2}{2}\ln (2N^2) $, 接下来估计误差: 
+	\begin{align*}
+		\left| \sum_{n=N+1}^{2N} \frac{\ln n}{n} - \frac{\ln 2}{2}\ln (2N^2) \right| &\leq \left| \int_{N}^{2N} (x-\qz{x}) \frac{1-\ln x}{x^2} \dif x \right| + \left| \frac{\ln N}{N} \right| \\
+		&\leq \left| \frac{\ln 2N}{2N} \right| + 2\left| \frac{\ln N}{N} \right| \to 0,\quad N \to \infty .
+	\end{align*}
+	于是$$\textit{原式} = \lim_{N \to \infty} \sum_{n=1}^{2N} (-1)^{n-1} \frac{\ln n}{n} = \lim_{N \to \infty} \frac{\ln 2}{2}\ln (2N^2) - \ln 2\sum_{n=1}^{N} \frac{1}{n} = \frac{(\ln 2)^2}{2} - \gamma \ln 2.$$
+	其中$\gamma$是Euler常数. 
+\end{solution}
+
+除了强行以$\qz{x}$为测度函数, 我们当然有更加自由的方式: 其基本想法是将$\qz{x}$换成真正的阶梯函数. 例如, 回忆Abel求和公式: $\sum_{n=1}^{N} a_nb_n = S_Nb_N - \sum_{n=1}^{N-1} S_n(b_{n+1}-b_n)$. 实际上, 令$f' = \sum_{n=1}^{N} a_n \chi_{[n,n+1 )}$, 从而$f = \sum_{n=1}^{N} S_n\chi_{[n,n+1 )}$. 再令$\mu = \sum_{n=1}^{N} b_n \chi_{[n,n+1 )}$. 于是我们有$$\sum_{n=1}^{N} a_nb_n = \int_1^N f' \mu = f\mu \big|_1^N - \int_1^N f \dif \mu = S_Nb_N - \sum_{n=1}^{N-1} S_n(b_{n+1}-b_n). $$
+
+最后一种转化方法暂时难以举出典型用例, 读者可查阅Lebesgue-Stieltjes积分内容找到例子(因为这种方法的核心Dirac函数有着明显的测度意义). 
+
+\begin{example}
+	(Heaviside函数)~设$f:[a,b] \to \R$有界且在$c$处连续. 令$\mu _c=\chi _{[c,b]}$. 则$\displaystyle \int_a^b f \dif \mu _c = f(c)$. 
+\end{example}
+\begin{remark}
+	所谓的Dirac(广义)函数定义为$\delta (x) = \begin{cases}
+		+\infty & x=c \\ 0 & x \neq c
+	\end{cases}$且$\int_a^b \delta (x) =1$. 注意到, Heaviside函数就是其某种意义上的积分. 这一点参考附录. 
+\end{remark}
 \begin{proof}
 	由$f$在$c$处连续不难证明该积分值存在. 不难发现$\int_a^b f \dif \mu _c = f(c)(\mu (c^+)- \mu (c^-)) = f(c)$. 
 \end{proof}
 
-由Dirac函数的例子, 不难得到下方引理: 
+
+
+
+
+
+由Heaviside函数的例子, 不难得到下方引理: 
 
 \begin{lemma}{}
 	设正实数列$\{ a_n \}$且$\sum_{n=1}^{\infty} a_n$收敛, $\{ x_n \}\subseteq (a,b)$. 令$\mu = \sum_{i=1}^{\infty} a_i\chi _{[x_i,+\infty)}$, 则对连续函数$f$有$\int_a^b f \dif \mu = \sum_{i=1}^{\infty} a_if(x_i)$. 
@@ -795,9 +864,24 @@ Stieltjes积分的一大应用在于将求和转化为积分. 接下来我们着
 	由$\varepsilon$的任意性即得. 
 \end{proof}
 
-\begin{example}
-	
-\end{example}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

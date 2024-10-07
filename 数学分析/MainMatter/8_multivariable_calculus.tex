@@ -2,7 +2,7 @@
 
 \section{导数与微分}
 
-\subsection{基本定义}
+\subsection{基本定义与计算}
 
 \begin{definition}{方向导数, 偏导数}
     设开集$E \subseteq \R ^n$, 函数$f:E \to \R$, $x_0 \in E , v \in \R ^n$. 定义$f$在$x_0$处\textit{沿$v$的方向导数}为下列极限(如果存在): $$\frac{\p f}{\p v}(x_0) := \lim_{h \to 0} \frac{f(x_0+hv)-f(x_0)}{h}.$$
@@ -48,7 +48,7 @@
 	对任意的$v$成立. 此时记$f$的\textit{微分}$\dif f$满足$\dif f(x_0)=T$. 
 \end{definition}
 \begin{remark}
-	微分的定义并不依赖坐标系(任意赋范线性空间均可定义). 这也是多元函数的微分与导数始终存在很大差距的根本原因. 
+	微分的定义并不依赖坐标系(任意赋范线性空间之间均可定义). 这也是多元函数的微分与导数始终存在很大差距的根本原因. 
 \end{remark}
 
 将微分的定义式写成$n$个方程, 实际上我们可以得到: 若$f$在$x_0$可微, 则$$ \frac{\p f}{\p v}(x_0) = \dif f(x_0)(v) = \sum_{i=1}^{n} \frac{\p f}{\p x_i}(x_0)v^i.$$
@@ -72,10 +72,49 @@
 	其中, 最后一步对蓝色部分使用一元函数的Lagrange中值定理. 由Cauchy不等式可得$|r(v)| \leq |v| \cdot \sum_{i=1}^{n}\left| \frac{\p f}{\p x_i}(\xi _i) - \frac{\p f}{\p x_i}(x_0) \right|$, 这就证明了原命题. 
 \end{proof}
 
+最后, 结合先前(第5章)提到的想法: 向量值函数的极限是按分量计算的, 不难得到(多元向量值函数的)微分在某一坐标系下的具体表达. 
 
+\begin{proposition}{Jacobi矩阵}
+	设$f:\R ^m \supseteq \Omega \to \R ^n$, 则$f$在$x_0 \in \Omega$处可微等价于$f$的每个分量$f_i$在$x_0$可微, 且此时$\dif f (x_0)$可用$n \times m$的矩阵$$\left( \frac{\p f_i}{\p x_j}(x_0) \right)_{i=1,\cdots ,n \atop j=1,\cdots ,m}$$
+	表示. 称该矩阵为$f$在$x_0$处的\textit{Jacobi矩阵}, 可记作$\mathrm{Jac} (f)(x_0)$. 
+\end{proposition}
+
+形式上, 不难得到: $$\mathrm{Jac}(f)(x_0) = \begin{pmatrix}
+	\dfrac{\p f}{\p x_1} & \cdots & \dfrac{\p f}{\p x_m}
+\end{pmatrix} = \begin{pmatrix}
+	\nabla f_1(x_0) \\ \vdots \\ \nabla f_n(x_0)
+\end{pmatrix}.$$
+
+我们合理猜测Jacobi矩阵具有与一元函数微分算子相似的性质: 
+
+\begin{proposition}{Jacobi算子的算术性质}
+	设可微函数$f,g:\R ^m \supseteq \Omega \to \R ^n$, 则有
+	\begin{center}
+		1) $\mathrm{Jac}(Af+Bg)=A\mathrm{Jac}(f)+B\mathrm{Jac}(g)$;\qquad 2) $\mathrm{Jac}(f^{\T}g) = g^{\T}\mathrm{Jac}(f) + f^{\T}\mathrm{Jac}(g)$. 
+	\end{center}
+	特别地, 从形式上的结果可以看出$Af+Bg$与$f^{\T}g$可微. 
+\end{proposition}
+\begin{proof}
+	以1)的齐次性部分为例. 记$A$是$s \times m$矩阵, 则$$\mathrm{Jac}(Af)(x_0)(i;j) = \mathrm{Jac}\begin{pmatrix}
+		\sum_{k=1}^{m} A(1;k)f_k \\ \vdots \\ \sum_{k=1}^{m} A(s;k)f_k
+	\end{pmatrix}(x_0)(i;j) = \frac{\p (\sum_{k=1}^{m} A(i;k)f_k)}{\p x_j}(x_0) {\color{blue}=} \sum_{k=1}^{m}A(i;k) \frac{\p f_k}{\p x_j}(x_0).$$
+	不难发现等式右侧就是$A\mathrm{Jac}(f)(x_0)(i;j)$. 注意, 证明中实际上用到了偏导算子的线性(蓝色等号), 从这里也能看出来这一命题对有限维条件的依赖性. 
+\end{proof}
+
+特别地, 对于实值函数, 还有$\mathrm{Jac}(f/g) = \frac{1}{g^2} (g\mathrm{Jac}(f)-f\mathrm{Jac}(g))$成立. 
+
+然而, 以某一坐标系为基础总是令人不爽的. 对于一般的定义在(无限维)赋范向量空间之间的映射, 我们仍应当仔细考察其可微性. 这里我们有两种方法解决问题. 
+
+其一是试图将Jacobi矩阵推广到无限维赋范向量空间. 泛函分析或许会给出答案(简单来说, 这涉及到某个无限维向量空间的基以及无限维矩阵的问题). 
+
+其二就是将投机取巧的Jacobi矩阵还原为线性映射$\dif f(x_0)$计算. 例如由$Af(x_0+v)-Af(x_0) = A\dif f(x_0) + o(Av)$可得$Af$可微且$\dif (Af) = A\dif f$. (若要考虑$f^{\T}g$的可微性, 需要先在该空间上定义合适的内积, 同样参考泛函分析)
 
 
 \subsection{导数与微分的计算}
+
+
+
+
 
 \subsection{$\R ^n$中的子流形}
 

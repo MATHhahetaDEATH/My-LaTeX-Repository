@@ -712,7 +712,7 @@ $$\mu ((-\infty ,+\infty)) = \mu ((-\infty ,b)) = \mu ((a ,+\infty)) = +\infty .
 	值得注意的一个事实是, 无论用何种方式\textit{参数化}曲线(即将曲线表示为上述形式的$\gamma$的值域), 计算得到的长度应当相等(良定义). 这由Riemann积分的换元公式立刻可以得到. 
 \end{remark}}
 
-第二个例子在前文已经提到过, 即向量的加法运算$\xl{AC}=\xl{AB}+\xl{BC}$. 实际上, 作为有向可加函数, 它的运算结果不是一维的实数, 而是更高维的向量, 这就导致上方的不等式无法定义. 更进一步, 由于$\R ^n$无法被赋予全序结构, 不管采用何种高维推广的定义都会有例外的向量. 由此, 我们就从代数的角度解释了几何上的直观(即其无法被定义为积分). 
+第二个例子在前文已经提到过, 即向量的加法运算$\xl{AC}=\xl{AB}+\xl{BC}$. 实际上, 作为有向可加函数, 它的运算结果不是一维的实数, 而是更高维的向量, 这就导致上方的不等式无法定义. 更进一步, 由于$\R ^n$不存在自然\footnote{良序定理说$\R ^n$可被赋予良序(一种特殊的全序). }的全序结构, 不管采用何种高维推广的定义都会有例外的向量. 由此, 我们就从代数的角度解释了几何上的直观(即其无法被定义为积分). 
 
 \subsection{Stieltjes积分}
 
@@ -781,17 +781,23 @@ Stieltjes积分的一大应用在于将求和与积分的互相转化. 接下来
 	用Riemann和的形式写出$\int_n^m f(x) \dif \qz{x}=\sum _{\pi} f(\xi _i)(\qz{x_i}-\qz{x_{i-1}})$. 容易发现只有使得$x_{i-1}<k\leq x_i$的项有所贡献, 其中$k$是某整数. 因此上式最终变成了$\sum_{k=n+1}^{m} f(\xi _k) (k-(k-1))$, 这里$k-1 \leq \xi _k < k$. 显然$f(\xi _k)=a_k$, 这就证明了引理. 
 \end{proof}
 
-这个引理只能应用到一元求和. 对于多重求和, 我们有类似的结论: 
+对于多重求和, 我们有类似的推论(多重积分按分量定义): 
 
-\begin{lemma}{}
+\begin{corollary}{}
 	设数列$\{ a_{i_1,\cdots ,i_n} \}$, 若函数$f$满足$f|_{[i_1-1,i_1) \times \cdots \times [i_n-1,i_n)}=a_{i_1,\cdots ,i_n}$, 则$$\sum_{\alpha _1 < i_1 \leq \beta _1 ,\cdots ,\alpha _n< i_n \leq \beta _n} a_{i_1,\cdots ,i_n} = \int_{(\alpha _1,\beta _1]\times \cdots \times (\alpha _n,\beta _n]} f(x) \dif \qz{x}.$$
 	其中, $x \in \R ^n$且$\qz{x}:=(\qz{x^1},\cdots ,\qz{x^n})$. 
-\end{lemma}
+\end{corollary}
 \begin{remark}
 	条件可减弱为$f((i_1,\cdots ,i_n)^-)=a_{i_1,\cdots ,i_n}$. 
 \end{remark}
 
-在实际情景中, 不一定求和范围就是一个标准的方块形, 此时可参考下例解决. 
+实际情景中, 不一定求和范围就是一个标准的方块形. 此时我们有(以一元情况为例): 
+
+\begin{corollary}{}
+	设数列$\{ a_n \}$, 函数$f$满足$f|_{[k-1,k)}=a_k$. 记$\mu (x)=|(-\infty , x) \cap A|$($A$为整数集合), 则$\sum_{k \in A} a_k = \int_{\tilde{A}} f(x) \dif \mu (x)$. 其中, 若$A = \bigsqcup_{i} ((a_i,b_i] \cap \Z)$, 则$\tilde{A} = \bigsqcup_{i} (a_i,b_i]$. 
+\end{corollary}
+
+如果用Lebesgue积分来表示, 实际上对于测度空间$(\Z_+,\mathcal{P}(\Z_+),\mu=|\bigcdot|)$, $\int_{\Z_+} f \dif \mu$存在当且仅当$\sum_{n=1}^{\infty} |f(n)|$存在且有限, 且此时两者相等. 
 
 \begin{example}
 	求所有的实数$\alpha$使得$\displaystyle \lim_{r \to \infty} \sum_{0<\| v \|_2 < R ,v \in \Z ^3} \| v \|_2 ^{\alpha}$存在且有限. \footnote{题源\textit{2023年10月清华领军计划一试第4题}; 解答来自数之谜用户\textit{对吧}. }
@@ -839,7 +845,7 @@ Stieltjes积分的一大应用在于将求和与积分的互相转化. 接下来
 \begin{remark}
 	所谓的Dirac(广义)函数定义为$\delta (x) = \begin{cases}
 		+\infty & x=c \\ 0 & x \neq c
-	\end{cases}$且$\int_a^b \delta (x) =1$. 注意到, Heaviside函数就是其某种意义上的积分. 这一点参考附录. 
+	\end{cases}$且$\int_a^b \delta (x) =1$. 注意到, Heaviside函数就是其某种意义上的积分. 
 \end{remark}
 \begin{proof}
 	由$f$在$c$处连续不难证明该积分值存在. 不难发现$\int_a^b f \dif \mu _c = f(c)(\mu (c^+)- \mu (c^-)) = f(c)$. 

@@ -872,22 +872,119 @@ Stieltjes积分的一大应用在于将求和与积分的互相转化. 接下来
 
 
 
+\newpage
+\section{换序问题}
 
+在之前的内容中, 我们获取了如下想法: 
 
+\begin{itemize}
+	\item 在第四章的末尾, 我们简要介绍过函数项序列及其性质(与一致收敛相关的性质, 其中很重要的是Moore-Osgood换序定理). 
+	\item 在微分学中, 我们体会到了函数项级数的重要性, 即它可以为我们构造各种常见和奇怪的函数(比如Weierstrass函数). 
+	\item 在积分学中(其实就是上一节), 我们看到了统一积分理论和级数理论的一种可能, 即Stieltjes积分. 
+\end{itemize}
 
+综合这些想法, 或许会提出这样的问题: 既然可以用函数项级数表示一个函数, 那么该函数的积分能否表示为函数项级数的逐项积分? 例如, 这样的计算$\displaystyle \int e^x = \int \sum_{n=0}^{\infty} \frac{x^n}{n!} = \sum_{n=0}^{\infty} \int \frac{x^n}{n!} = \sum_{n=0}^{\infty} \frac{x^{n+1}}{(n+1)!} +1 = e^x$是否合理? 这其实就是求和算子与积分算子的换序问题. 
 
+同样地, 我们可以猜测求和, 积分, 微分, 极限算子之间(算子和自身的换序问题在第五章和第九章介绍)的各种换序问题. 注意到无限求和本质上也是极限, 我们只需处理后三者的换序问题即可. 
 
+\begin{theorem}{求和/极限与积分的换序定理}
+	设定义在$I=[a,b]$上的函数项序列$\{ f_n \}$. 若$f_n$可积, 且$f_n \rightrightarrows f$在$I$上成立, 则$f$在$I$上可积, 且
+	\begin{center}
+		$\displaystyle \int_a^b \lim_{n\to \infty} f_n(x) \dif x = \lim_{n \to \infty} \int_a^b f_n(x) \dif x$. 
+	\end{center}
+\end{theorem}
+\begin{remark}
+	级数版本为: 设定义在$I=[a,b]$上的函数项序列$\{ f_n \}$. 若$f_n$可积, 且$\sum_{n=0}^{N}f_n \rightrightarrows \sum_{n=0}^{\infty} f_n$, 则$\sum_{n=0}^{\infty} f_n$在$I$上可积, 且
+	\begin{center}
+		$\displaystyle \int_a^b \sum_{n=0}^{\infty} f_n(x) \dif x = \sum_{n=0}^{\infty} \int_a^b f_n(x) \dif x$. 
+	\end{center}
+\end{remark}
+\begin{proof}
+	首先证明$f$的可积性. 由一致收敛性, 存在$N$使得对$n>N$有$|f_n(x)-f(x)|<\varepsilon$. 由$f_n$可积, 对任意$\varepsilon >0$存在分割$\pi$使得$\sum_{\pi} \omega(f_n,(x_{i-1},x_i))(x_i-x_{i-1}) < \varepsilon$. 因此对这样的$\pi$有$$\sum_{\pi} \omega(f,(x_{i-1},x_i))(x_i-x_{i-1}) \leq \sum_{\pi} (\omega(f_n,(x_{i-1},x_i))+2\varepsilon)(x_i-x_{i-1}) < 3\varepsilon(b-a).$$
+	这即是说$f$在$I$上可积. 
+	
+	再证明换序公式: 对$n>N$, 注意到$$\left| \int_a^b f_n(x) \dif x - \int_a^b f(x) \dif x \right| \leq \int_a^b \left| f_n(x)-f(x) \right| \dif x < \varepsilon (b-a),$$
+	于是$\lim_{n\to \infty} \int_a^b f_n(x) \dif x = \int_a^b f(x)$. 
+\end{proof}
 
+一致收敛是上述定理的核心. 然而该条件可以稍微弱化, 变为一致有界, 即存在$M>0$使得$|f_n(x)|<M$对任意$n,x$成立. 此时还要加上$f$可积的条件(这是因为一致收敛自动保证了$f$可积). 这个定理(控制收敛定理)证明所需的工具超出了本讲义范围. 
 
+\begin{example}
+	用Taylor多项式形式的$\sin x = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}x^{2n+1}$证明$\int_0^{2\pi} \sin x = 0$. 
+\end{example}
+\begin{proof}
+	在$[0,2\pi]$上, 显然$\sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+1)!}x^{2n+1}$一致收敛. 因此$$\int_0^{2\pi} \sin x = \sum_{n=0}^{\infty} \frac{(-1)^n}{(2n+2)!}x^{2n+2} \big|_0^{2\pi} = \cos 2\pi - \cos 0 = 0.$$
+\end{proof}
 
+类似地, 我们猜测将该定理中$f$可积换成$f$可微就能得到极限-微分的换序定理. 然而下面的反例指出, 这样的条件太弱了. 
 
+\begin{example}
+	定义在$I=[0,1]$上的函数列$f_n(x)=\dfrac{1}{n}\arctan x^n$, 证明该函数列一致收敛于$f=0$但$f$的导数不等于$f_n$导数的极限. 
+\end{example}
+\begin{proof}
+	易知$f_n \rightrightarrows f$. 考虑$f'_n (x)= \frac{x^{n-1}}{1+x^{2n}}$, 当$x=1$时其极限为$\frac{1}{2}$, $x \in [0,1)$时$f'_n(x) \leq x^{n-1} \to 0$. 
+\end{proof}
 
+反例的问题似乎在于$f'_n$的极限函数不连续. 如果要求$f_n \rightrightarrows f$, $f'_n \rightrightarrows \varphi$(不预先要求$\varphi = f'$), 显然换序操作是合法的. 当然, 这样的条件过于强了, 以至于换序操作看起来只是该条件的等价说法. 实际上我们能略微减弱条件: 
 
+\begin{theorem}{求和/极限与微分的换序定理}
+	设定义在$I=[a,b]$上的函数项序列$\{ f_n \}$. 若$f_n$连续可微, $f'_n \rightrightarrows f$, 且存在$x_0 \in I$使得$f_n(x_0)$收敛, 则$f_n \rightrightarrows F$, $F$在$I$上连续可微, 且$F' = f$, 即
+	\begin{center}
+		$\displaystyle \frac{\dif}{\dif x} \lim_{n \to \infty} f_n(x) = \lim_{n\to \infty} \frac{\dif}{\dif x} f_n(x)$. 
+	\end{center}
+\end{theorem}
+\begin{remark}
+	级数版本为: 设定义在$I=[a,b]$上的函数项序列$\{ f_n \}$. 若$f_n$连续可微, $\sum_{n=0}^{N}f'_n \rightrightarrows \sum_{n=0}^{\infty} f'_n$, 且存在$x_0 \in I$使得$\sum_{n=0}^{\infty} f'_n(x_0)$收敛, 则$\sum_{n=0}^{N} f_n \rightrightarrows \sum_{n=0}^{\infty} f_n$, $\sum_{n=0}^{\infty} f_n$在$I$上连续可微, 且
+	\begin{center}
+		$\displaystyle \frac{\dif}{\dif x} \sum_{n=0}^{\infty} f_n(x) = \sum_{n=0}^{\infty} \frac{\dif}{\dif x} f_n(x)$. 
+	\end{center}
+\end{remark}
+\begin{proof}
+	先证明对于$f_n \to F$有$F'=f$. 由一致收敛可得$f$连续, 从而$f$在$I$上Riemann可积. 因此$$\int_{x_0}^{u} f(x) \dif x = \lim_{n\to \infty} \int_{x_0}^{u} f'_n(x) \dif x = \lim_{n\to \infty} (f_n(u)-f_n(x_0)). $$
+	又$f_n(x_0)$收敛, 可得$f_n(u)$均收敛. 定义$F(u)=\lim_{n\to \infty}f_n(u)$, 则$F' = f$. 
+	
+	再证明一致收敛性: 只要证明$f_n(x)-f_n(x_0)$一致收敛到某个常数即可. 由中值定理, $$|(f_n(x)-f_n(x_0))-(f_m(x)-f_m(x_0))| = |f'_n(\xi)-f'_m(\xi)||x-x_0|\leq (b-a)|f'_n(\xi)-f'_m(\xi)|.$$
+	上式一致收敛至$0$, 结合Cauchy判别法可知该命题成立. 
+\end{proof}
 
+\begin{example}
+	考虑Riemann-$\zeta$函数: $\zeta (x) = \sum_{n=1}^{\infty} \frac{1}{n^x}$. 证明$\zeta$在$(1,+\infty)$无穷阶连续可微. 
+\end{example}
+\begin{proof}
+	将$\zeta$逐项求导后得到$f(x) = -\sum_{n=1}^{\infty} \frac{\ln n}{n^x}$. 先证明$f$在$(1,+\infty )$一致收敛, 即对任意$\delta>1$, $f$在$[\delta ,+\infty )$一致收敛. 考虑$|\frac{\ln n}{n^x} | \leq \frac{\ln n}{n^M}$, 只要证明$\sum_{n=1}^{\infty} \frac{\ln n}{n^M}$收敛. 这是显然的. 又, 对于$x=1$, $\zeta (x)$收敛, 可知$$\zeta '(x) = -\sum_{n=1}^{\infty} \frac{\ln n}{n^x},\quad \cdots \quad , \zeta ^{(m)} = (-1)^m \sum_{n=1}^{\infty} \frac{(\ln n)^m}{n^x}.$$
+	从而$\zeta$在$(1,+\infty)$无穷阶连续可微. 
+\end{proof}
 
+容易看出, 逐项微分比逐项积分要求的条件更强. 直观上来看, 这是因为积分类似于“升维”, 被积函数的扰动不会对积分值造成太大影响(因此积分值性质很好, 不需要太多约束), 然而对于微分这样的“降维”, 函数的扰动可能导致导函数的大幅震荡, 这时就需要控制好导函数的行为. 
 
+从上面的例子中我们能看出, 这两个定理往往都是对级数使用的, 因为级数的一致收敛相较于函数更容易判断. 另外, 类似于L'hopital定理, 这些定理都是关于我们“自然猜测”的“马后炮”式补救, 往往只有在算出结果后才能检验这样计算的合理性. 
 
+接下来考虑积分与微分的换序, 这可以帮我们计算一部分难以求出/不存在原函数的定积分(当然更常见的方法是将其表示成函数项级数后用上方的定理处理). 
 
+\begin{theorem}{积分与微分的换序定理}
+	设定义在$[a,b]\times [t_0-c,t_0+c]$上的二元函数$f$及其关于$t$的一阶导数$\frac{\dif f}{\dif t}$连续, 则$\int_a^b f(x,\bigcdot) \dif x$可微, 且
+	\begin{center}
+		$\displaystyle \frac{\dif}{\dif t} \left( \int_a^b f(x,t) \dif x \right) \big |_{t=t_0} = \int_a^b \left( \frac{\dif f}{\dif t}(x,t) \big |_{t=t_0} \right) \dif x$. 
+	\end{center}
+\end{theorem}
+\begin{proof}
+	由Lagrange中值定理, 
+	\begin{align*}
+		\left| \frac{\int_a^b f(x,t) \dif x - \int_a^b f(x,t_0) \dif x }{t-t_0} &- \int_a^b \left( \frac{\dif f}{\dif t}(x,t) \big |_{t=t_0} \right) \dif x \right| \\ 
+		&= \left| \int_a^b \left( \frac{\dif f}{\dif t} (x,t_0+\theta (t-t_0)) \right) \dif x - \int_a^b \left( \frac{\dif f}{\dif t}(x,t_0) \right) \dif x \right| \\
+		&= \left| \int_a^b \left( \frac{\dif f}{\dif t} (x,t_0+\theta (t-t_0)) - \frac{\dif f}{\dif t}(x,t_0) \right) \dif x \right|
+	\end{align*}
+	易知$\frac{\dif f}{\dif t}$一致连续. 则对任意$\varepsilon >0$, 存在$\delta >0$使得只要$d((x,t),(x',t'))<\delta$就有$|f(x,t)-f(x',t')|<\varepsilon$. 令$|t-t_0|<\delta$, 则上式小于$\varepsilon (b-a)$. 由$\varepsilon$的任意性可知原命题成立. 
+\end{proof}
+
+\begin{example}
+	计算Gauss积分: $\int_{-\infty}^{+\infty} e^{-x^2} \dif x = \sqrt{\pi}$. 
+\end{example}
+\begin{proof}
+	考虑$\displaystyle f(x,t) = \frac{\exp (-\frac{t^2(1+x^2)}{2})}{1+x^2} $. 计算得$\displaystyle \frac{\dif f}{\dif t} = -t\exp (-\frac{t^2(1+x^2)}{2})$, 容易验证$f,\frac{\dif f}{\dif t}$连续. 因此有$$\frac{\dif}{\dif t} \left( \int_0^{+\infty} f(x,t) \dif x \right) = \int_0^{+\infty} -t\exp (-\frac{t^2(1+x^2)}{2}) \dif x = -e^{-\frac{t^2}{2}}\int_0^{+\infty} e^{-\frac{(tx)^2}{2}} \dif tx.$$
+	另一方面, 由于$\int_0^{+\infty} f(x,0) \dif x = \frac{\pi}{2}$, $\int_0^{+\infty} f(x,+\infty) \dif x = 0$ ,可知$$\frac{\pi}{2} = \int_0^{+\infty} \left( \frac{\dif}{\dif t} \left( \int_0^{+\infty} f(x,t) \dif x \right) \right) \dif t = \left(\int_0^{+\infty} e^{-\frac{t^2}{2}} \dif t \right) \left( \int_0^{+\infty} e^{-\frac{(tx)^2}{2}} \dif tx \right).$$
+	做一些换元立得原结论成立. 
+\end{proof}
 
 
 
